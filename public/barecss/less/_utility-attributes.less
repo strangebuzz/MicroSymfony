@@ -1,0 +1,81 @@
+@import (reference) "_variables";
+
+/*	utility classes (use with xx)
+----------------------------------------------------------------------*/
+
+
+	// display
+
+[full] { width: 100% }
+
+[hidden] { display: none }
+
+	// fonts
+
+[serif] { font-family: @serif }
+[sans] { font-family: @sans-serif }
+[mono] { font-family: @monospace }
+
+.fs(@x) { font-size: @x }
+
+[fs=xs] { .fs(@fs-xs) }
+[fs=s] { .fs(@fs-s) }
+[fs=m] { .fs(@fs-m) }
+[fs=l] { .fs(@fs-l) }
+[fs=xl] { .fs(@fs-xl) }
+
+	// margin top
+	// eg: <div mt="2"></div>
+
+.mt(@x) { margin-top: @x }
+
+[mt=0] { .mt(0) }
+[mt=2] { .mt(2rem) }
+[mt=4] { .mt(4rem) }
+[mt=8] { .mt(8rem) }
+
+	// margin bottom
+	// eg: <div mb="2"
+
+.mb(@x) { margin-bottom: @x }
+
+[mb=0] { .mb(0) }
+[mb=2] { .mb(2rem) }
+[mb=4] { .mb(4rem) }
+[mb=8] { .mb(8rem) }
+
+	// padding top
+	// eg: <div pt="2"></div>
+
+.pt(@x) { padding-top: @x }
+
+[pt=0] { .pt(0) }
+[pt=2] { .pt(2rem) }
+[pt=4] { .pt(4rem) }
+[pt=8] { .pt(8rem) }
+
+	// padding bottom
+	// eg: <div pb="2"></div>
+
+.pb(@x) { padding-bottom: @x }
+
+[pb=0] { .pb(0) }
+[pb=2] { .pb(2rem) }
+[pb=4] { .pb(4rem) }
+[pb=8] { .pb(8rem) }
+
+	// padding all sides
+	// eg: <div pa="2"></div>
+
+.pa(@x) { padding: @x }
+
+[pa=0] { .pa(0) }
+[pa=2] { .pa(2) }
+
+	// text alignment
+	// eg: <div txt="c"></div>
+
+[txt=l] { text-align: left }
+[txt=r] { text-align: right }
+[txt=c] { text-align: center }
+[txt=j] { text-align: justify }

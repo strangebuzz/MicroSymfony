@@ -1,0 +1,69 @@
+/*	variables
+----------------------------------------------------------------------*/
+
+
+// bare class (default is no class and 'xx')
+// Why xx? It's short and easy to search.
+
+@n: ~":not([class])";
+@x: ~"[xx]";
+
+
+// font families
+// currently uses browser defaults
+
+@serif: serif;
+@sans-serif: sans-serif;
+@monospace: monospace;
+
+
+// font sizes
+
+@fs-xs: 1.1rem;
+@fs-s: 1.2rem;
+@fs-m: 1.4rem;
+@fs-l: 1.6rem;
+@fs-xl: 2.4rem;
+
+
+// set your brand colour
+
+@primary:			#679;
+@primary--:			#fff; // contrasting colour to the primary colour
+
+@secondary:			#fd0;
+
+// set overall temperature with hue and intensity with saturation
+
+@hue: 200;
+@sat: 10%;
+
+
+// blacks and greys inherit colour temperature of hue and saturation
+
+@black:				hsl(@hue,@sat,20%);
+
+@grey-ultralight:	hsl(@hue,@sat,96%);
+@grey-light:		hsl(@hue,@sat,90%);
+@grey-mid:			hsl(@hue,@sat,70%);
+@grey-dark:			hsl(@hue,@sat,50%);
+@grey-ultradark:	hsl(@hue,@sat,30%);
+
+
+// transparent overlays to darken or lighten background colour
+
+@dark:				rgba(0,0,0,0.5);
+@darken:			rgba(0,0,0,0.1);
+@light:				rgba(255,255,255,0.5);
+@lighten:			rgba(255,255,255,0.1);
+
+
+// shadows
+
+@box-shadow: 0 1px 4px 0 rgba(0,0,0,0.2);
+
+
+// widths
+
+@width: 90rem;
+@mobile: 50rem;

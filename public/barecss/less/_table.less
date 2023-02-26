@@ -1,0 +1,47 @@
+@import (reference) "_variables";
+
+/*	table
+----------------------------------------------------------------------*/
+
+
+table@{n}, table@{x} {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin-bottom: 2rem;
+	text-align: left;
+	overflow: hidden;
+	
+	th, td {
+		border-bottom: 2px solid @grey-light;
+		padding: 1rem;
+	}
+	
+	th {
+		font-weight: 700;
+		color: @grey-ultradark;
+		
+		&:before {
+			content: "";
+			width: 100%;
+			height: 10000%;
+			position: absolute;
+			display: block;
+			top: 0;
+			left: 0;
+			background: @grey-ultralight;
+			z-index: -1;
+			opacity: 0;
+			visibility: hidden;
+		}
+		
+		&:hover:before {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+	
+	td { border-bottom-width: 1px }
+	
+	tbody tr:hover { background: @grey-ultralight }
+}

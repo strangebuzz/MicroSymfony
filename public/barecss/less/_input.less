@@ -1,0 +1,193 @@
+@import (reference) "_variables";
+
+/*	inputs
+----------------------------------------------------------------------*/
+
+	// labels
+
+label@{n}, label@{x} {
+	display: inline-block;
+	width: 100%;
+	text-transform: uppercase;
+	font-size: @fs-s;
+	font-weight: 400;
+	margin-top: 1rem;
+	
+	&:first-child { margin-top: 0 }
+}
+
+.mx-input() {
+	display: inline-block;
+	background: transparent;
+	width: 100%;
+	padding: 0.5rem 0 1rem;
+	margin-bottom: 2rem;
+	border: none;
+	border-bottom: 1px solid @grey-light;
+	font-size: @fs-m;
+	font-weight: 300;
+	border-radius: 0;
+	
+	&:focus,
+	&:hover {
+		color: @primary;
+		border-color: @primary;
+		outline: 0;
+	}
+}
+
+	// text fields
+
+input:not([type=radio]):not([type=checkbox]):not([type=button]):not([type=submit]) {
+	&@{n}, &@{x} { .mx-input }
+}
+
+textarea@{n}, textarea@{x} {
+	.mx-input;
+	
+	min-height: 8rem;
+	border-right: 1px solid @grey-light;
+	padding-right: 2rem;
+	border-bottom-right-radius: 0.5rem;
+}
+
+
+	// select
+
+select@{n}, select@{x} {
+	padding: 0.5rem 3rem 0.5rem 1rem;
+	display: block;
+	width: 100%;
+	border: 1px solid @grey-light;
+	background: #fff data-uri('../icons/chevron-down.svg') no-repeat right 1rem center;
+	background-size: 2rem;
+	border-radius: 2px;
+	height: 4rem;
+	font-size: @fs-m;
+	font-weight: 300;
+	text-indent: 0.5rem;
+	margin: 0.5rem 0 2rem;
+	appearance: none;
+	cursor: pointer;
+	
+	&:focus,
+	&:hover {
+		border-color: @primary;
+		outline: 0;
+	}
+}
+
+
+	// radio and checkboxes
+
+input {
+	&[type=radio],
+	&[type=checkbox] {
+		&@{n}, &@{x} {
+			z-index: 2;
+			opacity: 0;
+			margin-right: -2rem;
+			width: 2rem;
+			height: 2rem;
+			vertical-align: middle;
+			cursor: pointer;
+			
+			// note that the label must be placed after the radio or checkbox tag
+			
+			+ label {
+				width: auto;
+				text-transform: none;
+				
+				&:before {
+					content: "";
+					display: inline-block;
+					width: 2rem;
+					height: 2rem;
+					border: 1px solid @grey-mid;
+					background: #fff;
+					vertical-align: middle;
+					margin-right: 1rem;
+				}
+				
+				&:after {
+					content: "";
+					position: absolute;
+					opacity: 0;
+					visibility: hidden;
+					pointer-events: none;
+					width: 1.6rem;
+					height: 1.6rem;
+					left: 2px;
+					top: 4px;
+					transform: scale(0);
+				}
+			}
+		}
+	}
+	
+	
+	// radio
+	// eg: <input type="radio" name="radio" id="radio-1"> <label for="radio-1">Select me</label>
+	
+	&[type=radio]@{n}, &[type=radio]@{x} {
+		+ label {
+			font-size: @fs-m;
+			font-weight: 200;
+			
+			&:before { border-radius: 100% }
+		}
+		
+		&:checked + label {
+			&:before {
+				background: @primary;
+				border-color: @primary;
+			}
+			
+			&:after {
+				opacity: 1;
+				visibility: visible;
+				background: @primary;
+				border: 1px solid @primary--;
+				border-radius: 100%;
+				transform: scale(1);
+				top: 0.5rem;
+			}
+		}
+	}
+	
+	
+	// checkbox
+	// eg: <input type="checkbox" id="checkbox-1"> <label for="checkbox-1">Check me</label>
+	
+	&[type=checkbox]@{n}, &[type=checkbox]@{x} {
+		+ label {
+			font-size: @fs-m;
+			font-weight: 200;
+			
+			&:before { border-radius: 2px }
+			
+			&:after {
+				background: data-uri('../icons/done.svg') no-repeat center center;
+				border-radius: 100%;
+				background-size: 100%;
+			}
+		}
+		
+		&:checked {
+			+ label {
+				&:before {
+					background: @primary;
+					border-color: @primary;
+				}
+				
+				&:after {
+					opacity: 1;
+					visibility: visible;
+					left: 2px;
+					top: 0.5rem;
+					transform: scale(1);
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,50 @@
+/*	mini browser reset
+----------------------------------------------------------------------*/
+
+
+html {
+	font-family: @sans-serif;
+	font-size: 10px;
+	box-sizing: border-box;
+	-webkit-text-size-adjust: 100%;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+	position: relative;
+}
+
+:focus { outline: 0 }
+
+body {
+	color: @black;
+	margin: 0;
+	font-size: @fs-m;
+	line-height: 1.8;
+	font-weight: 300;
+	
+	@media (max-width: @mobile) {
+		overflow-x: hidden;
+	}
+}
+
+a {
+	background-color: transparent;
+	
+	&:active,
+	&:hover { outline: 0 }
+}
+
+b, strong { font-weight: 700 }
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 2rem;
+	font-weight: 200;
+}
+
+img { border: 0 }
+
+::selection {
+	background-color: @primary;
+	color: @primary--;
+}

@@ -1,0 +1,273 @@
+@import (reference) "_variables";
+
+/*	navigation
+----------------------------------------------------------------------*/
+
+
+nav@{n}, nav@{x} {
+	background: #fff;
+	color: @black;
+	padding: 0 2rem;
+	border-bottom: 1px solid @primary;
+	z-index: 10;
+	min-height: 4.4rem;
+	
+	// class to fix the nav bar to the top of the viewport
+	// eg: <nav fx></nav>
+	
+	&[fx] {
+		background: rgba(255,255,255,0.95);
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 11;
+	}
+	
+	// contains everything in the nav
+	
+	label {
+		max-width: @width;
+		margin: auto;
+		display: block;
+		
+		> input { display: none }
+	}
+	
+	// where the main navigation items live
+	
+	ul {
+		padding: 0 2rem;
+		margin: 0;
+		font-size: 0;
+		text-align: right;
+				
+		li {
+			display: inline-block;
+			font-size: @fs-l;
+		}
+		
+		@media (min-width: (@mobile + .1)) {
+			li:hover menu,
+			menu:hover {
+				visibility: visible;
+				opacity: 1;
+				transform: translate3d(0,-1rem,0);
+				pointer-events: auto;
+			}
+		}
+		
+		a {
+			text-decoration: none;
+			text-transform: none;
+			padding: 0.8rem 2rem 0.4rem;
+			border-bottom: 4px solid transparent;
+			display: block;
+			cursor: pointer;
+			font-weight: 300;
+			
+			// sets drop down menu styling
+			
+			@media (min-width: (@mobile + .1)) {
+				&:not(:only-child) {
+					background-image: data-uri('../icons/chevron-down.svg');
+					background-repeat: no-repeat;
+					background-position: right 1.5rem;
+					background-size: 2rem;
+					padding-right: 3rem;
+				}
+			}
+			
+			&:hover {
+				color: @primary;
+				border-color: @primary;
+			}
+		}
+	}
+	
+	// drop down menu
+	
+	menu {
+		padding: 0;
+		margin: 0;
+		background: #fff;
+		z-index: 2;
+		text-align: left;
+		white-space: nowrap;
+		min-width: 100%;
+		
+		@media (min-width: (@mobile + .1)) {
+			visibility: hidden;
+			opacity: 0;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			box-shadow: @box-shadow;
+			transform: translate3d(0,-2rem,0);
+			pointer-events: none;
+		}
+		
+		menuitem {
+			display: block;
+			border-left: 4px solid transparent;
+			
+			&:hover {
+				border-color: @primary;
+				background-color: @grey-ultralight;
+				
+				a { transform: translate3d(0.5rem,0,0) }
+			}
+			
+			a {
+				text-transform: none;
+				padding: 0.5rem 2rem 0.5rem 1.6rem;
+				border: none;
+				font-size: @fs-s;
+			}
+		}
+	}
+	
+	// where the title/logo lives in the nav bar
+	// contains the hamburger menu in mobile view
+	
+	header {
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 1rem;
+			width: 4.4rem;
+			height: 4.4rem;
+			display: none;
+			background-size: 3rem;
+			background-position: center center;
+			background-repeat: no-repeat;
+		}
+		
+		&:before {
+			background-image: data-uri('../icons/hamburger.svg');
+		}
+		
+		&:after {
+			background-image: data-uri('../icons/close.svg');
+			opacity: 0;
+			transform: rotate(180deg);
+		}
+		
+		a {
+			position: absolute;
+			left: 2rem;
+			top: 1rem;
+			bottom: 1rem;
+			cursor: pointer;
+			z-index: 2;
+			font-size: @fs-l;
+			text-decoration: none;
+			
+			img {
+				height: 2rem;
+				vertical-align: middle;
+				top: -1px;
+				margin-right: 1rem;
+			}
+		}
+	}
+}
+
+// mobile view
+
+@media (max-width: @mobile) {
+	
+	// clears the top of the page for the fixed nav
+	
+	body {
+		padding-top: 4.4rem;
+	}
+	
+	// keeps the nav fixed
+	
+	nav@{n}, nav@{x} {
+		position: fixed;
+		padding: 0;
+		top: 0;
+		left: 0;
+		right: 0;
+		
+		header {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			
+			&:before, &:after { display: block }
+		}
+		
+		label {
+			height: 4.4rem;
+			
+			// hides the nav off screen
+			
+			> ul {
+				position: fixed;
+				top: 4.4rem;
+				right: 0;
+				bottom: 0;
+				padding: 0;
+				transform: translate3d(100%,0,0);
+				border-top: 1px solid @primary;
+				text-align: left;
+				background: #fff;
+				box-shadow: @box-shadow;
+				overflow-x: visible;
+				overflow-y: auto;
+				
+				li {
+					display: block;
+					border-top: 1px solid @grey-light;
+				}
+				
+				a {
+					padding: 1rem 6rem 1rem 2rem;
+					border: none;
+				}
+			}
+						
+			input {
+				&:checked {
+					
+					// shows the nav when input is checked
+					
+					~ ul {
+						transform: none;
+					}
+					
+					// hides the hamburger and shows the cross when the input is checked
+					
+					~ header {
+						&:before {
+							transform: rotate(-180deg);
+							opacity: 0;
+						}
+						
+						&:after {
+							transform: none;
+							opacity: 1;
+						}
+					}
+				}
+			}
+			
+			menu {
+				menuitem {
+					border-color: @grey-light;
+				}
+				
+				a {
+					padding-left: 4rem;
+				}
+			}
+		}
+	}
+}

@@ -5,6 +5,7 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     brand: 'SymfonyMicro'
+    brand_html: 'Symfony<b>Micro</b> 🎶'
 
 services:
     # default configuration for services in *this* file

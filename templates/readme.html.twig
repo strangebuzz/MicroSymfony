@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <section mt->
     {% apply markdown_to_html %}
         {{ readme|raw }}
     {% endapply %}
+    </section>
 {% endblock %}

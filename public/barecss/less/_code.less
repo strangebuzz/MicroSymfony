@@ -1,0 +1,30 @@
+@import (reference) "_variables";
+
+/*	code
+----------------------------------------------------------------------*/
+
+
+code@{n}, code@{x} {
+	display: inline-block;
+	background: @grey-ultralight;
+	border: 1px solid @grey-light;
+	padding: 0 0.5rem;
+	color: @grey-ultradark;
+	font-size: @fs-s;
+	line-height: 1.8;
+	font-family: @monospace;
+	border-radius: 2px;
+	text-transform: none;
+	font-weight: 300;
+}
+
+pre@{n}, pre@{x} {
+	code {
+		padding: 2rem;
+		border: none;
+		border-left: 4px solid @primary;
+		border-radius: 0;
+		width: 100%;
+		display: block;
+	}
+}

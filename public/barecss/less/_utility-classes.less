@@ -1,0 +1,85 @@
+@import (reference) "_variables";
+
+/*	utility classes (use with xx)
+----------------------------------------------------------------------*/
+
+
+	// display
+
+.full { width: 100% }
+
+[hidden], .hide { display: none }
+
+	// fonts
+
+.serif { font-family: @serif }
+.sans { font-family: @sans-serif }
+.mono { font-family: @monospace }
+
+.fs(@x) { font-size: @x }
+
+.fs- {
+	&s { .fs(@fs-s) }
+	&m { .fs(@fs-m) }
+	&l { .fs(@fs-l) }
+	&xl { .fs(@fs-xl) }
+}
+
+	// margins
+	// eg: <div class="mt-0 mb-4"></div>
+
+.mt(@x) { margin-top: @x }
+
+.mt- {
+	&0 { .mt(0) }
+	&2 { .mt(2rem) }
+	&4 { .mt(4rem) }
+	&8 { .mt(8rem) }
+}
+
+.mb(@x) { margin-bottom: @x }
+
+.mb- {
+	&0 { .mb(0) }
+	&2 { .mb(2rem) }
+	&4 { .mb(4rem) }
+	&8 { .mb(8rem) }
+}
+
+	// paddings
+	// eg: <div class="pt-2 pb-4"></div>
+
+.pt(@x) { padding-top: @x }
+
+.pt- {
+	&0 { .pt(0) }
+	&2 { .pt(2rem) }
+	&4 { .pt(4rem) }
+	&8 { .pt(8rem) }
+}
+
+.pb(@x) { padding-bottom: @x }
+
+.pb- {
+	&0 { .pb(0) }
+	&2 { .pb(2rem) }
+	&4 { .pb(4rem) }
+	&8 { .pb(8rem) }
+}
+
+.pa(@x) { padding: @x }
+
+.pa- {
+	&0 { .pa(0) }
+	&2 { .pa(2rem) }
+}
+
+	// text alignment
+	// eg: <div class="txt-c"></div>
+
+.txt- {
+	&l { text-align: left }
+	&r { text-align: right }
+	&c { text-align: center }
+	&j { text-align: justify }
+}

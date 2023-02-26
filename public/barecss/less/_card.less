@@ -1,0 +1,44 @@
+@import (reference) "_variables";
+
+/*	card
+----------------------------------------------------------------------*/
+
+
+	// eg: <div class="card"></div>
+
+card {
+	background: #fff;
+	display: block;
+	padding: 2rem;
+	box-shadow: @box-shadow;
+	border-radius: 2px;
+	margin-bottom: 2rem;
+	
+	hr@{n}, hr@{x} {
+		margin: 1rem 0;
+	}
+	
+	&:last-child { margin-bottom: 0 }
+	
+	// sets the image to full width
+	> img@{n}, > img@{x} {
+		width: ~"calc(100% + 4rem)";
+		max-width: none;
+		margin: 0 0 2rem -2rem;
+		display: block;
+		
+		// applies if image is first item in card
+		&:first-child {
+			margin: -2rem 0 2rem -2rem;
+			border-top-left-radius: 2px;
+			border-top-right-radius: 2px;
+		}
+		
+		// applies if image is last item in card
+		&:last-child {
+			margin: 0 0 -2rem -2rem;
+			border-bottom-left-radius: 2px;
+			border-bottom-right-radius: 2px;
+		}
+	}
+}

@@ -1,0 +1,55 @@
+@import (reference) "_variables";
+
+/*	tooltip
+----------------------------------------------------------------------*/
+	
+	// sets the styling for tooltips
+
+[tt], [dtt]:disabled, [att] {
+	overflow: visible;
+	
+	&:after {
+		position: absolute;
+		left: 50%;
+		top: 0;
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+		z-index: 2;
+		background: @grey-ultradark;
+		border-radius: 3px;
+		color: #fff;
+		font-family: @sans-serif;
+		font-size: @fs-s;
+		line-height: 2.5;
+		font-weight: 300;
+		letter-spacing: 0;
+		white-space: nowrap;
+		padding: 0 1rem;
+		transform: translate(-50%,-95%);
+		text-transform: none;
+	}
+	
+	&:hover:after {
+		opacity: 0.9;
+		visibility: visible;
+		transform: translate(-50%,~"calc(-100% - 5px)");
+	}
+}
+	
+	// sets the content for tooltip
+	// eg: <span data-tt="This is a tooltip"></span>
+
+[tt]:after { content: attr(tt) }
+
+	// sets the content for disabled tooltips
+	// can be used in conjunction with data-tt
+	// eg: <button disabled data-dtt="This button is disabled"></button>
+	
+[dtt]:disabled:after { content: attr(dtt) }
+
+	// sets the contents for an anchor link tooltip
+	// will set the content to the href
+	// eg: <a att href="https://github.com/longsien/BareCSS">BareCSS at GitHub</a>
+
+[att]:after { content: attr(href) }

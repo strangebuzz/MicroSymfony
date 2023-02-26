@@ -1,81 +1,63 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset=utf-8>
+        <meta name="description" content="BareCSS template file">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+
         <title>{% block title %}{{ brand }}{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>🎶️</text></svg>">
         {% block stylesheets %}
-            <link rel="stylesheet" href="https://classless.de/classless.css">
+            <link rel="stylesheet" href="/barecss/css/bare.min.css">
+            <link rel="stylesheet" href="/barecss/css/style.min.css">
         {% endblock %}
 
         {% block javascripts %}
-            <script>
-              function switchTheme(el) { document.documentElement.setAttribute('data-theme', el.value) }
-
-              function switchCSS(cssid, el){ document.getElementById(cssid).href = el.value; }
-
-              function addFontSize(addPx){
-                const html = document.querySelector('html');
-                const currentSize = parseFloat(window.getComputedStyle(html, null)
-                  .getPropertyValue('font-size'));
-                html.style.fontSize = (currentSize + addPx) + 'px';
-              }
-
-              function toggleDarkMode(el){
-                let theme='light'
-                if (el.innerText === '☪'){
-                  el.innerText = '☀'; theme='dark';
-                } else {
-                  el.innerText = '☪';
-                }
-                document.documentElement.setAttribute('data-theme', theme)
-              }
-            </script>
         {% endblock %}
     </head>
-    <body id="top">
 
-    <header>
-        <section>
-            <h1>{{ brand }}</h1>
-            <p><strong>Check out the full blog post introduction on Strangebuzz</strong></p>
+    <body id="{% block id %}home{% endblock %}">
 
-            <nav class="noprint">
-                <ul>
-                    <li>
-                        <!-- img style="height: 1.2em;" src="favicon.png" -->
-                        <span>&ensp;{{ brand }} 🎶</span>
-                    </li>
-                    <li class="float-right sticky"><a onclick="addFontSize(-1)">ᴀ-</a>|<a onclick="addFontSize(1)">A+</a></li>
-                    <li class="float-right sticky"><a onclick="toggleDarkMode(this)">☪</a></li>
-                    <li><a href="{{ path('app_home') }}#top">Home</a></li>
-                    <li><a href="{{ path('app_readme') }}">Readme</a></li>
-                    <li><a href="#">Sub menu ▾</a>
-                        <ul>
-                            <li><a href="{{ path('app_home') }}">Home</a></li>
-                            <li><a href="{{ path('app_readme') }}">Readme</a></li>
-                        </ul>
-                    </li>
-                    <li class="float-right"><a href="https://github.com/strangebuzz/symfony-micro">@GitHub</a></li>
-                </ul>
-            </nav>
-        </section>
-    </header>
+    <nav>
+        <label>
+            <input type="checkbox">
+            <header>
+                <a href="{{ path('app_home') }}">
+                    {# <img alt="{{ brand }}" src="img/your-logo.svg">{{ brand_html|raw }}#}
+                    {{ brand_html|raw }}
+                </a>
+            </header>
 
-    <main>
-        <article>
-            <section>
-                {% block body %}{% endblock %}
-            </section>
-        </article>
-    </main>
+            <ul>
+                <li><a href="{{ path('app_home') }}">Home</a></li>
+                <li><a href="{{ path('app_readme') }}">Readme</a></li>
+                <li>
+                    <a>Drop down</a>
+                    <menu>
+                        <menuitem><a href="{{ path('app_home') }}">Home</a></menuitem>
+                        <menuitem><a href="{{ path('app_readme') }}">Readme</a></menuitem>
+                        <menuitem><a target="_blank" href="http://barecss.com/">BarreCSS doc</a></menuitem>
+                    </menu>
+                </li>
+            </ul>
+        </label>
+    </nav>
+
+    {% block body %}{% endblock %}
 
     <footer>
-        <hr>
-        <h5>{{ brand }}</h5>
-        <p>
-            Code on <a href="https://github.com/strangebuzz/symfony-micro">GitHub</a>.<br>
-        </p>
+        <h5>{{ brand|raw }}</h5>
+        <grid>
+            <div fx="" col="3/4">
+                <a att="" href="https://strangebuzz.com" target="_blank">App template by COil/Strangebuzz 🐝</a>
+            </div>
+
+            <div fx="" col="1/4" txt="r">
+                <a att="" href="https://github.com/strangebuzz/symfony-micro" target="_blank"><img alt="GitHub" class="github-icon" src="barecss/icons/github.svg"></a>
+            </div>
+        </grid>
+
     </footer>
+
     </body>
 </html>

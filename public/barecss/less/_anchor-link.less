@@ -1,0 +1,28 @@
+@import (reference) "_variables";
+
+/*	anchor link
+----------------------------------------------------------------------*/
+
+a@{n}, a@{x} {
+	color: inherit;
+	text-decoration: none;
+	display: inline-block;
+	z-index: 1;
+	
+	p &:not([btn]) {
+		&:before {
+			content: "";
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			background: @secondary;
+			position: absolute;
+			opacity: 0.5;
+			transform: scale3d(1,0.1,1);
+			transform-origin: bottom;
+			z-index: -1;
+		}
+		
+		&:hover:before { transform: none }
+	}
+}
