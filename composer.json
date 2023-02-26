@@ -1,6 +1,8 @@
 {
-    "type": "project",
-    "license": "proprietary",
+    "name": "strangebuzz/symfony-micro",
+    "description": "A template to initialize an application to use Symfony as a micro framework",
+    "type": "symfony-application-template",
+    "license": "MIT",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
@@ -12,8 +14,12 @@
         "symfony/flex": "^2",
         "symfony/framework-bundle": "6.2.*",
         "symfony/runtime": "6.2.*",
-        "symfony/yaml": "6.2.*"
+        "symfony/twig-bundle": "6.2.*",
+        "symfony/yaml": "6.2.*",
+        "twig/extra-bundle": "^2.12|^3.0",
+        "twig/twig": "^2.12|^3.0"
     },
+
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.14",
         "phpstan/extension-installer": "^1.2",
