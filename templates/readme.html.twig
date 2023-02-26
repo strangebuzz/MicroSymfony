@@ -1,7 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <section mt->
+    <section>
+        <grid>
+            <div col="1/4">
+                <h1>Markdown</h1>
+            </div>
+            <div col="3/4">
+                This page displays the README.md file of the GitHub repository.
+            </div>
+        </grid>
+        <hr/>
     {% apply markdown_to_html %}
         {{ readme|raw }}
     {% endapply %}
