@@ -2,18 +2,80 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{{ brand }}{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
+            <link rel="stylesheet" href="https://classless.de/classless.css">
         {% endblock %}
 
         {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
+            <script>
+              function switchTheme(el) { document.documentElement.setAttribute('data-theme', el.value) }
+
+              function switchCSS(cssid, el){ document.getElementById(cssid).href = el.value; }
+
+              function addFontSize(addPx){
+                const html = document.querySelector('html');
+                const currentSize = parseFloat(window.getComputedStyle(html, null)
+                  .getPropertyValue('font-size'));
+                html.style.fontSize = (currentSize + addPx) + 'px';
+              }
+
+              function toggleDarkMode(el){
+                let theme='light'
+                if (el.innerText === '☪'){
+                  el.innerText = '☀'; theme='dark';
+                } else {
+                  el.innerText = '☪';
+                }
+                document.documentElement.setAttribute('data-theme', theme)
+              }
+            </script>
         {% endblock %}
     </head>
-    <body>
-        {% block body %}{% endblock %}
+    <body id="top">
+
+    <header>
+        <section>
+            <h1>{{ brand }}</h1>
+            <p><strong>Check out the full blog post introduction on Strangebuzz</strong></p>
+
+            <nav class="noprint">
+                <ul>
+                    <li>
+                        <!-- img style="height: 1.2em;" src="favicon.png" -->
+                        <span>&ensp;{{ brand }} 🎶</span>
+                    </li>
+                    <li class="float-right sticky"><a onclick="addFontSize(-1)">ᴀ-</a>|<a onclick="addFontSize(1)">A+</a></li>
+                    <li class="float-right sticky"><a onclick="toggleDarkMode(this)">☪</a></li>
+                    <li><a href="{{ path('app_home') }}#top">Home</a></li>
+                    <li><a href="{{ path('app_readme') }}">Readme</a></li>
+                    <li><a href="#">Sub menu ▾</a>
+                        <ul>
+                            <li><a href="{{ path('app_home') }}">Home</a></li>
+                            <li><a href="{{ path('app_readme') }}">Readme</a></li>
+                        </ul>
+                    </li>
+                    <li class="float-right"><a href="https://github.com/strangebuzz/symfony-micro">@GitHub</a></li>
+                </ul>
+            </nav>
+        </section>
+    </header>
+
+    <main>
+        <article>
+            <section>
+                {% block body %}{% endblock %}
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <hr>
+        <h5>{{ brand }}</h5>
+        <p>
+            Code on <a href="https://github.com/strangebuzz/symfony-micro">GitHub</a>.<br>
+        </p>
+    </footer>
     </body>
 </html>
