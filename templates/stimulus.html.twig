@@ -7,24 +7,26 @@
       window.Stimulus = Application.start()
 
       Stimulus.register("hello", class extends Controller {
-        static targets = [ "name", "greating", "card"]
+        static targets = [ "name", "greating", "dialog", "form"]
 
         connect() {
           console.log("Hello, Stimulus!", this.element)
         }
 
         greet() {
-          const name = this.nameTarget.value
-          if (name == '') {
-            alert('Enter a name please!')
-            return false
+          if (!this.formTarget.reportValidity()) {
+            return;
           }
-          this.cardTarget.style.display = 'block';
-          this.greatingTarget.innerHTML = `Hello, ${name}!`
+
+          this.greatingTarget.innerHTML = `Hello, ${this.name()}!`
+          this.dialogTarget.showModal();
+        }
+
+        name() {
+          return this.nameTarget.value
         }
 
         reset() {
-          this.cardTarget.style.display = 'none';
           this.nameTarget.value = '';
           this.greatingTarget.innerHTML = '';
         }
@@ -35,10 +37,10 @@
 {% block body %}
     <section>
         <div class="sub-heading">
-            <h2>Some cool JavaScript with Stimulus</h2>
+            <h2>Some cool and simple JavaScript with Stimulus</h2>
         </div>
 
-        <p>...without the JS tooling stuff.</p>
+        <p>...without the JS tooling stuff and complexity.</p>
 
         <grid>
             <div col="1/4">
@@ -46,18 +48,26 @@
             </div>
             <div col="3/4">
                 <div data-controller="hello">
-                    <label for="name">Enter your name below and click on the <tag>Greet</tag> button
-                        <input name="name" data-hello-target="name" type="text" />
-                    </label>
+                    <form data-hello-target="form">
+                        <label for="name">Enter your name below and click on the <tag>Great</tag> button
+                            <input name="name" required data-hello-target="name" type="text" />
+                        </label>
 
-                    <button primary data-action="click->hello#greet">Greet</button>
-                    <button data-action="click->hello#reset">Reset</button>
+                        <input type="submit" primary data-action="click->hello#greet:prevent" value="Great" />
+                    </form>
 
                     <hr/>
 
-                    <card data-hello-target="card" style="display: none">
-                        <h2 data-hello-target="greating"></h2>
-                    </card>
+                    <dialog data-hello-target="dialog">
+                        <card>
+                            <h2 data-hello-target="greating"></h2>
+                            <form method="dialog">
+                                <menu>
+                                    <button data-action="click->hello#reset">Close</button>
+                                </menu>
+                            </form>
+                        </card>
+                    </dialog>
                 </div>
             </div>
         </grid>
