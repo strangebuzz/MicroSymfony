@@ -4,6 +4,7 @@ controllers:
         namespace: App\Controller
     type: attribute
 
+# https://symfony.com/doc/current/templates.html#rendering-a-template-directly-from-a-route
 app_stimulus:
     path: /stimulus
     defaults:

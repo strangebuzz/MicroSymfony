@@ -7,7 +7,7 @@
       window.Stimulus = Application.start()
 
       Stimulus.register("hello", class extends Controller {
-        static targets = [ "name", "greating"]
+        static targets = [ "name", "greating", "card"]
 
         connect() {
           console.log("Hello, Stimulus!", this.element)
@@ -19,11 +19,13 @@
             alert('Enter a name please!')
             return false
           }
-
+          this.cardTarget.style.display = 'block';
           this.greatingTarget.innerHTML = `Hello, ${name}!`
         }
 
         reset() {
+          this.cardTarget.style.display = 'none';
+          this.nameTarget.value = '';
           this.greatingTarget.innerHTML = '';
         }
       })
@@ -44,13 +46,18 @@
             </div>
             <div col="3/4">
                 <div data-controller="hello">
-                    <label for="name">Enter your name below and click on the <tag>Greet</tag> button</label>
-                    <input name="name" data-hello-target="name" type="text" />
+                    <label for="name">Enter your name below and click on the <tag>Greet</tag> button
+                        <input name="name" data-hello-target="name" type="text" />
+                    </label>
 
                     <button primary data-action="click->hello#greet">Greet</button>
                     <button data-action="click->hello#reset">Reset</button>
 
-                    <h2 data-hello-target="greating"></h2>
+                    <hr/>
+
+                    <card data-hello-target="card" style="display: none">
+                        <h2 data-hello-target="greating"></h2>
+                    </card>
                 </div>
             </div>
         </grid>
