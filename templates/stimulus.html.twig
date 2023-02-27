@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+    <script type="module">
+      // @see https://stimulus.hotwired.dev/handbook/installing#using-other-build-systems
+      import { Application, Controller } from "https://unpkg.com/@hotwired/stimulus/dist/stimulus.js"
+      window.Stimulus = Application.start()
+
+      Stimulus.register("hello", class extends Controller {
+        static targets = [ "name", "greating"]
+
+        connect() {
+          console.log("Hello, Stimulus!", this.element)
+        }
+
+        greet() {
+          const name = this.nameTarget.value
+          if (name == '') {
+            alert('Enter a name please!')
+            return false
+          }
+
+          this.greatingTarget.innerHTML = `Hello, ${name}!`
+        }
+
+        reset() {
+          this.greatingTarget.innerHTML = '';
+        }
+      })
+    </script>
+{% endblock %}
+
+{% block body %}
+    <section>
+        <div class="sub-heading">
+            <h2>Some cool JavaScript with Stimulus</h2>
+        </div>
+
+        <p>...without the JS tooling stuff.</p>
+
+        <grid>
+            <div col="1/4">
+                <h3>Demo</h3>
+            </div>
+            <div col="3/4">
+                <div data-controller="hello">
+                    <label for="name">Enter your name below and click on the <tag>Greet</tag> button</label>
+                    <input name="name" data-hello-target="name" type="text" />
+
+                    <button primary data-action="click->hello#greet">Greet</button>
+                    <button data-action="click->hello#reset">Reset</button>
+
+                    <h2 data-hello-target="greating"></h2>
+                </div>
+            </div>
+        </grid>
+    </section>
+{% endblock %}
+
+
