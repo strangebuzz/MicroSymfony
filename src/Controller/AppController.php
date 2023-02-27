@@ -26,7 +26,7 @@ final class AppController extends AbstractController
     }
 
     #[Route(path: '/readme', name: 'readme')]
-    public function readme(Request $request): Response
+    public function readme(): Response
     {
         $readme = file_get_contents(__DIR__.'/../../README.md');
 

@@ -11,8 +11,8 @@
             </div>
         </grid>
         <hr/>
-    {% apply markdown_to_html %}
-        {{ readme|raw }}
-    {% endapply %}
+        {% apply markdown_to_html %}
+            {{ readme|raw }}
+        {% endapply %}
     </section>
 {% endblock %}
