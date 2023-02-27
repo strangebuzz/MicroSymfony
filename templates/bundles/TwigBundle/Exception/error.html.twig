@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section>
+        <card>
+            <h5>Oops! An Error {{ status_code }} occured!</h5>
+            <hr>
+            <p>Sorry, but an error <b>{{ status_code|status_text }}</b> ({{ status_code }}) occured.</p>
+            <p txt="c">
+                <a href="/">Homepage</a>
+            </p>
+        </card>
+    </section>
+{% endblock %}

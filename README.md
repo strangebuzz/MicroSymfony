@@ -1,24 +1,38 @@
 # Symfony micro
 
-A template to initialize an application to use Symfony as a microframework.
+Symfony-micro is a template to initialize an application to use Symfony as a microframework.
 
+It can be used to create a POC or prototype without having to take care of the
+design, while having something still enjoyable.
 
-## What does it ship?
-
-* Symfony 6.2
-* Twig 3
-* The [Classless.de](https://classless.de/classless.css) CSS framework
-
-## What it doesn't ship?
-
-* The debug toolbar
-* Doctrine
+It's not really intented to be used in production.
+Well at least you should remove the classless framework to use a real CSS framework.
 
 
 ## Requirements
 
 * PHP 8.1
 * The [Symfony CLI](https://symfony.com/download)
+
+
+## Stack
+
+* Symfony 6.2
+* Twig 3
+* The [Classless.de](https://classless.de) classless CSS framework
+  or the [BarreCSS](http://barecss.com/) one. 
+
+
+## What does it ship?
+ 
+* A [default error page extending the base layout](https://github.com/strangebuzz/symfony-micro/blob/main/templates/bundles/TwigBundle/Exception/error.html.twig)
+
+
+
+## What it doesn't ship?
+
+* The debug toolbar
+* Doctrine ORM
 
 
 ## Installation & first run
