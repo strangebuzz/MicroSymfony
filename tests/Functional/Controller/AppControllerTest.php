@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace App\Tests\Functional\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Component\ErrorHandler\ErrorHandler;
-use Symfony\Component\HttpFoundation\Response;
 
 final class AppControllerTest extends WebTestCase
 {
@@ -32,12 +30,12 @@ final class AppControllerTest extends WebTestCase
     }
 
     /**
-     * @see ErrorHandler::handleException
+     * @see AppController::composer()
      */
-    public function test404(): void
+    public function testComposer(): void
     {
         $client = self::createClient();
-        $client->request('GET', '/404');
-        self::assertResponseStatusCodeSame(Response::HTTP_NOT_FOUND);
+        $client->request('GET', '/composer');
+        self::assertResponseIsSuccessful();
     }
 }
