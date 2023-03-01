@@ -1,9 +1,15 @@
 {% extends 'base.html.twig' %}
 
+{% set cdn_url = 'https://unpkg.com' %}
+
+{% block preconnect %}
+    <link rel="preconnect" href="{{ preconnect(cdn_url) }}" />
+{% endblock %}
+
 {% block javascripts %}
     <script type="module">
       // @see https://stimulus.hotwired.dev/handbook/installing#using-other-build-systems
-      import { Application, Controller } from "https://unpkg.com/@hotwired/stimulus/dist/stimulus.js"
+      import { Application, Controller } from "{{ cdn_url }}/@hotwired/stimulus/dist/stimulus.js"
       window.Stimulus = Application.start()
 
       Stimulus.register("hello", class extends Controller {
@@ -18,12 +24,8 @@
             return;
           }
 
-          this.greatingTarget.innerHTML = `Hello, ${this.name()}!`
+          this.greatingTarget.innerHTML = `Hello, ${this.nameTarget.value}!`
           this.dialogTarget.showModal();
-        }
-
-        name() {
-          return this.nameTarget.value
         }
 
         reset() {
