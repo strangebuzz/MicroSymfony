@@ -7,7 +7,7 @@ namespace App\Tests\Functional\Controller;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
- * This files tests static pages without associated controller.
+ * This file tests static pages without associated controller.
  *
  * @see config/routes.yaml
  */
