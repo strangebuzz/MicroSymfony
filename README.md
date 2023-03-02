@@ -2,8 +2,8 @@
 
 Symfony-micro is a template to initialize an application to use Symfony as a microframework.
 
-It can be used to create a POC or prototype without having to take care of the
-design, while having something still enjoyable.
+It can be used to create a POC or prototype without having to take care of the design,
+while having something still enjoyable.
 
 It's not really intented to be used in production.
 Well at least you should remove the classless framework to use a real CSS framework.
@@ -19,6 +19,7 @@ Well at least you should remove the classless framework to use a real CSS framew
 
 * Symfony 6.2
 * Twig 3
+* PHPUnit 9.5
 * The [Classless.de](https://classless.de) classless CSS framework
   or the [BarreCSS](http://barecss.com/) one. 
 
@@ -43,6 +44,17 @@ Well at least you should remove the classless framework to use a real CSS framew
 Then open [https://127.0.0.1:8000](https://127.0.0.1:8000])
 
 The port can change if 8000 is already used.
+
+
+## Tests
+
+Run tests with:
+
+    ./bin/vendor/simple-phpunit
+
+or
+
+    make test
 
 
 ## Dev-tools 
