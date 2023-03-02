@@ -2,15 +2,14 @@
 
 {% block body %}
     <section>
-        <grid>
-            <div col="1/4">
-                <h1>Markdown</h1>
-            </div>
-            <div col="3/4">
-                This page displays the README.md file of the GitHub repository.
-            </div>
-        </grid>
+        <div class="sub-heading">
+            <h2>Markdown</h2>
+        </div>
+
+        <p>This page displays the README.md file of the GitHub repository.</p>
+
         <hr/>
+
         {% apply markdown_to_html %}
             {{ readme|raw }}
         {% endapply %}
