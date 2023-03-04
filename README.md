@@ -3,7 +3,7 @@
 MicroSymfony is a template to initialize an application to use Symfony as a microframework.
 
 It can be used to create a POC or prototyping something without having to take care
-of the design, while having something still enjoyable (and ).
+of the design, while having something still enjoyable (and fit to be seen).
 
 It's not really intented to be used in production.
 Well at least you should remove the classless framework to use a real CSS framework.
