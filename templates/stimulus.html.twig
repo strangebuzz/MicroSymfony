@@ -33,6 +33,25 @@
           this.greatingTarget.innerHTML = '';
         }
       })
+
+      Stimulus.register("api", class extends Controller {
+        static targets = ["url", "title", "slug"]
+
+        slugify() {
+          let apiUrl = this.urlTarget.value + '?title='+this.titleTarget.value
+          const slugTarget = this.slugTarget
+          fetch(apiUrl)
+            .then(function(response) {
+              return response.json();
+            })
+            .then(function(data) {
+              slugTarget.value = data.slug;
+            })
+            .catch(function(error) {
+              console.log('An error occured. 😞', error);
+            });
+        }
+      })
     </script>
 {% endblock %}
 
@@ -46,7 +65,7 @@
 
         <grid>
             <div col="1/4">
-                <h3>Demo</h3>
+                <h3>Demo: form+dialog</h3>
             </div>
             <div col="3/4">
                 <div data-controller="hello">
@@ -58,8 +77,6 @@
                         <input type="submit" primary data-action="click->hello#greet:prevent" value="Great" />
                     </form>
 
-                    <hr/>
-
                     <dialog data-hello-target="dialog">
                         <card>
                             <h2 data-hello-target="greating"></h2>
@@ -70,6 +87,26 @@
                             </form>
                         </card>
                     </dialog>
+                </div>
+            </div>
+        </grid>
+
+        <hr/>
+
+        <grid>
+            <div col="1/4">
+                <h3>Demo: ajax call to API endpoint</h3>
+            </div>
+            <div col="3/4">
+                <div data-controller="api">
+                    <input type="hidden" data-api-target="url" value="{{ path('app_slugifyacfion') }}">
+                    <label for="title">Enter a blog post title below
+                        <input name="title" required data-api-target="title" data-action="api#slugify" type="text" />
+                    </label>
+                    <label for="slug">
+                        Slug (readonly):
+                        <input name="slug" data-api-target="slug" type="text" readonly />
+                    </label>
                 </div>
             </div>
         </grid>
