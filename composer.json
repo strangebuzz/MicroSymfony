@@ -1,5 +1,5 @@
 {
-    "name": "strangebuzz/symfony-micro",
+    "name": "strangebuzz/microsymfony",
     "description": "A template to initialize an application to use Symfony as a micro framework",
     "type": "symfony-application-template",
     "license": "MIT",
