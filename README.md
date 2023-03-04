@@ -1,9 +1,9 @@
-# Symfony micro
+# MicroSymfony
 
-Symfony-micro is a template to initialize an application to use Symfony as a microframework.
+MicroSymfony is a template to initialize an application to use Symfony as a microframework.
 
-It can be used to create a POC or prototype without having to take care of the design,
-while having something still enjoyable.
+It can be used to create a POC or prototyping something without having to take care
+of the design, while having something still enjoyable (and ).
 
 It's not really intented to be used in production.
 Well at least you should remove the classless framework to use a real CSS framework.

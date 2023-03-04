@@ -4,8 +4,8 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
-    brand: 'SymfonyMicro'
-    brand_html: 'Symfony<b>Micro</b> 🎶'
+    brand: 'MicroSymfony'
+    brand_html: '<b>Micro</b>Symfony 🎶'
 
 services:
     # default configuration for services in *this* file
