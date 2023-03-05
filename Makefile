@@ -17,18 +17,18 @@ stop: ## Stop the web server
 
 ## —— Tests ✨ —————————————————————————————————————————————————————————————————
 test: ## Run all PHPUnit tests
-	@./vendor/bin/simple-phpunit
+	@vendor/bin/simple-phpunit
 
 coverage: ## Generate the HTML PHPUnit code coverage report locally
-	@XDEBUG_MODE=coverage php -d xdebug.enable=1 -d memory_limit=-1 ./vendor/bin/simple-phpunit --coverage-html=var/coverage
+	@XDEBUG_MODE=coverage php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/simple-phpunit --coverage-html=var/coverage
 
 
 ## —— Coding standards ✨ ——————————————————————————————————————————————————————
 stan: ## Run PHPStan
-	@./vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vvv
+	@vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vvv
 
 fix-php: ## Fix PHP files with php-cs-fixer (ignore PHP 8.2 warning)
-	@PHP_CS_FIXER_IGNORE_ENV=1 ./vendor/bin/php-cs-fixer fix --allow-risky=yes
+	@PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix --allow-risky=yes
 
 cs: ## Run all CS checks
 cs: fix-php stan

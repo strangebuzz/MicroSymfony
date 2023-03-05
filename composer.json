@@ -71,7 +71,13 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "app-test": [
+            "vendor/bin/simple-phpunit"
         ]
+    },
+    "scripts-descriptions": {
+        "app-test": "Run all PHPUnit tests"
     },
     "conflict": {
         "symfony/symfony": "*"
