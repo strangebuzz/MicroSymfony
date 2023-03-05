@@ -19,6 +19,9 @@ stop: ## Stop the web server
 test: ## Run all PHPUnit tests
 	@./vendor/bin/simple-phpunit
 
+coverage: ## Generate the HTML PHPUnit code coverage report locally
+	@XDEBUG_MODE=coverage php -d xdebug.enable=1 -d memory_limit=-1 ./vendor/bin/simple-phpunit --coverage-html=var/coverage
+
 
 ## —— Coding standards ✨ ——————————————————————————————————————————————————————
 stan: ## Run PHPStan

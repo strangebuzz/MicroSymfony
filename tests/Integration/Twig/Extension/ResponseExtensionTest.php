@@ -14,6 +14,7 @@ final class ResponseExtensionTest extends KernelTestCase
     {
         self::bootKernel();
         $extension = $this->getContainer()->get(ResponseExtension::class);
+        self::assertNotEmpty($extension->getFilters());
         self::assertSame('Not Found', $extension->getStatusText(Response::HTTP_NOT_FOUND));
     }
 }
