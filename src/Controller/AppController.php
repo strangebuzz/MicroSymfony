@@ -20,7 +20,7 @@ final class AppController extends AbstractController
     #[Route(path: '/', name: 'home')]
     public function home(Request $request): Response
     {
-        $name = $request->query->getAlpha('name');
+        $name = $request->query->get('name');
 
         return $this->render('home.html.twig', compact('name'));
     }
