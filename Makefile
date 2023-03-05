@@ -1,26 +1,29 @@
 SHELL = sh
 .DEFAULT_GOAL = help
 
-## —— 🎶 The Symfony micro Makefile 🎶 —————————————————————————————————————————
+## —— 🎶 The MicroSymfony Makefile 🎶 ——————————————————————————————————————————
 help: ## Outputs this help screen
 	@grep -E '(^[a-zA-Z0-9_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
 .PHONY: help start stop test coverage stan fix-php cs ci
 
 
 ## —— Symfony binary 💻 ————————————————————————————————————————————————————————
-start: ## Serve the application with the Symfony binary with HTTPS support
+start: ## Serve the application with the Symfony binary
 	@symfony serve --daemon
 
 stop: ## Stop the web server
 	@symfony server:stop
 
 
-## —— Tests ✨ —————————————————————————————————————————————————————————————————
+## —— Tests ✅ —————————————————————————————————————————————————————————————————
 test: ## Run all PHPUnit tests
 	@vendor/bin/simple-phpunit
 
-coverage: ## Generate the HTML PHPUnit code coverage report locally
+cov: ## Generate the HTML PHPUnit code coverage report (stored in var/coverage)
 	@XDEBUG_MODE=coverage php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/simple-phpunit --coverage-html=var/coverage
+
+cov-report: ## Open the PHPUnit code coverage report (var/coverage/index.html)
+	@open var/coverage/index.html
 
 
 ## —— Coding standards ✨ ——————————————————————————————————————————————————————
