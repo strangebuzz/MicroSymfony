@@ -9,6 +9,11 @@ It's not really intented to be used in production.
 Well at least you should remove the classless framework to use a real CSS framework.
 
 
+## Demo
+
+* Live demo at [https://microsymfony.ovh](https://microsymfony.ovh])
+
+
 ## Requirements
 
 * PHP 8.1
@@ -20,8 +25,7 @@ Well at least you should remove the classless framework to use a real CSS framew
 * Symfony 6.2
 * Twig 3
 * PHPUnit 9.5
-* The [Classless.de](https://classless.de) classless CSS framework
-  or the [BarreCSS](http://barecss.com/) one. 
+* The classless [BarreCSS](http://barecss.com/) CSS framework 
 
 
 ## What does it ship?
