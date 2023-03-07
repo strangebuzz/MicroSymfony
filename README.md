@@ -11,25 +11,29 @@ Well at least you should remove the classless framework to use a real CSS framew
 
 ## Demo 🌈
 
+Because a live demo is always better than all explanations. Here is it:
+
 * Live demo at [https://microsymfony.ovh](https://microsymfony.ovh)
 
 
 ## Requirements ⚙
 
-* PHP 8.1
+* [PHP 8.1](https://www.php.net/releases/8.1/en.php)
 * The [Symfony CLI](https://symfony.com/download)
+* The [Xdebug](https://xdebug.org/) PHP extension if you want to run the code coverage report
 
 
 ## Stack 🔗
 
-* Symfony 6.2
-* Twig 3
-* PHPUnit 9.5
+* [Symfony 6.2](https://symfony.com)
+* [Twig 3](https://twig.symfony.com)
+* [PHPUnit 9.5](https://phpunit.de)
 * The classless [BarreCSS](http://barecss.com) CSS framework 
 
 
 ## What does it ship? 🚀
- 
+
+* A [demo with some JavaScript and Stimulus](https://github.com/strangebuzz/MicroSymfony/blob/main/templates/stimulus.html.twig) 
 * A [default error page extending the base layout](https://github.com/strangebuzz/symfony-micro/blob/main/templates/bundles/TwigBundle/Exception/error.html.twig)
 
 
