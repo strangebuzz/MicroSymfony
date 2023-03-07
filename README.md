@@ -53,7 +53,7 @@ The port can change if 8000 is already used.
 
 Run tests with:
 
-    ./bin/vendor/simple-phpunit
+    vendor/bin/simple-phpunit
 
 or
 
