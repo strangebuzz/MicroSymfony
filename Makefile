@@ -4,7 +4,7 @@ SHELL = sh
 ## —— 🎶 The MicroSymfony Makefile 🎶 ——————————————————————————————————————————
 help: ## Outputs this help screen
 	@grep -E '(^[a-zA-Z0-9_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
-.PHONY: help start stop test coverage stan fix-php cs ci
+.PHONY: help start stop test coverage cov-report stan fix-php cs ci
 
 
 ## —— Symfony binary 💻 ————————————————————————————————————————————————————————
@@ -19,7 +19,7 @@ stop: ## Stop the web server
 test: ## Run all PHPUnit tests
 	@vendor/bin/simple-phpunit
 
-cov: ## Generate the HTML PHPUnit code coverage report (stored in var/coverage)
+coverage: ## Generate the HTML PHPUnit code coverage report (stored in var/coverage)
 	@XDEBUG_MODE=coverage php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/simple-phpunit --coverage-html=var/coverage
 
 cov-report: ## Open the PHPUnit code coverage report (var/coverage/index.html)
