@@ -8,6 +8,10 @@ of the design, while having something still enjoyable (and fit to be seen).
 It's not really intented to be used in production.
 Well at least you should remove the classless framework to use a real CSS framework.
 
+## Todo
+
+* Tester avec le creape app de composer
+
 
 ## Demo 🌈
 

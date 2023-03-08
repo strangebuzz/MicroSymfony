@@ -20,16 +20,6 @@ final class AppControllerTest extends WebTestCase
     }
 
     /**
-     * @see AppController::readme()
-     */
-    public function testReadme(): void
-    {
-        $client = self::createClient();
-        $client->request('GET', '/readme');
-        self::assertResponseIsSuccessful();
-    }
-
-    /**
      * @see AppController::composer()
      */
     public function testComposer(): void

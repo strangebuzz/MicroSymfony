@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,22 +17,11 @@ final class AppController extends AbstractController
      * Simple page with some dynamic content.
      */
     #[Route(path: '/', name: 'home')]
-    public function home(Request $request): Response
-    {
-        $name = $request->query->get('name');
-
-        return $this->render('home.html.twig', compact('name'));
-    }
-
-    /**
-     * Displays the repository readme doc file.
-     */
-    #[Route(path: '/readme', name: 'readme')]
-    public function readme(): Response
+    public function home(): Response
     {
         $readme = file_get_contents(__DIR__.'/../../README.md');
 
-        return $this->render('readme.html.twig', compact('readme'));
+        return $this->render('home.html.twig', compact('readme'));
     }
 
     /**

@@ -2,23 +2,13 @@
 
 {% block body %}
     <section>
-        <div class="sub-heading">
-            <h2>Hello!</h2>
-        </div>
+        <p>This page displays the README.md file of the GitHub repository.</p>
 
-        <grid>
-            <div col="1/4">
-                <h3>Page with dynamic content</h3>
-            </div>
-            <div col="3/4">
-                {% if name is empty %}
-                    <p>Type you name in the URL, ex <a href="/?name=COil">/?name=COil</a></p>
-                {% else %}
-                    <p>Hello {{ name }}!</p>
-                {% endif %}
-            </div>
-        </grid>
+        <hr/>
+
+        {% apply markdown_to_html %}
+            {{ readme|raw }}
+        {% endapply %}
     </section>
 {% endblock %}
-
 
