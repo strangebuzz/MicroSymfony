@@ -18,55 +18,53 @@
         {% block javascripts %}{% endblock %}
     </head>
 
-    <body id="{% block id %}home{% endblock %}">
+    <body id="{% block id %}base{% endblock %}">
+        <nav>
+            <label>
+                <input type="checkbox">
+                <header>
+                    <a href="{{ path('app_home') }}">
+                        {# <img alt="{{ brand }}" src="img/your-logo.svg">{{ brand_html|raw }}#}
+                        {{ brand_html|raw }}
+                    </a>
+                </header>
 
-    <nav>
-        <label>
-            <input type="checkbox">
-            <header>
-                <a href="{{ path('app_home') }}">
-                    {# <img alt="{{ brand }}" src="img/your-logo.svg">{{ brand_html|raw }}#}
-                    {{ brand_html|raw }}
-                </a>
-            </header>
+                <ul>
+                    <li><a href="{{ path('app_home') }}">Home</a></li>
+                    <li><a href="{{ path('app_composer') }}">Composer</a></li>
+                    <li>
+                        <a>Menu</a>
+                        <menu>
+                            <menuitem><a href="{{ path('app_home') }}">Home (some dynamic content)</a></menuitem>
+                            <menuitem><a href="{{ path('app_stimulus') }}">JavaScript with stimulus</a></menuitem>
+                            <menuitem><a href="{{ path('app_composer') }}">The <code>composer.json</code> file</a></menuitem>
+                            <menuitem><a href="{{ path('app_form') }}">Form example</a></menuitem>
+                            <menuitem><a href="/404">Custom error page</a></menuitem>
+                            <menuitem><a target="_blank" href="http://barecss.com/">BarreCSS documentation</a></menuitem>
+                        </menu>
+                    </li>
+                </ul>
+            </label>
+        </nav>
 
-            <ul>
-                <li><a href="{{ path('app_home') }}">Home</a></li>
-                <li><a href="{{ path('app_composer') }}">Composer</a></li>
-                <li>
-                    <a>Menu</a>
-                    <menu>
-                        <menuitem><a href="{{ path('app_home') }}">Home (some dynamic content)</a></menuitem>
-                        <menuitem><a href="{{ path('app_stimulus') }}">JavaScript with stimulus</a></menuitem>
-                        <menuitem><a href="{{ path('app_composer') }}">The <code>composer.json</code> file</a></menuitem>
-                        <menuitem><a href="{{ path('app_form') }}">Form example</a></menuitem>
-                        <menuitem><a href="/404">Custom error page</a></menuitem>
-                        <menuitem><a target="_blank" href="http://barecss.com/">BarreCSS documentation</a></menuitem>
-                    </menu>
-                </li>
-            </ul>
-        </label>
-    </nav>
+        <section>
+            {% block body %}{% endblock %}
+        </section>
 
-    <section>
-        {% block body %}{% endblock %}
-    </section>
+        <footer>
+            <h5>{{ brand|raw }}</h5>
 
-    <footer>
-        <h5>{{ brand|raw }}</h5>
+            <grid>
+                <div fx="" col="3/4">
+                    <a att="" href="https://strangebuzz.com" target="_blank">A Symfony minimalist application template by COil/Strangebuzz 🐝</a>
+                    <br/>
+                    Symfony ™ is a trademark of <a target="_blank" att="" href="https://symfony.com/license">Symfony SAS</a>.
+                </div>
 
-        <grid>
-            <div fx="" col="3/4">
-                <a att="" href="https://strangebuzz.com" target="_blank">A Symfony minimalist application template by COil/Strangebuzz 🐝</a>
-                <br/>
-                Symfony ™ is a trademark of <a target="_blank" att="" href="https://symfony.com/license">Symfony SAS</a>.
-            </div>
-
-            <div fx="" col="1/4" txt="r">
-                <a att="" href="https://github.com/strangebuzz/symfony-micro" target="_blank"><img alt="GitHub" class="github-icon" src="/barecss/icons/github.svg"></a>
-            </div>
-        </grid>
-    </footer>
-
+                <div fx="" col="1/4" txt="r">
+                    <a att="" href="https://github.com/strangebuzz/symfony-micro" target="_blank"><img alt="GitHub" class="github-icon" src="/barecss/icons/github.svg"></a>
+                </div>
+            </grid>
+        </footer>
     </body>
 </html>
