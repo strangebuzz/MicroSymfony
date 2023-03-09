@@ -56,61 +56,59 @@
 {% endblock %}
 
 {% block body %}
-    <section>
-        <div class="sub-heading">
-            <h2>Some cool and simple JavaScript with Stimulus</h2>
+    <div class="sub-heading">
+        <h2>Some cool and simple JavaScript with Stimulus</h2>
+    </div>
+
+    <p>...without the JS tooling stuff and complexity.</p>
+
+    <grid>
+        <div col="1/4">
+            <h3>Demo: form+dialog</h3>
         </div>
-
-        <p>...without the JS tooling stuff and complexity.</p>
-
-        <grid>
-            <div col="1/4">
-                <h3>Demo: form+dialog</h3>
-            </div>
-            <div col="3/4">
-                <div data-controller="hello">
-                    <form data-hello-target="form">
-                        <label for="name">Enter your name below and click on the <tag>Great</tag> button
-                            <input name="name" required data-hello-target="name" type="text" />
-                        </label>
-
-                        <input type="submit" primary data-action="click->hello#greet:prevent" value="Great" />
-                    </form>
-
-                    <dialog data-hello-target="dialog">
-                        <card>
-                            <h2 data-hello-target="greating"></h2>
-                            <form method="dialog">
-                                <menu>
-                                    <button data-action="click->hello#reset">Close</button>
-                                </menu>
-                            </form>
-                        </card>
-                    </dialog>
-                </div>
-            </div>
-        </grid>
-
-        <hr/>
-
-        <grid>
-            <div col="1/4">
-                <h3>Demo: ajax call to API endpoint</h3>
-            </div>
-            <div col="3/4">
-                <div data-controller="api">
-                    <input type="hidden" data-api-target="url" value="{{ path('app_slugifyacfion') }}">
-                    <label for="title">Enter a blog post title below
-                        <input name="title" required data-api-target="title" data-action="api#slugify" type="text" />
+        <div col="3/4">
+            <div data-controller="hello">
+                <form data-hello-target="form">
+                    <label for="name">Enter your name below and click on the <tag>Great</tag> button
+                        <input name="name" required data-hello-target="name" type="text" />
                     </label>
-                    <label for="slug">
-                        Slug (readonly):
-                        <input name="slug" data-api-target="slug" type="text" readonly />
-                    </label>
-                </div>
+
+                    <input type="submit" primary data-action="click->hello#greet:prevent" value="Great" />
+                </form>
+
+                <dialog data-hello-target="dialog">
+                    <card>
+                        <h2 data-hello-target="greating"></h2>
+                        <form method="dialog">
+                            <menu>
+                                <button data-action="click->hello#reset">Close</button>
+                            </menu>
+                        </form>
+                    </card>
+                </dialog>
             </div>
-        </grid>
-    </section>
+        </div>
+    </grid>
+
+    <hr/>
+
+    <grid>
+        <div col="1/4">
+            <h3>Demo: ajax call to API endpoint</h3>
+        </div>
+        <div col="3/4">
+            <div data-controller="api">
+                <input type="hidden" data-api-target="url" value="{{ path('app_slugifyacfion') }}">
+                <label for="title">Enter a blog post title below
+                    <input name="title" required data-api-target="title" data-action="api#slugify" type="text" />
+                </label>
+                <label for="slug">
+                    Slug (readonly):
+                    <input name="slug" data-api-target="slug" type="text" readonly />
+                </label>
+            </div>
+        </div>
+    </grid>
 {% endblock %}
 
 
