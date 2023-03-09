@@ -10,22 +10,40 @@ final class AppControllerTest extends WebTestCase
 {
     /**
      * @see AppController::home()
+     * @see AppController::composer()
+     *
+     * @return iterable<array{0: string}>
      */
-    public function testRoot(): void
+    public function provideTestSimplePage(): iterable
     {
-        $client = self::createClient();
-        $client->request('GET', '/');
-        self::assertResponseIsSuccessful();
-        self::assertRouteSame('app_home');
+        yield ['/'];
+        yield ['/composer'];
     }
 
     /**
-     * @see AppController::composer()
+     * @dataProvider provideTestSimplePage
      */
-    public function testComposer(): void
+    public function testSimplePage(string $page): void
     {
         $client = self::createClient();
-        $client->request('GET', '/composer');
+        $client->request('GET', $page);
+        self::assertResponseIsSuccessful("Page $page is not successfull.");
+    }
+
+    /**
+     * @see AppController::form()
+     */
+    public function testForm(): void
+    {
+        $client = self::createClient();
+        $crawler = $client->request('GET', '/form');
+        self::assertResponseIsSuccessful();
+
+        $form = $crawler->selectButton('form_save')->form();
+        $client->submit($form, [
+            $form->getName().'[name]' => 'COil',
+            $form->getName().'[fruit]' => 'apple',
+        ]);
         self::assertResponseIsSuccessful();
     }
 }

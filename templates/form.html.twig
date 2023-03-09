@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="sub-heading">
+        <h2>Form example</h2>
+    </div>
+
+    {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+    {% if form.vars.submitted and form.vars.valid %}
+        <table>
+            <thead>
+                <th>Name</th>
+                <th>Fruit</th>
+            </thead>
+            <tr>
+                <td>{{ data.name }}</td>
+                <td>{{ data.fruit }}</td>
+            </tr>
+        </table>
+    {% endif %}
+
+{% endblock %}

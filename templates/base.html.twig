@@ -38,7 +38,8 @@
                     <menu>
                         <menuitem><a href="{{ path('app_home') }}">Home (some dynamic content)</a></menuitem>
                         <menuitem><a href="{{ path('app_stimulus') }}">JavaScript with stimulus</a></menuitem>
-                        <menuitem><a href="{{ path('app_composer') }}">The composer.json file</a></menuitem>
+                        <menuitem><a href="{{ path('app_composer') }}">The <code>composer.json</code> file</a></menuitem>
+                        <menuitem><a href="{{ path('app_form') }}">Form example</a></menuitem>
                         <menuitem><a href="/404">Custom error page</a></menuitem>
                         <menuitem><a target="_blank" href="http://barecss.com/">BarreCSS documentation</a></menuitem>
                     </menu>
@@ -47,7 +48,9 @@
         </label>
     </nav>
 
-    {% block body %}{% endblock %}
+    <section>
+        {% block body %}{% endblock %}
+    </section>
 
     <footer>
         <h5>{{ brand|raw }}</h5>
