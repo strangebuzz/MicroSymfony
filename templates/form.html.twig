@@ -5,9 +5,24 @@
         <h2>Form example</h2>
     </div>
 
+    <p>
+        This is a basic form example using a DTO, there are some constraints.
+        <a att="" href="https://www.strangebuzz.com/en/blog/disable-the-html5-validation-of-all-your-symfony-forms-with-a-feature-flag">
+            The browser validation is deactivated</a>, so you can easily test the
+        server side validation.
+    </p>
+
+    <hr/>
+
+    <h2>Create a new account</h2>
+
+    <p>* = Required fields</p>
+
     {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
 
     {% if form.vars.submitted and form.vars.valid %}
+        <hr/>
+
         <table>
             <thead>
                 <th>Name</th>
