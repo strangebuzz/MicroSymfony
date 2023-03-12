@@ -21,35 +21,42 @@
 
         greet() {
           if (!this.formTarget.reportValidity()) {
-            return;
+            return
           }
 
           this.greatingTarget.innerHTML = `Hello, ${this.nameTarget.value}!`
-          this.dialogTarget.showModal();
+          this.dialogTarget.showModal()
         }
 
         reset() {
-          this.nameTarget.value = '';
-          this.greatingTarget.innerHTML = '';
+          this.nameTarget.value = ''
+          this.greatingTarget.innerHTML = ''
         }
       })
 
       Stimulus.register("api", class extends Controller {
-        static targets = ["url", "title", "slug"]
+        static targets = ["title", "slug"]
+        static values = {
+          "url": String
+        }
+
+        connect() {
+          console.log("Dataset: ", this.element.dataset) // list all data properties of the controller
+        }
 
         slugify() {
-          let apiUrl = this.urlTarget.value + '?title='+this.titleTarget.value
+          let apiUrl = this.urlValue + '?title='+this.titleTarget.value
           const slugTarget = this.slugTarget
           fetch(apiUrl)
             .then(function(response) {
-              return response.json();
+              return response.json()
             })
             .then(function(data) {
-              slugTarget.value = data.slug;
+              slugTarget.value = data.slug
             })
             .catch(function(error) {
               console.log('An error occured. 😞', error);
-            });
+            })
         }
       })
     </script>
@@ -97,8 +104,9 @@
             <h3>Demo: ajax call to API endpoint</h3>
         </div>
         <div col="3/4">
-            <div data-controller="api">
-                <input type="hidden" data-api-target="url" value="{{ path('app_slugifyacfion') }}">
+            <div data-controller="api"
+                 data-api-url-value="{{ path('app_slugifyacfion') }}"
+            >
                 <label for="title">Enter a blog post title below
                     <input name="title" required data-api-target="title" data-action="api#slugify" type="text" />
                 </label>
