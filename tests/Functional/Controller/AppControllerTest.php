@@ -27,7 +27,7 @@ final class AppControllerTest extends WebTestCase
     {
         $client = self::createClient();
         $client->request('GET', $page);
-            self::assertResponseIsSuccessful("Page $page is not successfull.");
+        self::assertResponseIsSuccessful("Page $page is not successfull.");
     }
 
     /**
