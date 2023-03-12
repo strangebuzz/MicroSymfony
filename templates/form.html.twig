@@ -2,7 +2,7 @@
 
 {% block body %}
     <div class="sub-heading">
-        <h2>Form example</h2>
+        <h2>Form example 📋</h2>
     </div>
 
     <p>
@@ -15,7 +15,7 @@
     <hr/>
 
     {% if form.vars.submitted and form.vars.valid %}
-        <h3>Submitted and valid values</h3>
+        <h3>Submitted and valid values ✨</h3>
 
         <table>
             <tr>
@@ -47,7 +47,7 @@
         <a href="{{ path('app_form') }}" btn primary>Retry</a>
 
     {% else %}
-        <h2>Create a new account</h2>
+        <h2>Create a new account 🔏</h2>
 
         <p>* = Required fields</p>
         {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}

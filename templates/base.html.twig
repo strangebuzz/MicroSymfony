@@ -13,6 +13,15 @@
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('barecss/css/bare.min.css') }}">
             <link rel="stylesheet" href="{{ asset('barecss/css/style.min.css') }}">
+            {# tuning: integrate this barreccs #}
+            <style>
+                label.required:after {
+                    content: " *";
+                }
+                form > div > div > ul > li {
+                    color: red;
+                }
+            </style>
         {% endblock %}
 
         {% block javascripts %}{% endblock %}
@@ -35,7 +44,7 @@
                     <li>
                         <a>Menu</a>
                         <menu>
-                            <menuitem><a href="{{ path('app_home') }}">Home (some dynamic content)</a></menuitem>
+                            <menuitem><a href="{{ path('app_home') }}">Home (README.md)</a></menuitem>
                             <menuitem><a href="{{ path('app_stimulus') }}">JavaScript with stimulus</a></menuitem>
                             <menuitem><a href="{{ path('app_composer') }}">The <code>composer.json</code> file</a></menuitem>
                             <menuitem><a href="{{ path('app_form') }}">Form example</a></menuitem>

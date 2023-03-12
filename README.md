@@ -5,12 +5,11 @@ MicroSymfony is a template to initialize an application to use Symfony as a micr
 It can be used to create a POC or prototyping something without having to take care
 of the design, while having something still enjoyable (and fit to be seen).
 
-It's not really intented to be used in production.
-Well at least you should remove the classless framework to use a real CSS framework.
+Even it is minimalist, we don't want to sacrifice quality.
+There are some tests (100% coverage) and CS checks: php-cs-fixer + PHPStan. 
 
-## Todo
-
-* Tester avec le creape app de composer
+It's not really intented to be used in production, use a your onw risks.
+Well at least you should remove the classless framework to use a modern CSS framework.
 
 
 ## Demo 🌈
