@@ -62,4 +62,6 @@ jobs:
     - name: php-cs-fixer
       run: vendor/bin/php-cs-fixer fix --allow-risky=yes --dry-run --format=checkstyle | ./vendor/bin/cs2pr
     - name: PHPStan
-      run: vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vvv
+      run: | 
+        bin/console about --env=dev
+        vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vvv
