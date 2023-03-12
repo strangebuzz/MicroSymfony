@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Dto\RegisterFormDto;
+use App\Form\Type\RegisterForm;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\AsController;
@@ -45,28 +44,13 @@ final class AppController extends AbstractController
     #[Route(path: '/form', name: 'form')]
     public function form(Request $request): Response
     {
-        $form = $this->createFormBuilder()
-            ->add('name', TextType::class, [
-                'required' => true,
-            ])
-            ->add('fruit', ChoiceType::class, [
-                'placeholder' => 'Choose a fruit',
-                'choices' => [
-                    'apple' => 'apple',
-                    'orange' => 'orange',
-                    'banana' => 'banana',
-                ],
-                'required' => true,
-            ])
-            ->add('save', SubmitType::class)
-            ->getForm()
-            ->handleRequest($request);
-
-        $data = [];
+        $dto = new RegisterFormDto();
+        $form = $this->createForm(RegisterForm::class, $dto)->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
+            // just for the example, the DTO has already been updated
+            $dto = $form->getData();
         }
 
-        return $this->render('form.html.twig', compact('form', 'data'));
+        return $this->render('form.html.twig', compact('form', 'dto'));
     }
 }

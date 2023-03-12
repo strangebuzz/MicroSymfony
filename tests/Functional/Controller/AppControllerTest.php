@@ -33,15 +33,19 @@ final class AppControllerTest extends WebTestCase
     /**
      * @see AppController::form()
      */
-    public function testForm(): void
+    public function testFormSuccess(): void
     {
         $client = self::createClient();
         $crawler = $client->request('GET', '/form');
         self::assertResponseIsSuccessful();
 
-        $form = $crawler->selectButton('form_save')->form();
+        $form = $crawler->selectButton('register_form_save')->form();
         $client->submit($form, [
             $form->getName().'[name]' => 'COil',
+            $form->getName().'[email]' => 'user@example.com',
+            $form->getName().'[country]' => 'FR',
+            $form->getName().'[currency]' => 'EUR',
+            $form->getName().'[birthday]' => '2003-03-12',
             $form->getName().'[fruit]' => 'apple',
         ]);
         self::assertResponseIsSuccessful();

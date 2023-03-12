@@ -14,25 +14,43 @@
 
     <hr/>
 
-    <h2>Create a new account</h2>
-
-    <p>* = Required fields</p>
-
-    {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
-
     {% if form.vars.submitted and form.vars.valid %}
-        <hr/>
+        <h3>Submitted and valid values</h3>
 
         <table>
-            <thead>
-                <th>Name</th>
-                <th>Fruit</th>
-            </thead>
             <tr>
-                <td>{{ data.name }}</td>
-                <td>{{ data.fruit }}</td>
+                <th>Name</th>
+                <td>{{ dto.name }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ dto.email }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ dto.country }}</td>
+            </tr>
+            <tr>
+                <th>Currency</th>
+                <td>{{ dto.currency }}</td>
+            </tr>
+            <tr>
+                <th>Birthay</th>
+                <td>{{ dto.birthday|date('Y-m-d') }}</td>
+            </tr>
+            <tr>
+                <th>Fruit</th>
+                <td>{{ dto.fruit }}</td>
             </tr>
         </table>
+
+        <a href="{{ path('app_form') }}" btn primary>Retry</a>
+
+    {% else %}
+        <h2>Create a new account</h2>
+
+        <p>* = Required fields</p>
+        {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
     {% endif %}
 
 {% endblock %}
