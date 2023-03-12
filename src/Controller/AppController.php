@@ -12,6 +12,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @see AppControllerTest
+ */
 #[AsController]
 #[Route(name: 'app_')]
 final class AppController extends AbstractController

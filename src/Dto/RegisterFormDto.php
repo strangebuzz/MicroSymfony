@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Dto;
 
+use App\Enum\Fruit;
 use App\Form\Type\RegisterForm;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -31,6 +32,5 @@ final class RegisterFormDto
     public ?\DateTimeImmutable $birthday;
 
     #[Assert\NotNull]
-    #[Assert\Choice(choices: RegisterForm::FRUITS)]
-    public string $fruit;
+    public Fruit $fruit;
 }

@@ -46,7 +46,7 @@ final class AppControllerTest extends WebTestCase
             $form->getName().'[country]' => 'FR',
             $form->getName().'[currency]' => 'EUR',
             $form->getName().'[birthday]' => '2003-03-12',
-            $form->getName().'[fruit]' => 'apple',
+            $form->getName().'[fruit]' => 1,
         ]);
         self::assertResponseIsSuccessful();
     }
