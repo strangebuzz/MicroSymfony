@@ -7,10 +7,12 @@
 {% endblock %}
 
 {% block javascripts %}
+    {{ parent() }}
     <script type="module">
       // @see https://stimulus.hotwired.dev/handbook/installing#using-other-build-systems
       import { Application, Controller } from "{{ cdn_url }}/@hotwired/stimulus/dist/stimulus.js" // reference version: Stimulus 3.2.1
       window.Stimulus = Application.start()
+      Stimulus.debug = {{ app.environment == 'dev' ? 'true' : 'fale' }}
 
       Stimulus.register("hello", class extends Controller {
         static targets = [ "name", "greating", "dialog", "form"]
