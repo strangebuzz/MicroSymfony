@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8280a8b73bd59afb28e3d4661f9f6e89",
+    "content-hash": "de2eebcaea272a789c8d183503e3eda8",
     "packages": [
         {
             "name": "dflydev/dot-access-data",
@@ -6589,6 +6589,53 @@
                 }
             ],
             "time": "2020-09-28T06:39:44+00:00"
+        },
+        {
+            "name": "staabm/annotate-pull-request-from-checkstyle",
+            "version": "1.8.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/staabm/annotate-pull-request-from-checkstyle.git",
+                "reference": "4d2b7cd5cd5fb8f172e16ba81d4e80a97aec383d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/staabm/annotate-pull-request-from-checkstyle/zipball/4d2b7cd5cd5fb8f172e16ba81d4e80a97aec383d",
+                "reference": "4d2b7cd5cd5fb8f172e16ba81d4e80a97aec383d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-libxml": "*",
+                "ext-simplexml": "*",
+                "php": "^5.3 || ^7.0 || ^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.16.1"
+            },
+            "bin": [
+                "cs2pr"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Markus Staab"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/staabm/annotate-pull-request-from-checkstyle/issues",
+                "source": "https://github.com/staabm/annotate-pull-request-from-checkstyle/tree/1.8.3"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/staabm",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-06-25T09:02:33+00:00"
         },
         {
             "name": "symfony/browser-kit",

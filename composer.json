@@ -30,6 +30,7 @@
         "phpstan/extension-installer": "^1.2",
         "phpstan/phpstan-symfony": "^1.2",
         "phpunit/phpunit": "^9.0",
+        "staabm/annotate-pull-request-from-checkstyle": "^1.8",
         "symfony/browser-kit": "6.2.*",
         "symfony/css-selector": "6.2.*",
         "symfony/phpunit-bridge": "^6.2"
