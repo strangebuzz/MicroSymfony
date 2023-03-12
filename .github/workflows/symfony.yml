@@ -51,12 +51,12 @@ jobs:
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
     # native Symfony lints
-    - name: Container
+    - name: Lint the DI container
       run: bin/console lint:container
-    - name: Twig
+    - name: Lint Twig templates
       run: bin/console lint:twig
-    - name: Yaml
-      run: bin/console lint:yaml
+    - name: Lint Yaml files
+      run: bin/console lint:yaml config/
 
     # vendors
     - name: php-cs-fixer
