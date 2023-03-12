@@ -8,6 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 final class AppControllerTest extends WebTestCase
 {
+    private const FORM_SUBMIT_BUTTON_ID = 'register_form_save';
+
     /**
      * @see AppController::home()
      * @see AppController::composer()
@@ -33,13 +35,27 @@ final class AppControllerTest extends WebTestCase
     /**
      * @see AppController::form()
      */
+    public function testFormValidationErrors(): void
+    {
+        $client = self::createClient();
+        $crawler = $client->request('GET', '/form');
+        self::assertResponseIsSuccessful();
+
+        $form = $crawler->selectButton(self::FORM_SUBMIT_BUTTON_ID)->form();
+        $client->submit($form);
+        self::assertResponseIsUnprocessable();
+    }
+
+    /**
+     * @see AppController::form()
+     */
     public function testFormSuccess(): void
     {
         $client = self::createClient();
         $crawler = $client->request('GET', '/form');
         self::assertResponseIsSuccessful();
 
-        $form = $crawler->selectButton('register_form_save')->form();
+        $form = $crawler->selectButton(self::FORM_SUBMIT_BUTTON_ID)->form();
         $client->submit($form, [
             $form->getName().'[name]' => 'COil',
             $form->getName().'[email]' => 'user@example.com',
