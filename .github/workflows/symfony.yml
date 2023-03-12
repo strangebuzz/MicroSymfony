@@ -17,6 +17,7 @@ jobs:
     - uses: shivammathur/setup-php@v2
       with:
         php-version: '8.1'
+        coverage: xdebug
     - uses: actions/checkout@v3
     - name: Cache Composer packages
       id: composer-cache
@@ -38,6 +39,7 @@ jobs:
     - uses: shivammathur/setup-php@v2
       with:
         php-version: '8.1'
+        tools: cs2pr
     - uses: actions/checkout@v3
     - name: Cache Composer packages
       id: composer-cache
@@ -60,7 +62,7 @@ jobs:
 
     # vendors
     - name: php-cs-fixer
-      run: vendor/bin/php-cs-fixer fix --allow-risky=yes --dry-run --format=checkstyle | ./vendor/bin/cs2pr
+      run: vendor/bin/php-cs-fixer fix --allow-risky=yes --dry-run --format=checkstyle | cs2pr
     - name: PHPStan
       run: | 
         bin/console about --env=dev
