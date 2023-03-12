@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\CurrencyType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -28,9 +29,7 @@ final class RegisterForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, [
-                'required' => true,
-            ])
+            ->add('name', TextType::class)
             ->add('email', EmailType::class)
             ->add('country', CountryType::class)
             ->add('currency', CurrencyType::class)
@@ -43,7 +42,8 @@ final class RegisterForm extends AbstractType
                 'choices' => self::FRUITS,
                 'required' => true,
             ])
-            ->add('save', SubmitType::class)
+            ->add('save', SubmitType::class, ['attr' => ['primary' => '']])
+            ->add('reset', ResetType::class)
         ;
     }
 }
