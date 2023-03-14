@@ -1,60 +1,70 @@
 {% extends 'base.html.twig' %}
 
+{% set h2 = 'Form example' %}
+
+{% block title %}{{ h2 }} | {{ brand }}{% endblock %}
+
 {% block body %}
     <div class="sub-heading">
-        <h2>Form example 📋</h2>
+        <h2>{{ h2 }} 📋</h2>
     </div>
 
-    <p>
-        This is a basic form example using a DTO, there are some constraints.
-        <a att="" href="https://www.strangebuzz.com/en/blog/disable-the-html5-validation-of-all-your-symfony-forms-with-a-feature-flag">
-            The browser validation is deactivated</a>, so you can easily test the
-        server side validation.
-    </p>
-
-    <hr/>
+    <card>
+        <p>
+            This is a basic form example using a DTO, there are some constraints.
+            <a att="" href="https://www.strangebuzz.com/en/blog/disable-the-html5-validation-of-all-your-symfony-forms-with-a-feature-flag">
+                The browser validation is deactivated</a>, so you can easily test the
+            server side validation.
+        </p>
+    </card>
 
     {% if form.vars.submitted and form.vars.valid %}
-        <h3>Submitted and valid values ✨</h3>
+        <card>
+            <h3>Submitted and valid values ✨</h3>
 
-        <table>
-            <tr>
-                <th>Name</th>
-                <td>{{ dto.name }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ dto.email }}</td>
-            </tr>
-            <tr>
-                <th>Country</th>
-                <td>{{ dto.country }}</td>
-            </tr>
-            <tr>
-                <th>Currency</th>
-                <td>{{ dto.currency }}</td>
-            </tr>
-            <tr>
-                <th>Birthay</th>
-                <td>{{ dto.birthday|date('Y-m-d') }}</td>
-            </tr>
-            <tr>
-                <th>Fruit</th>
-                <td>{{ dto.fruit.name }}</td>
-            </tr>
-        </table>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <td>{{ dto.name }}</td>
+                </tr>
 
-        <a href="{{ path('app_form') }}" btn primary>Retry</a>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ dto.email }}</td>
+                </tr>
 
+                <tr>
+                    <th>Country</th>
+                    <td>{{ dto.country }}</td>
+                </tr>
+
+                <tr>
+                    <th>Currency</th>
+                    <td>{{ dto.currency }}</td>
+                </tr>
+
+                <tr>
+                    <th>Birthay</th>
+                    <td>{{ dto.birthday|date('Y-m-d') }}</td>
+                </tr>
+
+                <tr>
+                    <th>Fruit</th>
+                    <td>{{ dto.fruit.name }}</td>
+                </tr>
+            </table>
+
+            <a href="{{ path('app_form') }}" btn primary>Retry</a>
+        </card>
     {% else %}
         <h2>Create a new account 🔏</h2>
 
         <p>* = required fields</p>
 
         <fieldset>
-            <legend>&nbsp;Enter you informations 🖋&nbsp;</legend>
+            <legend>&nbsp;Enter your information 🖋&nbsp;</legend>
+
             {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
         </fieldset>
     {% endif %}
-
 {% endblock %}
