@@ -50,7 +50,11 @@
         <h2>Create a new account 🔏</h2>
 
         <p>* = required fields</p>
-        {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+        <fieldset>
+            <legend>&nbsp;Enter you informations 🖋&nbsp;</legend>
+            {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        </fieldset>
     {% endif %}
 
 {% endblock %}
