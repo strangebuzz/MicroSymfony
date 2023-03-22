@@ -20,6 +20,11 @@ Because a live demo is always better than all explanations. Here is it:
 * Another barreccs demo can be found [here](https://dohliam.github.io/dropin-minimal-css/?bare#text)
 
 
+## Todo 
+
+* try dropin minimal: https://github.com/dohliam/dropin-minimal-css
+
+
 ## Requirements ⚙
 
 * [PHP 8.1](https://www.php.net/releases/8.1/en.php)
@@ -32,7 +37,11 @@ Because a live demo is always better than all explanations. Here is it:
 * [Symfony 6.2](https://symfony.com)
 * [Twig 3](https://twig.symfony.com)
 * [PHPUnit 9.5](https://phpunit.de)
-* The classless [BarreCSS](http://barecss.com) CSS framework 
+* The classless [BareCSS](http://barecss.com) CSS framework 
+
+## Barecss forks
+
+* https://github.com/zonradkuse
 
 
 ## What does it ship? 🚀
