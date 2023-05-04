@@ -22,6 +22,7 @@ Because a live demo is always better than all explanations. Here is it:
 
 ## Todo 
 
+* Install the code coverage report plugin for PHPUnit
 * try dropin minimal: https://github.com/dohliam/dropin-minimal-css
 
 
@@ -34,7 +35,7 @@ Because a live demo is always better than all explanations. Here is it:
 
 ## Stack 🔗
 
-* [Symfony 6.2](https://symfony.com)
+* [Symfony 6.3](https://symfony.com)
 * [Twig 3](https://twig.symfony.com)
 * [PHPUnit 9.5](https://phpunit.de)
 * The classless [BareCSS](http://barecss.com) CSS framework 
