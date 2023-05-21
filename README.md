@@ -23,6 +23,12 @@ Because a live demo is always better than all explanations. Here is it:
 ## Todo 
 
 * Install the code coverage report plugin for PHPUnit
+* Use import maps (doc not done yet):
+  * https://github.com/symfony/asset-mapper 
+
+
+## To try/test
+
 * try dropin minimal: https://github.com/dohliam/dropin-minimal-css
 
 
