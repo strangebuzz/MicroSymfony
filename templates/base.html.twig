@@ -11,17 +11,9 @@
         {% block preconnect %}{% endblock %}
 
         {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('barecss/css/bare.min.css') }}">
-            <link rel="stylesheet" href="{{ asset('barecss/css/style.min.css') }}">
-            {# tuning: integrate this barreccs #}
-            <style>
-                label.required:after {
-                    content: " *";
-                }
-                form > div > div > ul > li {
-                    color: red;
-                }
-            </style>
+            <link rel="stylesheet" href="{{ asset('vendor/barecss/css/bare.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('vendor/barecss/css/style.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         {% endblock %}
 
         {% block javascripts %}
@@ -51,7 +43,7 @@
                             <menuitem><a href="{{ path('app_composer') }}">The <code>composer.json</code> file</a></menuitem>
                             <menuitem><a href="{{ path('app_form') }}">Form example</a></menuitem>
                             <menuitem><a href="/404">Custom error page</a></menuitem>
-                            <menuitem><a target="_blank" href="http://barecss.com/">BarreCSS documentation</a></menuitem>
+                            <menuitem><a target="_blank" href="https://barecss.com/">BarreCSS documentation</a></menuitem>
                         </menu>
                     </li>
                 </ul>
@@ -73,7 +65,7 @@
                 </div>
 
                 <div fx="" col="1/4" txt="r">
-                    <a att="" href="https://github.com/strangebuzz/MicroSymfony" target="_blank"><img alt="GitHub" class="github-icon" src="/barecss/icons/github.svg"></a>
+                    <a att="" href="https://github.com/strangebuzz/MicroSymfony" target="_blank"><img alt="GitHub" class="github-icon" src="{{ asset('vendor/barecss/icons/github.svg') }}"></a>
                 </div>
             </grid>
         </footer>

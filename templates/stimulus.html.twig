@@ -2,7 +2,7 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script type="module" src="{{ asset('stimulus.js') }}" defer></script>
+    <script type="module" src="{{ asset('js/stimulus.js') }}" defer></script>
 {% endblock %}
 
 {% block body %}
@@ -11,6 +11,12 @@
     </div>
 
     <p>...without the JS tooling stuff and complexity.</p>
+
+    <p>We use the new  <a target="_blank" href="https://github.com/symfony/asset-mapper">
+            Symfony 6.3 asset mapper component</a>.</p>
+
+    <p>Check out the feature intruction on the <a target="_blank" href="https://symfony.com/blog/new-in-symfony-6-3-assetmapper-component">
+            Symfony blog</a>.</p>
 
     <card>
         <grid>

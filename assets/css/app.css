@@ -1,0 +1,6 @@
+label.required:after {
+    content: " *";
+}
+form > div > div > ul > li {
+    color: red;
+}
