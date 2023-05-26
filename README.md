@@ -92,3 +92,8 @@ or
 * php-cs-fixer with the [Symfony ruleset and PHP strict types](https://github.com/strangebuzz/MicroSymfony/blob/main/.php-cs-fixer.dist.php)
 * PHPStan at [maximum level](https://github.com/strangebuzz/MicroSymfony/blob/main/phpstan.neon)
 * A simple [Makefile](https://github.com/strangebuzz/MicroSymfony/blob/main/Makefile)
+
+
+## References
+
+* https://github.com/rails/importmap-rails#expected-errors-from-using-the-es-module-shim
