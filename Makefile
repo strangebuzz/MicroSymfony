@@ -34,13 +34,13 @@ fix-php: ## Fix PHP files with php-cs-fixer (ignore PHP 8.2 warning)
 	@PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix --allow-risky=yes
 
 lint-container:
-	bin/console lint:container
+	@bin/console lint:container
 
 lint-twig:
-	bin/console lint:twig --env=dev
+	@bin/console lint:twig --env=dev
 
 lint-yaml:
-	bin/console lint:yaml config/
+	@bin/console lint:yaml config/
 
 cs: ## Run all CS checks
 cs: fix-php stan
@@ -50,3 +50,11 @@ lint: lint-container lint-twig lint-yaml
 
 ci: ## Run CI locally
 ci: test cs lint
+
+
+## —— Deploy & Prod 🚀 —————————————————————————————————————————————————————————
+deploy: ## Manuel deploy on VPS
+	@git pull
+	@composer install
+	@bin/console c:c
+	@bin/console asset-map:compile
