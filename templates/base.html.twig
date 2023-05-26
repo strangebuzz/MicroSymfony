@@ -24,7 +24,9 @@
             </style>
         {% endblock %}
 
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            {{ importmap() }}
+        {% endblock %}
     </head>
 
     <body id="{% block id %}base{% endblock %}">

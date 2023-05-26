@@ -23,8 +23,6 @@ Because a live demo is always better than all explanations. Here is it:
 ## Todo 
 
 * Install the code coverage report plugin for PHPUnit
-* Use import maps (doc not done yet):
-  * https://github.com/symfony/asset-mapper 
 
 
 ## To try/test
@@ -45,6 +43,7 @@ Because a live demo is always better than all explanations. Here is it:
 * [Twig 3](https://twig.symfony.com)
 * [PHPUnit 9.5](https://phpunit.de)
 * The classless [BareCSS](http://barecss.com) CSS framework 
+
 
 ## Barecss forks
 
