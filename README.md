@@ -41,6 +41,7 @@ Because a live demo is always better than all explanations. Here is it:
 
 * [Symfony 6.3](https://symfony.com)
 * [Twig 3](https://twig.symfony.com)
+* [Stimulus 3.2](https://stimulus.hotwired.dev/)
 * [PHPUnit 9.5](https://phpunit.de)
 * The classless [BareCSS](http://barecss.com) CSS framework 
 
@@ -52,7 +53,7 @@ Because a live demo is always better than all explanations. Here is it:
 
 ## What does it ship? 🚀
 
-* A [demo with some JavaScript and Stimulus](https://github.com/strangebuzz/MicroSymfony/blob/main/templates/stimulus.html.twig) 
+* A [demo with some JavaScript and Stimulus using the new Sf 6.3 asset mapper component](https://github.com/strangebuzz/MicroSymfony/blob/main/templates/stimulus.html.twig) 
 * A [default error page extending the base layout](https://github.com/strangebuzz/symfony-micro/blob/main/templates/bundles/TwigBundle/Exception/error.html.twig)
 
 
@@ -69,7 +70,7 @@ Because a live demo is always better than all explanations. Here is it:
 
 Then open [https://127.0.0.1:8000](https://127.0.0.1:8000)
 
-The port can change if 8000 is already used.
+The port can change if `8000` is already used.
 
 
 ## Tests ✅
@@ -96,5 +97,6 @@ or
 
 ## References 📚
 
+* https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap
 * https://symfony.com/blog/new-in-symfony-6-3-assetmapper-component
 * https://github.com/rails/importmap-rails#expected-errors-from-using-the-es-module-shim
