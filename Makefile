@@ -26,15 +26,27 @@ cov-report: ## Open the PHPUnit code coverage report (var/coverage/index.html)
 	@open var/coverage/index.html
 
 
-## —— Coding standards ✨ ——————————————————————————————————————————————————————
+## —— Coding standards/lints ✨ ————————————————————————————————————————————————
 stan: ## Run PHPStan
 	@vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vvv --xdebug
 
 fix-php: ## Fix PHP files with php-cs-fixer (ignore PHP 8.2 warning)
 	@PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix --allow-risky=yes
 
+lint-container:
+	bin/console lint:container
+
+lint-twig:
+	bin/console lint:twig --env=dev
+
+lint-yaml:
+	bin/console lint:yaml config/
+
 cs: ## Run all CS checks
 cs: fix-php stan
 
+lint: ## Run all lints
+lint: lint-container lint-twig lint-yaml
+
 ci: ## Run CI locally
-ci: cs test
+ci: test cs lint
