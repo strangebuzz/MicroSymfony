@@ -20,12 +20,12 @@ Because a live demo is always better than all explanations. Here is it:
 * Another barreccs demo can be found [here](https://dohliam.github.io/dropin-minimal-css/?bare#text)
 
 
-## Todo 
+## Todo 🖋 
 
 * Install the code coverage report plugin for PHPUnit
 
 
-## To try/test
+## To try/test 💡
 
 * try dropin minimal: https://github.com/dohliam/dropin-minimal-css
 
@@ -45,7 +45,7 @@ Because a live demo is always better than all explanations. Here is it:
 * The classless [BareCSS](http://barecss.com) CSS framework 
 
 
-## Barecss forks
+## Barecss forks 🎨
 
 * https://github.com/zonradkuse
 
@@ -94,6 +94,7 @@ or
 * A simple [Makefile](https://github.com/strangebuzz/MicroSymfony/blob/main/Makefile)
 
 
-## References
+## References 📚
 
+* https://symfony.com/blog/new-in-symfony-6-3-assetmapper-component
 * https://github.com/rails/importmap-rails#expected-errors-from-using-the-es-module-shim
