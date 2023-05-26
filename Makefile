@@ -53,8 +53,9 @@ ci: test cs lint
 
 
 ## —— Deploy & Prod 🚀 —————————————————————————————————————————————————————————
-deploy: ## Manuel deploy on VPS
+deploy: ## Simple manual deploy on VPS
 	@git pull
 	@composer install
-	@bin/console c:c
+	@bin/console cache:clear
 	@bin/console asset-map:compile
+	@chown -R www-data: var/*
