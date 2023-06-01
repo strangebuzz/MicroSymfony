@@ -65,7 +65,7 @@ jobs:
     - name: Lint the DI container
       run: bin/console lint:container
     - name: Lint Twig templates
-      run: bin/console lint:twig --env=dev
+      run: bin/console lint:twig
     - name: Lint Yaml files
       run: bin/console lint:yaml config/
 

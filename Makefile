@@ -37,7 +37,7 @@ lint-container:
 	@bin/console lint:container
 
 lint-twig:
-	@bin/console lint:twig --env=dev
+	@bin/console lint:twig
 
 lint-yaml:
 	@bin/console lint:yaml config/
@@ -53,7 +53,7 @@ ci: test cs lint
 
 
 ## —— Deploy & Prod 🚀 —————————————————————————————————————————————————————————
-deploy: ## Simple manual deploy on VPS
+deploy: ## Simple manual deploy on VPS (this is to update the demo site https://microsymfony.ovh/)
 	@git pull
 	@composer install
 	@bin/console cache:clear
