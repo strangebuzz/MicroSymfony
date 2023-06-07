@@ -104,17 +104,3 @@ function lint_all(SymfonyStyle $io): void
     lint_twig($io);
     lint_yaml($io);
 }
-
-/*
-
-## —— Coding standards/lints ✨ ————————————————————————————————————————————————
-
-
-
-lint: ## Run all lints
-lint: lint-container lint-twig lint-yaml
-
-ci: ## Run CI locally
-ci: test cs lint
-
-*/
