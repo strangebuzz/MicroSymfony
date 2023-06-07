@@ -33,13 +33,13 @@ stan: ## Run PHPStan
 fix-php: ## Fix PHP files with php-cs-fixer (ignore PHP 8.2 warning)
 	@PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix --allow-risky=yes
 
-lint-container:
+lint-container: ## Lint the Symfony DI container
 	@bin/console lint:container
 
-lint-twig:
+lint-twig: ## Lint Twig files
 	@bin/console lint:twig
 
-lint-yaml:
+lint-yaml: ## Lint YAML files
 	@bin/console lint:yaml config/
 
 cs: ## Run all CS checks
