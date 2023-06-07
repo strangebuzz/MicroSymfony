@@ -23,3 +23,8 @@
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
+
+###> phpunit/phpunit ###
+.castor.stub.php
+###< phpunit/phpunit ###
+
