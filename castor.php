@@ -104,3 +104,12 @@ function lint_all(SymfonyStyle $io): void
     lint_twig($io);
     lint_yaml($io);
 }
+
+#[AsTask(name: 'all', namespace: 'ci', description: 'Run CI locally')]
+function ci(SymfonyStyle $io): void
+{
+    $io->title(__FUNCTION__);
+    test($io);
+    cs_all($io);
+    lint_all($io);
+}
