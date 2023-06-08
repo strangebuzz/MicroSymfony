@@ -13,13 +13,13 @@ use function Castor\run;
  */
 function showDescription(SymfonyStyle $io, Command $command = null): void
 {
-    if ($command === null) {
+    if ($command !== null) {
         $io->section($command->getDescription());
     }
 }
 
 #[AsTask(namespace: 'symfony', description: 'Serve the application with the Symfony binary')]
-function start(SymfonyStyle $io, Command $command): void
+function start(SymfonyStyle $io, Command $command = null): void
 {
     $io->title('Start');
     showDescription($io, $command);
@@ -28,7 +28,7 @@ function start(SymfonyStyle $io, Command $command): void
 }
 
 #[AsTask(namespace: 'symfony', description: 'Stop the web server')]
-function stop(SymfonyStyle $io, Command $command): void
+function stop(SymfonyStyle $io, Command $command = null): void
 {
     $io->title(__FUNCTION__);
     showDescription($io, $command);
@@ -47,7 +47,7 @@ function test(SymfonyStyle $io, Command $command = null): void
 }
 
 #[AsTask(namespace: 'test', description: 'Generate the HTML PHPUnit code coverage report (stored in var/coverage)')]
-function coverage(SymfonyStyle $io, Command $command): void
+function coverage(SymfonyStyle $io, Command $command = null): void
 {
     $io->title(__FUNCTION__);
     showDescription($io, $command);
@@ -57,7 +57,7 @@ function coverage(SymfonyStyle $io, Command $command): void
 }
 
 #[AsTask(namespace: 'test', description: 'Open the PHPUnit code coverage report (var/coverage/index.html)')]
-function cov_report(SymfonyStyle $io, Command $command): void
+function cov_report(SymfonyStyle $io, Command $command = null): void
 {
     $io->title(__FUNCTION__);
     showDescription($io, $command);
@@ -66,7 +66,7 @@ function cov_report(SymfonyStyle $io, Command $command): void
 }
 
 #[AsTask(namespace: 'cs', description: 'Run PHPStan')]
-function stan(SymfonyStyle $io, Command $command): void
+function stan(SymfonyStyle $io, Command $command = null): void
 {
     $io->title(__FUNCTION__);
     showDescription($io, $command);
@@ -75,7 +75,7 @@ function stan(SymfonyStyle $io, Command $command): void
 }
 
 #[AsTask(namespace: 'cs', description: 'Fix PHP files with php-cs-fixer (ignore PHP 8.2 warning)')]
-function fix_php(SymfonyStyle $io, Command $command): void
+function fix_php(SymfonyStyle $io, Command $command = null): void
 {
     $io->title(__FUNCTION__);
     showDescription($io, $command);
@@ -88,8 +88,8 @@ function cs_all(SymfonyStyle $io, Command $command = null): void
 {
     $io->title(__FUNCTION__);
     showDescription($io, $command);
-    fix_php($io, $command);
-    stan($io, $command);
+    fix_php($io, null);
+    stan($io, null);
 }
 #[AsTask(name: 'container', namespace: 'lint', description: 'Lint the Symfony DI container')]
 function lint_container(SymfonyStyle $io, Command $command = null): void
@@ -132,6 +132,7 @@ function lint_all(SymfonyStyle $io, Command $command = null): void
 function ci(SymfonyStyle $io, Command $command): void
 {
     $io->title(__FUNCTION__);
+    showDescription($io, $command);
     test($io);
     cs_all($io);
     lint_all($io);
