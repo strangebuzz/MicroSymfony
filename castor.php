@@ -13,7 +13,7 @@ use function Castor\run;
  */
 function showDescription(SymfonyStyle $io, Command $command = null): void
 {
-    if (null !== $command) {
+    if ($command === null) {
         $io->section($command->getDescription());
     }
 }
