@@ -111,6 +111,25 @@ code coverage is 95.35% is the below the wanted threshold of 100%.
 
 The default threshold is 100%, you can change it in the [GitHub actions file](.github/workflows/symfony.yml). 
 
+When the step runs, it fails if the current coverage is below the wanted threshold.
+As simple as this.
+
+To have the complete HTML report (xdebug must be activated), run:
+
+    make coverage
+
+Or
+
+    castor test:coverage
+
+The open the report in you browser:
+
+    make cov-report
+
+Or
+
+    castor test:cov-report
+
 
 ## Dev-tools ✨
  
