@@ -40,6 +40,7 @@ jobs:
     - name: PHPUnit tests
       uses: php-actions/phpunit@v3
       with:
+        version: 9.6.8
         php_extensions: "xdebug"
         coverage_clover: "var/coverage/clover.xml"
 
