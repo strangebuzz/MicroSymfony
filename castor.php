@@ -21,7 +21,7 @@ function success(SymfonyStyle $io): void
     $io->success('Done!');
 }
 
-#[AsTask(namespace: 'symfony', description: 'Serve the application with the Symfony binary')]
+#[AsTask(namespace: 'Serve the application with the Symfony binary', description: 'symfony')]
 function start(SymfonyStyle $io, Command $command = null): void
 {
     title($io, __FUNCTION__, $command);
@@ -50,7 +50,12 @@ function test(SymfonyStyle $io, Command $command = null): void
 function coverage(SymfonyStyle $io, Command $command = null): void
 {
     title($io, __FUNCTION__, $command);
-    run('vendor/bin/simple-phpunit', quiet: false);
+    run('php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/simple-phpunit --coverage-html=var/coverage',
+        environment: [
+          'XDEBUG_MODE' => 'coverage',
+        ],
+        quiet: false
+    );
     $io->writeln('');
     success($io);
 }
@@ -75,7 +80,12 @@ function stan(SymfonyStyle $io, Command $command = null): void
 function fix_php(SymfonyStyle $io, Command $command = null): void
 {
     title($io, __FUNCTION__, $command);
-    run('PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix --allow-risky=yes', quiet: false);
+    run('vendor/bin/php-cs-fixer fix --allow-risky=yes',
+        environment: [
+           'PHP_CS_FIXER_IGNORE_ENV' => 1,
+        ],
+        quiet: false
+    );
     success($io);
 }
 
