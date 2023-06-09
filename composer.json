@@ -1,10 +1,8 @@
 {
     "name": "strangebuzz/microsymfony",
     "description": "A template to initialize an application to use Symfony as a micro framework",
-    "type": "symfony-application-template",
     "license": "MIT",
-    "homepage": "https://microsymfony.ovh",
-    "minimum-stability": "beta",
+    "type": "symfony-application-template",
     "keywords": [
         "symfony",
         "php",
@@ -14,7 +12,7 @@
         "rad",
         "project-template"
     ],
-    "prefer-stable": true,
+    "homepage": "https://microsymfony.ovh",
     "require": {
         "php": ">=8.1",
         "ext-ctype": "*",
@@ -34,9 +32,9 @@
         "symfony/validator": "6.3.*",
         "symfony/web-link": "6.3.*",
         "symfony/yaml": "6.3.*",
-        "twig/extra-bundle": "^2.12|^3.0",
+        "twig/extra-bundle": "^2.12 || ^3.0",
         "twig/markdown-extra": "^3.5",
-        "twig/twig": "^2.12|^3.0"
+        "twig/twig": "^2.12 || ^3.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.14",
@@ -47,15 +45,20 @@
         "symfony/css-selector": "6.3.*",
         "symfony/phpunit-bridge": "^6.3"
     },
-    "config": {
-        "allow-plugins": {
-            "php-http/discovery": true,
-            "symfony/flex": true,
-            "symfony/runtime": true,
-            "phpstan/extension-installer": true
-        },
-        "sort-packages": true
+    "replace": {
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php72": "*",
+        "symfony/polyfill-php73": "*",
+        "symfony/polyfill-php74": "*",
+        "symfony/polyfill-php80": "*",
+        "symfony/polyfill-php81": "*"
     },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "minimum-stability": "beta",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "App\\": "src/"
@@ -66,20 +69,22 @@
             "App\\Tests\\": "tests/"
         }
     },
-    "replace": {
-        "symfony/polyfill-ctype": "*",
-        "symfony/polyfill-iconv": "*",
-        "symfony/polyfill-php72": "*",
-        "symfony/polyfill-php73": "*",
-        "symfony/polyfill-php74": "*",
-        "symfony/polyfill-php80": "*",
-        "symfony/polyfill-php81": "*"
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true,
+            "symfony/flex": true,
+            "symfony/runtime": true,
+            "phpstan/extension-installer": true
+        },
+        "sort-packages": true
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "6.3.*"
+        }
     },
     "scripts": {
-        "auto-scripts": {
-            "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
-        },
         "post-install-cmd": [
             "@auto-scripts"
         ],
@@ -88,18 +93,13 @@
         ],
         "app-test": [
             "vendor/bin/simple-phpunit"
-        ]
+        ],
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        }
     },
     "scripts-descriptions": {
         "app-test": "Run all PHPUnit tests"
-    },
-    "conflict": {
-        "symfony/symfony": "*"
-    },
-    "extra": {
-        "symfony": {
-            "allow-contrib": false,
-            "require": "6.3.*"
-        }
     }
 }
