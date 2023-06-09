@@ -111,6 +111,7 @@ Make your choice! ✅
 
 ## References 📚
 
+* https://github.com/marketplace/actions/phpunit-coverage-badge
 * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap
 * https://symfony.com/blog/new-in-symfony-6-3-assetmapper-component
 * https://github.com/rails/importmap-rails#expected-errors-from-using-the-es-module-shim

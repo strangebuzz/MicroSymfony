@@ -37,6 +37,11 @@ jobs:
     - name: Execute tests via PHPUnit
       run: vendor/bin/simple-phpunit
 
+    - name: PHPUnit tests
+      uses: php-actions/phpunit@v3
+      with:
+        php_extensions: "xdebug"
+        coverage_clover: "var/coverage/clover.xml"
 
   # run all lint/CS checks (non critical)
   symfony-lint:

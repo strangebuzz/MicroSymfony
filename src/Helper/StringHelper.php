@@ -22,4 +22,12 @@ final class StringHelper
     {
         return $this->slugger->slug(u($string)->lower()->toString())->toString();
     }
+
+    /**
+     * To test the code coverage plugin.
+     */
+    public function noCoveredByTests(?string $string): string
+    {
+        return $this->slugger->slug(u($string)->lower()->toString())->toString();
+    }
 }

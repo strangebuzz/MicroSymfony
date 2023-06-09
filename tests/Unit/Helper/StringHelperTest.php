@@ -22,6 +22,8 @@ final class StringHelperTest extends TestCase
 
     /**
      * @dataProvider provideSlugify
+     *
+     * @covers \App\Helper\StringHelper::slugify
      */
     public function testSlugify(string|null $input, string $expected): void
     {

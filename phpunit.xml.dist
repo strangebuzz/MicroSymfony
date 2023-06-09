@@ -31,6 +31,10 @@
         <include>
             <directory suffix=".php">src</directory>
         </include>
+
+        <report>
+            <clover outputFile="var/coverage/clover.xml" />
+        </report>
     </coverage>
 
     <listeners>
