@@ -24,10 +24,10 @@ final class StringHelper
     }
 
     /**
-     * To test the code coverage plugin.
-     */
+    // uncommet this to test the code coverage report.
     public function noCoveredByTests(?string $string): string
     {
         return $this->slugger->slug(u($string)->lower()->toString())->toString();
     }
+    */
 }

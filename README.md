@@ -21,8 +21,6 @@ Because a live demo is always better than all explanations. Here is it:
 
 ## Todo 🖋 
 
-* Install the code coverage report plugin for PHPUnit
-
 
 ## To try/test 💡
 
@@ -101,6 +99,19 @@ Using the [Castor](https://github.com/jolicode/castor):
 Make your choice! ✅ 
 
 
+## Code coverage ♻️
+
+The code coverage is at 100% and is analysed with a simple script 
+(thanks [Ocramius](https://ocramius.github.io/blog/automated-code-coverage-check-for-github-pull-requests-with-travis/)).
+
+For instance, in the following build, the code coverage analysis fails because the
+code coverage is 95.35% is the below the wanted threshold of 100%.
+
+    https://github.com/strangebuzz/MicroSymfony/actions/runs/5220428064/jobs/9423476258
+
+The default threshold is 100%, you can change it in the [GitHub actions file](.github/workflows/symfony.yml). 
+
+
 ## Dev-tools ✨
  
 * php-cs-fixer with the [Symfony ruleset and PHP strict types](https://github.com/strangebuzz/MicroSymfony/blob/main/.php-cs-fixer.dist.php)
@@ -111,7 +122,6 @@ Make your choice! ✅
 
 ## References 📚
 
-* https://github.com/marketplace/actions/phpunit-coverage-badge
 * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap
 * https://symfony.com/blog/new-in-symfony-6-3-assetmapper-component
 * https://github.com/rails/importmap-rails#expected-errors-from-using-the-es-module-shim
