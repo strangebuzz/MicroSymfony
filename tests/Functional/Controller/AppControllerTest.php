@@ -16,7 +16,7 @@ final class AppControllerTest extends WebTestCase
      *
      * @return iterable<array{0: string}>
      */
-    public function provideTestSimplePage(): iterable
+    public static function provideTestSimplePage(): iterable
     {
         yield ['/'];
         yield ['/composer'];

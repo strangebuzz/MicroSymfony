@@ -13,7 +13,7 @@ final class StringHelperTest extends TestCase
     /**
      * @return iterable<array{0: string|null, 1: string}>
      */
-    public function provideSlugify(): iterable
+    public static function provideSlugify(): iterable
     {
         yield ['', ''];
         yield [null, ''];
