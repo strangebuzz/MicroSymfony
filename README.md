@@ -17,7 +17,6 @@ Well at least you should remove the classless framework to use a modern CSS fram
 Because a live demo is always better than all explanations. Here is it:
 
 * Live demo at [https://microsymfony.ovh](https://microsymfony.ovh)
-* Another barreccs demo can be found [here](https://dohliam.github.io/dropin-minimal-css/?bare#text)
 
 
 ## Todo 🖋 
@@ -60,13 +59,21 @@ Because a live demo is always better than all explanations. Here is it:
 ## What it doesn't ship? ❌
 
 * The debug toolbar
-* Doctrine ORM
+* Doctrine
 
 
 ## Installation & first run 🚀
 
     composer install
+
+Start the web server:
+
     make start
+
+Or with [Castor](https://github.com/jolicode/castor):
+
+    castor symfony:start
+
 
 Then open [https://127.0.0.1:8000](https://127.0.0.1:8000)
 
@@ -79,19 +86,26 @@ Run tests with:
 
     vendor/bin/simple-phpunit
 
-or
+Using composer:
 
     composer app-test
 
-or
+Using the Makefile:
 
     make test
+
+Using the [Castor](https://github.com/jolicode/castor):
+
+    castor test:all
+
+Make your choice! ✅ 
 
 
 ## Dev-tools ✨
  
 * php-cs-fixer with the [Symfony ruleset and PHP strict types](https://github.com/strangebuzz/MicroSymfony/blob/main/.php-cs-fixer.dist.php)
 * PHPStan at [maximum level](https://github.com/strangebuzz/MicroSymfony/blob/main/phpstan.neon)
+* [Castor task runner](https://github.com/strangebuzz/MicroSymfony/blob/main/castor.php)
 * A simple [Makefile](https://github.com/strangebuzz/MicroSymfony/blob/main/Makefile)
 
 
@@ -100,3 +114,4 @@ or
 * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap
 * https://symfony.com/blog/new-in-symfony-6-3-assetmapper-component
 * https://github.com/rails/importmap-rails#expected-errors-from-using-the-es-module-shim
+* https://dohliam.github.io/dropin-minimal-css/?bare#text
