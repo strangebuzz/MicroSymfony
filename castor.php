@@ -41,7 +41,12 @@ function stop(SymfonyStyle $io, Command $command = null): void
 function test(SymfonyStyle $io, Command $command = null): void
 {
     title($io, __FUNCTION__, $command);
-    run('vendor/bin/simple-phpunit', quiet: false);
+    run('vendor/bin/simple-phpunit',
+        environment: [
+            'XDEBUG_MODE' => 'coverage',
+        ],
+        quiet: false
+    );
     $io->writeln('');
     success($io);
 }
