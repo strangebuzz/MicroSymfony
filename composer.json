@@ -17,6 +17,7 @@
         "php": ">=8.1",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-simplexml": "*",
         "league/commonmark": "^2.3",
         "symfony/asset": "6.3.*",
         "symfony/asset-mapper": "6.3.*",
@@ -34,7 +35,7 @@
         "symfony/yaml": "6.3.*",
         "twig/extra-bundle": "^2.12 || ^3.0",
         "twig/markdown-extra": "^3.5",
-        "twig/twig": "^2.12 || ^3.0"
+        "twig/twig": "^2.12 || ^3.0",
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.14",

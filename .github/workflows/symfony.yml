@@ -9,6 +9,9 @@ on:
 permissions:
   contents: read
 
+env:
+  XDEBUG_MODE: coverage
+
 jobs:
   # run tests (critical)
   symfony-tests:
@@ -37,12 +40,11 @@ jobs:
     - name: Execute tests via PHPUnit
       run: vendor/bin/simple-phpunit
 
-    - name: PHPUnit tests
-      uses: php-actions/phpunit@v3
-      with:
-        version: 9.6.8
-        php_extensions: "xdebug"
-        coverage_clover: "var/coverage/clover.xml"
+    # Code coverage
+    - name: Generate the code coverage report and show the current global coverage
+      run: |
+        php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/simple-phpunit --coverage-html=var/coverage
+        php coverage-checker.php var/coverage/clover.xml 100
 
   # run all lint/CS checks (non critical)
   symfony-lint:
