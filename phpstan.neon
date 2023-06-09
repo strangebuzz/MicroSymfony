@@ -2,6 +2,7 @@ parameters:
     level: max
     paths:
         #- castor.php
+        - bin
         - config
         - public
         - src

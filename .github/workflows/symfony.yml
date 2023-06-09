@@ -44,7 +44,7 @@ jobs:
     - name: Generate the code coverage report and show the current global coverage
       run: |
         php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/simple-phpunit --coverage-html=var/coverage
-        php coverage-checker.php var/coverage/clover.xml 100
+        php bin/coverage-checker.php var/coverage/clover.xml 100
 
   # run all lint/CS checks (non critical)
   symfony-lint:
