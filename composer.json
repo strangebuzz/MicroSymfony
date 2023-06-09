@@ -3,7 +3,17 @@
     "description": "A template to initialize an application to use Symfony as a micro framework",
     "type": "symfony-application-template",
     "license": "MIT",
+    "homepage": "https://microsymfony.ovh",
     "minimum-stability": "beta",
+    "keywords": [
+        "symfony",
+        "php",
+        "micro",
+        "web-application",
+        "poc",
+        "rad",
+        "project-template"
+    ],
     "prefer-stable": true,
     "require": {
         "php": ">=8.1",

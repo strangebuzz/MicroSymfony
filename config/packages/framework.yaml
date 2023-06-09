@@ -13,9 +13,6 @@ framework:
         cookie_samesite: lax
         storage_factory_id: session.storage.factory.native
 
-    asset_mapper:
-        paths: ['assets/']
-
     #esi: true
     #fragments: true
     php_errors:

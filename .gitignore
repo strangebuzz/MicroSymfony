@@ -4,7 +4,6 @@
 /.env.*.local
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
-/public/assets
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
@@ -14,17 +13,15 @@
 /.php-cs-fixer.cache
 ###< friendsofphp/php-cs-fixer ###
 
-###> symfony/phpunit-bridge ###
-.phpunit.result.cache
-/phpunit.xml
-###< symfony/phpunit-bridge ###
-
 ###> phpunit/phpunit ###
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
 
-###> phpunit/phpunit ###
+###> jolicode/castor ###
 .castor.stub.php
-###< phpunit/phpunit ###
+###< jolicode/castor ###
 
+###> symfony/asset-mapper ###
+/public/assets/
+###< symfony/asset-mapper ###
