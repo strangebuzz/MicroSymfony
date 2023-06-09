@@ -13,7 +13,7 @@ use function Castor\run;
  */
 function title(SymfonyStyle $io, string $title, Command $command = null): void
 {
-    $io->title($title. ($command !== null ? ': '. $command->getDescription() : ''));
+    $io->title($title.($command !== null ? ': '.$command->getDescription() : ''));
 }
 
 function success(SymfonyStyle $io): void
