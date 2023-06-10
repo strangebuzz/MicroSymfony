@@ -21,7 +21,7 @@ function success(SymfonyStyle $io): void
     $io->success('Done!');
 }
 
-#[AsTask(namespace: 'Serve the application with the Symfony binary', description: 'symfony')]
+#[AsTask(namespace: 'symfony', description: 'Serve the application with the Symfony binary', )]
 function start(SymfonyStyle $io, Command $command = null): void
 {
     title($io, __FUNCTION__, $command);
