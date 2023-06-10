@@ -18,6 +18,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-simplexml": "*",
+        "ext-xml": "*",
         "league/commonmark": "^2.3",
         "symfony/asset": "6.3.*",
         "symfony/asset-mapper": "6.3.*",
