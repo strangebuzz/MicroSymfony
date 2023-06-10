@@ -5,11 +5,17 @@ MicroSymfony is a template to initialize an application to use Symfony as a micr
 It can be used to create a POC or prototyping something without having to take care
 of the design, while having something still enjoyable (and fit to be seen).
 
-Even it is minimalist, we don't want to sacrifice quality.
-There are some tests (100% coverage) and CS checks: php-cs-fixer + PHPStan. 
+Even it is minimalist, the quality isn't sacrified.
+There are tests (100% coverage) and CS checks: php-cs-fixer+PHPStan.
+All this is checked with a GitHub actions workflow.
 
 It's not really intented to be used in production, use a your onw risks.
 Well at least you should remove the classless framework to use a modern CSS framework.
+
+If you like it, don't forget to add a [✨](https://github.com/strangebuzz/MicroSymfony)
+please.
+
+PR are of course welcome if you think something can be fixed or improved. 
 
 
 ## Demo 🌈
@@ -141,6 +147,7 @@ Or
 
 ## References 📚
 
+* https://symfony.com/bundles/StimulusBundle/current/index.html
 * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script/type/importmap
 * https://symfony.com/blog/new-in-symfony-6-3-assetmapper-component
 * https://github.com/rails/importmap-rails#expected-errors-from-using-the-es-module-shim

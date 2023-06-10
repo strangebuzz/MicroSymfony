@@ -29,6 +29,7 @@
         "symfony/intl": "6.3.*",
         "symfony/monolog-bundle": "^3.8",
         "symfony/runtime": "6.3.*",
+        "symfony/stimulus-bundle": "^2.9",
         "symfony/twig-bundle": "6.3.*",
         "symfony/validator": "6.3.*",
         "symfony/web-link": "6.3.*",

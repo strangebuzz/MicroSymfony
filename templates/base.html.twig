@@ -11,6 +11,7 @@
         {% block preconnect %}{% endblock %}
 
         {% block stylesheets %}
+            {{ ux_controller_link_tags() }}
             <link rel="stylesheet" href="{{ asset('vendor/barecss/css/bare.min.css') }}">
             <link rel="stylesheet" href="{{ asset('vendor/barecss/css/style.min.css') }}">
             <link rel="stylesheet" href="{{ asset('styles/app.css') }}"/>
