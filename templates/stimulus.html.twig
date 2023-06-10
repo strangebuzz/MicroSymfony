@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {# If you don't want to use the Stimulus bundle then you can include the controllers
-   manually like just below. It will work even, you don't use the asset mapper component
-   (you still need symfony/asset) #}
+   manually like below. It will work even, you don't use the asset mapper component
+   (you still need symfony/asset). Check out assets/js/stimulus.js (which is not used here) #}
 
 {#
 {% block javascripts %}
@@ -18,8 +18,11 @@
 
     <p>...without the JS tooling stuff and complexity.</p>
 
-    <p>We use the new  <a target="_blank" href="https://github.com/symfony/asset-mapper">
-            Symfony 6.3 asset mapper component</a>.</p>
+    <p>It uses the new  <a target="_blank" href="https://github.com/symfony/asset-mapper">
+            Symfony 6.3 asset mapper component</a> and the
+        <a target="_blank" href="https://symfony.com/bundles/StimulusBundle/current/index.html">
+            Stimulus bundle.</a>
+    </p>
 
     <p>Check out the feature intruction on the <a target="_blank" href="https://symfony.com/blog/new-in-symfony-6-3-assetmapper-component">
             Symfony blog</a>.</p>
@@ -33,10 +36,10 @@
                 <div {{ stimulus_controller('hello') }}>
                     <form {{ stimulus_target('hello', 'form') }}>
                         <label for="name">Enter your name below and click on the <tag>Great</tag> button
-                            <input name="name" required data-hello-target="name" type="text" />
+                            <input type="text" name="name" {{ stimulus_target('hello', 'name') }} />
                         </label>
 
-                        <input type="submit" primary data-action="click->hello#greet:prevent" value="Great" />
+                        <input primary type="submit" value="Great" {{ stimulus_action('hello', 'greet:prevent', 'click') }} />
                     </form>
 
                     <dialog {{ stimulus_target('hello', 'dialog') }}>
@@ -44,7 +47,7 @@
                             <h2 {{ stimulus_target('hello', 'greating') }}></h2>
                             <form method="dialog">
                                 <menu>
-                                    <button data-action="click->hello#reset">Close</button>
+                                    <button {{ stimulus_action('hello', 'reset', 'click') }}>Close</button>
                                 </menu>
                             </form>
                         </card>
@@ -64,7 +67,9 @@
                 <div {{ stimulus_controller('api', {url: path('app_slugifyacfion')} )}}">
                     <label for="title">
                         Enter a blog post title below:
-                        <input required name="title" {{ stimulus_target('api', 'title') }} data-action="api#slugify" type="text" />
+                        <input type="text" required name="title"
+                                {{ stimulus_target('api', 'title') }}
+                                {{ stimulus_action('api', 'slugify') }} />
                     </label>
 
                     <label for="slug">
