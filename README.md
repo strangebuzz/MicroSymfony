@@ -1,16 +1,16 @@
 # MicroSymfony 🎶
 
-MicroSymfony is a template to initialize an application to use Symfony as a microframework.
+MicroSymfony is a template to initialize an application to use Symfony as a micro-framework.
 
-It can be used to create a POC or prototyping something without having to take care
-of the design, while having something still enjoyable (and fit to be seen).
+It can be used to create a POC or prototype something without having to take care
+of the design while having something still enjoyable (and fit to be seen).
 
-Even it is minimalist, the quality isn't sacrified.
+Even if it is minimalist, the quality isn't sacrificed.
 There are tests (100% coverage) and CS checks: php-cs-fixer+PHPStan.
 All this is checked with a GitHub actions workflow.
 
-It's not really intented to be used in production, use a your onw risks.
-Well at least you should remove the classless framework to use a modern CSS framework.
+It's not really intended to be used in production, use a your own risks.
+Well, at least you should remove the classless framework to use a modern CSS framework.
 
 If you like it, don't forget to add a [✨](https://github.com/strangebuzz/MicroSymfony)
 please.
@@ -111,7 +111,7 @@ The code coverage is at 100% and is analysed with a simple script
 (thanks [Ocramius](https://ocramius.github.io/blog/automated-code-coverage-check-for-github-pull-requests-with-travis/)).
 
 For instance, in the following build, the code coverage analysis fails because the
-code coverage is 95.35% is the below the wanted threshold of 100%.
+code coverage is 95.35% which is the below the wanted threshold of 100%.
 
     https://github.com/strangebuzz/MicroSymfony/actions/runs/5220428064/jobs/9423476258
 
@@ -128,7 +128,7 @@ Or
 
     castor test:coverage
 
-The open the report in you browser:
+Then open the report in your browser:
 
     make cov-report
 
