@@ -1,16 +1,16 @@
 {
     "name": "strangebuzz/microsymfony",
-    "description": "A template to initialize an application to use Symfony as a micro framework",
+    "description": "A template to initialize an application to use Symfony as a micro-framework",
     "license": "MIT",
     "type": "symfony-application-template",
     "keywords": [
-        "symfony",
+        "micro-framework",
         "php",
-        "micro",
-        "web-application",
         "poc",
+        "project-template",
         "rad",
-        "project-template"
+        "symfony",
+        "web-application"
     ],
     "homepage": "https://microsymfony.ovh",
     "require": {
@@ -99,7 +99,8 @@
         ],
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "asset-map:compile": "symfony-cmd"
         }
     },
     "scripts-descriptions": {
