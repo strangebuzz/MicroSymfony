@@ -94,7 +94,7 @@
         "post-update-cmd": [
             "@auto-scripts"
         ],
-        "app-test": [
+        "app:test": [
             "vendor/bin/simple-phpunit"
         ],
         "auto-scripts": {
@@ -104,6 +104,6 @@
         }
     },
     "scripts-descriptions": {
-        "app-test": "Run all PHPUnit tests"
+        "app:test": "Run all PHPUnit tests"
     }
 }
