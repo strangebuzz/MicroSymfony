@@ -56,7 +56,4 @@ ci: test cs lint
 deploy: ## Simple manual deploy on VPS (this is to update the demo site https://microsymfony.ovh/)
 	@git pull
 	@composer install
-	@bin/console cache:clear
-	@rm -rf ./public/assets/*
-	@bin/console asset-map:compile
 	@chown -R www-data: var/*
