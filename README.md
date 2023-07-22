@@ -92,7 +92,7 @@ Run tests with:
 
 Using composer:
 
-    composer app-test
+    composer app:test
 
 Using the Makefile:
 
