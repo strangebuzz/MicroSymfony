@@ -22,6 +22,7 @@ jobs:
       with:
         php-version: '8.1'
         coverage: xdebug
+        #tools: castor
     - uses: actions/checkout@v3
     - name: Get Composer Cache Directory
       id: composer-cache
@@ -39,6 +40,7 @@ jobs:
     # Tests
     - name: Execute tests via PHPUnit
       run: vendor/bin/simple-phpunit
+      #run: castor test:all
 
     # Code coverage
     - name: Generate the code coverage report and show the current global coverage
@@ -55,6 +57,7 @@ jobs:
       with:
         php-version: '8.1'
         tools: cs2pr
+        #tools: cs2pr, castor
     - uses: actions/checkout@v3
     - name: Get Composer Cache Directory
       id: composer-cache
@@ -72,15 +75,19 @@ jobs:
     # native Symfony lints
     - name: Lint the DI container
       run: bin/console lint:container
+      #run: castor lint:container
     - name: Lint Twig templates
       run: bin/console lint:twig
+      #run: castor lint:twig
     - name: Lint Yaml files
       run: bin/console lint:yaml config/
+      #run: castor lint:yaml
 
     # vendors
     - name: php-cs-fixer
       run: vendor/bin/php-cs-fixer fix --allow-risky=yes --dry-run --format=checkstyle | cs2pr
     - name: PHPStan
+      #castor cs:stan
       run: | 
         bin/console about --env=dev
         vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vvv
