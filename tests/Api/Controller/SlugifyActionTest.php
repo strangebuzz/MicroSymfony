@@ -15,7 +15,7 @@ final class SlugifyActionTest extends WebTestCase
      * @see https://api-platform.com/docs/distribution/testing/#writing-functional-tests
      * @see SlugifyAcfion
      */
-    public function testAction(): void
+    public function testSlugifyAction(): void
     {
         $client = self::createClient();
         $client->request('GET', '/api/slugify?title=This IS the _-! Micro SYMFONY  project');

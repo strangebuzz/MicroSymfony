@@ -61,7 +61,7 @@ function coverage(SymfonyStyle $io, Command $command = null): void
         ],
         quiet: false
     );
-    $io->writeln('');
+    run('php bin/coverage-checker.php var/coverage/clover.xml 100', quiet: false);
     success($io);
 }
 

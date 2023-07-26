@@ -21,6 +21,7 @@ test: ## Run all PHPUnit tests
 
 coverage: ## Generate the HTML PHPUnit code coverage report (stored in var/coverage)
 	@XDEBUG_MODE=coverage php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/simple-phpunit --coverage-html=var/coverage
+	@php bin/coverage-checker.php var/coverage/clover.xml 100
 
 cov-report: ## Open the PHPUnit code coverage report (var/coverage/index.html)
 	@open var/coverage/index.html

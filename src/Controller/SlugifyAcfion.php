@@ -22,7 +22,7 @@ final class SlugifyAcfion extends AbstractController
     /**
      * Simple API endpoint returning JSON.
      */
-    #[Route(path: '/api/slugify', name: 'app_slugifyacfion')]
+    #[Route(path: '/api/slugify', name: 'app_slugify_action')]
     public function __invoke(Request $request, StringHelper $stringHelper): Response
     {
         return $this->json(['slug' => $stringHelper->slugify((string) $request->query->get('title'))]);
