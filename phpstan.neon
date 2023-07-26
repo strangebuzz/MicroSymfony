@@ -1,7 +1,6 @@
 parameters:
     level: max
     paths:
-        #- castor.php
         - bin
         - config
         - public
@@ -9,6 +8,3 @@ parameters:
         - tests
     symfony:
         container_xml_path: var/cache/dev/App_KernelDevDebugContainer.xml
-    # https://phpstan.org/user-guide/stub-files
-    stubFiles:
-        #- .castor.stub.php
