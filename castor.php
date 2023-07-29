@@ -8,6 +8,7 @@ use Symfony\Component\Console\Command\Command;
 use function Castor\get_command;
 use function Castor\io;
 use function Castor\run;
+
 // use function Castor\parallel;
 
 /**
@@ -131,11 +132,11 @@ function lint_all(): void
     lint_yaml();
 
     // if you want to speed up the process, you can run these command in parallel
-//    parallel(
-//        fn() => lint_container(null),
-//        fn() => lint_twig(),
-//        fn() => lint_yaml(),
-//    );
+    //    parallel(
+    //        fn() => lint_container(null),
+    //        fn() => lint_twig(),
+    //        fn() => lint_yaml(),
+    //    );
 }
 
 #[AsTask(name: 'all', namespace: 'ci', description: 'Run CI locally')]
