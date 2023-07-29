@@ -4,57 +4,58 @@ declare(strict_types=1);
 
 use Castor\Attribute\AsTask;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Style\SymfonyStyle;
 
+use function Castor\get_command;
+use function Castor\io;
 use function Castor\run;
 
 /**
  * Don't display the description when using a parent command context.
  */
-function title(SymfonyStyle $io, string $title, Command $command = null): void
+function title(string $title, Command $command = null): void
 {
-    $io->title($title.($command !== null ? ': '.$command->getDescription() : ''));
+    io()->title($title.($command !== null ? ': '.$command->getDescription() : ''));
 }
 
-function success(SymfonyStyle $io): void
+function success(): void
 {
-    $io->success('Done!');
+    io()->success('Done!');
 }
 
 #[AsTask(namespace: 'symfony', description: 'Serve the application with the Symfony binary', )]
-function start(SymfonyStyle $io, Command $command = null): void
+function start(): void
 {
-    title($io, __FUNCTION__, $command);
+    title(__FUNCTION__, get_command());
     run('symfony serve --daemon', quiet: false);
-    success($io);
+    success();
 }
 
 #[AsTask(namespace: 'symfony', description: 'Stop the web server')]
-function stop(SymfonyStyle $io, Command $command = null): void
+function stop(): void
 {
-    title($io, __FUNCTION__, $command);
+    title(__FUNCTION__, get_command());
     run('symfony server:stop', quiet: false);
-    success($io);
+    success();
 }
 
 #[AsTask(name: 'all', namespace: 'test', description: 'Run all PHPUnit tests')]
-function test(SymfonyStyle $io, Command $command = null): void
+function test(): void
 {
-    title($io, __FUNCTION__, $command);
+    title(__FUNCTION__, get_command());
     run('vendor/bin/simple-phpunit',
         environment: [
             'XDEBUG_MODE' => 'coverage',
         ],
         quiet: false
     );
-    $io->writeln('');
-    success($io);
+    io()->writeln('');
+    success();
 }
 
 #[AsTask(namespace: 'test', description: 'Generate the HTML PHPUnit code coverage report (stored in var/coverage)')]
-function coverage(SymfonyStyle $io, Command $command = null): void
+function coverage(): void
 {
-    title($io, __FUNCTION__, $command);
+    title(__FUNCTION__, get_command());
     run('php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/simple-phpunit --coverage-html=var/coverage',
         environment: [
           'XDEBUG_MODE' => 'coverage',
@@ -62,83 +63,83 @@ function coverage(SymfonyStyle $io, Command $command = null): void
         quiet: false
     );
     run('php bin/coverage-checker.php var/coverage/clover.xml 100', quiet: false);
-    success($io);
+    success();
 }
 
 #[AsTask(namespace: 'test', description: 'Open the PHPUnit code coverage report (var/coverage/index.html)')]
-function cov_report(SymfonyStyle $io, Command $command = null): void
+function cov_report(): void
 {
-    title($io, __FUNCTION__, $command);
+    title(__FUNCTION__, get_command());
     run('open var/coverage/index.html', quiet: true);
-    success($io);
+    success();
 }
 
 #[AsTask(namespace: 'cs', description: 'Run PHPStan')]
-function stan(SymfonyStyle $io, Command $command = null): void
+function stan(): void
 {
-    title($io, __FUNCTION__, $command);
+    title(__FUNCTION__, get_command());
     run('vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vvv --xdebug', quiet: false);
-    success($io);
+    success();
 }
 
 #[AsTask(namespace: 'cs', description: 'Fix PHP files with php-cs-fixer (ignore PHP 8.2 warning)')]
-function fix_php(SymfonyStyle $io, Command $command = null): void
+function fix_php(): void
 {
-    title($io, __FUNCTION__, $command);
+    title(__FUNCTION__, get_command());
     run('vendor/bin/php-cs-fixer fix --allow-risky=yes',
         environment: [
            'PHP_CS_FIXER_IGNORE_ENV' => 1,
         ],
         quiet: false
     );
-    success($io);
+    success();
 }
 
 #[AsTask(name: 'all', namespace: 'cs', description: 'Run all CS checks')]
-function cs_all(SymfonyStyle $io, Command $command = null): void
+function cs_all(): void
 {
-    title($io, __FUNCTION__, $command);
-    fix_php($io, null);
-    stan($io, null);
+    title(__FUNCTION__, get_command());
+    fix_php();
+    stan();
 }
 #[AsTask(name: 'container', namespace: 'lint', description: 'Lint the Symfony DI container')]
-function lint_container(SymfonyStyle $io, Command $command = null): void
+function lint_container(): void
 {
-    title($io, __FUNCTION__, $command);
+    title(__FUNCTION__, get_command());
     run('bin/console lint:container', quiet: false);
-    success($io);
+    success();
 }
 
 #[AsTask(name: 'twig', namespace: 'lint', description: 'Lint Twig files')]
-function lint_twig(SymfonyStyle $io, Command $command = null): void
+function lint_twig(): void
 {
-    title($io, __FUNCTION__, $command);
+    title(__FUNCTION__, get_command());
     run('bin/console lint:twig', quiet: false);
-    success($io);
+    success();
 }
 
 #[AsTask(name: 'yaml', namespace: 'lint', description: 'Lint Yaml files')]
-function lint_yaml(SymfonyStyle $io, Command $command = null): void
+function lint_yaml(): void
 {
-    title($io, __FUNCTION__, $command);
+    title(__FUNCTION__, get_command());
     run('bin/console lint:yaml config/', quiet: false);
-    success($io);
+    success();
 }
 
 #[AsTask(name: 'all', namespace: 'lint', description: 'Run all lints')]
-function lint_all(SymfonyStyle $io, Command $command = null): void
+function lint_all(): void
 {
-    title($io, __FUNCTION__, $command);
-    lint_container($io);
-    lint_twig($io);
-    lint_yaml($io);
+    title(__FUNCTION__, get_command());
+    lint_container();
+    lint_twig();
+    lint_yaml();
 }
 
 #[AsTask(name: 'all', namespace: 'ci', description: 'Run CI locally')]
-function ci(SymfonyStyle $io, Command $command = null): void
+function ci(): void
 {
-    title($io, __FUNCTION__, $command);
-    test($io);
-    cs_all($io);
-    lint_all($io);
+    title(__FUNCTION__, get_command());
+    test();
+    cs_all();
+    lint_all();
 }
