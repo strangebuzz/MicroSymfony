@@ -42,12 +42,7 @@ function stop(): void
 function test(): void
 {
     title(__FUNCTION__, get_command());
-    run('vendor/bin/simple-phpunit',
-        environment: [
-            'XDEBUG_MODE' => 'coverage',
-        ],
-        quiet: false
-    );
+    run('vendor/bin/simple-phpunit', quiet: false);
     io()->writeln('');
     success();
 }
