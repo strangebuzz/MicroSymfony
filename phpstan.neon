@@ -1,10 +1,17 @@
+# https://phpstan.org/config-reference
 parameters:
+    # https://phpstan.org/config-reference#rule-level
     level: max
+    # https://phpstan.org/config-reference#multiple-files
     paths:
         - bin
         - config
         - public
         - src
         - tests
+    # https://github.com/phpstan/phpstan-symfony#configuration
     symfony:
         container_xml_path: var/cache/dev/App_KernelDevDebugContainer.xml
+    # https://phpstan.org/user-guide/ignoring-errors
+    ignoreErrors:
+        #- '#my_ignore_error_regexp_pattern#'
