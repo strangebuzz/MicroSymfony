@@ -132,11 +132,11 @@ function lint_all(): void
     lint_yaml();
 
     // if you want to speed up the process, you can run these commands in parallel
-//    parallel(
-//        fn() => lint_container(null),
-//        fn() => lint_twig(),
-//        fn() => lint_yaml(),
-//    );
+    //    parallel(
+    //        fn() => lint_container(null),
+    //        fn() => lint_twig(),
+    //        fn() => lint_yaml(),
+    //    );
 }
 
 #[AsTask(name: 'all', namespace: 'ci', description: 'Run CI locally')]
