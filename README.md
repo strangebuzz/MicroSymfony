@@ -35,7 +35,7 @@ Because a live demo is always better than all explanations. Here is it:
 
 **MicroSymfony** ships these features, ready to use:
 
-* A task runner
+* Two task runner
   * Make ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/Makefile)) ([demo](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template#h3_4_1))
   * Castor ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/castor.php)) ([demo](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template#h3_4_2))
 * Static analysis with PHPStan
@@ -51,10 +51,10 @@ Because a live demo is always better than all explanations. Here is it:
 * Code coverage at 100%
   * [Output on CI](https://github.com/strangebuzz/MicroSymfony/actions/runs/5793881686/job/15702426150)
   * [Failing output example](https://github.com/strangebuzz/MicroSymfony/actions/runs/5220428064/jobs/9423476258)
-* GitHub CI
+* GitHub CI ([actions](https://github.com/strangebuzz/MicroSymfony/actions))
   * [Tests job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/5793881686/job/15702426150)
   * [Lint job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/5793881686/job/15702425939)
-* Asset mapper+Stimulus
+* Asset mapper+Stimulus ([documentation](https://symfony.com/doc/current/frontend/asset_mapper.html))
   * Vanilla Js ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/hello_controller.js)) ([demo](https://microsymfony.ovh/stimulus))
   * Fetch on a JSON endpoint of the application ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/api_controller.js)) ([demo](https://microsymfony.ovh/stimulus)) 
 * A custom error template
@@ -62,10 +62,16 @@ Because a live demo is always better than all explanations. Here is it:
   * [Demo](https://microsymfony.ovh/404) 
 
 
+## Other good practices 👌
+
+* Using strict types in all PHP files ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/src/Controller/AppController.php))
+* Using the ADR pattern in an action controller ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/src/Controller/SlugifyAcfion.php)) ([doc](https://symfony.com/doc/current/controller/service.html#invokable-controllers))
+
+
 ## What it doesn't ship? ❌
 
-* The debug toolbar
-* Doctrine
+* The debug toolbar ([installation](https://symfony.com/doc/current/profiler.html))
+* Doctrine ([installation](https://symfony.com/doc/current/doctrine.html#installing-doctrine))
 
 
 ## References 📚
