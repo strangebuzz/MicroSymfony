@@ -7,6 +7,9 @@ for documentation, and I'll update it when needed:
 
 * https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template (🇬🇧)
 
+So this blog post is the official documentation.
+This readme is a teaser of what MicroSymfony contains.
+
 
 ## Demo 🌈
 
@@ -20,7 +23,7 @@ Because a live demo is always better than all explanations. Here is it:
 * [PHP 8.1](https://www.php.net/releases/8.1/en.php) (works with [PHP 8.2](https://github.com/strangebuzz/MicroSymfony/actions/runs/5793881686/job/15702426339))
 * The [Symfony CLI](https://symfony.com/download)
 * The [Xdebug](https://xdebug.org/) PHP extension if you want to run the code coverage report (optional)
-* [Castor 0.7](https://github.com/jolicode/castor) task runner (optional)
+* [Castor 0.8](https://github.com/jolicode/castor) task runner (optional)
 
 ## Stack 🔗
 
