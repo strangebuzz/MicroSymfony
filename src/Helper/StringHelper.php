@@ -10,6 +10,8 @@ use function Symfony\Component\String\u;
 
 /**
  * This is a simple service just to create a unit test example.
+ *
+ * @see StringHelperTest
  */
 final class StringHelper
 {
@@ -22,12 +24,4 @@ final class StringHelper
     {
         return $this->slugger->slug(u($string)->lower()->toString())->toString();
     }
-
-    /**
-     * // uncomment this to test the code coverage report.
-     * public function noCoveredByTests(?string $string): string
-     * {
-     * return $this->slugger->slug(u($string)->lower()->toString())->toString();
-     * }.
-     */
 }

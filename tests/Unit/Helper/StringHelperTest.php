@@ -8,6 +8,10 @@ use App\Helper\StringHelper;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\String\Slugger\AsciiSlugger;
 
+/**
+ * Delete this test if you want to verify that the coverage checker script works
+ * properly.
+ */
 final class StringHelperTest extends TestCase
 {
     /**
