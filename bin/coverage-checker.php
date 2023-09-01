@@ -11,11 +11,16 @@ if (!file_exists($inputFile)) {
     throw new InvalidArgumentException('Invalid input file provided');
 }
 
-if (!$percentage) {
+if (!is_int($percentage)) {
     throw new InvalidArgumentException('An integer checked percentage must be given as second parameter');
 }
 
-$xml = new SimpleXMLElement((string) file_get_contents($inputFile));
+try {
+    @$xml = new SimpleXMLElement((string) file_get_contents($inputFile));
+} catch (Exception) {
+    throw new RuntimeException('Cannot parse XML of Clover file report');
+}
+
 $metrics = $xml->xpath('//metrics');
 $totalElements = 0;
 $checkedElements = 0;
