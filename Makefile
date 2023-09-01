@@ -38,10 +38,10 @@ lint-container: ## Lint the Symfony DI container
 	@bin/console lint:container
 
 lint-twig: ## Lint Twig files
-	@bin/console lint:twig
+	@bin/console lint:twig templates/
 
 lint-yaml: ## Lint YAML files
-	@bin/console lint:yaml config/
+	@bin/console lint:yaml --parse-tags config/
 
 cs: ## Run all CS checks
 cs: fix-php stan

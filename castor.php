@@ -114,7 +114,7 @@ function lint_container(): void
 function lint_twig(): void
 {
     title(__FUNCTION__, get_command());
-    run('bin/console lint:twig', quiet: false);
+    run('bin/console lint:twig templates/', quiet: false);
     success();
 }
 
@@ -122,7 +122,7 @@ function lint_twig(): void
 function lint_yaml(): void
 {
     title(__FUNCTION__, get_command());
-    run('bin/console lint:yaml config/', quiet: false);
+    run('bin/console lint:yaml --parse-tags config/', quiet: false);
     success();
 }
 
