@@ -1,7 +1,6 @@
 # MicroSymfony 🎶
 
 MicroSymfony is a Symfony application skeleton on steroids, ready to use.
-
 I have made a long blog post explaining all it contains; it will be the reference
 for documentation. 
 I'll update it when needed:
