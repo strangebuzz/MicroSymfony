@@ -5,7 +5,7 @@ I have made a long blog post explaining all it contains; it will be the referenc
 for documentation. 
 I'll update it when needed:
 
-* [Introducing the MicroSymfony application template](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template) (https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template)
+* [Introducing the MicroSymfony application template](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template)
 
 So this blog post is the official documentation.
 This readme is a teaser of what MicroSymfony contains.

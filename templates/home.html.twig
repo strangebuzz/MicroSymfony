@@ -1,14 +1,38 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <p>This page displays the <a target="_blank" att="" href="https://github.com/strangebuzz/MicroSymfony/blob/main/README.md">
+    <p>This page displays the <a target="_blank" href="https://github.com/strangebuzz/MicroSymfony/blob/main/README.md">
             README.md</a> file of the GitHub repository.</p>
 
     <hr/>
 
-    {% apply markdown_to_html %}
-        {{ readme|raw }}
-    {% endapply %}
+    {{ readme|raw|markdown_to_html|raw|add_att_attributes|raw }}
+{% endblock %}
 
-    {# or readme|raw|markdown_to_html #}
+{% block stylesheets %}
+    {{ parent() }}
+    {# Hack to make the links visible #}
+    <style>
+        section > ul > li > a::before,
+        section > ul > li > ul > li > a::before {
+            content: "";
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            background: #fd0;
+            position: absolute;
+            opacity: .5;
+            -webkit-transform: scale3d(1,.1,1);
+            transform: scale3d(1,.1,1);
+            -webkit-transform-origin: bottom;
+            transform-origin: bottom;
+            z-index: -1;
+        }
+
+        section > ul > li > a:hover::before,
+        section > ul > li > ul > li > a:hover::before {
+            -webkit-transform: none;
+            transform: none;
+        }
+    </style>
 {% endblock %}
