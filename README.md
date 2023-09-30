@@ -2,10 +2,11 @@
 
 MicroSymfony is a Symfony application skeleton on steroids, ready to use.
 
-I have made a long blog post explaining all it contains, this will be the reference
-for documentation, and I'll update it when needed:
+I have made a long blog post explaining all it contains; it will be the reference
+for documentation. 
+I'll update it when needed:
 
-* [Introducing the MicroSymfony application template](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template) (https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template 🇬🇧)
+* [Introducing the MicroSymfony application template](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template) (https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template)
 
 So this blog post is the official documentation.
 This readme is a teaser of what MicroSymfony contains.
@@ -20,10 +21,15 @@ Because a live demo is always better than all explanations. Here is it:
 
 ## Requirements ⚙
 
-* [PHP 8.1](https://www.php.net/releases/8.1/en.php) (works with [PHP 8.2](https://github.com/strangebuzz/MicroSymfony/actions/runs/5793881686/job/15702426339))
+* [PHP 8.1](https://www.php.net/releases/8.1/en.php) (works with [PHP 8.2](https://github.com/strangebuzz/MicroSymfony/actions/runs/6363262161/job/17278782266))
 * The [Symfony CLI](https://symfony.com/download)
-* The [Xdebug](https://xdebug.org/) PHP extension if you want to run the code coverage report (optional)
-* [Castor 0.8](https://github.com/jolicode/castor) task runner (optional)
+
+
+## Optional requirements ⚙
+ 
+* The [Xdebug](https://xdebug.org/) PHP extension if you want to run the code coverage report
+* [Castor 0.8](https://github.com/jolicode/castor) task runner
+
 
 ## Stack 🔗
 
