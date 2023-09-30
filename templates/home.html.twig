@@ -9,4 +9,6 @@
     {% apply markdown_to_html %}
         {{ readme|raw }}
     {% endapply %}
+
+    {# or readme|raw|markdown_to_html #}
 {% endblock %}
