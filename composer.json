@@ -16,6 +16,7 @@
     "require": {
         "php": ">=8.1",
         "ext-ctype": "*",
+        "ext-dom": "*",
         "ext-iconv": "*",
         "ext-simplexml": "*",
         "ext-xml": "*",
