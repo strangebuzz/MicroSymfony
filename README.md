@@ -84,4 +84,4 @@ Because a live demo is always better than all explanations. Here is it:
 
 ## References 📚
 
-* https://jolicode.com/blog/castor-a-journey-across-the-sea-of-task-runners
+* [Castor, a journey across the sea of task runners](https://jolicode.com/blog/castor-a-journey-across-the-sea-of-task-runners)
