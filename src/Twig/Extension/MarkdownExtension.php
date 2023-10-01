@@ -22,7 +22,7 @@ final class MarkdownExtension extends AbstractExtension
     public function addAttAttributes(string $html): string
     {
         $dom = new \DOMDocument();
-        $dom->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
+        $dom->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
         $aTags = $dom->getElementsByTagName('a');
         foreach ($aTags as $aTag) {
             $aTag->setAttribute('att', '');
