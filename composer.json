@@ -18,6 +18,7 @@
         "ext-ctype": "*",
         "ext-dom": "*",
         "ext-iconv": "*",
+        "ext-libxml": "*",
         "ext-simplexml": "*",
         "ext-xml": "*",
         "league/commonmark": "^2.3",
