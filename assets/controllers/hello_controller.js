@@ -1,7 +1,7 @@
 import {Controller} from '@hotwired/stimulus';
 
 export default class extends Controller {
-    static targets = ["name", "greating", "dialog", "form"]
+    static targets = ["name", "greeting", "dialog", "form"]
 
     connect() {
         console.log("Hello, Stimulus!", this.element)
@@ -13,12 +13,12 @@ export default class extends Controller {
             return
         }
 
-        this.greatingTarget.innerHTML = `Hello, ${this.nameTarget.value}!`
+        this.greetingTarget.innerHTML = `Hello, ${this.nameTarget.value}!`
         this.dialogTarget.showModal()
     }
 
     reset() {
         this.nameTarget.value = ''
-        this.greatingTarget.innerHTML = ''
+        this.greetingTarget.innerHTML = ''
     }
 }
