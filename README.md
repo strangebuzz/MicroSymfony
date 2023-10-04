@@ -77,6 +77,8 @@ Because a live demo is always better than all explanations. Here is it:
 
 * Using strict types in all PHP files ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/src/Controller/AppController.php))
 * Using the ADR pattern in an action controller ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/src/Controller/SlugifyAcfion.php)) ([doc](https://symfony.com/doc/current/controller/service.html#invokable-controllers))
+* The [composer.json](https://github.com/strangebuzz/MicroSymfony/blob/main/composer.json) 
+  file is normalized with [ergebnis/composer-normalize](https://github.com/ergebnis/composer-normalize)
 
 
 ## What it doesn't ship? ❌
