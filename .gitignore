@@ -13,10 +13,10 @@
 /.php-cs-fixer.cache
 ###< friendsofphp/php-cs-fixer ###
 
-###> phpunit/phpunit ###
+###> symfony/phpunit-bridge ###
 /phpunit.xml
 .phpunit.result.cache
-###< phpunit/phpunit ###
+###< symfony/phpunit-bridge ###
 
 ###> jolicode/castor ###
 .castor.stub.php
