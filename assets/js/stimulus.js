@@ -5,7 +5,7 @@ window.Stimulus = Application.start()
 Stimulus.debug = false
 
 Stimulus.register("hello", class extends Controller {
-  static targets = ["name", "greating", "dialog", "form"]
+  static targets = ["name", "greeting", "dialog", "form"]
 
   connect() {
     console.log("Hello, Stimulus!", this.element)
@@ -16,13 +16,13 @@ Stimulus.register("hello", class extends Controller {
       return
     }
 
-    this.greatingTarget.innerHTML = `Hello, ${this.nameTarget.value}!`
+    this.greetingTarget.innerHTML = `Hello, ${this.nameTarget.value}!`
     this.dialogTarget.showModal()
   }
 
   reset() {
     this.nameTarget.value = ''
-    this.greatingTarget.innerHTML = ''
+    this.greetingTarget.innerHTML = ''
   }
 })
 

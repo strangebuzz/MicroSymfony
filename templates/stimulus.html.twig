@@ -35,16 +35,16 @@
             <div col="3/4">
                 <div {{ stimulus_controller('hello') }}>
                     <form {{ stimulus_target('hello', 'form') }}>
-                        <label for="name">Enter your name below and click on the <tag>Great</tag> button
+                        <label for="name">Enter your name below and click on the <tag>Greet</tag> button
                             <input type="text" name="name" {{ stimulus_target('hello', 'name') }} />
                         </label>
 
-                        <input primary type="submit" value="Great" {{ stimulus_action('hello', 'greet:prevent', 'click') }} />
+                        <input primary type="submit" value="Greet" {{ stimulus_action('hello', 'greet:prevent', 'click') }} />
                     </form>
 
                     <dialog {{ stimulus_target('hello', 'dialog') }}>
                         <card>
-                            <h2 {{ stimulus_target('hello', 'greating') }}></h2>
+                            <h2 {{ stimulus_target('hello', 'greeting') }}></h2>
                             <form method="dialog">
                                 <menu>
                                     <button {{ stimulus_action('hello', 'reset', 'click') }}>Close</button>
