@@ -83,10 +83,13 @@ Because a live demo is always better than all explanations. Here is it:
 
 ## What it doesn't ship? ❌
 
-* The debug toolbar ([installation](https://symfony.com/doc/current/profiler.html))
 * Doctrine ([installation](https://symfony.com/doc/current/doctrine.html#installing-doctrine))
 
 
 ## References 📚
 
 * [Castor, a journey across the sea of task runners](https://jolicode.com/blog/castor-a-journey-across-the-sea-of-task-runners)
+* [Initializing your Symfony project with solid foundations](https://www.strangebuzz.com/en/blog/initializing-your-symfony-project-with-solid-foundations)
+* [Organizing your Symfony project tests](https://www.strangebuzz.com/en/blog/organizing-your-symfony-project-tests)
+* [What are your Symfony best practices?](https://www.strangebuzz.com/en/blog/what-are-your-symfony-best-practices)
+* [Setting a CI/CD workflow for a Symfony project thanks to the GitHub actions ](https://www.strangebuzz.com/en/blog/setting-a-ci-cd-workflow-for-a-symfony-project-thanks-to-the-github-actions)

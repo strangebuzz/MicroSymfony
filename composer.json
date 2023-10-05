@@ -48,7 +48,9 @@
         "roave/security-advisories": "dev-latest",
         "symfony/browser-kit": "~6.3.0",
         "symfony/css-selector": "~6.3.0",
-        "symfony/phpunit-bridge": "^6.3"
+        "symfony/phpunit-bridge": "^6.3",
+        "symfony/stopwatch": "6.3.*",
+        "symfony/web-profiler-bundle": "6.3.*"
     },
     "replace": {
         "symfony/polyfill-ctype": "*",
@@ -101,8 +103,7 @@
         ],
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd",
-            "asset-map:compile": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
         }
     },
     "scripts-descriptions": {
