@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "150937d04f25a8c685bdb760c58b05f2",
+    "content-hash": "2a4a2b040c3ffdd1377f486816f7a5a4",
     "packages": [
         {
             "name": "dflydev/dot-access-data",
@@ -5239,12 +5239,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "bfb87b7907dac95bb71d398ff3e225d5362f768e"
+                "reference": "22acdd541cc4d006d3c0d6f52608243910e6b720"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/bfb87b7907dac95bb71d398ff3e225d5362f768e",
-                "reference": "bfb87b7907dac95bb71d398ff3e225d5362f768e",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/22acdd541cc4d006d3c0d6f52608243910e6b720",
+                "reference": "22acdd541cc4d006d3c0d6f52608243910e6b720",
                 "shasum": ""
             },
             "conflict": {
@@ -5564,7 +5564,7 @@
                 "nystudio107/craft-seomatic": "<3.4.12",
                 "nzo/url-encryptor-bundle": ">=4,<4.3.2|>=5,<5.0.1",
                 "october/backend": "<1.1.2",
-                "october/cms": "<=3.4.16",
+                "october/cms": "<1.0.469|==1.0.469|==1.0.471|==1.1.1",
                 "october/october": "<=3.4.4",
                 "october/rain": "<1.0.472|>=1.1,<1.1.2",
                 "october/system": "<1.0.476|>=1.1,<1.1.12|>=2,<2.2.34|>=3,<3.0.66",
@@ -5912,7 +5912,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-10-04T11:04:46+00:00"
+            "time": "2023-10-05T18:04:31+00:00"
         },
         {
             "name": "sebastian/diff",
