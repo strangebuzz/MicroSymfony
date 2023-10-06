@@ -43,6 +43,36 @@ function stop(): void
     success();
 }
 
+#[AsTask(namespace: 'symfony', description: 'Switch to the production environment')]
+function go_prod(): void
+{
+    title(__FUNCTION__, get_command());
+    if (io()->confirm('Are you sure you want to switch to the production environment? This will overwrite your .env.local file', false)) {
+        run('cp .env.local.dist .env.local', quiet: false);
+        run('bin/console asset-map:compile', quiet: false);
+        success();
+
+        return;
+    }
+
+    io()->comment('Aborted.');
+}
+
+#[AsTask(namespace: 'symfony', description: 'Switch to the development environment')]
+function go_dev(): void
+{
+    title(__FUNCTION__, get_command());
+    if (io()->confirm('Are you sure you want to switch to the development environment? This will delete your .env.local file', false)) {
+        run('rm .env.local', quiet: false);
+        run('rm -rf ./public/assets/*', quiet: false);
+        success();
+
+        return;
+    }
+
+    io()->comment('Aborted.');
+}
+
 #[AsTask(name: 'all', namespace: 'test', description: 'Run all PHPUnit tests')]
 function test(): void
 {

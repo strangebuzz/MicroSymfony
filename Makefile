@@ -15,6 +15,16 @@ stop: ## Stop the web server
 	@symfony server:stop
 
 
+## —— Symfony 🎶  ——————————————————————————————————————————————————————————————
+go-prod: ## Switch to the production environment
+	@cp .env.local.dist .env.local
+	@bin/console asset-map:compile
+
+go-dev: ## Switch to the development environment
+	@rm .env.local
+	@rm -rf ./public/assets/*
+
+
 ## —— Tests ✅ —————————————————————————————————————————————————————————————————
 test: ## Run all PHPUnit tests
 	@vendor/bin/simple-phpunit
