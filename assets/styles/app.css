@@ -1,6 +1,15 @@
+/**
+ * Mark required fields in Symfony forms.
+ *
+ * @see https://symfony.com/doc/current/forms.html#form-type-options
+ */
 label.required:after {
     content: " *";
 }
+
+/**
+ * Form errors in red.
+ */
 form > div > div > ul > li {
     color: red;
 }
