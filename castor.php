@@ -27,6 +27,11 @@ function success(): void
     io()->success('Done!');
 }
 
+function aborted(): void
+{
+    io()->warning('Aborted.');
+}
+
 #[AsTask(namespace: 'symfony', description: 'Serve the application with the Symfony binary', )]
 function start(): void
 {
@@ -55,7 +60,7 @@ function go_prod(): void
         return;
     }
 
-    io()->comment('Aborted.');
+    aborted();
 }
 
 #[AsTask(namespace: 'symfony', description: 'Switch to the development environment')]
@@ -70,7 +75,7 @@ function go_dev(): void
         return;
     }
 
-    io()->comment('Aborted.');
+    aborted();
 }
 
 #[AsTask(name: 'all', namespace: 'test', description: 'Run all PHPUnit tests')]
