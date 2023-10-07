@@ -21,6 +21,26 @@ Because a live demo is always better than all explanations. Here is it:
 * Live demo at [https://microsymfony.ovh](https://microsymfony.ovh)
 
 
+## Quick-start 🐰
+
+Run
+
+    composer create-project strangebuzz/microsymfony
+    cd microsymfony
+
+then
+
+    make start
+
+or
+
+    castor symfony:start
+
+Open [https://127.0.0.1:8000](https://127.0.0.1:8000) (if your 8000 port is free).
+
+Enjoy!
+
+
 ## Requirements ⚙
 
 * [PHP 8.1](https://www.php.net/releases/8.1/en.php) (works with [PHP 8.2](https://github.com/strangebuzz/MicroSymfony/actions/runs/6363262161/job/17278782266))
@@ -88,8 +108,9 @@ Because a live demo is always better than all explanations. Here is it:
 
 ## References 📚
 
-* [Castor, a journey across the sea of task runners](https://jolicode.com/blog/castor-a-journey-across-the-sea-of-task-runners)
-* [Initializing your Symfony project with solid foundations](https://www.strangebuzz.com/en/blog/initializing-your-symfony-project-with-solid-foundations)
-* [Organizing your Symfony project tests](https://www.strangebuzz.com/en/blog/organizing-your-symfony-project-tests)
-* [What are your Symfony best practices?](https://www.strangebuzz.com/en/blog/what-are-your-symfony-best-practices)
-* [Setting a CI/CD workflow for a Symfony project thanks to the GitHub actions ](https://www.strangebuzz.com/en/blog/setting-a-ci-cd-workflow-for-a-symfony-project-thanks-to-the-github-actions)
+* [Castor, a journey across the sea of task runners](https://jolicode.com/blog/castor-a-journey-across-the-sea-of-task-runners) (jolicode.com)
+* [Initializing your Symfony project with solid foundations](https://www.strangebuzz.com/en/blog/initializing-your-symfony-project-with-solid-foundations) (strangebuzz.com)
+* [Organizing your Symfony project tests](https://www.strangebuzz.com/en/blog/organizing-your-symfony-project-tests) (strangebuzz.com)
+* [What are your Symfony best practices?](https://www.strangebuzz.com/en/blog/what-are-your-symfony-best-practices) (strangebuzz.com)
+* [Setting a CI/CD workflow for a Symfony project thanks to the GitHub actions](https://www.strangebuzz.com/en/blog/setting-a-ci-cd-workflow-for-a-symfony-project-thanks-to-the-github-actions) (strangebuzz.com)
+* [The Symfony Framework Best Practices](https://symfony.com/doc/current/best_practices.html) (symfony.com)
