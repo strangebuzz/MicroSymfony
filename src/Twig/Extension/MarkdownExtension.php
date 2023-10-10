@@ -18,11 +18,13 @@ final class MarkdownExtension extends AbstractExtension
 
     /**
      * Add the "att" attributes on all links to have the tooltips.
+     *
+     * @see https://www.drupal.org/project/smart_trim/issues/3342481#comment-14982548
      */
     public function addAttAttributes(string $html): string
     {
         $dom = new \DOMDocument();
-        $dom->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $dom->loadHTML(mb_encode_numericentity($html, [0x80, 0x10FFFF, 0, ~0], 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
         $aTags = $dom->getElementsByTagName('a');
         foreach ($aTags as $aTag) {
             $aTag->setAttribute('att', '');
