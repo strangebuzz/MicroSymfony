@@ -4,7 +4,7 @@ SHELL = sh
 ## —— 🎶 The MicroSymfony Makefile 🎶 ——————————————————————————————————————————
 help: ## Outputs this help screen
 	@grep -E '(^[a-zA-Z0-9_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
-.PHONY: help start stop test coverage cov-report stan fix-php lint-container lint-twig lint-yaml cs lint ci deploy
+.PHONY: help start stop test coverage cov-report stan fix-php lint-php lint-container lint-twig lint-yaml cs lint ci deploy
 
 
 ## —— Symfony binary 💻 ————————————————————————————————————————————————————————
@@ -45,6 +45,9 @@ stan: ## Run PHPStan
 fix-php: ## Fix PHP files with php-cs-fixer (ignore PHP 8.2 warning)
 	@PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix --allow-risky=yes
 
+lint-php: ## Lint PHP files with php-cs-fixer (report only)
+	@PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix --allow-risky=yes --dry-run
+
 lint-container: ## Lint the Symfony DI container
 	@bin/console lint:container
 
@@ -58,7 +61,7 @@ cs: ## Run all CS checks
 cs: fix-php stan
 
 lint: ## Run all lints
-lint: lint-container lint-twig lint-yaml
+lint: lint-php lint-container lint-twig lint-yaml
 
 ci: ## Run CI locally
 ci: test cs lint

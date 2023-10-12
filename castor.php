@@ -130,6 +130,19 @@ function fix_php(): void
     success();
 }
 
+#[AsTask(namespace: 'cs', description: 'Lint PHP files with php-cs-fixer (report only)')]
+function lint_php(): void
+{
+    title(__FUNCTION__, get_command());
+    run('vendor/bin/php-cs-fixer fix --allow-risky=yes --dry-run',
+        environment: [
+           'PHP_CS_FIXER_IGNORE_ENV' => 1,
+        ],
+        quiet: false
+    );
+    success();
+}
+
 #[AsTask(name: 'all', namespace: 'cs', description: 'Run all CS checks')]
 function cs_all(): void
 {
@@ -165,13 +178,15 @@ function lint_yaml(): void
 function lint_all(): void
 {
     title(__FUNCTION__, get_command());
+    lint_php();
     lint_container();
     lint_twig();
     lint_yaml();
 
     // if you want to speed up the process, you can run these commands in parallel
     //    parallel(
-    //        fn() => lint_container(null),
+    //        fn() => lint_php(),
+    //        fn() => lint_container(),
     //        fn() => lint_twig(),
     //        fn() => lint_yaml(),
     //    );
