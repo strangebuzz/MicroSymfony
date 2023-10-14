@@ -27,7 +27,7 @@ final class AppController extends AbstractController
     {
         $readme = file_get_contents(__DIR__.'/../../README.md');
 
-        return $this->render('home.html.twig', compact('readme'));
+        return $this->render('home.html.twig', ['readme' => $readme]);
     }
 
     /**
@@ -38,7 +38,7 @@ final class AppController extends AbstractController
     {
         $composer = file_get_contents(__DIR__.'/../../composer.json');
 
-        return $this->render('composer.html.twig', compact('composer'));
+        return $this->render('composer.html.twig', ['composer' => $composer]);
     }
 
     /**
@@ -54,6 +54,9 @@ final class AppController extends AbstractController
             $dto = $form->getData();
         }
 
-        return $this->render('form.html.twig', compact('form', 'dto'));
+        return $this->render('form.html.twig', [
+            'form' => $form,
+            'dto' => $dto,
+        ]);
     }
 }
