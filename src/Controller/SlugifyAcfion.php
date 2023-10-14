@@ -26,7 +26,7 @@ final class SlugifyAcfion extends AbstractController
     public function __invoke(Request $request, StringHelper $stringHelper): Response
     {
         return $this->json([
-            'slug' => $stringHelper->slugify((string) $request->query->get('title')),
+            'slug' => $stringHelper->slugify($request->query->getString('title')),
         ]);
     }
 }
