@@ -64,7 +64,7 @@ lint: ## Run all lints
 lint: lint-php lint-container lint-twig lint-yaml
 
 ci: ## Run CI locally
-ci: test cs lint
+ci: coverage cs lint
 
 
 ## —— Other tools and helpers 🔨 ———————————————————————————————————————————————
