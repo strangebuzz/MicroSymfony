@@ -200,3 +200,33 @@ function ci(): void
     cs_all();
     lint_all();
 }
+
+#[AsTask(name: 'versions', namespace: 'helpers', description: 'Output current stack versions')]
+function versions(): void
+{
+    title(__FUNCTION__, get_command());
+    io()->note('PHP');
+    run('php -v', quiet: false);
+    io()->newLine();
+
+    io()->note('Composer');
+    run('composer --version', quiet: false);
+    io()->newLine();
+
+    io()->note('Symfony');
+    run('bin/console --version', quiet: false);
+    io()->newLine();
+
+    io()->note('PHPUnit (with simple-phpunit)');
+    run('vendor/bin/simple-phpunit --version', quiet: false);
+
+    io()->note('PHPStan');
+    run('vendor/bin/phpstan --version', quiet: false);
+    io()->newLine();
+
+    io()->note('php-cs-fixer');
+    run('vendor/bin/php-cs-fixer --version', quiet: false);
+    io()->newLine();
+
+    success();
+}
