@@ -78,6 +78,14 @@ function go_dev(): void
     aborted();
 }
 
+#[AsTask(namespace: 'symfony', description: 'Purge all Symfony cache and logs')]
+function purge(): void
+{
+    title(__FUNCTION__, get_command());
+    run('rm -rf ./var/cache/* ./var/logs/*', quiet: false);
+    success();
+}
+
 #[AsTask(name: 'all', namespace: 'test', description: 'Run all PHPUnit tests')]
 function test(): void
 {
