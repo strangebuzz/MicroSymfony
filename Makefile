@@ -4,7 +4,7 @@ SHELL = sh
 ## —— 🎶 The MicroSymfony Makefile 🎶 ——————————————————————————————————————————
 help: ## Outputs this help screen
 	@grep -E '(^[a-zA-Z0-9_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
-.PHONY: help start stop go-prod go-dev test coverage cov-report stan fix-php lint-php lint-container lint-twig lint-yaml cs lint ci deploy
+.PHONY: help start stop go-prod go-dev purge test coverage cov-report stan fix-php lint-php lint-container lint-twig lint-yaml cs lint ci deploy
 
 
 ## —— Symfony binary 💻 ————————————————————————————————————————————————————————
@@ -24,17 +24,20 @@ go-dev: ## Switch to the development environment
 	@rm .env.local
 	@rm -rf ./public/assets/*
 
+purge: ## Purge all Symfony cache and logs
+	@rm -rf ./var/cache/* ./var/logs/*
+
 
 ## —— Tests ✅ —————————————————————————————————————————————————————————————————
 test: ## Run all PHPUnit tests
 	@vendor/bin/simple-phpunit
 
 coverage: ## Generate the HTML PHPUnit code coverage report (stored in var/coverage)
-	@rm -rf ./var/cache/test
+coverage: purge
 	@XDEBUG_MODE=coverage php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/simple-phpunit --coverage-html=var/coverage
 	@php bin/coverage-checker.php var/coverage/clover.xml 100
 
-cov-report: ## Open the PHPUnit code coverage report (var/coverage/index.html)
+cov-report: var/coverage/index.html ## Open the PHPUnit code coverage report (var/coverage/index.html)
 	@open var/coverage/index.html
 
 
@@ -43,10 +46,11 @@ stan: ## Run PHPStan
 	@vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vvv
 
 fix-php: ## Fix PHP files with php-cs-fixer (ignore PHP 8.2 warning)
-	@PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix --allow-risky=yes
+	@PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix --allow-risky=yes $(PHP_CS_FIXER_ARGS)
 
 lint-php: ## Lint PHP files with php-cs-fixer (report only)
-	@PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix --allow-risky=yes --dry-run
+lint-php: PHP_CS_FIXER_ARGS=--dry-run
+lint-php: fix-php
 
 lint-container: ## Lint the Symfony DI container
 	@bin/console lint:container
