@@ -113,7 +113,7 @@ function cov_report(): void
 function stan(): void
 {
     title(__FUNCTION__, get_command());
-    run('vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vvv --xdebug', quiet: false);
+    run('vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vvv', quiet: false);
     success();
 }
 
