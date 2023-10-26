@@ -25,7 +25,7 @@ go-dev: ## Switch to the development environment
 	@rm -rf ./public/assets/*
 
 purge: ## Purge all Symfony cache and logs
-	@rm -rf ./var/cache/* ./var/logs/*
+	@rm -rf ./var/cache/* ./var/logs/* ./var/coverage/*
 
 
 ## —— Tests ✅ —————————————————————————————————————————————————————————————————

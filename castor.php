@@ -82,7 +82,7 @@ function go_dev(): void
 function purge(): void
 {
     title(__FUNCTION__, get_command());
-    run('rm -rf ./var/cache/* ./var/logs/*', quiet: false);
+    run('rm -rf ./var/cache/* ./var/logs/* ./var/coverage/*', quiet: false);
     success();
 }
 
