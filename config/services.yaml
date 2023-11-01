@@ -6,7 +6,7 @@
 parameters:
     brand: 'MicroSymfony'
     brand_html: '<b>Micro</b>Symfony 🎶'
-    version: '6.3.6'
+    version: '6.3.7'
 
 services:
     # default configuration for services in *this* file
