@@ -68,7 +68,7 @@ function go_dev(): void
 {
     title(__FUNCTION__, get_command());
     if (io()->confirm('Are you sure you want to switch to the development environment? This will delete your .env.local file', false)) {
-        run('rm .env.local', quiet: false);
+        run('rm -f .env.local', quiet: false);
         run('rm -rf ./public/assets/*', quiet: false);
         success();
 
