@@ -100,4 +100,5 @@ deploy: ## Simple manual deploy on VPS (this is to update the demo site https://
 	@composer install
 	@chown -R www-data: var/*
 	@cp .env.local.dist .env.local
+	@composer dump-env prod
 	@bin/console asset-map:compile
