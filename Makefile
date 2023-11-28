@@ -5,7 +5,7 @@ SHELL = sh
 help: ## Outputs this help screen
 	@grep -E '(^[a-zA-Z0-9_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
 .PHONY: help start stop go-prod go-dev purge test coverage cov-report stan fix-php lint-php lint-container lint-twig lint-yaml cs lint ci deploy
-.PHONY: version-php version-composer version-symfony version-phpunit version-phpstan version-php-cs-fixer
+.PHONY: version-php version-composer version-symfony version-phpunit version-phpstan version-php-cs-fixer check-requirements
 
 ## —— Symfony binary 💻 ————————————————————————————————————————————————————————
 start: ## Serve the application with the Symfony binary
@@ -92,6 +92,9 @@ version-php-cs-fixer:
 	@echo '\n—— php-cs-fixer ———————————————————————————————————————————————————'
 	@vendor/bin/php-cs-fixer --version
 	@echo
+
+check-requirements: ## Checks requirements for running Symfony
+	@vendor/bin/requirements-checker
 
 
 ## —— Deploy & Prod 🚀 —————————————————————————————————————————————————————————

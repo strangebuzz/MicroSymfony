@@ -238,3 +238,11 @@ function versions(): void
 
     success();
 }
+
+#[AsTask(name: 'check-requirements', namespace: 'helpers', description: 'Checks requirements for running Symfony')]
+function check_requirements(): void
+{
+    title(__FUNCTION__, get_command());
+    run('vendor/bin/requirements-checker', quiet: false);
+    success();
+}
