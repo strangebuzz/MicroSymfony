@@ -78,8 +78,10 @@ jobs:
         key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
           ${{ runner.os }}-composer-
-    - name: Install Dependencies
+    - name: Install PHP dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+    - name: Install PHPUnit dependencies for PHPStan
+      run: vendor/bin/simple-phpunit --version
 
     # native Symfony lints
     - name: Lint the DI container
