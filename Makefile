@@ -24,6 +24,9 @@ go-dev: ## Switch to the development environment
 	@rm -f .env.local
 	@rm -rf ./public/assets/*
 
+warmup: ## Warmup the dev cache for the statis analysis
+	@bin/console c:w --env=dev
+
 purge: ## Purge all Symfony cache and logs
 	@rm -rf ./var/cache/* ./var/logs/* ./var/coverage/*
 
@@ -68,7 +71,7 @@ lint: ## Run all lints
 lint: lint-php lint-container lint-twig lint-yaml
 
 ci: ## Run CI locally
-ci: coverage cs lint
+ci: coverage warmup cs lint
 
 
 ## —— Other tools and helpers 🔨 ———————————————————————————————————————————————

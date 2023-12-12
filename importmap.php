@@ -17,12 +17,11 @@ declare(strict_types=1);
  */
 return [
     'app' => [
+        'entrypoint' => true,
         'path' => 'app.js',
-        'preload' => true,
     ],
     '@hotwired/stimulus' => [
-        'url' => 'https://ga.jspm.io/npm:@hotwired/stimulus@3.2.1/dist/stimulus.js',
-        'preload' => true,
+        'version' => '3.2.2',
     ],
     '@symfony/stimulus-bundle' => [
         'path' => '@symfony/stimulus-bundle/loader.js',
