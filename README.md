@@ -55,8 +55,8 @@ Enjoy!
 
 ## Stack 🔗
 
-* [Symfony 6.3](https://symfony.com)
-* [Twig 3](https://twig.symfony.com)
+* [Symfony 7.0](https://symfony.com)
+* [Twig 3.8](https://twig.symfony.com)
 * [Stimulus 3.2](https://stimulus.hotwired.dev/)
 * [PHPUnit 9.5](https://phpunit.de)
 * The classless [BareCSS](http://barecss.com) CSS framework 
