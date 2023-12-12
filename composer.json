@@ -65,7 +65,7 @@
     "conflict": {
         "symfony/symfony": "*"
     },
-    "minimum-stability": "beta",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
