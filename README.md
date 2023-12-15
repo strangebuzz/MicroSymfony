@@ -58,11 +58,11 @@ Enjoy!
 
 ## Stack 🔗
 
-* [Symfony 7.0](https://symfony.com)
+* [Symfony 7.0](https://symfony.com/7)
 * [Twig 3.8](https://twig.symfony.com)
 * [Stimulus 3.2](https://stimulus.hotwired.dev/)
 * [PHPUnit 9.5](https://phpunit.de)
-* The classless [BareCSS](http://barecss.com) CSS framework 
+* The classless [BareCSS](http://barecss.com) CSS framework
 
 
 ## Features 🚀
@@ -97,7 +97,7 @@ Enjoy!
 
 ## Other good practices 👌
 
-* Using strict types in all PHP files ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/src/Controller/AppController.php))
+* Using strict types in all PHP files ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/src/Controller/AppController.php#L3))
 * Using the ADR pattern in an action controller ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/src/Controller/SlugifyAcfion.php)) ([doc](https://symfony.com/doc/current/controller/service.html#invokable-controllers))
 * The [composer.json](https://github.com/strangebuzz/MicroSymfony/blob/main/composer.json) 
   file is normalized with [ergebnis/composer-normalize](https://github.com/ergebnis/composer-normalize)
