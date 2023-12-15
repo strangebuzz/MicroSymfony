@@ -13,8 +13,8 @@ I'll update it when needed:
 So this blog post is the official documentation.
 This readme is a teaser of what MicroSymfony contains.
 
-If you you go back to the last Symfony 6.4 LTS versionn, in your `composer.json file`,
-replace all occurences of `7.0` by `6.4` and run `composer up`.  
+If you want to use the last Symfony 6.4 LTS version, in your `composer.json file`,
+replace all occurences of `7.0` by `6.4`, run `composer up` and your are done.  
 
 
 ## Demo 🌈
