@@ -53,7 +53,7 @@ Enjoy!
 ## Optional requirements ⚙
  
 * The [Xdebug](https://xdebug.org/) PHP extension if you want to run the code coverage report
-* [Castor 0.8](https://github.com/jolicode/castor) task runner
+* [Castor](https://github.com/jolicode/castor) task runner
 
 
 ## Stack 🔗
