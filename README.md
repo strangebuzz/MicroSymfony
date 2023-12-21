@@ -39,7 +39,7 @@ or
 
     castor symfony:start
 
-Open [https://127.0.0.1:8000](https://127.0.0.1:8000) (if your 8000 port is free).
+Open [https://127.0.0.1:8000](https://127.0.0.1:8000) (considering your 8000 port is free).
 
 Enjoy!
 
