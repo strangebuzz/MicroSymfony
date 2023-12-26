@@ -46,7 +46,7 @@ Enjoy!
 
 ## Requirements ⚙
 
-* [PHP 8.2](https://www.php.net/releases/8.2/en.php)  (also works with [PHP 8.3](https://github.com/strangebuzz/MicroSymfony/actions/runs/7293571059/job/19876895409))
+* [PHP 8.3](https://www.php.net/releases/8.3/en.php)  (also works with [PHP 8.2](https://github.com/strangebuzz/MicroSymfony/actions/runs/7331493507/job/19964206101))
 * The [Symfony CLI](https://symfony.com/download)
 
 
@@ -61,7 +61,7 @@ Enjoy!
 * [Symfony 7.0](https://symfony.com/7)
 * [Twig 3.8](https://twig.symfony.com)
 * [Stimulus 3.2](https://stimulus.hotwired.dev/)
-* [PHPUnit 9.5](https://phpunit.de)
+* [PHPUnit 10.5](https://phpunit.de)
 * The classless [BareCSS](http://barecss.com) CSS framework
 
 

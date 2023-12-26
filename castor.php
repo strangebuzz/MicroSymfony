@@ -90,7 +90,7 @@ function purge(): void
 function test(): void
 {
     title(__FUNCTION__, get_command());
-    run('vendor/bin/simple-phpunit', quiet: false);
+    run('vendor/bin/phpunit', quiet: false);
     io()->writeln('');
     success();
 }
@@ -99,7 +99,7 @@ function test(): void
 function coverage(): void
 {
     title(__FUNCTION__, get_command());
-    run('php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/simple-phpunit --coverage-html=var/coverage',
+    run('php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/phpunit --coverage-html=var/coverage',
         environment: [
           'XDEBUG_MODE' => 'coverage',
         ],
