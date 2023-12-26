@@ -18,11 +18,14 @@ stop: ## Stop the web server
 ## —— Symfony 🎶  ——————————————————————————————————————————————————————————————
 go-prod: ## Switch to the production environment
 	@cp .env.local.dist .env.local
+	# uncomment this line to optimize the auto-loading of classes in the prod env
+	#@composer dump-autoload --no-dev --classmap-authoritative
 	@bin/console asset-map:compile
 
 go-dev: ## Switch to the development environment
 	@rm -f .env.local
 	@rm -rf ./public/assets/*
+	#@composer dump-autoload
 
 warmup: ## Warmup the dev cache for the statis analysis
 	@bin/console c:w --env=dev
