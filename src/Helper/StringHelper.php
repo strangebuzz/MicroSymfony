@@ -13,10 +13,10 @@ use function Symfony\Component\String\u;
  *
  * @see StringHelperTest
  */
-final class StringHelper
+final readonly class StringHelper
 {
     public function __construct(
-        private readonly SluggerInterface $slugger
+        private SluggerInterface $slugger
     ) {
     }
 
