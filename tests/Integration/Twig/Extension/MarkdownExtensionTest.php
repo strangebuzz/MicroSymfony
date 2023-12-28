@@ -7,12 +7,12 @@ namespace App\Tests\Integration\Twig\Extension;
 use App\Twig\Extension\MarkdownExtension;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-final class MarkdowbExtensionTest extends KernelTestCase
+final class MarkdownExtensionTest extends KernelTestCase
 {
     public function testResponseExtension(): void
     {
         self::bootKernel();
-        $extension = $this->getContainer()->get(MarkdownExtension::class);
+        $extension = self::getContainer()->get(MarkdownExtension::class);
         self::assertNotEmpty($extension->getFilters());
     }
 }
