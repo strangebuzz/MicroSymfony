@@ -28,7 +28,7 @@ final class RegisterFormDto
     public string $currency;
 
     #[Assert\NotNull]
-    public ?\DateTimeImmutable $birthday;
+    public ?\DateTimeImmutable $birthday = null;
 
     #[Assert\NotNull]
     public Fruit $fruit;
