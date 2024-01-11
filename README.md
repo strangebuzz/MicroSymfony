@@ -101,6 +101,8 @@ Enjoy!
 * Using the ADR pattern in an action controller ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/src/Controller/SlugifyAcfion.php)) ([doc](https://symfony.com/doc/current/controller/service.html#invokable-controllers))
 * The [composer.json](https://github.com/strangebuzz/MicroSymfony/blob/main/composer.json) 
   file is normalized with [ergebnis/composer-normalize](https://github.com/ergebnis/composer-normalize)
+* Use of the [composer bin plugin](https://github.com/bamarni/composer-bin-plugin)
+  to install and run `php-cs-fixer`.
 
 
 ## What it doesn't ship? ❌
