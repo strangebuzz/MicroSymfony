@@ -79,22 +79,22 @@
     },
     "config": {
         "allow-plugins": {
+            "bamarni/composer-bin-plugin": true,
             "php-http/discovery": true,
             "phpstan/extension-installer": true,
             "symfony/flex": true,
-            "symfony/runtime": true,
-            "bamarni/composer-bin-plugin": true
+            "symfony/runtime": true
         },
         "sort-packages": true
     },
     "extra": {
-        "symfony": {
-            "allow-contrib": false,
-            "require": "7.0.*"
-        },
         "bamarni-bin": {
             "bin-links": true,
             "forward-command": true
+        },
+        "symfony": {
+            "allow-contrib": false,
+            "require": "7.0.*"
         }
     },
     "scripts": {
