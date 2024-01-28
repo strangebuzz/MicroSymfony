@@ -46,7 +46,7 @@ Enjoy!
 
 ## Requirements ⚙
 
-* [PHP 8.3](https://www.php.net/releases/8.3/en.php)  (also works with [PHP 8.2](https://github.com/strangebuzz/MicroSymfony/actions/runs/7331493507/job/19964206101))
+* [PHP 8.2](https://www.php.net/releases/8.2/en.php)  (also works with [PHP 8.3](https://github.com/strangebuzz/MicroSymfony/actions/runs/7687842034/job/20948348451))
 * The [Symfony CLI](https://symfony.com/download)
 
 
