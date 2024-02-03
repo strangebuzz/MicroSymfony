@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
 
+{% block icon %}⛔️{% endblock %}
+
 {% block title %}Error {{ status_code }}{% endblock %}
 
 {% block body %}
@@ -7,9 +9,14 @@
         <card>
             <h5>Oops! An Error {{ status_code }} occured!</h5>
             <hr>
-            <p>Sorry, but an error <b>{{ status_text }}</b> ({{ status_code }}) occured.</p>
+            <p>Sorry, but an error <b>{{ status_text }}</b> ({{ status_code }}) occured.
+            <br/>
+            &raquo; About this error code: <a att="" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/{{ status_code }}">
+                https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/{{ status_code }}</a>
+            </p>
+            <hr>
             <p txt="c">
-                <a href="/">Homepage</a>
+                <a att="" href="/">Homepage</a>
             </p>
 
             <hr/>
@@ -19,7 +26,7 @@
                 <div col="1/3">
                     <img src="https://frankenphp.dev/img/elephant_footer.svg" />
                     <p txt="c">
-                        Logo by <a target="_blank" href="https://frankenphp.dev">FrankenPHP</a>
+                        Logo by <a att="" href="https://frankenphp.dev">FrankenPHP</a>
                     </p>
                 </div>
                 <div col="1/3"></div>

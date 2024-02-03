@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
 
         <title>{% block title %}{{ brand }}{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>🎶️</text></svg>">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>{% block icon %}🎶️{% endblock %}️</text></svg>">
 
         {% block preconnect %}{% endblock %}
 
@@ -42,8 +42,8 @@
                             <menuitem><a href="{{ path('app_stimulus') }}">JavaScript with stimulus</a></menuitem>
                             <menuitem><a href="{{ path('app_composer') }}">The <code>composer.json</code> file</a></menuitem>
                             <menuitem><a href="{{ path('app_form') }}">Form example</a></menuitem>
-                            <menuitem><a href="/404">Custom error page</a></menuitem>
-                            <menuitem><a target="_blank" href="https://barecss.com/">BarreCSS documentation</a></menuitem>
+                            <menuitem><a href="{{ app.environment == 'dev' ? '/_error/404.html' : '/404' }}">Custom error page</a></menuitem>
+                            <menuitem><a href="https://barecss.com/" target="_blank" >BarreCSS documentation</a></menuitem>
                         </menu>
                     </li>
                 </ul>
