@@ -17,7 +17,7 @@ use function Castor\run;
 /**
  * Don't display the description when using a parent command context.
  */
-function title(string $title, Command $command = null): void
+function title(string $title, ?Command $command = null): void
 {
     io()->title($title.($command !== null ? ': '.$command->getDescription() : ''));
 }
