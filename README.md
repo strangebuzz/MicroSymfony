@@ -41,19 +41,20 @@ or
 
 Open [https://127.0.0.1:8000](https://127.0.0.1:8000) (considering your 8000 port is free).
 
-Enjoy!
+Enjoy! 🙂
 
 
 ## Requirements ⚙
 
-* [PHP 8.2](https://www.php.net/releases/8.2/en.php)  (also works with [PHP 8.3](https://github.com/strangebuzz/MicroSymfony/actions/runs/7687842034/job/20948348451))
+* [PHP 8.2](https://www.php.net/releases/8.2/en.php) (also works with [PHP 8.3](https://github.com/strangebuzz/MicroSymfony/actions/workflows/symfony.yml))
 * The [Symfony CLI](https://symfony.com/download)
 
 
 ## Optional requirements ⚙
  
 * The [Xdebug](https://xdebug.org/) PHP extension if you want to run the code coverage report
-* [Castor](https://github.com/jolicode/castor) task runner
+* [Castor](https://github.com/jolicode/castor) task runner if you don't want to use
+  [Make](https://www.gnu.org/software/make/) and its [Makefile](https://github.com/strangebuzz/MicroSymfony/blob/main/Makefile) 
 
 
 ## Stack 🔗
@@ -83,10 +84,10 @@ Enjoy!
   * API test [example](https://github.com/strangebuzz/MicroSymfony/blob/main/tests/Api/Controller/SlugifyActionTest.php) 
   * E2E test [example](https://github.com/strangebuzz/MicroSymfony/blob/main/tests/E2E/Controller/AppControllerTest.php)
 * Code coverage at 100%
-  * [Output on CI](https://github.com/strangebuzz/MicroSymfony/actions/runs/7186942462/job/19573439511)
+  * [Output on CI](https://github.com/strangebuzz/MicroSymfony/actions/runs/8070913583/job/22049355015)
 * GitHub CI ([actions](https://github.com/strangebuzz/MicroSymfony/actions))
-  * [Tests job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/7186942462/job/19573439511)
-  * [Lint job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/7186942462/job/19573439221)
+  * [Tests job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/8070913583/job/22049355015)
+  * [Lint job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/8070913583/job/22049354786)
 * Asset mapper+Stimulus ([documentation](https://symfony.com/doc/current/frontend/asset_mapper.html))
   * Vanilla Js ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/hello_controller.js)) ([demo](https://microsymfony.ovh/stimulus))
   * Fetch on a JSON endpoint of the application ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/api_controller.js)) ([demo](https://microsymfony.ovh/stimulus)) 
@@ -102,7 +103,7 @@ Enjoy!
 * The [composer.json](https://github.com/strangebuzz/MicroSymfony/blob/main/composer.json) 
   file is normalized with [ergebnis/composer-normalize](https://github.com/ergebnis/composer-normalize)
 * Use of the [composer bin plugin](https://github.com/bamarni/composer-bin-plugin)
-  to install and run `php-cs-fixer`.
+  to install and run [php-cs-fixer](https://github.com/PHP-CS-Fixer/PHP-CS-Fixer)
 
 
 ## What it doesn't ship? ❌
