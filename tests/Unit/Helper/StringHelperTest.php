@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Tests\Unit\Helper;
 
 use App\Helper\StringHelper;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\String\Slugger\AsciiSlugger;
 
@@ -25,11 +26,10 @@ final class StringHelperTest extends TestCase
     }
 
     /**
-     * @dataProvider provideSlugify
-     *
      * @covers \App\Helper\StringHelper::slugify
      */
-    public function testSlugify(string|null $input, string $expected): void
+    #[DataProvider('provideSlugify')]
+    public function testSlugify(?string $input, string $expected): void
     {
         $stringHelper = new StringHelper(new AsciiSlugger());
         self::assertSame($expected, $stringHelper->slugify($input));

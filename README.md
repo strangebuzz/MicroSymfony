@@ -62,7 +62,7 @@ Enjoy! 🙂
 * [Symfony 7.0](https://symfony.com/7)
 * [Twig 3.8](https://twig.symfony.com)
 * [Stimulus 3.2](https://stimulus.hotwired.dev/)
-* [PHPUnit 10.5](https://phpunit.de)
+* [PHPUnit 11.0](https://phpunit.de)
 * The classless [BareCSS](http://barecss.com) CSS framework
 
 
