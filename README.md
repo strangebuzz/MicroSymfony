@@ -68,6 +68,7 @@ Then run:
         -e APP_RUNTIME=Runtime\\FrankenPhpSymfony\\Runtime \
         -v $PWD:/app \
         -p 80:80 -p 443:443 \
+        -d \
         dunglas/frankenphp
 
 Open [https://localhost](https://localhost) 
