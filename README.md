@@ -24,22 +24,50 @@ Because a live demo is always better than all explanations. Here is it:
 * Live demo at [https://microsymfony.ovh](https://microsymfony.ovh)
 
 
-## Quick-start 🐰
+## Quick-start with the Symfony binary 🎶 
 
-Run
+You must have the [Symfony binary](https://symfony.com/download#step-1-install-symfony-cli) installed locally.
+
+To create a new project from the GitHub template, run:
 
     composer create-project strangebuzz/microsymfony
     cd microsymfony
 
-then
+Then start the PHP server with make:
 
     make start
 
-or
+Or with Castor:
 
     castor symfony:start
 
 Open [https://127.0.0.1:8000](https://127.0.0.1:8000) (considering your 8000 port is free).
+
+Enjoy! 🙂
+
+
+### FrankenPHP 🧟‍
+
+We can also use [FrankenPHP](https://frankenphp.dev/) to run MicroSymfony:
+Create a new project from the GitHub template, run:
+
+    composer create-project strangebuzz/microsymfony
+    cd microsymfony
+
+Install the [FrankenPHP Symfony runtime](https://github.com/php-runtime/frankenphp-symfony):
+
+    composer require runtime/frankenphp-symfony
+
+Then run:
+
+    docker run \
+        -e FRANKENPHP_CONFIG="worker ./public/index.php" \
+        -e APP_RUNTIME=Runtime\\FrankenPhpSymfony\\Runtime \
+        -v $PWD:/app \
+        -p 80:80 -p 443:443 \
+        dunglas/frankenphp
+
+Open [https://localhost](https://localhost) 
 
 Enjoy! 🙂
 
