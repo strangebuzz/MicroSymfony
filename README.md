@@ -26,7 +26,8 @@ Because a live demo is always better than all explanations. Here is it:
 
 ## Quick-start with the Symfony binary 🎶 
 
-You must have the [Symfony binary](https://symfony.com/download#step-1-install-symfony-cli) installed locally.
+You must have the [Symfony binary](https://symfony.com/download#step-1-install-symfony-cli)
+and [composer](https://getcomposer.org/) installed locally.
 
 To create a new project from the GitHub template, run:
 
@@ -48,7 +49,9 @@ Enjoy! 🙂
 
 ### FrankenPHP 🧟‍
 
-We can also use [FrankenPHP](https://frankenphp.dev/) to run MicroSymfony:
+We can also use [FrankenPHP](https://frankenphp.dev/) to run MicroSymfony.
+You must have [Docker](https://www.docker.com/) installed locally.
+
 Create a new project from the GitHub template, run:
 
     composer create-project strangebuzz/microsymfony
