@@ -10,11 +10,12 @@ I'll update it when needed:
 
 * [Introducing the MicroSymfony application template](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template)
 
-So this blog post is the official documentation.
+So, this blog post is the official documentation.
 This readme is a teaser of what MicroSymfony contains.
 
-If you want to use the last Symfony 6.4 LTS version, in your `composer.json file`,
-replace all occurences of `7.0` by `6.4`, run `composer up` and your are done.  
+If you want to use the last Symfony **6.4 LTS** version, in your `composer.json`
+file, replace all occurrences of `7.0` with `6.4`, run `composer up`, and you are
+done.
 
 
 ## Demo 🌈
@@ -52,12 +53,11 @@ You must have [Docker](https://www.docker.com/) installed locally.
 
 Create a new project from the GitHub template, run:
 
-    composer create-project strangebuzz/microsymfony
-    cd microsymfony
+    docker run --rm -it -v $PWD:/app composer:latest create-project strangebuzz/microsymfony && cd microsymfony
 
 Install the [FrankenPHP Symfony runtime](https://github.com/php-runtime/frankenphp-symfony):
 
-    composer require runtime/frankenphp-symfony
+    docker run --rm -it -v $PWD:/app composer:latest require runtime/frankenphp-symfony
 
 Then run:
 
@@ -74,7 +74,7 @@ Open [https://localhost](https://localhost) and enjoy! 🙂
 
 ## Requirements ⚙
 
-* [PHP 8.2](https://www.php.net/releases/8.2/en.php) (also works with [PHP 8.3](https://github.com/strangebuzz/MicroSymfony/actions/workflows/symfony.yml))
+* [PHP 8.2](https://www.php.net/releases/8.2/en.php) (also works with [PHP 8.3](https://www.php.net/releases/8.3/en.php))
 * The [Symfony CLI](https://symfony.com/download)
 
 
