@@ -42,9 +42,7 @@ Or with Castor:
 
     castor symfony:start
 
-Open [https://127.0.0.1:8000](https://127.0.0.1:8000) (considering your 8000 port is free).
-
-Enjoy! 🙂
+Open [https://127.0.0.1:8000](https://127.0.0.1:8000) (considering your 8000 port is free) and enjoy! 🙂
 
 
 ### FrankenPHP 🧟‍
@@ -71,9 +69,7 @@ Then run:
         -d \
         dunglas/frankenphp
 
-Open [https://localhost](https://localhost) 
-
-Enjoy! 🙂
+Open [https://localhost](https://localhost) and enjoy! 🙂
 
 
 ## Requirements ⚙
