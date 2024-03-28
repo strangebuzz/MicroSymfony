@@ -1,5 +1,5 @@
 /**
- * Bundled by jsDelivr using Rollup v2.79.1 and Terser v5.19.0.
+ * Bundled by jsDelivr using Rollup v2.79.1 and Terser v5.19.2.
  * Original file: /npm/@hotwired/stimulus@3.2.2/dist/stimulus.js
  *
  * Do NOT use SRI with dynamically generated files! More information: https://www.jsdelivr.com/using-sri-with-dynamic-files
