@@ -23,6 +23,7 @@ done.
 Because a live demo is always better than all explanations. Here is it:
 
 * Live demo at [https://microsymfony.ovh](https://microsymfony.ovh)
+* Live demo powered by FrankenPHP at [https://frankenphp.microsymfony.ovh](https://frankenphp.microsymfony.ovh)
 
 
 ## Quick-start with the Symfony binary 🎶 
