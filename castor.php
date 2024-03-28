@@ -101,7 +101,7 @@ function coverage(): void
     title(__FUNCTION__, get_command());
     run('php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/phpunit --coverage-html=var/coverage',
         environment: [
-          'XDEBUG_MODE' => 'coverage',
+            'XDEBUG_MODE' => 'coverage',
         ],
         quiet: false
     );
@@ -131,7 +131,7 @@ function fix_php(): void
     title(__FUNCTION__, get_command());
     run('vendor/bin/php-cs-fixer fix --allow-risky=yes',
         environment: [
-           'PHP_CS_FIXER_IGNORE_ENV' => 1,
+            'PHP_CS_FIXER_IGNORE_ENV' => 1,
         ],
         quiet: false
     );
@@ -144,7 +144,7 @@ function lint_php(): void
     title(__FUNCTION__, get_command());
     run('vendor/bin/php-cs-fixer fix --allow-risky=yes --dry-run',
         environment: [
-           'PHP_CS_FIXER_IGNORE_ENV' => 1,
+            'PHP_CS_FIXER_IGNORE_ENV' => 1,
         ],
         quiet: false
     );
