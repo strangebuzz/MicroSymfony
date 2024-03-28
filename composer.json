@@ -103,7 +103,8 @@
     },
     "scripts": {
         "post-install-cmd": [
-            "@auto-scripts"
+            "@auto-scripts",
+            "@composer bin php-cs-fixer install --ansi"
         ],
         "post-update-cmd": [
             "@auto-scripts"
