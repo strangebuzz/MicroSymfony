@@ -225,8 +225,8 @@ function versions(): void
     run('bin/console --version', quiet: false);
     io()->newLine();
 
-    io()->note('PHPUnit (with simple-phpunit)');
-    run('vendor/bin/simple-phpunit --version', quiet: false);
+    io()->note('PHPUnit');
+    run('vendor/bin/phpunit --version', quiet: false);
 
     io()->note('PHPStan');
     run('vendor/bin/phpstan --version', quiet: false);

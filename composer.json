@@ -109,7 +109,7 @@
             "@auto-scripts"
         ],
         "app:test": [
-            "vendor/bin/simple-phpunit"
+            "vendor/bin/phpunit"
         ],
         "auto-scripts": {
             "cache:clear": "symfony-cmd",

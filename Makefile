@@ -89,10 +89,10 @@ version-symfony:
 	@echo '\n—— Symfony ————————————————————————————————————————————————————————'
 	@bin/console --version
 version-phpunit:
-	@echo '\n—— PHPUnit (simple-phpunit) ———————————————————————————————————————'
-	@vendor/bin/simple-phpunit --version
+	@echo '\n—— PHPUnit ————————————————————————————————————————————————————————'
+	@vendor/bin/phpunit --version
 version-phpstan:
-	@echo '—— PHPStan ————————————————————————————————————————————————————————'
+	@echo '—— PHPStan ——————————————————————————————————————————————————————————'
 	@vendor/bin/phpstan --version
 version-php-cs-fixer:
 	@echo '\n—— php-cs-fixer ———————————————————————————————————————————————————'
