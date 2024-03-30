@@ -13,7 +13,7 @@ I'll update it when needed:
 So, this blog post is the official documentation.
 This readme is a teaser of what MicroSymfony contains.
 
-If you want to use the last Symfony **6.4 LTS** version, in your `composer.json`
+If you want to use the last Symfony **6.4 LTS** version in your `composer.json`
 file, replace all occurrences of `7.0` with `6.4`, run `composer up`, and you are
 done.
 
@@ -23,7 +23,7 @@ done.
 Because a live demo is always better than all explanations. Here is it:
 
 * Live demo at [https://microsymfony.ovh](https://microsymfony.ovh)
-* Live demo powered by FrankenPHP at [https://frankenphp.microsymfony.ovh](https://frankenphp.microsymfony.ovh)
+* Live demo powered by [FrankenPHP](#frankenphp-) at [https://frankenphp.microsymfony.ovh](https://frankenphp.microsymfony.ovh)
 
 
 ## Quick-start with the Symfony binary 🎶 
@@ -90,7 +90,7 @@ Open [https://localhost](https://localhost) and enjoy! 🙂
 
 * [Symfony 7.0](https://symfony.com/7)
 * [Twig 3.8](https://twig.symfony.com)
-* [Stimulus 3.2](https://stimulus.hotwired.dev/)
+* Hotwired [stimulus 3.2](https://stimulus.hotwired.dev/) and [turbo 7.3](https://turbo.hotwired.dev/)
 * [PHPUnit 11.0](https://phpunit.de)
 * The classless [BareCSS](http://barecss.com) CSS framework
 
@@ -126,6 +126,14 @@ to fix some issues as the project is not maintained anymore.
 * A custom error template
   * [Source](https://github.com/strangebuzz/MicroSymfony/blob/main/templates/bundles/TwigBundle/Exception/error.html.twig)
   * [Demo](https://microsymfony.ovh/404) 
+
+
+## Notes 📒
+
+Turbo forms are disabled in [assets/app.js](assets/app.js).
+To enable the feature for a given form, add the `data-turbo="true"` attribute to it. 
+Or change the parameter `Turbo.setFormMode` to `on` to activate the feature globally.
+In both cases, your controller code has to be [modified accordingly](https://symfony.com/bundles/ux-turbo/current/index.html#3-form-response-code-changes).
 
 
 ## Other good practices 👌
