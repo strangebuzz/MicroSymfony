@@ -94,6 +94,9 @@ Open [https://localhost](https://localhost) and enjoy! 🙂
 * [PHPUnit 11.0](https://phpunit.de)
 * The classless [BareCSS](http://barecss.com) CSS framework
 
+**PS**: A [fork of BareCSS](https://github.com/strangebuzz/BareCSS/) was created
+to fix some issues as the project is not maintained anymore.
+
 
 ## Features 🚀
 
