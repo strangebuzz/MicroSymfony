@@ -25,7 +25,10 @@ return [
         'path' => '@symfony/stimulus-bundle/loader.js',
     ],
     'barecss/css/bare.min.css' => [
-        'version' => '1.2.0',
+        'version' => '1.1.0',
         'type' => 'css',
+    ],
+    '@hotwired/turbo' => [
+        'version' => '7.3.0',
     ],
 ];

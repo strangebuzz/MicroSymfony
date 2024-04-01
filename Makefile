@@ -27,7 +27,7 @@ go-dev: ## Switch to the development environment
 	@rm -rf ./public/assets/*
 	#@composer dump-autoload
 
-warmup: ## Warmup the dev cache for the statis analysis
+warmup: ## Warmup the dev cache for the static analysis
 	@bin/console c:w --env=dev
 
 purge: ## Purge all Symfony cache and logs
