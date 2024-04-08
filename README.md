@@ -91,7 +91,7 @@ Open [https://localhost](https://localhost) and enjoy! 🙂
 * [Symfony 7.0](https://symfony.com/7)
 * [Twig 3.8](https://twig.symfony.com)
 * Hotwired [stimulus 3.2](https://stimulus.hotwired.dev/) and [turbo 7.3](https://turbo.hotwired.dev/)
-* [PHPUnit 11.0](https://phpunit.de)
+* [PHPUnit 11.0](https://phpunit.de/announcements/phpunit-11.html)
 * The classless [BareCSS](http://barecss.com) CSS framework
 
 **PS**: A [fork of BareCSS](https://github.com/strangebuzz/BareCSS/) was created
