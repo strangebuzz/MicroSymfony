@@ -13,39 +13,17 @@ use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
 /**
- * @see AppControllerTest
+ * @see FormActionTest
  */
 #[AsController]
 #[Route(name: 'app_')]
-final class AppController extends AbstractController
+final class FormAction extends AbstractController
 {
-    /**
-     * Simple page with some dynamic content.
-     */
-    #[Route(path: '/', name: 'home')]
-    public function home(): Response
-    {
-        $readme = file_get_contents(__DIR__.'/../../README.md');
-
-        return $this->render('home.html.twig', ['readme' => $readme]);
-    }
-
-    /**
-     * Displays the composer.json file.
-     */
-    #[Route(path: '/composer', name: 'composer')]
-    public function composer(): Response
-    {
-        $composer = file_get_contents(__DIR__.'/../../composer.json');
-
-        return $this->render('composer.html.twig', ['composer' => $composer]);
-    }
-
     /**
      * A simple form.
      */
     #[Route(path: '/form', name: 'form')]
-    public function form(Request $request): Response
+    public function __invoke(Request $request): Response
     {
         $dto = new RegisterFormDto();
         $form = $this->createForm(RegisterForm::class, $dto)->handleRequest($request);
