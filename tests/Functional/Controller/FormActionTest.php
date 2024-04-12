@@ -4,36 +4,17 @@ declare(strict_types=1);
 
 namespace App\Tests\Functional\Controller;
 
-use PHPUnit\Framework\Attributes\DataProvider;
+use App\Controller\FormAction;
+use App\Form\Type\RegisterForm;
+use PHPUnit\Framework\Attributes\CoversClass;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-final class AppControllerTest extends WebTestCase
+#[CoversClass(FormAction::class)]
+#[CoversClass(RegisterForm::class)]
+final class FormActionTest extends WebTestCase
 {
     private const FORM_SUBMIT_BUTTON_ID = 'register_form_save';
 
-    /**
-     * @see AppController::home()
-     * @see AppController::composer()
-     *
-     * @return iterable<array{0: string}>
-     */
-    public static function provideTestSimplePage(): iterable
-    {
-        yield ['/'];
-        yield ['/composer'];
-    }
-
-    #[DataProvider('provideTestSimplePage')]
-    public function testSimplePage(string $page): void
-    {
-        $client = self::createClient();
-        $client->request('GET', $page);
-        self::assertResponseIsSuccessful("Page $page is not successfull.");
-    }
-
-    /**
-     * @see AppController::form()
-     */
     public function testFormValidationErrors(): void
     {
         $client = self::createClient();
@@ -45,9 +26,6 @@ final class AppControllerTest extends WebTestCase
         self::assertResponseIsUnprocessable();
     }
 
-    /**
-     * @see AppController::form()
-     */
     public function testFormSuccess(): void
     {
         $client = self::createClient();

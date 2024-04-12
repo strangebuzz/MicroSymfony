@@ -9,13 +9,21 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
+/**
+ * @see StaticActionTest
+ */
 #[AsController]
 #[Route(name: 'app_')]
-final class HelloWorldAction extends AbstractController
+final class HomeAction extends AbstractController
 {
-    #[Route(path: '/hello-world', name: 'hello_world_action')]
+    /**
+     * Simple page with some content.
+     */
+    #[Route(path: '/', name: 'home')]
     public function __invoke(): Response
     {
-        return $this->render('hello_world.html.twig');
+        $readme = file_get_contents(__DIR__.'/../../README.md');
+
+        return $this->render('home.html.twig', ['readme' => $readme]);
     }
 }

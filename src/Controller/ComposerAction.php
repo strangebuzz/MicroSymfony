@@ -9,13 +9,21 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Attribute\Route;
 
+/**
+ * @see AppControllerTest
+ */
 #[AsController]
 #[Route(name: 'app_')]
-final class HelloWorldAction extends AbstractController
+final class ComposerAction extends AbstractController
 {
-    #[Route(path: '/hello-world', name: 'hello_world_action')]
+    /**
+     * Displays the composer.json file.
+     */
+    #[Route(path: '/composer', name: 'composer')]
     public function __invoke(): Response
     {
-        return $this->render('hello_world.html.twig');
+        $composer = file_get_contents(__DIR__.'/../../composer.json');
+
+        return $this->render('composer.html.twig', ['composer' => $composer]);
     }
 }
