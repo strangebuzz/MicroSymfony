@@ -19,7 +19,8 @@ final class EnvExtension extends AbstractExtension implements GlobalsInterface
     public function getGlobals(): array
     {
         return [
-            'version' => Kernel::VERSION,
+            'sf_version' => Kernel::VERSION,
+            'php_version' => PHP_VERSION,
         ];
     }
 }
