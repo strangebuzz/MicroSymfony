@@ -53,7 +53,7 @@
         </section>
 
         <footer>
-            <h5>{{ brand|raw }} v{{ sf_version }} (PHP {{ php_version }})</h5>
+            <h5>{{ brand|raw }} v{{ sf_version }} ({{ 'frankenphp' in php_sapi ? php_sapi : 'PHP '~php_sapi }} {{ php_version }})</h5>
 
             <grid>
                 <div fx="" col="3/4">
