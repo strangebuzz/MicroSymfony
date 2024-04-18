@@ -138,7 +138,7 @@ In both cases, your controller code has to be [modified accordingly](https://sym
 
 ## Other good practices 👌
 
-* Using strict types in all PHP files ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/src/Controller/AppController.php#L3))
+* Using strict types in all PHP files ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/src/Controller/SlugifyAcfion.php#L3))
 * Using the ADR pattern in an action controller ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/src/Controller/SlugifyAcfion.php)) ([doc](https://symfony.com/doc/current/controller/service.html#invokable-controllers))
 * The [composer.json](https://github.com/strangebuzz/MicroSymfony/blob/main/composer.json) 
   file is normalized with [ergebnis/composer-normalize](https://github.com/ergebnis/composer-normalize)
