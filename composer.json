@@ -22,26 +22,26 @@
         "ext-simplexml": "*",
         "ext-xml": "*",
         "league/commonmark": "^2.4",
-        "symfony/asset": "~7.0.0",
-        "symfony/asset-mapper": "~7.0.0",
-        "symfony/console": "~7.0.0",
-        "symfony/dotenv": "~7.0.0",
+        "symfony/asset": "~7.1.0",
+        "symfony/asset-mapper": "~7.1.0",
+        "symfony/console": "~7.1.0",
+        "symfony/dotenv": "~7.1.0",
         "symfony/flex": "^2",
-        "symfony/form": "~7.0.0",
-        "symfony/framework-bundle": "~7.0.0",
-        "symfony/http-foundation": "7.0.*",
-        "symfony/http-kernel": "7.0.*",
-        "symfony/intl": "~7.0.0",
+        "symfony/form": "~7.1.0",
+        "symfony/framework-bundle": "~7.1.0",
+        "symfony/http-foundation": "~7.1.0",
+        "symfony/http-kernel": "~7.1.0",
+        "symfony/intl": "~7.1.0",
         "symfony/monolog-bundle": "^3.8",
-        "symfony/routing": "7.0.*",
-        "symfony/runtime": "~7.0.0",
+        "symfony/routing": "~7.1.0",
+        "symfony/runtime": "~7.1.0",
         "symfony/stimulus-bundle": "^2.0",
-        "symfony/string": "7.0.*",
-        "symfony/twig-bundle": "~7.0.0",
+        "symfony/string": "~7.1.0",
+        "symfony/twig-bundle": "~7.1.0",
         "symfony/ux-turbo": "^2.16",
-        "symfony/validator": "~7.0.0",
-        "symfony/web-link": "7.0.*",
-        "symfony/yaml": "~7.0.0",
+        "symfony/validator": "~7.1.0",
+        "symfony/web-link": "~7.1.0",
+        "symfony/yaml": "~7.1.0",
         "twig/extra-bundle": "^3.0",
         "twig/markdown-extra": "^3.7",
         "twig/twig": "^3.0"
@@ -52,11 +52,11 @@
         "phpstan/phpstan-symfony": "^1.3",
         "phpunit/phpunit": "^11.0",
         "roave/security-advisories": "dev-latest",
-        "symfony/browser-kit": "~7.0.0",
-        "symfony/css-selector": "~7.0.0",
+        "symfony/browser-kit": "~7.1.0",
+        "symfony/css-selector": "~7.1.0",
         "symfony/requirements-checker": "^2.0",
-        "symfony/stopwatch": "~7.0.0",
-        "symfony/web-profiler-bundle": "~7.0.0"
+        "symfony/stopwatch": "~7.1.0",
+        "symfony/web-profiler-bundle": "~7.1.0"
     },
     "replace": {
         "symfony/polyfill-ctype": "*",
@@ -70,7 +70,7 @@
     "conflict": {
         "symfony/symfony": "*"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "beta",
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
@@ -99,7 +99,7 @@
         },
         "symfony": {
             "allow-contrib": false,
-            "require": "7.0.*"
+            "require": "7.1.*"
         }
     },
     "scripts": {
