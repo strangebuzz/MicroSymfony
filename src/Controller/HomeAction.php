@@ -7,6 +7,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\AsController;
+use Symfony\Component\HttpKernel\Attribute\Cache;
 use Symfony\Component\Routing\Attribute\Route;
 
 /**
@@ -14,6 +15,7 @@ use Symfony\Component\Routing\Attribute\Route;
  */
 #[AsController]
 #[Route(name: 'app_')]
+#[Cache(maxage: 3600, public: true)]
 final class HomeAction extends AbstractController
 {
     /**

@@ -14,14 +14,17 @@ use Symfony\Component\Routing\Attribute\Route;
 /**
  * This is an action implementing the ADR pattern.
  *
+ * @see SlugifyActionTest
  * @see https://symfony.com/doc/current/controller/service.html#invokable-controllers
  */
 #[AsController]
 #[Route(name: 'app_')]
-final class SlugifyAcfion extends AbstractController
+final class SlugifyAction extends AbstractController
 {
     /**
-     * Simple API endpoint returning JSON.
+     * Simple API endpoint returning JSON. For a more serious API, please use API Platform 🕸.
+     *
+     * @see https://api-platform.com/
      */
     #[Route(path: '/api/slugify', name: 'slugify_action')]
     public function __invoke(Request $request, StringHelper $stringHelper): Response
