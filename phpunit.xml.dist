@@ -26,11 +26,6 @@
     </testsuite>
   </testsuites>
 
-  <coverage>
-    <report>
-      <clover outputFile="var/coverage/clover.xml"/>
-    </report>
-  </coverage>
   <!-- Run `composer require symfony/panther` before enabling this extension -->
   <!--
     <extensions>
