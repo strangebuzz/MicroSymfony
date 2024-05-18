@@ -17,8 +17,8 @@ use function Castor\task;
 function title(string $name): void
 {
     $task = task();
-    if ($task?->getName() === $name) {
-        io()->title($task?->getDescription());
+    if ($task !== null && $task->getName() === $name) {
+        io()->title($task->getDescription());
     }
 }
 
@@ -220,7 +220,7 @@ function ci(): void
     title('ci:all');
     io()->section('Coverage');
     coverage();
-    io()->section('Codings standarts');
+    io()->section('Codings standards');
     cs_all();
     io()->section('Lints');
     lint_all();
