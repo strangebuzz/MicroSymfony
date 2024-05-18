@@ -6,7 +6,6 @@
 declare(strict_types=1);
 
 use Castor\Attribute\AsTask;
-use Symfony\Component\Console\Command\Command;
 
 use function Castor\exit_code;
 use function Castor\io;
@@ -15,10 +14,11 @@ use function Castor\task;
 
 // use function Castor\parallel;
 
-function title(Command $command, bool $silent = false): void
+function title(string $name): void
 {
-    if (!$silent) {
-        io()->title($command->getDescription());
+    $task = task();
+    if ($task?->getName() === $name) {
+        io()->title($task?->getDescription());
     }
 }
 
@@ -38,24 +38,24 @@ function aborted(): void
     io()->warning('Aborted.');
 }
 
-#[AsTask(namespace: 'symfony', description: 'Serve the application with the Symfony binary', )]
+#[AsTask(namespace: 'symfony', description: 'Serve the application with the Symfony binary', aliases: ['start'])]
 function start(): void
 {
-    title(task());
+    title('symfony:start');
     run('symfony serve --daemon', quiet: false);
 }
 
-#[AsTask(namespace: 'symfony', description: 'Stop the web server')]
+#[AsTask(namespace: 'symfony', description: 'Stop the web server', aliases: ['stop'])]
 function stop(): void
 {
-    title(task());
+    title('symfony:stop');
     run('symfony server:stop', quiet: false);
 }
 
-#[AsTask(namespace: 'symfony', description: 'Switch to the production environment')]
+#[AsTask(namespace: 'symfony', description: 'Switch to the production environment', aliases: ['go-prod'])]
 function go_prod(): void
 {
-    title(task());
+    title('symfony:go_prod');
     if (io()->confirm('Are you sure you want to switch to the production environment? This will overwrite your .env.local file.', false)) {
         run('cp .env.local.dist .env.local', quiet: false);
         run('bin/console asset-map:compile', quiet: false);
@@ -67,10 +67,10 @@ function go_prod(): void
     aborted();
 }
 
-#[AsTask(namespace: 'symfony', description: 'Switch to the development environment')]
+#[AsTask(namespace: 'symfony', description: 'Switch to the development environment', aliases: ['go-dev'])]
 function go_dev(): void
 {
-    title(task());
+    title('symfony:go_dev');
     if (io()->confirm('Are you sure you want to switch to the development environment? This will delete your .env.local file.', false)) {
         run('rm -f .env.local', quiet: false);
         run('rm -rf ./public/assets/*', quiet: false);
@@ -82,27 +82,27 @@ function go_dev(): void
     aborted();
 }
 
-#[AsTask(namespace: 'symfony', description: 'Purge all Symfony cache and logs')]
+#[AsTask(namespace: 'symfony', description: 'Purge all Symfony cache and logs', aliases: ['purge'])]
 function purge(): void
 {
-    title(task());
+    title('symfony:purge');
     success(exit_code('rm -rf ./var/cache/* ./var/logs/* ./var/coverage/*', quiet: false));
 }
 
-#[AsTask(name: 'all', namespace: 'test', description: 'Run all PHPUnit tests')]
-function test(): int
+#[AsTask(name: 'all', namespace: 'test', description: 'Run all PHPUnit tests', aliases: ['test'])]
+function test_all(): int
 {
-    title(task());
+    title('test:all');
     $ec = exit_code(__DIR__.'/vendor/bin/phpunit');
     io()->writeln('');
 
     return $ec;
 }
 
-#[AsTask(namespace: 'test', description: 'Generate the HTML PHPUnit code coverage report (stored in var/coverage)')]
+#[AsTask(namespace: 'test', description: 'Generate the HTML PHPUnit code coverage report (stored in var/coverage)', aliases: ['coverage'])]
 function coverage(): int
 {
-    title(task(), task()?->getName() !== 'test:coverage');
+    title('test:coverage');
     $ec = exit_code('php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/phpunit --coverage-html=var/coverage --coverage-clover=var/coverage/clover.xml',
         environment: [
             'XDEBUG_MODE' => 'coverage',
@@ -116,25 +116,25 @@ function coverage(): int
     return success(exit_code('php bin/coverage-checker.php var/coverage/clover.xml 100', quiet: false));
 }
 
-#[AsTask(namespace: 'test', description: 'Open the PHPUnit code coverage report (var/coverage/index.html)')]
+#[AsTask(namespace: 'test', description: 'Open the PHPUnit code coverage report (var/coverage/index.html)', aliases: ['cov-report'])]
 function cov_report(): void
 {
-    title(task());
+    title('test:cov-report');
     success(exit_code('open var/coverage/index.html', quiet: true));
 }
 
-#[AsTask(namespace: 'cs', description: 'Run PHPStan')]
+#[AsTask(namespace: 'cs', description: 'Run PHPStan', aliases: ['phpstan'])]
 function stan(): int
 {
-    title(task(), task()?->getName() !== 'cs:stan');
+    title('cs:stan');
 
     return exit_code('vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vvv', quiet: false);
 }
 
-#[AsTask(namespace: 'cs', description: 'Fix PHP files with php-cs-fixer (ignore PHP 8.2 warning)')]
+#[AsTask(namespace: 'cs', description: 'Fix PHP files with php-cs-fixer (ignore PHP 8.2 warning)', aliases: ['fix-php'])]
 function fix_php(): int
 {
-    title(task(), task()?->getName() !== 'cs:fix-php');
+    title('cs:fix-php');
     $ec = exit_code('vendor/bin/php-cs-fixer fix --allow-risky=yes',
         environment: [
             'PHP_CS_FIXER_IGNORE_ENV' => 1,
@@ -145,10 +145,10 @@ function fix_php(): int
     return success($ec);
 }
 
-#[AsTask(namespace: 'cs', description: 'Lint PHP files with php-cs-fixer (report only)')]
+#[AsTask(namespace: 'cs', description: 'Lint PHP files with php-cs-fixer (report only)', aliases: ['lint-php'])]
 function lint_php(): int
 {
-    title(task(), task()?->getName() !== 'cs:lint-php');
+    title('cs:lint-php');
     $ec = exit_code('vendor/bin/php-cs-fixer fix --allow-risky=yes --dry-run',
         environment: [
             'PHP_CS_FIXER_IGNORE_ENV' => 1,
@@ -160,44 +160,44 @@ function lint_php(): int
     return success($ec);
 }
 
-#[AsTask(name: 'all', namespace: 'cs', description: 'Run all CS checks')]
+#[AsTask(name: 'all', namespace: 'cs', description: 'Run all CS checks', aliases: ['cs'])]
 function cs_all(): int
 {
-    title(task(), task()?->getName() !== 'cs:all');
+    title('cs:all');
     $ec1 = fix_php();
     $ec2 = stan();
     io()->newLine();
 
     return success($ec1 + $ec2);
 }
-#[AsTask(name: 'container', namespace: 'lint', description: 'Lint the Symfony DI container')]
+#[AsTask(name: 'container', namespace: 'lint', description: 'Lint the Symfony DI container', aliases: ['lint-container'])]
 function lint_container(): int
 {
-    title(task(), task()?->getName() !== 'lint:container');
+    title('lint:container');
 
     return exit_code('bin/console lint:container', quiet: false);
 }
 
-#[AsTask(name: 'twig', namespace: 'lint', description: 'Lint Twig files')]
+#[AsTask(name: 'twig', namespace: 'lint', description: 'Lint Twig files', aliases: ['lint-twig'])]
 function lint_twig(): int
 {
-    title(task(), task()?->getName() !== 'lint:twig');
+    title('lint:twig');
 
     return exit_code('bin/console lint:twig templates/', quiet: false);
 }
 
-#[AsTask(name: 'yaml', namespace: 'lint', description: 'Lint Yaml files')]
+#[AsTask(name: 'yaml', namespace: 'lint', description: 'Lint Yaml files', aliases: ['lint-yaml'])]
 function lint_yaml(): int
 {
-    title(task(), task()?->getName() !== 'lint:yaml');
+    title('lint:yaml');
 
     return exit_code('bin/console lint:yaml --parse-tags config/', quiet: false);
 }
 
-#[AsTask(name: 'all', namespace: 'lint', description: 'Run all lints')]
+#[AsTask(name: 'all', namespace: 'lint', description: 'Run all lints', aliases: ['lint'])]
 function lint_all(): int
 {
-    title(task(), task()?->getName() !== 'lint:all');
+    title('lint:all');
     $ec1 = lint_php();
     $ec2 = lint_container();
     $ec3 = lint_twig();
@@ -214,19 +214,22 @@ function lint_all(): int
     //    );
 }
 
-#[AsTask(name: 'all', namespace: 'ci', description: 'Run CI locally')]
+#[AsTask(name: 'all', namespace: 'ci', description: 'Run CI locally', aliases: ['ci'])]
 function ci(): void
 {
-    title(task());
+    title('ci:all');
+    io()->section('Coverage');
     coverage();
+    io()->section('Codings standarts');
     cs_all();
+    io()->section('Lints');
     lint_all();
 }
 
-#[AsTask(name: 'versions', namespace: 'helpers', description: 'Output current stack versions')]
+#[AsTask(name: 'versions', namespace: 'helpers', description: 'Output current stack versions', aliases: ['versions'])]
 function versions(): void
 {
-    title(task());
+    title('helpers:versions');
     io()->note('PHP');
     run('php -v', quiet: false);
     io()->newLine();
@@ -253,7 +256,7 @@ function versions(): void
     success(0);
 }
 
-#[AsTask(name: 'check-requirements', namespace: 'helpers', description: 'Checks requirements for running Symfony')]
+#[AsTask(name: 'check-requirements', namespace: 'helpers', description: 'Checks requirements for running Symfony', aliases: ['check-requirements'])]
 function check_requirements(): int
 {
     $ec = exit_code('vendor/bin/requirements-checker');
