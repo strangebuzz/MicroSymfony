@@ -52,7 +52,7 @@ stan: ## Run PHPStan
 	@vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vvv
 
 fix-php: ## Fix PHP files with php-cs-fixer (ignore PHP 8.2 warning)
-	@PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix --allow-risky=yes $(PHP_CS_FIXER_ARGS)
+	@PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix $(PHP_CS_FIXER_ARGS)
 
 lint-php: ## Lint PHP files with php-cs-fixer (report only)
 lint-php: PHP_CS_FIXER_ARGS=--dry-run

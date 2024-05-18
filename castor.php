@@ -135,7 +135,7 @@ function stan(): int
 function fix_php(): int
 {
     title('cs:fix-php');
-    $ec = exit_code('vendor/bin/php-cs-fixer fix --allow-risky=yes',
+    $ec = exit_code('vendor/bin/php-cs-fixer fix',
         environment: [
             'PHP_CS_FIXER_IGNORE_ENV' => 1,
         ],
@@ -149,7 +149,7 @@ function fix_php(): int
 function lint_php(): int
 {
     title('cs:lint-php');
-    $ec = exit_code('vendor/bin/php-cs-fixer fix --allow-risky=yes --dry-run',
+    $ec = exit_code('vendor/bin/php-cs-fixer fix --dry-run',
         environment: [
             'PHP_CS_FIXER_IGNORE_ENV' => 1,
         ],

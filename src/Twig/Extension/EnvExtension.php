@@ -20,8 +20,8 @@ final class EnvExtension extends AbstractExtension implements GlobalsInterface
     {
         return [
             'sf_version' => Kernel::VERSION,
-            'php_version' => PHP_VERSION,
-            'php_sapi' => PHP_SAPI,
+            'php_version' => \PHP_VERSION,
+            'php_sapi' => \PHP_SAPI,
         ];
     }
 }
