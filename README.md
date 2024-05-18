@@ -153,6 +153,7 @@ In both cases, your controller code has to be [modified accordingly](https://sym
 
 ## References 📚
 
+* [Front-end application development, Symfony-style(s)](https://dunglas.dev/2024/04/front-end-application-development-symfony-styles/) (dunglas.dev) 
 * [Automated Test Coverage Checks with Travis, PHPUnit for Github Pull Requests](https://ocramius.github.io/blog/automated-code-coverage-check-for-github-pull-requests-with-travis/) (ocramius.github.io) 
 * [Installing and using php-cs-fixer](https://www.strangebuzz.com/en/blog/installing-and-using-php-cs-fixer) (strangebuzz.com)
 * [Castor, a journey across the sea of task runners](https://jolicode.com/blog/castor-a-journey-across-the-sea-of-task-runners) (jolicode.com)
