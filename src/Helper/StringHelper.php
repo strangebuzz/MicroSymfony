@@ -14,7 +14,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 final readonly class StringHelper
 {
     public function __construct(
-        private SluggerInterface $slugger
+        private SluggerInterface $slugger,
     ) {
     }
 

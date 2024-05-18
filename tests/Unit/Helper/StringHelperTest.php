@@ -25,7 +25,7 @@ final class StringHelperTest extends TestCase
         yield ['', ''];
         yield [null, ''];
         yield ['  Symfony IS GreAT ! !!', 'symfony-is-great'];
-        yield ['MicroSymfony 🎶 by COil 🙂👻   ', 'microsymfony-by-coil'];
+        yield ["MicroSymfony 🎶 by COil 🙂👻 \u{a0} ", 'microsymfony-by-coil'];
     }
 
     #[DataProvider('provideSlugify')]
