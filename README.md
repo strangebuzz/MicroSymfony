@@ -23,7 +23,7 @@ done.
 Because a live demo is always better than all explanations. Here is it:
 
 * Live demo at [https://microsymfony.ovh](https://microsymfony.ovh)
-* Live demo powered by [FrankenPHP](#frankenphp-) at [https://frankenphp.microsymfony.ovh](https://frankenphp.microsymfony.ovh)
+* Live demo powered by [FrankenPHP](https://frankenphp.dev/) at [https://frankenphp.microsymfony.ovh](https://frankenphp.microsymfony.ovh)
 
 
 ## Quick-start with the Symfony binary 🎶 
@@ -90,7 +90,7 @@ Open [https://localhost](https://localhost) and enjoy! 🙂
 
 * [Symfony 7.0](https://symfony.com/7)
 * [Twig 3.8](https://twig.symfony.com)
-* Hotwired [stimulus 3.2](https://stimulus.hotwired.dev/) and [turbo 8.0](https://turbo.hotwired.dev/)
+* Hotwired [stimulus 3.2](https://stimulus.hotwired.dev/) and [Turbo 8.0](https://turbo.hotwired.dev/)
 * [PHPUnit 11.0](https://phpunit.de/announcements/phpunit-11.html)
 * The classless [BareCSS](http://barecss.com) CSS framework
 
@@ -111,8 +111,8 @@ to fix some issues as the project is not maintained anymore.
   * [Configuration](https://github.com/strangebuzz/MicroSymfony/blob/main/.php-cs-fixer.dist.php)
 * Tests ([demo](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template#h2_7))
   * Unit test [example](https://github.com/strangebuzz/MicroSymfony/blob/main/tests/Unit/Helper/StringHelperTest.php) 
-  * Integration test [example](https://github.com/strangebuzz/MicroSymfony/blob/main/tests/Integration/Twig/Extension/ResponseExtensionTest.php) 
-  * Functional test [example](https://github.com/strangebuzz/MicroSymfony/blob/main/tests/Functional/Controller/AppControllerTest.php) 
+  * Integration test [example](https://github.com/strangebuzz/MicroSymfony/blob/main/tests/Integration/Twig/Extension/MarkdownExtensionTest.php) 
+  * Functional test [example](https://github.com/strangebuzz/MicroSymfony/blob/main/tests/Functional/Controller/HelloWorldTest.php) 
   * API test [example](https://github.com/strangebuzz/MicroSymfony/blob/main/tests/Api/Controller/SlugifyActionTest.php) 
   * E2E test [example](https://github.com/strangebuzz/MicroSymfony/blob/main/tests/E2E/Controller/AppControllerTest.php)
 * Code coverage at 100%
@@ -130,7 +130,7 @@ to fix some issues as the project is not maintained anymore.
 
 ## Notes 📒
 
-Turbo forms are disabled in [assets/app.js](assets/app.js).
+Turbo forms are disabled in [https://github.com/strangebuzz/MicroSymfony/blob/main/assets/app.js](assets/app.js).
 To enable the feature for a given form, add the `data-turbo="true"` attribute to it. 
 Or change the parameter `Turbo.setFormMode` to `on` to activate the feature globally.
 In both cases, your controller code has to be [modified accordingly](https://symfony.com/bundles/ux-turbo/current/index.html#3-form-response-code-changes).
@@ -138,8 +138,8 @@ In both cases, your controller code has to be [modified accordingly](https://sym
 
 ## Other good practices 👌
 
-* Using strict types in all PHP files ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/src/Controller/SlugifyAcfion.php#L3))
-* Using the ADR pattern in an action controller ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/src/Controller/SlugifyAcfion.php)) ([doc](https://symfony.com/doc/current/controller/service.html#invokable-controllers))
+* Using strict types in all PHP files ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/src/Controller/SlugifyAction.php#L3))
+* Using the ADR pattern in an action controller ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/src/Controller/SlugifyAction.php)) ([doc](https://symfony.com/doc/current/controller/service.html#invokable-controllers))
 * The [composer.json](https://github.com/strangebuzz/MicroSymfony/blob/main/composer.json) 
   file is normalized with [ergebnis/composer-normalize](https://github.com/ergebnis/composer-normalize)
 * Use of the [composer bin plugin](https://github.com/bamarni/composer-bin-plugin)
