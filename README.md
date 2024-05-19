@@ -130,7 +130,7 @@ to fix some issues as the project is not maintained anymore.
 
 ## Notes 📒
 
-Turbo forms are disabled in [https://github.com/strangebuzz/MicroSymfony/blob/main/assets/app.js](assets/app.js).
+Turbo forms are disabled in [assets/app.js](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/app.js).
 To enable the feature for a given form, add the `data-turbo="true"` attribute to it. 
 Or change the parameter `Turbo.setFormMode` to `on` to activate the feature globally.
 In both cases, your controller code has to be [modified accordingly](https://symfony.com/bundles/ux-turbo/current/index.html#3-form-response-code-changes).
