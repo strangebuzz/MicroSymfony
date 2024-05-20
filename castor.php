@@ -1,7 +1,7 @@
 <?php
 
 // Until the 1.x Castor version the API may be unstable
-// it script was tested with Castor 0.15.0
+// this script was tested with Castor 0.15.0
 
 declare(strict_types=1);
 
