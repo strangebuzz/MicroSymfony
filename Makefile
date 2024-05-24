@@ -48,8 +48,12 @@ cov-report: var/coverage/index.html ## Open the PHPUnit code coverage report (va
 
 
 ## —— Coding standards/lints ✨ ————————————————————————————————————————————————
-stan: ## Run PHPStan
+stan: var/cache/dev/App_KernelDevDebugContainer.xml ## Run PHPStan
 	@vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vvv
+
+# PHPStan needs the dev/debug cache
+var/cache/dev/App_KernelDevDebugContainer.xml:
+	APP_DEBUG=1 APP_ENV=DEV bin/console cache:warmup
 
 fix-php: ## Fix PHP files with php-cs-fixer (ignore PHP 8.2 warning)
 	@PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix $(PHP_CS_FIXER_ARGS)
