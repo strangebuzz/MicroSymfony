@@ -33,9 +33,9 @@ function success(int $exitCode): int
     return $exitCode;
 }
 
-function aborted(): void
+function aborted(string $message = 'Aborted'): void
 {
-    io()->warning('Aborted.');
+    io()->warning($message);
 }
 
 #[AsTask(namespace: 'symfony', description: 'Serve the application with the Symfony binary', aliases: ['start'])]
@@ -123,10 +123,21 @@ function cov_report(): void
     success(exit_code('open var/coverage/index.html', quiet: true));
 }
 
-#[AsTask(namespace: 'cs', description: 'Run PHPStan', aliases: ['phpstan'])]
+#[AsTask(namespace: 'cs', description: 'Run PHPStan', aliases: ['stan'])]
 function stan(): int
 {
     title('cs:stan');
+
+    if (!file_exists('var/cache/dev/App_KernelDevDebugContainer.xml')) {
+        io()->note('PHPStan needs the dev/debug cache. Generating it...');
+        run('bin/console cache:warmup',
+            environment: [
+                'APP_ENV' => 'dev',
+                'APP_DEBUG' => 1,
+            ],
+            quiet: false
+        );
+    }
 
     return exit_code('vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vvv', quiet: false);
 }
@@ -145,7 +156,7 @@ function fix_php(): int
     return success($ec);
 }
 
-#[AsTask(namespace: 'cs', description: 'Lint PHP files with php-cs-fixer (report only)', aliases: ['lint-php'])]
+#[AsTask(name: 'php', namespace: 'lint', description: 'Lint PHP files with php-cs-fixer (report only)', aliases: ['lint-php'])]
 function lint_php(): int
 {
     title('cs:lint-php');
