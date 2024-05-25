@@ -159,7 +159,7 @@ function fix_php(): int
 #[AsTask(name: 'php', namespace: 'lint', description: 'Lint PHP files with php-cs-fixer (report only)', aliases: ['lint-php'])]
 function lint_php(): int
 {
-    title('cs:lint-php');
+    title('lint:php');
     $ec = exit_code('vendor/bin/php-cs-fixer fix --dry-run',
         environment: [
             'PHP_CS_FIXER_IGNORE_ENV' => 1,
@@ -169,6 +169,26 @@ function lint_php(): int
     io()->newLine();
 
     return success($ec);
+}
+
+#[AsTask(name: 'lint-php', namespace: 'ci', description: 'Lint PHP files with php-cs-fixer (for CI)')]
+function ci_lint_php(): int
+{
+    title('ci:lint-php');
+
+    $ec = exit_code('command -v cs2pr &> /dev/null');
+    if ($ec !== 0) {
+        aborted('cs2pr not found. Locally, Please use the "lint:php" task.');
+
+        return 1;
+    }
+
+    return exit_code('vendor/bin/php-cs-fixer fix --allow-risky=yes --dry-run --format=checkstyle | cs2pr',
+        environment: [
+            'PHP_CS_FIXER_IGNORE_ENV' => 1,
+        ],
+        quiet: false
+    );
 }
 
 #[AsTask(name: 'all', namespace: 'cs', description: 'Run all CS checks', aliases: ['cs'])]

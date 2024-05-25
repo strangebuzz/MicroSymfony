@@ -13,23 +13,24 @@ env:
   XDEBUG_MODE: coverage
 
 jobs:
-  # run tests (critical)
+  # Run tests ——————————————————————————————————————————————————————————————————
   symfony-tests:
     strategy:
       fail-fast: true
       matrix:
         php-versions: ['8.2', '8.3']
     runs-on: ubuntu-latest
-    # Setup
+
+    # Setup ————————————————————————————————————————————————————————————————
     steps:
     - uses: shivammathur/setup-php@v2
       with:
         php-version: ${{ matrix.php-versions }}
         coverage: xdebug
-        #tools: castor
+        tools: castor
     - uses: actions/checkout@v3
 
-    # Composer
+    # Composer —————————————————————————————————————————————————————————————
     - name: Get Composer Cache Directory
       id: composer-cache
       run: |
@@ -46,27 +47,24 @@ jobs:
     - name: Audit the code for vulnerabilities
       run: composer audit
 
-    # Tests
+    # Tests ————————————————————————————————————————————————————————————————
     - name: Execute tests via PHPUnit
-      run: vendor/bin/phpunit
-      #run: castor test:all
+      run: castor test
 
-    # Code coverage
+    # Code coverage ————————————————————————————————————————————————————————
     - name: Generate the code coverage report and show the current global coverage
-      run: |
-        php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/phpunit --coverage-html=var/coverage --coverage-clover=var/coverage/clover.xml
-        php bin/coverage-checker.php var/coverage/clover.xml 100
+      run: castor coverage
 
-  # run all lint/CS checks (non critical)
+
+  # Run all lint/CS checks —————————————————————————————————————————————————————
   symfony-lint:
     runs-on: ubuntu-latest
     steps:
-    # Setup
+    # Setup ————————————————————————————————————————————————————————————————
     - uses: shivammathur/setup-php@v2
       with:
         php-version: '8.2'
-        tools: cs2pr
-        #tools: cs2pr, castor
+        tools: cs2pr, castor
     - uses: actions/checkout@v3
     - name: Get Composer Cache Directory
       id: composer-cache
@@ -83,22 +81,18 @@ jobs:
     - name: Install PHPUnit dependencies for PHPStan
       run: vendor/bin/phpunit --version
 
-    # native Symfony lints
+    # Native Symfony lints —————————————————————————————————————————————————
     - name: Lint the DI container
-      run: bin/console lint:container
-      #run: castor lint:container
+      run: castor lint:container
     - name: Lint Twig templates
-      run: bin/console lint:twig
-      #run: castor lint:twig
+      run: castor lint:twig
     - name: Lint Yaml files
-      run: bin/console lint:yaml config/
-      #run: castor lint:yaml
+      run: castor lint:yaml
 
-    # vendors
-    - name: php-cs-fixer
-      run: vendor/bin/php-cs-fixer fix --allow-risky=yes --dry-run --format=checkstyle | cs2pr
-    - name: PHPStan
-      #castor cs:stan
-      run: | 
-        bin/console about --env=dev
-        vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vvv
+    # Vendors ——————————————————————————————————————————————————————————————
+    - name: Lint PHP with php-cs-fixer
+      run: castor lint:php
+    - name: PHPStan static analysis
+      run: castor stan
+
+# The end. 🙃
