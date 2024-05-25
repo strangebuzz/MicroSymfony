@@ -44,9 +44,6 @@ jobs:
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
-    - name: Audit the code for vulnerabilities
-      run: composer audit
-
     # Tests ————————————————————————————————————————————————————————————————
     - name: Execute tests via PHPUnit
       run: castor test
@@ -94,5 +91,17 @@ jobs:
       run: castor lint:php
     - name: PHPStan static analysis
       run: castor stan
+
+  security: # ——————————————————————————————————————————————————————————————————
+    runs-on: ubuntu-latest
+    steps:
+      # - uses: shivammathur/setup-php@v2
+        #with:
+          #coverage: xdebug
+      - uses: actions/checkout@v3
+
+      # Composer —————————————————————————————————————————————————————————————
+      - name: Audit the code for vulnerabilities
+        run: composer audit
 
 # The end. 🙃
