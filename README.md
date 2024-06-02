@@ -2,7 +2,7 @@
 
 ## Introduction 🖋 
 
-MicroSymfony is a Symfony 7.0 application skeleton on steroids, ready to use.
+MicroSymfony is a Symfony 7.1 application skeleton on steroids, ready to use.
 
 I have made a long blog post explaining all it contains; it will be the reference
 for documentation. 
@@ -14,7 +14,7 @@ So, this blog post is the official documentation.
 This readme is a teaser of what MicroSymfony contains.
 
 If you want to use the last Symfony **6.4 LTS** version in your `composer.json`
-file, replace all occurrences of `7.0` with `6.4`, run `composer up`, and you are
+file, replace all occurrences of `7.1` with `6.4`, run `composer up`, and you are
 done.
 
 
@@ -88,7 +88,7 @@ Open [https://localhost](https://localhost) and enjoy! 🙂
 
 ## Stack 🔗
 
-* [Symfony 7.0](https://symfony.com/7)
+* [Symfony 7.1](https://symfony.com/7)
 * [Twig 3.8](https://twig.symfony.com)
 * Hotwired [stimulus 3.2](https://stimulus.hotwired.dev/) and [Turbo 8.0](https://turbo.hotwired.dev/)
 * [PHPUnit 11.0](https://phpunit.de/announcements/phpunit-11.html)
