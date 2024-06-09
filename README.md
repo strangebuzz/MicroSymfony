@@ -72,6 +72,8 @@ Then run:
 
 Open [https://localhost](https://localhost) and enjoy! 🙂
 
+**PS**: On Windows, replace `$PWD` by `"%cd%"`.
+
 
 ## Requirements ⚙
 
