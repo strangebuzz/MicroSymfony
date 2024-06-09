@@ -4,12 +4,16 @@
 
 declare(strict_types=1);
 
-$finder = PhpCsFixer\Finder::create()
+use PhpCsFixer\Config;
+use PhpCsFixer\Finder;
+use PhpCsFixer\Runner\Parallel\ParallelConfigFactory;
+
+$finder = Finder::create()
     ->in(__DIR__)
     ->exclude('var')
 ;
 
-return (new PhpCsFixer\Config())
+return (new Config())
     ->setRules([
         // taken from the Symfony config     // https://github.com/symfony/symfony/blob/7.1/.php-cs-fixer.dist.php
         '@Symfony' => true,                  // https://cs.symfony.com/doc/ruleSets/Symfony.html
@@ -31,4 +35,5 @@ return (new PhpCsFixer\Config())
     ->setRiskyAllowed(true)
     ->setFinder($finder)
     ->setCacheFile('.php-cs-fixer.cache')
+    ->setParallelConfig(ParallelConfigFactory::detect())
 ;
