@@ -8,6 +8,7 @@ use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
 use PhpCsFixer\Runner\Parallel\ParallelConfigFactory;
 
+// https://cs.symfony.com/doc/config.html#the-simplest-config
 $finder = Finder::create()
     ->in(__DIR__)
     ->exclude('var')
@@ -33,7 +34,7 @@ return (new Config())
         'declare_strict_types' => true,      // https://cs.symfony.com/doc/rules/strict/declare_strict_types.html
     ])
     ->setRiskyAllowed(true)
-    ->setFinder($finder)
-    ->setCacheFile('.php-cs-fixer.cache')
-    ->setParallelConfig(ParallelConfigFactory::detect())
+    ->setFinder($finder)                                 // https://cs.symfony.com/doc/config.html#the-simplest-config
+    ->setCacheFile('.php-cs-fixer.cache')       // https://cs.symfony.com/doc/usage.html#caching
+    ->setParallelConfig(ParallelConfigFactory::detect()) // https://cs.symfony.com/doc/usage.html#the-fix-command
 ;
