@@ -22,6 +22,7 @@
         "ext-simplexml": "*",
         "ext-xml": "*",
         "league/commonmark": "^2.4",
+        "runtime/frankenphp-symfony": "^0.2.0",
         "symfony/asset": "~7.1.0",
         "symfony/asset-mapper": "~7.1.0",
         "symfony/console": "~7.1.0",
