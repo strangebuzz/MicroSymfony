@@ -33,8 +33,7 @@ and [composer](https://getcomposer.org/) installed locally.
 
 To create a new project from the GitHub template, run:
 
-    composer create-project strangebuzz/microsymfony
-    cd microsymfony
+    composer create-project strangebuzz/microsymfony && cd microsymfony
 
 Then start the PHP server with make:
 
