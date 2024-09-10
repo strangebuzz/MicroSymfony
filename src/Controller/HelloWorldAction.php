@@ -14,13 +14,12 @@ use Symfony\Component\Routing\Attribute\Route;
  * @see HelloWorldTest
  */
 #[AsController]
-#[Route(name: 'app_')]
 #[Cache(maxage: 3600, public: true)]
 final class HelloWorldAction extends AbstractController
 {
-    #[Route(path: '/hello-world', name: 'hello_world_action')]
+    #[Route(path: '/hello-world', name: self::class)]
     public function __invoke(): Response
     {
-        return $this->render('hello_world.html.twig');
+        return $this->render(self::class.'.html.twig');
     }
 }

@@ -18,7 +18,6 @@ use Symfony\Component\Routing\Attribute\Route;
  * @see https://symfony.com/doc/current/controller/service.html#invokable-controllers
  */
 #[AsController]
-#[Route(name: 'app_')]
 final class SlugifyAction extends AbstractController
 {
     /**
@@ -26,7 +25,7 @@ final class SlugifyAction extends AbstractController
      *
      * @see https://api-platform.com/
      */
-    #[Route(path: '/api/slugify', name: 'slugify_action')]
+    #[Route(path: '/api/slugify', name: self::class)]
     public function __invoke(Request $request, StringHelper $stringHelper): Response
     {
         return $this->json([
