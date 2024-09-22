@@ -5,8 +5,8 @@ controllers:
     type: attribute
 
 # https://symfony.com/doc/current/templates.html#rendering-a-template-directly-from-a-route
-app_stimulus:
+App\Controller\StimulusAction:
     path: /stimulus
     defaults:
         _controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
-        template: stimulus.html.twig
+        template: App/Controller/StimulusAction.html.twig

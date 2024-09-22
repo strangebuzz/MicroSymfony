@@ -249,6 +249,7 @@ function lint_all(): int
 function ci(): void
 {
     title('ci:all');
+    purge();
     io()->section('Coverage');
     coverage();
     io()->section('Codings standards');

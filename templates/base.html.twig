@@ -23,23 +23,23 @@
             <label>
                 <input type="checkbox">
                 <header>
-                    <a href="{{ path('app_home') }}">
+                    <a href="{{ path(ctrl_fqcn('HomeAction')) }}">
                         {# <img alt="{{ brand }}" src="img/your-logo.svg">{{ brand_html|raw }}#}
                         {{ brand_html|raw }}
                     </a>
                 </header>
 
                 <ul>
-                    <li><a href="{{ path('app_home') }}">Home</a></li>
-                    <li><a href="{{ path('app_composer') }}">Composer</a></li>
+                    <li><a href="{{ path(ctrl_fqcn('HomeAction')) }}">Home</a></li>
+                    <li><a href="{{ path(ctrl_fqcn('ComposerAction')) }}">Composer</a></li>
                     <li>
                         <a>Menu</a>
                         <menu>
-                            <menuitem><a href="{{ path('app_home') }}">Home (README.md)</a></menuitem>
-                            <menuitem><a href="{{ path('app_hello_world_action') }}">Hello world!</a></menuitem>
-                            <menuitem><a href="{{ path('app_stimulus') }}">JavaScript with stimulus</a></menuitem>
-                            <menuitem><a href="{{ path('app_composer') }}">The <code>composer.json</code> file</a></menuitem>
-                            <menuitem><a href="{{ path('app_form') }}">Form example</a></menuitem>
+                            <menuitem><a href="{{ path(ctrl_fqcn('HomeAction')) }}">Home (README.md)</a></menuitem>
+                            <menuitem><a href="{{ path(ctrl_fqcn('HelloWorldAction')) }}">Hello world!</a></menuitem>
+                            <menuitem><a href="{{ path('App\\Controller\\StimulusAction') }}">JavaScript with stimulus</a></menuitem>
+                            <menuitem><a href="{{ path(ctrl_fqcn('ComposerAction')) }}">The <code>composer.json</code> file</a></menuitem>
+                            <menuitem><a href="{{ path(ctrl_fqcn('FormAction')) }}">Form example</a></menuitem>
                             <menuitem><a href="{{ app.environment == 'dev' ? '/_error/404.html' : '/404' }}">Custom error page</a></menuitem>
                             <menuitem><a href="https://barecss.com/" target="_blank" >BarreCSS documentation</a></menuitem>
                         </menu>

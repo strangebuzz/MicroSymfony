@@ -154,6 +154,8 @@ In both cases, your controller code has to be [modified accordingly](https://sym
 
 ## References 📚
 
+* [A better ADR pattern for your Symfony controllers](https://www.strangebuzz.com/en/blog/a-better-adr-pattern-for-your-symfony-controllers) (strangebuzz.com) (coming soon)
+* [A Good Naming Convention for Routes, Controllers and Templates?](https://jolicode.com/blog/a-good-naming-convention-for-routes-controllers-and-templates) (jolicode.com)
 * [Front-end application development, Symfony-style(s)](https://dunglas.dev/2024/04/front-end-application-development-symfony-styles/) (dunglas.dev) 
 * [Automated Test Coverage Checks with Travis, PHPUnit for Github Pull Requests](https://ocramius.github.io/blog/automated-code-coverage-check-for-github-pull-requests-with-travis/) (ocramius.github.io) 
 * [Installing and using php-cs-fixer](https://www.strangebuzz.com/en/blog/installing-and-using-php-cs-fixer) (strangebuzz.com)

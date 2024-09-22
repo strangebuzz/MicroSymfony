@@ -17,14 +17,13 @@ use Symfony\Component\Routing\Attribute\Route;
  * @see FormActionTest
  */
 #[AsController]
-#[Route(name: 'app_')]
 #[Cache(maxage: 3600, public: true)]
 final class FormAction extends AbstractController
 {
     /**
      * A simple form.
      */
-    #[Route(path: '/form', name: 'form')]
+    #[Route(path: '/form', name: self::class)]
     public function __invoke(Request $request): Response
     {
         $dto = new RegisterFormDto();
@@ -34,7 +33,7 @@ final class FormAction extends AbstractController
             $dto = $form->getData();
         }
 
-        return $this->render('form.html.twig', [
+        return $this->render(self::class.'.html.twig', [
             'form' => $form,
             'dto' => $dto,
         ]);
