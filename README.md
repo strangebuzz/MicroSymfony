@@ -154,6 +154,7 @@ In both cases, your controller code has to be [modified accordingly](https://sym
 
 ## References 📚
 
+* [WouterJ/WouterJEloquentBundle](https://github.com/WouterJ/WouterJEloquentBundle) (github.com) 
 * [A better ADR pattern for your Symfony controllers](https://www.strangebuzz.com/en/blog/a-better-adr-pattern-for-your-symfony-controllers) (strangebuzz.com) (coming soon)
 * [A Good Naming Convention for Routes, Controllers and Templates?](https://jolicode.com/blog/a-good-naming-convention-for-routes-controllers-and-templates) (jolicode.com)
 * [Front-end application development, Symfony-style(s)](https://dunglas.dev/2024/04/front-end-application-development-symfony-styles/) (dunglas.dev) 

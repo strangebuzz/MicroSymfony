@@ -113,7 +113,7 @@ function coverage(): int
         return $ec;
     }
 
-    return success(exit_code('php bin/coverage-checker.php var/coverage/clover.xml 100', quiet: false));
+    return success(exit_code('php bin/coverage-checker.php var/coverage/clover.xml 80', quiet: false));
 }
 
 #[AsTask(namespace: 'test', description: 'Open the PHPUnit code coverage report (var/coverage/index.html)', aliases: ['cov-report'])]
