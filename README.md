@@ -73,6 +73,8 @@ Open [https://localhost](https://localhost) and enjoy! 🙂
 
 **PS**: On Windows, replace `$PWD` by `"%cd%"`.
 
+You can also directly use the [FrankenPHP](https://github.com/strangebuzz/MicroSymfony/tree/frankenphp) branch.
+
 
 ## Requirements ⚙
 
@@ -147,9 +149,18 @@ In both cases, your controller code has to be [modified accordingly](https://sym
   to install and run [php-cs-fixer](https://github.com/PHP-CS-Fixer/PHP-CS-Fixer)
 
 
-## What it doesn't ship? ❌
+## Features branches 🚅
 
-* Doctrine ([installation](https://symfony.com/doc/current/doctrine.html#installing-doctrine))
+Features branches will not be merged in the main branch but are used to integrate
+a new vendor library or make a [POC](https://en.wikipedia.org/wiki/Proof_of_concept).
+For example, have you ever dreamed of testing [Eloquent](https://laravel.com/docs/11.x/eloquent#introduction),
+the Laravel ORM, on a Symfony project?
+Then clone the `eloquent` branch, run `composer install`, and you are done.
+
+* [FrankenPHP](https://github.com/strangebuzz/MicroSymfony/tree/frankenphp) (rebased on 2024-09-26)
+* [Eloquent ORM](https://github.com/strangebuzz/MicroSymfony/tree/eloquent) (rebased on 2024-09-27)
+
+These branches will be rebased after each release so they are always up to date.
 
 
 ## References 📚
