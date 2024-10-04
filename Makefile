@@ -49,7 +49,7 @@ cov-report: var/coverage/index.html ## Open the PHPUnit code coverage report (va
 
 ## —— Coding standards/lints ✨ ————————————————————————————————————————————————
 stan: var/cache/dev/App_KernelDevDebugContainer.xml ## Run PHPStan
-	@vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vvv
+	@vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vv
 
 # PHPStan needs the dev/debug cache
 var/cache/dev/App_KernelDevDebugContainer.xml:

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Form\Type;
 
+use App\Dto\RegisterFormDto;
 use App\Enum\Fruit;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
@@ -18,6 +19,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 /**
  * @see RegisterFormDto
+ *
+ * @extends AbstractType<RegisterFormDto>
  */
 final class RegisterForm extends AbstractType
 {
