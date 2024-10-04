@@ -1,3 +1,9 @@
+# https://phpstan.org/config-reference#bleeding-edge
+# https://phpstan.org/blog/what-is-bleeding-edge
+# comment the two following lines if you don't want to use the bleedingEdge mode.
+includes:
+    - phar://phpstan.phar/conf/bleedingEdge.neon
+
 # https://phpstan.org/config-reference
 parameters:
     # https://phpstan.org/config-reference#rule-level

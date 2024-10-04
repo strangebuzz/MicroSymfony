@@ -139,7 +139,7 @@ function stan(): int
         );
     }
 
-    return exit_code('vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vvv', quiet: false);
+    return exit_code('vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vv', quiet: false);
 }
 
 #[AsTask(namespace: 'cs', description: 'Fix PHP files with php-cs-fixer (ignore PHP 8.2 warning)', aliases: ['fix-php'])]

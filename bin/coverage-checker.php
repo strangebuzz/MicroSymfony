@@ -5,14 +5,14 @@
 declare(strict_types=1);
 
 $inputFile = $argv[1];
+
+if (!is_numeric($argv[2])) {
+    throw new InvalidArgumentException('An integer checked percentage must be given as second parameter');
+}
 $percentage = min(100, max(0, (int) $argv[2]));
 
 if (!file_exists($inputFile)) {
     throw new InvalidArgumentException('Invalid input file provided');
-}
-
-if (!is_int($percentage)) {
-    throw new InvalidArgumentException('An integer checked percentage must be given as second parameter');
 }
 
 try {
