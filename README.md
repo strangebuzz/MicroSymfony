@@ -165,6 +165,7 @@ These branches will be rebased after each release so they are always up to date.
 
 ## References 📚
 
+* [WouterJ/WouterJEloquentBundle](https://github.com/WouterJ/WouterJEloquentBundle) (github.com) 
 * [A better ADR pattern for your Symfony controllers](https://www.strangebuzz.com/en/blog/a-better-adr-pattern-for-your-symfony-controllers) (strangebuzz.com) (coming soon)
 * [You should be using PHPStans bleeding edge](https://backendtea.com/post/use-phpstan-bleeding-edge/) (backendtea.com)
 * [A Good Naming Convention for Routes, Controllers and Templates?](https://jolicode.com/blog/a-good-naming-convention-for-routes-controllers-and-templates) (jolicode.com)
