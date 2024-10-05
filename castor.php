@@ -96,6 +96,18 @@ function purge(): void
     success(exit_code('rm -rf ./var/cache/* ./var/log/* ./var/coverage/*'));
 }
 
+#[AsTask(namespace: 'app', description: 'Load the database fixtures', aliases: ['load-fixtures'])]
+function loadFixtures(): void
+{
+    title('app:load-fixtures');
+    io()->note('Resetting db...');
+    success(exit_code('rm -f ./var/data.db'));
+    io()->note('Running db migrations...');
+    success(exit_code('bin/console doctrine:migrations:migrate --no-interaction'));
+    io()->note('Load fixtures...');
+    success(exit_code('bin/console app:load-fixtures --no-interaction'));
+}
+
 const PHP_UNIT_CMD = '/vendor/bin/phpunit --testsuite=%s --filter=%s %s';
 const PHP_UNIT_SUITES = ['api', 'e2e', 'functional', 'integration', 'unit'];
 
@@ -111,6 +123,7 @@ function getParameters(): array
 function test_all(): int
 {
     title('test:all');
+    loadFixtures();
     [$filter, $options] = getParameters();
     $ec = exit_code(__DIR__.sprintf(PHP_UNIT_CMD, implode(',', PHP_UNIT_SUITES), $filter, $options));
     io()->writeln('');
@@ -177,6 +190,7 @@ function test_unit(
 function coverage(): int
 {
     title('test:coverage');
+    loadFixtures();
     $ec = exit_code('php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/phpunit --coverage-html=var/coverage --coverage-clover=var/coverage/clover.xml',
         context: context()->withEnvironment(['XDEBUG_MODE' => 'coverage'])
     );
@@ -341,6 +355,7 @@ function ci(): void
 {
     title('ci:all');
     purge();
+    loadFixtures();
     io()->section('Coverage');
     coverage();
     io()->section('Lints');
