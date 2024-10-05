@@ -40,6 +40,11 @@ warmup: ## Warmup the dev cache for the static analysis
 purge: ## Purge all Symfony cache and logs
 	@rm -rf ./var/cache/* ./var/log/* ./var/coverage/*
 
+load-fixtures: ## Reset migrations and load the database fixtures
+	@rm -f ./var/data.db
+	@bin/console doctrine:migrations:migrate --env=dev --no-interaction
+	@bin/console foundry:load-fixtures --env=dev --no-interaction
+
 
 ## —— Tests ✅ —————————————————————————————————————————————————————————————————
 test: ## Run tests with optional suite, filter and options (to debug use "make test options=--debug")
@@ -69,7 +74,7 @@ test-unit: testsuite=unit
 test-unit: test
 
 coverage: ## Generate the HTML PHPUnit code coverage report (stored in var/coverage)
-coverage: purge
+coverage: purge load-fixtures
 	@XDEBUG_MODE=coverage php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/phpunit --coverage-html=var/coverage --coverage-clover=var/coverage/clover.xml
 	@php bin/coverage-checker.php var/coverage/clover.xml $(COVERAGE_THRESHOLD)
 
@@ -107,11 +112,14 @@ lint-container: ## Lint the Symfony DI container
 lint-twig: ## Lint Twig files
 	@bin/console lint:twig templates/
 
+lint-doctrine: ## Validate Doctrine schema
+	@bin/console doctrine:schema:validate
+
 fix: ## Run all fixers
 fix: fix-php fix-js-css
 
 lint: ## Run all linters
-lint: stan lint-php lint-js-css lint-container lint-twig
+lint: stan lint-php lint-doctrine lint-js-css lint-container lint-twig
 
 ci: ## Run CI locally
 ci: coverage warmup lint
