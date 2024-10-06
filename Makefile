@@ -7,6 +7,9 @@ help: ## Outputs this help screen
 .PHONY: help start stop go-prod go-dev purge test coverage cov-report stan fix-php lint-php lint-container lint-twig lint-yaml cs lint ci deploy
 .PHONY: version-php version-composer version-symfony version-phpunit version-phpstan version-php-cs-fixer check-requirements
 
+# You can modify the coverage threshold here
+COVERAGE_THRESHOLD = 100
+
 ## —— Symfony binary 💻 ————————————————————————————————————————————————————————
 start: ## Serve the application with the Symfony binary
 	@symfony serve --daemon
@@ -41,7 +44,7 @@ test: ## Run all PHPUnit tests
 coverage: ## Generate the HTML PHPUnit code coverage report (stored in var/coverage)
 coverage: purge
 	@XDEBUG_MODE=coverage php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/phpunit --coverage-html=var/coverage --coverage-clover=var/coverage/clover.xml
-	@php bin/coverage-checker.php var/coverage/clover.xml 100
+	@php bin/coverage-checker.php var/coverage/clover.xml $(COVERAGE_THRESHOLD)
 
 cov-report: var/coverage/index.html ## Open the PHPUnit code coverage report (var/coverage/index.html)
 	@open var/coverage/index.html
