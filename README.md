@@ -118,7 +118,7 @@ to fix some issues as the project is not maintained anymore.
   * Functional test [example](https://github.com/strangebuzz/MicroSymfony/blob/main/tests/Functional/Controller/HelloWorldTest.php) 
   * API test [example](https://github.com/strangebuzz/MicroSymfony/blob/main/tests/Api/Controller/SlugifyActionTest.php) 
   * E2E test [example](https://github.com/strangebuzz/MicroSymfony/blob/main/tests/E2E/Controller/AppControllerTest.php)
-* Code coverage at 100%
+* Code coverage at 100% (configurable threshold)
   * [Output on CI](https://github.com/strangebuzz/MicroSymfony/actions/runs/8070913583/job/22049355015)
 * GitHub CI ([actions](https://github.com/strangebuzz/MicroSymfony/actions))
   * [Tests job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/8070913583/job/22049355015)
