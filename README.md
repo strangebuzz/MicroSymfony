@@ -2,16 +2,14 @@
 
 ## Introduction 🖋 
 
-MicroSymfony is a Symfony 7.1 application skeleton on steroids, ready to use.
+MicroSymfony is a [Symfony 7.1](https://symfony.com/blog/symfony-7-1-curated-new-features)
+application skeleton on steroids, ready to use.
 
 I have made a long blog post explaining all it contains; it will be the reference
 for documentation. 
 I'll update it when needed:
 
 * [Introducing the MicroSymfony application template](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template)
-
-So, this blog post is the official documentation.
-This readme is a teaser of what MicroSymfony contains.
 
 If you want to use the last Symfony **6.4 LTS** version in your `composer.json`
 file, replace all occurrences of `7.1` with `6.4`, run `composer up`, and you are
@@ -131,6 +129,28 @@ to fix some issues as the project is not maintained anymore.
   * [Demo](https://microsymfony.ovh/404) 
 
 
+## Features branches 🚅
+
+Features branches will not be merged in the main branch but are used to integrate
+a new vendor library or make a [POC](https://en.wikipedia.org/wiki/Proof_of_concept).
+For example, have you ever dreamed of testing [Eloquent](https://laravel.com/docs/11.x/eloquent#introduction),
+the Laravel ORM, on a Symfony project?
+Then clone the `eloquent` branch, run `composer install`, and you are done.
+
+
+### Infrastructure ⌨️
+
+* [FrankenPHP](https://github.com/strangebuzz/MicroSymfony/tree/frankenphp) (rebased on 2024-09-26)
+
+### Database 💽
+
+The goal of these « database » branches is to display a list of records coming from
+a [SQLite](https://www.sqlite.org/index.html) database (with the `/users` URL).
+ 
+* [Doctrine DBAL](https://github.com/strangebuzz/MicroSymfony/tree/doctrine-dbal) (rebased on 2024-10-06)
+* [Eloquent ORM](https://github.com/strangebuzz/MicroSymfony/tree/eloquent) (rebased on 2024-09-27)
+
+
 ## Notes 📒
 
 Turbo forms are disabled in [assets/app.js](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/app.js).
@@ -147,18 +167,6 @@ In both cases, your controller code has to be [modified accordingly](https://sym
   file is normalized with [ergebnis/composer-normalize](https://github.com/ergebnis/composer-normalize)
 * Use of the [composer bin plugin](https://github.com/bamarni/composer-bin-plugin)
   to install and run [php-cs-fixer](https://github.com/PHP-CS-Fixer/PHP-CS-Fixer)
-
-
-## Features branches 🚅
-
-Features branches will not be merged in the main branch but are used to integrate
-a new vendor library or make a [POC](https://en.wikipedia.org/wiki/Proof_of_concept).
-For example, have you ever dreamed of testing [Eloquent](https://laravel.com/docs/11.x/eloquent#introduction),
-the Laravel ORM, on a Symfony project?
-Then clone the `eloquent` branch, run `composer install`, and you are done.
-
-* [FrankenPHP](https://github.com/strangebuzz/MicroSymfony/tree/frankenphp) (rebased on 2024-09-26)
-* [Eloquent ORM](https://github.com/strangebuzz/MicroSymfony/tree/eloquent) (rebased on 2024-09-27)
 
 These branches will be rebased after each release so they are always up to date.
 
