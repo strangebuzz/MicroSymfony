@@ -116,7 +116,7 @@ function coverage(): int
         return $ec;
     }
 
-    return success(exit_code(sprintf('php bin/coverage-checker.php var/coverage/clover.xml %s', COVERAGE_THRESHOLD), quiet: false));
+    return success(exit_code(sprintf('php bin/coverage-checker.php var/coverage/clover.xml %d', COVERAGE_THRESHOLD), quiet: false));
 }
 
 #[AsTask(namespace: 'test', description: 'Open the PHPUnit code coverage report (var/coverage/index.html)', aliases: ['cov-report'])]
