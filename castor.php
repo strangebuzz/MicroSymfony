@@ -1,12 +1,13 @@
 <?php
 
 // Until the 1.x Castor version the API may be unstable
-// this script was tested with Castor 0.16.0
+// this script was tested with Castor 0.18.2
 
 declare(strict_types=1);
 
 use Castor\Attribute\AsTask;
 
+use function Castor\context;
 use function Castor\exit_code;
 use function Castor\io;
 use function Castor\run;
@@ -45,14 +46,14 @@ function aborted(string $message = 'Aborted'): void
 function start(): void
 {
     title('symfony:start');
-    run('symfony serve --daemon', quiet: false);
+    run('symfony serve --daemon');
 }
 
 #[AsTask(namespace: 'symfony', description: 'Stop the web server', aliases: ['stop'])]
 function stop(): void
 {
     title('symfony:stop');
-    run('symfony server:stop', quiet: false);
+    run('symfony server:stop');
 }
 
 #[AsTask(namespace: 'symfony', description: 'Switch to the production environment', aliases: ['go-prod'])]
@@ -60,8 +61,8 @@ function go_prod(): void
 {
     title('symfony:go_prod');
     if (io()->confirm('Are you sure you want to switch to the production environment? This will overwrite your .env.local file.', false)) {
-        run('cp .env.local.dist .env.local', quiet: false);
-        run('bin/console asset-map:compile', quiet: false);
+        run('cp .env.local.dist .env.local');
+        run('bin/console asset-map:compile');
         success(0);
 
         return;
@@ -75,8 +76,8 @@ function go_dev(): void
 {
     title('symfony:go_dev');
     if (io()->confirm('Are you sure you want to switch to the development environment? This will delete your .env.local file.', false)) {
-        run('rm -f .env.local', quiet: false);
-        run('rm -rf ./public/assets/*', quiet: false);
+        run('rm -f .env.local');
+        run('rm -rf ./public/assets/*');
         success(0);
 
         return;
@@ -89,7 +90,7 @@ function go_dev(): void
 function purge(): void
 {
     title('symfony:purge');
-    success(exit_code('rm -rf ./var/cache/* ./var/logs/* ./var/coverage/*', quiet: false));
+    success(exit_code('rm -rf ./var/cache/* ./var/logs/* ./var/coverage/*'));
 }
 
 #[AsTask(name: 'all', namespace: 'test', description: 'Run all PHPUnit tests', aliases: ['test'])]
@@ -107,23 +108,20 @@ function coverage(): int
 {
     title('test:coverage');
     $ec = exit_code('php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/phpunit --coverage-html=var/coverage --coverage-clover=var/coverage/clover.xml',
-        environment: [
-            'XDEBUG_MODE' => 'coverage',
-        ],
-        quiet: false
+        context: context()->withEnvironment(['XDEBUG_MODE' => 'coverage'])
     );
     if ($ec !== 0) {
         return $ec;
     }
 
-    return success(exit_code(sprintf('php bin/coverage-checker.php var/coverage/clover.xml %d', COVERAGE_THRESHOLD), quiet: false));
+    return success(exit_code(sprintf('php bin/coverage-checker.php var/coverage/clover.xml %d', COVERAGE_THRESHOLD)));
 }
 
 #[AsTask(namespace: 'test', description: 'Open the PHPUnit code coverage report (var/coverage/index.html)', aliases: ['cov-report'])]
 function cov_report(): void
 {
     title('test:cov-report');
-    success(exit_code('open var/coverage/index.html', quiet: true));
+    success(exit_code('open var/coverage/index.html'));
 }
 
 #[AsTask(namespace: 'cs', description: 'Run PHPStan', aliases: ['stan'])]
@@ -134,15 +132,11 @@ function stan(): int
     if (!file_exists('var/cache/dev/App_KernelDevDebugContainer.xml')) {
         io()->note('PHPStan needs the dev/debug cache. Generating it...');
         run('bin/console cache:warmup',
-            environment: [
-                'APP_ENV' => 'dev',
-                'APP_DEBUG' => 1,
-            ],
-            quiet: false
+            context: context()->withEnvironment(['APP_ENV' => 'dev', 'APP_DEBUG' => 1])
         );
     }
 
-    return exit_code('vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vv', quiet: false);
+    return exit_code('vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vv');
 }
 
 #[AsTask(namespace: 'cs', description: 'Fix PHP files with php-cs-fixer (ignore PHP 8.2 warning)', aliases: ['fix-php'])]
@@ -150,10 +144,7 @@ function fix_php(): int
 {
     title('cs:fix-php');
     $ec = exit_code('vendor/bin/php-cs-fixer fix',
-        environment: [
-            'PHP_CS_FIXER_IGNORE_ENV' => 1,
-        ],
-        quiet: false
+        context: context()->withEnvironment(['PHP_CS_FIXER_IGNORE_ENV' => 1])
     );
 
     return success($ec);
@@ -164,10 +155,7 @@ function lint_php(): int
 {
     title('lint:php');
     $ec = exit_code('vendor/bin/php-cs-fixer fix --dry-run',
-        environment: [
-            'PHP_CS_FIXER_IGNORE_ENV' => 1,
-        ],
-        quiet: false
+        context: context()->withEnvironment(['PHP_CS_FIXER_IGNORE_ENV' => 1])
     );
     io()->newLine();
 
@@ -187,10 +175,7 @@ function ci_lint_php(): int
     }
 
     return exit_code('vendor/bin/php-cs-fixer fix --allow-risky=yes --dry-run --format=checkstyle | cs2pr',
-        environment: [
-            'PHP_CS_FIXER_IGNORE_ENV' => 1,
-        ],
-        quiet: false
+        context: context()->withEnvironment(['PHP_CS_FIXER_IGNORE_ENV' => 1])
     );
 }
 
@@ -209,7 +194,7 @@ function lint_container(): int
 {
     title('lint:container');
 
-    return exit_code('bin/console lint:container', quiet: false);
+    return exit_code('bin/console lint:container');
 }
 
 #[AsTask(name: 'twig', namespace: 'lint', description: 'Lint Twig files', aliases: ['lint-twig'])]
@@ -217,7 +202,7 @@ function lint_twig(): int
 {
     title('lint:twig');
 
-    return exit_code('bin/console lint:twig templates/', quiet: false);
+    return exit_code('bin/console lint:twig templates/');
 }
 
 #[AsTask(name: 'yaml', namespace: 'lint', description: 'Lint Yaml files', aliases: ['lint-yaml'])]
@@ -225,7 +210,7 @@ function lint_yaml(): int
 {
     title('lint:yaml');
 
-    return exit_code('bin/console lint:yaml --parse-tags config/', quiet: false);
+    return exit_code('bin/console lint:yaml --parse-tags config/');
 }
 
 #[AsTask(name: 'all', namespace: 'lint', description: 'Run all lints', aliases: ['lint'])]
@@ -266,26 +251,26 @@ function versions(): void
 {
     title('helpers:versions');
     io()->note('PHP');
-    run('php -v', quiet: false);
+    run('php -v');
     io()->newLine();
 
     io()->note('Composer');
-    run('composer --version', quiet: false);
+    run('composer --version');
     io()->newLine();
 
     io()->note('Symfony');
-    run('bin/console --version', quiet: false);
+    run('bin/console --version');
     io()->newLine();
 
     io()->note('PHPUnit');
-    run('vendor/bin/phpunit --version', quiet: false);
+    run('vendor/bin/phpunit --version');
 
     io()->note('PHPStan');
-    run('vendor/bin/phpstan --version', quiet: false);
+    run('vendor/bin/phpstan --version');
     io()->newLine();
 
     io()->note('php-cs-fixer');
-    run('vendor/bin/php-cs-fixer --version', quiet: false);
+    run('vendor/bin/php-cs-fixer --version');
     io()->newLine();
 
     success(0);
