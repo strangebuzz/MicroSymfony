@@ -1,5 +1,9 @@
 # MicroSymfony 🎶
 
+[![Latest Version](https://img.shields.io/packagist/v/strangebuzz/microsymfony.svg?style=flat-square)](https://packagist.org/packages/strangebuzz/microsymfony)
+[![Software License](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](LICENSE)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/strangebuzz/microsymfony/symfony.yml?branch=main&style=flat-square)](https://github.com/strangebuzz/microsymfony/actions?query=workflow%3ASymfony+branch%3Amain)
+
 ## Introduction 🖋 
 
 MicroSymfony is a [Symfony 7.1](https://symfony.com/blog/symfony-7-1-curated-new-features)
