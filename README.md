@@ -2,7 +2,11 @@
 
 [![Latest Version](https://img.shields.io/packagist/v/strangebuzz/microsymfony.svg?style=flat-square)](https://packagist.org/packages/strangebuzz/microsymfony)
 [![Software License](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](LICENSE)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/strangebuzz/microsymfony/symfony.yml?branch=main&style=flat-square)](https://github.com/strangebuzz/microsymfony/actions?query=workflow%3ASymfony+branch%3Amain)
+[![Build Status (GitHub)](https://img.shields.io/github/actions/workflow/status/strangebuzz/microsymfony/symfony.yml?branch=main&style=flat-square)](https://github.com/strangebuzz/microsymfony/actions?query=workflow%3ASymfony+branch%3Amain)
+[![Code Coverage](https://scrutinizer-ci.com/g/strangebuzz/MicroSymfony/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/strangebuzz/MicroSymfony/?branch=main)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/strangebuzz/MicroSymfony/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/strangebuzz/MicroSymfony/?branch=main)
+[![Quality Score](https://img.shields.io/scrutinizer/g/strangebuzz/microsymfony.svg?style=flat-square)](https://scrutinizer-ci.com/g/strangebuzz/microsymfony)
+
 
 ## Introduction 🖋 
 

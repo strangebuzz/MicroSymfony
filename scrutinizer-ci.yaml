@@ -1,0 +1,37 @@
+# @see https://scrutinizer-ci.com/g/strangebuzz/MicroSymfony/settings/build-config
+build:
+    environment:
+        php: 8.3.12
+    nodes:
+        analysis:
+            project_setup:
+                override:
+                    - 'true'
+            tests:
+                override:
+                    - php-scrutinizer-run
+                    -
+                        command: phpcs-run
+                        use_website_config: true
+        tests: true
+        # https://scrutinizer-ci.com/docs/build/code_coverage
+        coverage:
+            tests:
+                override:
+                    - command: XDEBUG_MODE=coverage php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/phpunit --coverage-html=var/coverage --coverage-clover=var/coverage/clover.xml
+                      coverage:
+                          file: var/coverage/clover.xml
+                          format: clover
+
+filter:
+    excluded_paths:
+        - 'castor.php'
+        - 'tests/*'
+        - 'bin/*'
+        - '*/vendor/*'
+
+checks:
+    php: true
+
+coding_style:
+    php: {  }
