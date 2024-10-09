@@ -9,6 +9,5 @@ Ordered by 1st contribution date.
 
 - Loïc Vernet ([COil](https://github.com/COil/))
 - Tac Tacelosky ([tacman](https://github.com/tacman))
-- Florent Destremau ([florentdestremauh](https://github.com/florentdestremau)
+- Florent Destremau ([florentdestremauh](https://github.com/florentdestremau))
 - Alex Rock ([Pierstoval](https://github.com/Pierstoval))
-
