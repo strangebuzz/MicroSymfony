@@ -13,6 +13,37 @@ env:
   XDEBUG_MODE: coverage
 
 jobs:
+  # Run security checks ————————————————————————————————————————————————————————
+  security:
+    strategy:
+      fail-fast: true
+      matrix:
+        php-versions: ['8.3']
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-versions }}
+    - uses: actions/checkout@v3
+
+    - name: Get Composer Cache Directory
+      id: composer-cache
+      run: |
+        echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+    - uses: actions/cache@v3
+      with:
+        path: vendor
+        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-composer-
+    - name: Install Dependencies
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+    - name: Audit the code for security vulnerabilities
+      run: composer audit
+
+
   # Run tests ——————————————————————————————————————————————————————————————————
   symfony-tests:
     strategy:
@@ -44,9 +75,6 @@ jobs:
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
-    - name: Audit the code for vulnerabilities
-      run: composer audit
-
     # Tests ————————————————————————————————————————————————————————————————
     - name: Execute tests via PHPUnit
       run: castor test
@@ -63,7 +91,7 @@ jobs:
     # Setup ————————————————————————————————————————————————————————————————
     - uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.2'
+        php-version: '8.3'
         tools: cs2pr, castor
     - uses: actions/checkout@v3
     - name: Get Composer Cache Directory
