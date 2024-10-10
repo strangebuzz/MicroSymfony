@@ -41,7 +41,8 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    {# Hack to make the links visible #}
+
+    {#
     <style>
         section > ul > li > a::before,
         section > ul > li > ul > li > a::before {
@@ -65,4 +66,5 @@
             transform: none;
         }
     </style>
+    #}
 {% endblock %}

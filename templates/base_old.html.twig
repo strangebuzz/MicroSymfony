@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset=utf-8>
+        <meta name="description" content="{{ brand }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+        <meta name="color-scheme" content="light dark" />
+
+        <title>{% block title %}{{ brand }}{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>{% block icon %}{{ brand_emoji }}️{% endblock %}️</text></svg>">
+
+        {% block preconnect %}{% endblock %}
+
+        {% block stylesheets %}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ importmap() }}
+        {% endblock %}
+
+        {#
+        https://github.com/picocss/pico/discussions/642#discussioncomment-11461526
+
+
+        #}
+    </head>
+
+    <body id="{% block id %}base{% endblock %}">
+        <main class="container">
+
+        <nav>
+            <label>
+                <input type="checkbox">
+                <header>
+                    <a href="{{ path(ctrl_fqcn('HomeAction')) }}">
+                        {# <img alt="{{ brand }}" src="img/your-logo.svg">{{ brand_html|raw }}#}
+                        {{ brand_html|raw }}
+                    </a>
+                </header>
+
+                <ul>
+                    <li><a href="{{ path(ctrl_fqcn('HomeAction')) }}">Home</a></li>
+                    <li><a href="{{ path(ctrl_fqcn('ComposerAction')) }}">Composer</a></li>
+                    <li>
+                        <a>Menu</a>
+                        <menu>
+                            <menuitem><a href="{{ path(ctrl_fqcn('HomeAction')) }}">Home (README.md)</a></menuitem>
+                            <menuitem><a href="{{ path(ctrl_fqcn('HelloWorldAction')) }}">Hello world!</a></menuitem>
+                            <menuitem><a href="{{ path('App\\Controller\\StimulusAction') }}">JavaScript with stimulus</a></menuitem>
+                            <menuitem><a href="{{ path(ctrl_fqcn('ComposerAction')) }}">The <code>composer.json</code> file</a></menuitem>
+                            <menuitem><a href="{{ path(ctrl_fqcn('FormAction')) }}">Form example</a></menuitem>
+                            <menuitem><a href="{{ app.environment == 'dev' ? '/_error/404.html' : '/404' }}">Custom error page</a></menuitem>
+                            <menuitem><a href="https://barecss.com/" target="_blank" >BarreCSS documentation</a></menuitem>
+                        </menu>
+                    </li>
+                </ul>
+            </label>
+        </nav>
+
+        <section>
+            {% block body %}{% endblock %}
+        </section>
+
+        </main>
+        <footer>
+            <h5>{{ brand|raw }} v{{ sf_version }}{# version #} ({{ 'frankenphp' in php_sapi ? php_sapi : 'PHP '~php_sapi }} {{ php_version }})</h5>
+
+            <grid>
+                <div fx="" col="3/4">
+                    A Symfony minimalist application template by <a att="" href="https://www.strangebuzz.com" target="_blank">COil/Strangebuzz 🐝</a>
+                    and <a att="" href="{{ website }}/graphs/contributors">other contributors</a>.
+                    <br/>
+                    Symfony ™ is a trademark of <a target="_blank" att="" href="https://symfony.com/license">Symfony SAS</a>.
+                </div>
+
+                <div fx="" col="1/4" txt="r">
+                    <a att="" href="{{ website }}" target="_blank"><img alt="GitHub" class="github-icon" src="{{ asset('icons/github.svg') }}" width="24" height="24"></a>
+                </div>
+            </grid>
+        </footer>
+    </body>
+</html>

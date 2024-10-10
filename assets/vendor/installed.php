@@ -11,7 +11,37 @@
   ),
   'barecss/css/bare.min.css' => 
   array (
-    'version' => '1.1.1',
+    'version' => '1.1.0',
+    'dependencies' => 
+    array (
+    ),
+    'extraFiles' => 
+    array (
+    ),
+  ),
+  '@hotwired/turbo' => 
+  array (
+    'version' => '7.3.0',
+    'dependencies' => 
+    array (
+    ),
+    'extraFiles' => 
+    array (
+    ),
+  ),
+  '@picocss/pico' => 
+  array (
+    'version' => '2.0.6',
+    'dependencies' => 
+    array (
+    ),
+    'extraFiles' => 
+    array (
+    ),
+  ),
+  '@picocss/pico/css/pico.min.css' => 
+  array (
+    'version' => '2.0.6',
     'dependencies' => 
     array (
     ),
