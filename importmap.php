@@ -24,11 +24,14 @@ return [
     '@symfony/stimulus-bundle' => [
         'path' => '@symfony/stimulus-bundle/loader.js',
     ],
-    'barecss/css/bare.min.css' => [
-        'version' => '1.1.0',
-        'type' => 'css',
-    ],
     '@hotwired/turbo' => [
         'version' => '7.3.0',
+    ],
+    '@picocss/pico' => [
+        'version' => '2.0.6',
+    ],
+    '@picocss/pico/css/pico.min.css' => [
+        'version' => '2.0.6',
+        'type' => 'css',
     ],
 ];
