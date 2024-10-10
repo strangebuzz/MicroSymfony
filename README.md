@@ -125,10 +125,7 @@ You can also directly use the [FrankenPHP](https://github.com/strangebuzz/MicroS
 * [Twig 3.8](https://twig.symfony.com)
 * Hotwired [stimulus 3.2](https://stimulus.hotwired.dev/) and [Turbo 8.0](https://turbo.hotwired.dev/)
 * [PHPUnit 11.0](https://phpunit.de/announcements/phpunit-11.html)
-* The classless [BareCSS](http://barecss.com) CSS framework
-
-**PS**: A [fork of BareCSS](https://github.com/strangebuzz/BareCSS/) was created
-to fix some issues as the project is not maintained anymore.
+* The [Pico CCS](https://picocss.com) framework
 
 
 ## Features 🚀

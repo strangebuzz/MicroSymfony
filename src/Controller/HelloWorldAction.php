@@ -12,8 +12,6 @@ use Symfony\Component\Routing\Attribute\Route;
 
 /**
  * We use the two binds we have defined in config/services.yaml.
- *
- * @see HelloWorldTest
  */
 #[AsController]
 #[Cache(maxage: 3600, public: true)]
