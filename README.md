@@ -52,7 +52,7 @@ Or with Castor:
 Open [https://127.0.0.1:8000](https://127.0.0.1:8000) (considering your 8000 port is free) and enjoy! 🙂
 
 
-### FrankenPHP 🧟‍
+### Quick-start with FrankenPHP 🧟‍
 
 We can also use [FrankenPHP](https://frankenphp.dev/) to run MicroSymfony.
 You must have [Docker](https://www.docker.com/) installed locally.
@@ -139,10 +139,11 @@ to fix some issues as the project is not maintained anymore.
 
 ## Features branches 🚅
 
-Features branches will not be merged in the main branch but are used to integrate
-a new vendor library or make a [POC](https://en.wikipedia.org/wiki/Proof_of_concept).
-For example, have you ever dreamed of testing [Eloquent](https://laravel.com/docs/11.x/eloquent#introduction),
-the Laravel ORM, on a Symfony project?
+[Features branches](https://github.com/strangebuzz/MicroSymfony/pulls?q=is%3Apr+is%3Aopen+label%3A%22feature+branch%22)
+will not be merged in the main branch but are used to integrate a new vendor library
+or make a [POC](https://en.wikipedia.org/wiki/Proof_of_concept).
+For example, have you ever dreamed of testing [Eloquent](https://laravel.com/docs/11.x/eloquent#introduction), the Laravel ORM, 
+on a Symfony project?
 Then clone the `eloquent` branch, run `composer install`, and you are done.
 
 
