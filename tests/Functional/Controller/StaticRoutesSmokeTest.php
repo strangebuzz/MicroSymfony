@@ -13,8 +13,6 @@ use Symfony\Component\Routing\RouterInterface;
  * Extracted and simplified from the "pierstoval/smoke-testing" package.
  *
  * @see https://github.com/Pierstoval/SmokeTesting
- *
- * @author Alex "Pierstoval" Rock <pierstoval@gmail.com>
  */
 final class StaticRoutesSmokeTest extends WebTestCase
 {

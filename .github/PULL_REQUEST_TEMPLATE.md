@@ -1,11 +1,13 @@
 | Q             | A
 |---------------| ---
 | Branch?       | main/eloquent/doctrine-dbal/frankenphp
-| Bug fix?      | yes/no
-| Issues        | Fix #... <!-- prefix each issue number with "Fix #", no need to create an issue if none exists, explain below instead -->
-| New feature?  | yes/no 
-| Deprecations? | yes/no 
 | Cleanup?      | yes/no 
+| Bug fix?      | yes/no
+| Fixed tickets | #1234, #5678
+| New feature?  | yes/no 
+| Doc added?    | yes/no
+| Tests pass?   | yes
+| Deprecations? | yes/no 
 | License       | MIT
 
 <!--
