@@ -159,6 +159,10 @@ a [SQLite](https://www.sqlite.org/index.html) database (with the `/users` URL).
 * [Doctrine DBAL](https://github.com/strangebuzz/MicroSymfony/tree/doctrine-dbal) (rebased on 2024-10-06)
 * [Eloquent ORM](https://github.com/strangebuzz/MicroSymfony/tree/eloquent) (rebased on 2024-09-27)
 
+### Tooling 🔨
+
+* [Taskfile](https://github.com/jmsche/MicroSymfony/tree/taskfile) (rebased on 2024-10-11)
+
 
 ## Notes 📒
 
@@ -183,6 +187,7 @@ These branches will be rebased after each release so they are always up to date.
 ## References 📚
 
 * [A better ADR pattern for your Symfony controllers](https://www.strangebuzz.com/en/blog/a-better-adr-pattern-for-your-symfony-controllers) (strangebuzz.com) (coming soon)
+* [My Taskfile configuration for Symfony](https://jmsche.fr/en/blog/my-taskfile-configuration-for-symfony) (jmsche.fr)
 * [You should be using PHPStans bleeding edge](https://backendtea.com/post/use-phpstan-bleeding-edge/) (backendtea.com)
 * [A Good Naming Convention for Routes, Controllers and Templates?](https://jolicode.com/blog/a-good-naming-convention-for-routes-controllers-and-templates) (jolicode.com)
 * [Front-end application development, Symfony-style(s)](https://dunglas.dev/2024/04/front-end-application-development-symfony-styles/) (dunglas.dev)
