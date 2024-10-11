@@ -56,7 +56,7 @@ stan: var/cache/dev/App_KernelDevDebugContainer.xml ## Run PHPStan
 
 # PHPStan needs the dev/debug cache
 var/cache/dev/App_KernelDevDebugContainer.xml:
-	APP_DEBUG=1 APP_ENV=DEV bin/console cache:warmup
+	APP_DEBUG=1 APP_ENV=dev bin/console cache:warmup
 
 fix-php: ## Fix PHP files with php-cs-fixer (ignore PHP 8.2 warning)
 	@PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix $(PHP_CS_FIXER_ARGS)
