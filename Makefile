@@ -33,8 +33,13 @@ go-dev: ## Switch to the development environment
 warmup: ## Warmup the dev cache for the static analysis
 	@bin/console c:w --env=dev
 
-purge: ## Purge all Symfony cache and logs
+purge: ## Purge all Symfony variable data
 	@rm -rf ./var/cache/* ./var/logs/* ./var/coverage/*
+
+load-fixtures: ## Reset migrations and load the database fixtures
+	@rm -f ./var/data.db
+	@bin/console doctrine:migration:migrate --env=dev --no-interaction
+	@bin/console app:load-fixtures --env=dev --no-interaction
 
 
 ## —— Tests ✅ —————————————————————————————————————————————————————————————————
@@ -42,7 +47,7 @@ test: ## Run all PHPUnit tests
 	@vendor/bin/phpunit
 
 coverage: ## Generate the HTML PHPUnit code coverage report (stored in var/coverage)
-coverage: purge
+coverage: purge load-fixtures
 	@XDEBUG_MODE=coverage php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/phpunit --coverage-html=var/coverage --coverage-clover=var/coverage/clover.xml
 	@php bin/coverage-checker.php var/coverage/clover.xml $(COVERAGE_THRESHOLD)
 
