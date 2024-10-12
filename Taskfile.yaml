@@ -1,0 +1,138 @@
+version: '3'
+
+vars:
+    # You can modify the coverage threshold here
+    COVERAGE_THRESHOLD: 100
+
+tasks:
+    ## —— Symfony binary 💻 ————————————————————————————————————————————————————————
+    start:
+        desc: Serve the application with the Symfony binary
+        cmd: symfony serve --daemon
+
+    stop:
+        desc: Stop the web server
+        cmd: symfony server:stop
+
+    ## —— Symfony 🎶  ——————————————————————————————————————————————————————————————
+    go-prod:
+        desc: Switch to the production environment
+        cmds:
+            - cp .env.local.dist .env.local
+            # uncomment this line to optimize the auto-loading of classes in the prod env
+            # - composer dump-autoload --no-dev --classmap-authoritative
+            - bin/console asset-map:compile
+
+    go-dev:
+        desc: Switch to the development environment
+        cmds:
+            - rm -f .env.local
+            - rm -rf ./public/assets/*
+
+    warmup:
+        desc: Warmup the dev cache for the static analysis
+        cmd: bin/console c:w --env=dev
+
+    purge:
+        desc: Purge all Symfony cache and logs
+        cmd: rm -rf ./var/cache/* ./var/logs/* ./var/coverage/*
+
+    ## —— Tests ✅ —————————————————————————————————————————————————————————————————
+    test:
+        desc: Run all PHPUnit tests
+        cmd: vendor/bin/phpunit
+
+    coverage:
+        desc: Generate the HTML PHPUnit code coverage report (stored in var/coverage)
+        cmds:
+            - task: purge
+            - XDEBUG_MODE=coverage php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/phpunit --coverage-html=var/coverage --coverage-clover=var/coverage/clover.xml
+            - php bin/coverage-checker.php var/coverage/clover.xml {{.COVERAGE_THRESHOLD}}
+
+    cov-report:
+        desc: Open the PHPUnit code coverage report (var/coverage/index.html)
+        cmd: open var/coverage/index.html
+        preconditions:
+            - test -f var/coverage/index.html
+
+    ## —— Coding standards/lints ✨ ————————————————————————————————————————————————
+    stan:
+        desc: Run PHPStan
+        cmds:
+            - APP_DEBUG=1 APP_ENV=dev bin/console cache:warmup
+            - vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vv
+
+    fix-php:
+        desc: Fix PHP files with php-cs-fixer (ignore PHP 8.2 warning)
+        cmd: PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix
+
+    lint-php:
+        desc: Lint PHP files with php-cs-fixer (report only)
+        cmd: PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix --dry-run
+
+    lint-container:
+        desc: Lint the Symfony DI container
+        cmd: bin/console lint:container
+
+    lint-twig:
+        desc: Lint Twig files
+        cmd: bin/console lint:twig templates/
+
+    lint-yaml:
+        desc: Lint YAML files
+        cmd: bin/console lint:yaml --parse-tags config/
+
+    cs:
+        desc: Run all CS checks
+        cmds:
+            - task: fix-php
+            - task: stan
+
+    lint:
+        desc: Run all lints
+        cmds:
+            - task: lint-php
+            - task: lint-container
+            - task: lint-twig
+            - task: lint-yaml
+
+    ci:
+        desc: Run CI locally
+        cmds:
+            - task: coverage
+            - task: warmup
+            - task: cs
+            - task: lint
+
+    ## —— Other tools and helpers 🔨 ———————————————————————————————————————————————
+    versions:
+        desc: Display current stack versions
+        cmds:
+            - task: version-php
+            - task: version-composer
+            - task: version-symfony
+            - task: version-phpunit
+            - task: version-phpstan
+            - task: version-php-cs-fixer
+    version-php:
+        desc: Display PHP version
+        cmd: php -v
+    version-composer:
+        desc: Display Composer version
+        cmd: composer --version
+    version-symfony:
+        desc: Display Symfony version
+        cmd: bin/console --version
+    version-phpunit:
+        desc: Display PHPUnit version
+        cmd: vendor/bin/phpunit --version
+    version-phpstan:
+        desc: Display PHPStan version
+        cmd: vendor/bin/phpstan --version
+    version-php-cs-fixer:
+        desc: Display PHP CS Fixer version
+        cmd: vendor/bin/php-cs-fixer --version
+
+    check-requirements:
+        desc: Checks requirements for running Symfony
+        cmd: vendor/bin/requirements-checker
