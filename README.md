@@ -111,7 +111,7 @@ to fix some issues as the project is not maintained anymore.
 
 **MicroSymfony** ships these features, ready to use:
 
-* Two task runner
+* Two task runners
   * [Make](https://www.gnu.org/software/make/) ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/Makefile)) ([demo](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template#h3_4_1))
   * [Castor](https://github.com/jolicode/castor) ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/castor.php)) ([demo](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template#h3_4_2))
 * Static analysis with [PHPStan](https://github.com/phpstan/phpstan)
