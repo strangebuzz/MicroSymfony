@@ -6,7 +6,14 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/strangebuzz/MicroSymfony/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/strangebuzz/MicroSymfony/?branch=main)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/strangebuzz/MicroSymfony/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/strangebuzz/MicroSymfony/?branch=main)
 [![Quality Score](https://img.shields.io/scrutinizer/g/strangebuzz/microsymfony.svg?style=flat-square)](https://scrutinizer-ci.com/g/strangebuzz/microsymfony)
-
+<iframe 
+  src="https://ghbtns.com/github-btn.html?user=strangebuzz&amp;repo=microsymfony&amp;type=star&amp;count=true&amp;size=small"
+  frameborder="0"
+  scrolling="0"
+  width="170"
+  height="30"
+  title="GitHub">
+</iframe>
 
 ## Introduction 🖋 
 
