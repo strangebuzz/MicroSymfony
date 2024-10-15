@@ -8,7 +8,7 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/strangebuzz/microsymfony.svg?style=flat-square)](https://scrutinizer-ci.com/g/strangebuzz/microsymfony)
 
 
-## Introduction 🖋 
+## About 🖋 
 
 MicroSymfony is a [Symfony 7.1](https://symfony.com/blog/symfony-7-1-curated-new-features)
 application skeleton on steroids, ready to use.
@@ -24,9 +24,28 @@ file, replace all occurrences of `7.1` with `6.4`, run `composer up`, and you ar
 done.
 
 
-## Demo 🌈
+## Table of Content 📖
 
-Because a live demo is always better than all explanations. Here is it:
+* [About](#about-)
+* [Demos](#demos-)
+* [Quick-start with the Symfony binary](#quick-start-with-the-symfony-binary-)
+* [Quick-start with FrankenPHP](#quick-start-with-frankenphp-)
+* [Requirements](#requirements-)
+  * [Optional requirements](#optional-requirements-)
+* [Stack](#stack-)
+* [Features](#features-)
+* [Feature branches](#feature-branches-)
+  * [Infrastructure](#infrastructure) 
+  * [Database](#database-) 
+  * [Tooling](#tooling-)
+* [Notes](#notes-)
+* [Other good practices](#other-good-practices-)
+* [References](#references-)
+
+
+## Demos 🌈
+
+Because a live demo is always better than all explanations:
 
 * Live demo at [https://microsymfony.ovh](https://microsymfony.ovh)
 * Live demo powered by [FrankenPHP](https://frankenphp.dev/) at [https://frankenphp.microsymfony.ovh](https://frankenphp.microsymfony.ovh)
@@ -47,7 +66,7 @@ Then start the PHP server with make:
 
 Or with Castor:
 
-    castor symfony:start
+    castor start
 
 Open [https://127.0.0.1:8000](https://127.0.0.1:8000) (considering your 8000 port is free) and enjoy! 🙂
 
@@ -88,7 +107,7 @@ You can also directly use the [FrankenPHP](https://github.com/strangebuzz/MicroS
 * The [Symfony CLI](https://symfony.com/download)
 
 
-## Optional requirements ⚙
+### Optional requirements ⚙
  
 * The [Xdebug](https://xdebug.org/) PHP extension if you want to run the code coverage report
 * [Castor](https://github.com/jolicode/castor) task runner if you don't want to use
@@ -127,8 +146,9 @@ to fix some issues as the project is not maintained anymore.
 * Code coverage at 100% (configurable threshold)
   * [Coverage report on Scrutinizer](https://scrutinizer-ci.com/g/strangebuzz/MicroSymfony/code-structure/main/code-coverage/src/)
 * GitHub CI ([actions](https://github.com/strangebuzz/MicroSymfony/actions))
-  * [Tests job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/8070913583/job/22049355015)
-  * [Lint job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/8070913583/job/22049354786)
+  * [Tests job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/11305753729/job/31445591745)
+  * [Lint job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/11305753729/job/31445591463)
+  * [Security job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/11305753729/job/31445591659)
 * Asset mapper+Stimulus ([documentation](https://symfony.com/doc/current/frontend/asset_mapper.html))
   * Vanilla Js ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/hello_controller.js)) ([demo](https://microsymfony.ovh/stimulus))
   * Fetch on a JSON endpoint of the application ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/api_controller.js)) ([demo](https://microsymfony.ovh/stimulus)) 
@@ -137,31 +157,32 @@ to fix some issues as the project is not maintained anymore.
   * [Demo](https://microsymfony.ovh/404) 
 
 
-## Features branches 🚅
+## Feature branches 🚅
 
-[Features branches](https://github.com/strangebuzz/MicroSymfony/pulls?q=is%3Apr+is%3Aopen+label%3A%22feature+branch%22)
+[Feature branches](https://github.com/strangebuzz/MicroSymfony/pulls?q=is%3Apr+is%3Aopen+label%3A%22feature+branch%22)
 will not be merged in the main branch but are used to integrate a new vendor library
 or make a [POC](https://en.wikipedia.org/wiki/Proof_of_concept).
-For example, have you ever dreamed of testing [Eloquent](https://laravel.com/docs/11.x/eloquent#introduction), the Laravel ORM, 
-on a Symfony project?
-Then clone the `eloquent` branch, run `composer install`, and you are done.
+For example, have you ever dreamed of testing [Eloquent](https://laravel.com/docs/11.x/eloquent#introduction),
+the Laravel ORM, on a Symfony project?
+Then clone the `eloquent` branch, run `composer install && make load-fixtures`, and you are done.
 
-
-### Infrastructure ⌨️
+### Infrastructure
 
 * [FrankenPHP](https://github.com/strangebuzz/MicroSymfony/tree/frankenphp) (rebased on 2024-09-26)
 
 ### Database 💽
 
 The goal of these « database » branches is to display a list of records coming from
-a [SQLite](https://www.sqlite.org/index.html) database (with the `/users` URL).
+a [SQLite](https://www.sqlite.org/index.html) database.
  
 * [Doctrine DBAL](https://github.com/strangebuzz/MicroSymfony/tree/doctrine-dbal) (rebased on 2024-10-06)
-* [Eloquent ORM](https://github.com/strangebuzz/MicroSymfony/tree/eloquent) (rebased on 2024-09-27)
+* [Eloquent ORM](https://github.com/strangebuzz/MicroSymfony/tree/eloquent) (rebased on 2024-10-13)
 
 ### Tooling 🔨
 
 * [Taskfile](https://github.com/jmsche/MicroSymfony/tree/taskfile) (rebased on 2024-10-11)
+
+These branches will be rebased after each release so they are always up to date.
 
 
 ## Notes 📒
@@ -180,8 +201,6 @@ In both cases, your controller code has to be [modified accordingly](https://sym
   file is normalized with [ergebnis/composer-normalize](https://github.com/ergebnis/composer-normalize)
 * Use of the [composer bin plugin](https://github.com/bamarni/composer-bin-plugin)
   to install and run [php-cs-fixer](https://github.com/PHP-CS-Fixer/PHP-CS-Fixer)
-
-These branches will be rebased after each release so they are always up to date.
 
 
 ## References 📚
