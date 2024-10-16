@@ -20,11 +20,10 @@ I'll update it when needed:
 * [Introducing the MicroSymfony application template](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template)
 
 If you want to use the last Symfony **6.4 LTS** version in your `composer.json`
-file, replace all occurrences of `7.1` with `6.4`, run `composer up`, and you are
-done.
+file, replace all occurrences of `7.1` with `6.4` and run `composer up`.
 
 
-## Table of Content 📖
+## Table of Contents 📖
 
 * [About](#about-)
 * [Demos](#demos-)
@@ -96,7 +95,7 @@ Then run:
 
 Open [https://localhost](https://localhost) and enjoy! 🙂
 
-**PS**: On Windows, replace `$PWD` by `"%cd%"`.
+**PS**: On Windows, replace `$PWD` with `"%cd%"`.
 
 You can also directly use the [FrankenPHP](https://github.com/strangebuzz/MicroSymfony/tree/frankenphp) branch.
 
@@ -160,11 +159,11 @@ to fix some issues as the project is not maintained anymore.
 ## Feature branches 🚅
 
 [Feature branches](https://github.com/strangebuzz/MicroSymfony/pulls?q=is%3Apr+is%3Aopen+label%3A%22feature+branch%22)
-will not be merged in the main branch but are used to integrate a new vendor library
+are not merged in the main branch but are used to integrate a new vendor library
 or make a [POC](https://en.wikipedia.org/wiki/Proof_of_concept).
 For example, have you ever dreamed of testing [Eloquent](https://laravel.com/docs/11.x/eloquent#introduction),
 the Laravel ORM, on a Symfony project?
-Then clone the `eloquent` branch, run `composer install && make load-fixtures`, and you are done.
+Then clone the `eloquent` branch and run `composer install && make load-fixtures`.
 
 ### Infrastructure
 
@@ -172,8 +171,8 @@ Then clone the `eloquent` branch, run `composer install && make load-fixtures`, 
 
 ### Database 💽
 
-The goal of these « database » branches is to display a list of records coming from
-a [SQLite](https://www.sqlite.org/index.html) database.
+These « database » branches aim to display a list of records coming from a [SQLite](https://www.sqlite.org/index.html)
+database.
  
 * [Doctrine DBAL](https://github.com/strangebuzz/MicroSymfony/tree/doctrine-dbal) (rebased on 2024-10-06)
 * [Eloquent ORM](https://github.com/strangebuzz/MicroSymfony/tree/eloquent) (rebased on 2024-10-13)
