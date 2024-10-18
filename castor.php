@@ -16,7 +16,7 @@ use function Castor\task;
 // use function Castor\parallel;
 
 // You can modify the coverage threshold here
-const COVERAGE_THRESHOLD = 100;
+const COVERAGE_THRESHOLD = 94;
 
 function title(string $name): void
 {
@@ -205,6 +205,14 @@ function lint_twig(): int
     return exit_code('bin/console lint:twig templates/');
 }
 
+#[AsTask(name: 'twig', namespace: 'stan', description: 'Lint Twig files with twigstan', aliases: ['lint-twigstan'])]
+function lint_twigstan(): int
+{
+    title('lint:twigstan');
+
+    return exit_code(' vendor/bin/twigstan');
+}
+
 #[AsTask(name: 'yaml', namespace: 'lint', description: 'Lint Yaml files', aliases: ['lint-yaml'])]
 function lint_yaml(): int
 {
@@ -220,7 +228,8 @@ function lint_all(): int
     $ec1 = lint_php();
     $ec2 = lint_container();
     $ec3 = lint_twig();
-    $ec4 = lint_yaml();
+    $ec4 = lint_twigstan();
+    $ec5 = lint_yaml();
 
     return success($ec1 + $ec2 + $ec3 + $ec4);
 

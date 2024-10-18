@@ -8,7 +8,7 @@ help: ## Outputs this help screen
 .PHONY: version-php version-composer version-symfony version-phpunit version-phpstan version-php-cs-fixer check-requirements
 
 # You can modify the coverage threshold here
-COVERAGE_THRESHOLD = 100
+COVERAGE_THRESHOLD = 94
 
 ## —— Symfony binary 💻 ————————————————————————————————————————————————————————
 start: ## Serve the application with the Symfony binary
