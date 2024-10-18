@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="sub-heading">
+        <h2>Doctrine DBAL demo! </h2>
+    </div>
+
+    <p>Displays the rows of the <code>user</code> table of the <code>var/data.db</code>
+        SQLite database .</p>
+
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th>Pseudo</th>
+            <th>Created at</th>
+            <th>Updated at</th>
+        </tr>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }} </td>
+                <td>{{ user.email }} </td>
+                <td>{{ user.pseudo }} </td>
+                <td>{{ user.created_at|date(constant('\DateTime::RSS')) }} </td>
+                <td>{{ user.updated_at|date(constant('\DateTime::RSS')) }} </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <p>There are <b>{{ users|length }}</b> user(s).</p>
+{% endblock %}
