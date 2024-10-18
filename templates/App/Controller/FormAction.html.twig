@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
 
+{% types {
+    dto: 'App\\Dto\\RegisterFormDto',
+    form: 'Symfony\\Component\\Form\\FormView'
+} %}
+
 {% set h2 = 'Form example' %}
 
 {% block title %}{{ h2 }} | {{ brand }}{% endblock %}
@@ -45,7 +50,7 @@
 
                 <tr>
                     <th>Birthay</th>
-                    <td>{{ dto.birthday|date('Y-m-d') }}</td>
+                    <td>{{ dto.birthday ? dto.birthday|date('Y-m-d') : 'NA' }}</td>
                 </tr>
 
                 <tr>
