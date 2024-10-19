@@ -170,19 +170,20 @@ Then clone the `eloquent` branch and run `composer install && make load-fixtures
 
 ### Infrastructure
 
-* [FrankenPHP](https://github.com/strangebuzz/MicroSymfony/tree/frankenphp) (rebased on 2024-09-26)
+* FrankenPHP ([PR](https://github.com/strangebuzz/MicroSymfony/pull/54), [branch](https://github.com/strangebuzz/MicroSymfony/tree/frankenphp), rebased on 2024-09-26)
 
 ### Database 💽
 
-These « database » branches aim to display a list of records coming from a [SQLite](https://www.sqlite.org/index.html)
+These « database » branches aim to display a list of records coming from a [SQLite](https://www.sqlite.org/)
 database.
  
-* [Doctrine DBAL](https://github.com/strangebuzz/MicroSymfony/tree/doctrine-dbal) (rebased on 2024-10-06)
-* [Eloquent ORM](https://github.com/strangebuzz/MicroSymfony/tree/eloquent) (rebased on 2024-10-13)
+* Doctrine DBAL ([PR](https://github.com/strangebuzz/MicroSymfony/pull/72), [branch](https://github.com/strangebuzz/MicroSymfony/tree/doctrine-dbal), rebased on 2024-10-06)
+* Eloquent ORM ([PR](https://github.com/strangebuzz/MicroSymfony/pull/65), [branch](https://github.com/strangebuzz/MicroSymfony/tree/eloquent), rebased on 2024-10-13)
 
 ### Tooling 🔨
 
-* [Taskfile](https://github.com/jmsche/MicroSymfony/tree/taskfile) (rebased on 2024-10-11)
+* Taskfile ([PR](https://github.com/strangebuzz/MicroSymfony/pull/86), [branch](https://github.com/jmsche/MicroSymfony/tree/taskfile), rebased on 2024-10-11)
+* Twigstan ([PR](https://github.com/strangebuzz/MicroSymfony/pull/95), [branch](https://github.com/strangebuzz/MicroSymfony/tree/twigstan), rebased on 2024-10-19)
 
 These branches will be rebased after each release so they are always up to date.
 
