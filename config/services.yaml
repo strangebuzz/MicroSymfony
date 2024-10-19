@@ -32,3 +32,9 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    # Don't use the facace, let's do things the Symfony way :)
+    App\Seed\UserSeeder:
+        arguments:
+            - '@Illuminate\Database\DatabaseManager'
+        public: true

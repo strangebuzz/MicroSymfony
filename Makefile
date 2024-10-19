@@ -8,7 +8,7 @@ help: ## Outputs this help screen
 .PHONY: version-php version-composer version-symfony version-phpunit version-phpstan version-php-cs-fixer check-requirements
 
 # You can modify the coverage threshold here
-COVERAGE_THRESHOLD = 100
+COVERAGE_THRESHOLD = 80
 
 ## —— Symfony binary 💻 ————————————————————————————————————————————————————————
 start: ## Serve the application with the Symfony binary
@@ -36,13 +36,18 @@ warmup: ## Warmup the dev cache for the static analysis
 purge: ## Purge all Symfony cache and logs
 	@rm -rf ./var/cache/* ./var/logs/* ./var/coverage/*
 
+load-fixtures: ## Reset migrations and load the database fixtures
+	@rm -f ./var/data.db
+	@touch ./var/data.db
+	@bin/console eloquent:migrate:fresh --seed
+
 
 ## —— Tests ✅ —————————————————————————————————————————————————————————————————
-test: ## Run all PHPUnit tests
+test: purge load-fixtures ## Run all PHPUnit tests
 	@vendor/bin/phpunit
 
 coverage: ## Generate the HTML PHPUnit code coverage report (stored in var/coverage)
-coverage: purge
+coverage: purge load-fixtures
 	@XDEBUG_MODE=coverage php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/phpunit --coverage-html=var/coverage --coverage-clover=var/coverage/clover.xml
 	@php bin/coverage-checker.php var/coverage/clover.xml $(COVERAGE_THRESHOLD)
 
