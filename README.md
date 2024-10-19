@@ -27,8 +27,9 @@ file, replace all occurrences of `7.1` with `6.4` and run `composer up`.
 
 * [About](#about-)
 * [Demos](#demos-)
-* [Quick-start with the Symfony binary](#quick-start-with-the-symfony-binary-)
-* [Quick-start with FrankenPHP](#quick-start-with-frankenphp-)
+* [Quick-start](#quick-start-)
+  * [With the Symfony binary](#with-the-symfony-binary-)
+  * [With FrankenPHP](#with-frankenphp-)
 * [Requirements](#requirements-)
   * [Optional requirements](#optional-requirements-)
 * [Stack](#stack-)
@@ -50,7 +51,9 @@ Because a live demo is always better than all explanations:
 * Live demo powered by [FrankenPHP](https://frankenphp.dev/) at [https://frankenphp.microsymfony.ovh](https://frankenphp.microsymfony.ovh)
 
 
-## Quick-start with the Symfony binary 🎶 
+## Quick-start ⚡
+
+### With the Symfony binary 🎶 
 
 You must have the [Symfony binary](https://symfony.com/download#step-1-install-symfony-cli)
 and [composer](https://getcomposer.org/) installed locally.
@@ -70,7 +73,7 @@ Or with Castor:
 Open [https://127.0.0.1:8000](https://127.0.0.1:8000) (considering your 8000 port is free) and enjoy! 🙂
 
 
-### Quick-start with FrankenPHP 🧟‍
+### With FrankenPHP 🧟‍
 
 We can also use [FrankenPHP](https://frankenphp.dev/) to run MicroSymfony.
 You must have [Docker](https://www.docker.com/) installed locally.
