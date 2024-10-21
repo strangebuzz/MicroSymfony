@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
 
+{% types {
+    status_code: 'int',
+    status_text: 'string',
+} %}
+
 {% block icon %}⛔️{% endblock %}
 
 {% block title %}Error {{ status_code }}{% endblock %}
