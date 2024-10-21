@@ -23,7 +23,7 @@ final class ComposerAction extends AbstractController
     #[Route(path: '/composer', name: self::class)]
     public function __invoke(): Response
     {
-        $composer = file_get_contents(__DIR__.'/../../composer.json');
+        $composer = (string) file_get_contents(__DIR__.'/../../composer.json');
 
         return $this->render(self::class.'.html.twig', ['composer' => $composer]);
     }

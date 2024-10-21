@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\HttpKernel\Attribute\Cache;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\Routing\RouterInterface;
 
 /**
  * @see StaticActionTest
@@ -22,9 +21,9 @@ final class HomeAction extends AbstractController
      * Simple page with some content.
      */
     #[Route(path: '/', name: self::class)]
-    public function __invoke(RouterInterface $router): Response
+    public function __invoke(): Response
     {
-        $readme = file_get_contents(__DIR__.'/../../README.md');
+        $readme = (string) file_get_contents(__DIR__.'/../../README.md');
 
         return $this->render(self::class.'.html.twig', ['readme' => $readme]);
     }
