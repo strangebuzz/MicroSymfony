@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\HttpKernel\Attribute\Cache;
@@ -21,9 +22,9 @@ final class ComposerAction extends AbstractController
      * Displays the composer.json file.
      */
     #[Route(path: '/composer', name: self::class)]
-    public function __invoke(): Response
+    public function __invoke(Filesystem $filesystem): Response
     {
-        $composer = file_get_contents(__DIR__.'/../../composer.json');
+        $composer = $filesystem->readFile(__DIR__.'/../../composer.json');
 
         return $this->render(self::class.'.html.twig', ['composer' => $composer]);
     }

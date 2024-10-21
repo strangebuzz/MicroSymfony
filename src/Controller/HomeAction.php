@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\HttpKernel\Attribute\Cache;
@@ -22,9 +23,9 @@ final class HomeAction extends AbstractController
      * Simple page with some content.
      */
     #[Route(path: '/', name: self::class)]
-    public function __invoke(RouterInterface $router): Response
+    public function __invoke(RouterInterface $router, Filesystem $filesystem): Response
     {
-        $readme = file_get_contents(__DIR__.'/../../README.md');
+        $readme = $filesystem->readFile(__DIR__.'/../../README.md');
 
         return $this->render(self::class.'.html.twig', ['readme' => $readme]);
     }
