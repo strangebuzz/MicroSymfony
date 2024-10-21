@@ -9,7 +9,7 @@ require_once __DIR__.'/vendor/autoload_runtime.php';
 
 (new Dotenv())->bootEnv(__DIR__.'/.env');
 
-$kernel = new Kernel($_ENV['APP_ENV'], (bool) $_ENV['APP_DEBUG']);
+$kernel = new Kernel('test', true);
 $kernel->boot();
 
-return $kernel->getContainer()->get('twig');
+return $kernel->getContainer()->get('test.service_container')->get('twig');

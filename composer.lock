@@ -8789,12 +8789,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigstan/twigstan.git",
-                "reference": "ce3ace2eee9480e68467284dcf78cf2aed957058"
+                "reference": "4eeeee4c0577ff71b4e498b27a05ff75d0f4d007"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigstan/twigstan/zipball/ce3ace2eee9480e68467284dcf78cf2aed957058",
-                "reference": "ce3ace2eee9480e68467284dcf78cf2aed957058",
+                "url": "https://api.github.com/repos/twigstan/twigstan/zipball/4eeeee4c0577ff71b4e498b27a05ff75d0f4d007",
+                "reference": "4eeeee4c0577ff71b4e498b27a05ff75d0f4d007",
                 "shasum": ""
             },
             "require": {
@@ -8819,8 +8819,10 @@
                 "phpstan/extension-installer": "^1.4",
                 "phpstan/phpstan-deprecation-rules": "^1.2",
                 "phpstan/phpstan-strict-rules": "^1.6",
-                "phpunit/phpunit": "^10.5",
+                "phpstan/phpstan-symfony": "^1.4",
+                "phpunit/phpunit": "^11.4",
                 "shipmonk/composer-dependency-analyser": "^1.7",
+                "symfony/form": "^7.1",
                 "symfony/framework-bundle": "^7.1",
                 "symfony/http-foundation": "^7.1",
                 "symfony/http-kernel": "^7.1",
@@ -8858,7 +8860,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-10-18T11:38:32+00:00"
+            "time": "2024-10-21T09:58:14+00:00"
         }
     ],
     "aliases": [],
@@ -8878,6 +8880,6 @@
         "ext-simplexml": "*",
         "ext-xml": "*"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "platform-dev": {},
+    "plugin-api-version": "2.6.0"
 }
