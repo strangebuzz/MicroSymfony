@@ -30,3 +30,7 @@
 .phpunit.result.cache
 .phpunit.cache
 ###< phpunit/phpunit ###
+
+###> twigstan/twigstan ###
+.twigstan
+###< twigstan/twigstan ###
