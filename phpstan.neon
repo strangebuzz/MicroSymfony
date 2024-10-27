@@ -10,6 +10,7 @@ parameters:
     level: max
     # https://phpstan.org/config-reference#multiple-files
     paths:
+        - importmap.php
         - bin
         - config
         - public
