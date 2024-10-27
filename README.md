@@ -110,7 +110,7 @@ You can also directly use the [FrankenPHP](https://github.com/strangebuzz/MicroS
 
 ## Requirements ⚙
 
-* [PHP 8.2](https://www.php.net/releases/8.2/en.php) (also works with [PHP 8.3](https://www.php.net/releases/8.3/en.php))
+* [PHP 8.2](https://www.php.net/releases/8.2/en.php) (also works with [PHP 8.3](https://www.php.net/releases/8.3/en.php) and [PHP 8.4](https://www.php.net/releases/8.4/en.php))
 * The [Symfony CLI](https://symfony.com/download)
 
 
