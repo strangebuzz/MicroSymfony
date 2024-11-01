@@ -42,6 +42,10 @@ file, replace all occurrences of `7.1` with `6.4` and run `composer up`.
 * [Notes](#notes-)
 * [Other good practices](#other-good-practices-)
 * [References](#references-)
+* [Contributing](#contributing-)
+* [Security](#contributing-)
+* [Credits](#contributing-)
+* [License](#contributing-)
 
 
 ## Demos 🌈
@@ -210,7 +214,7 @@ In both cases, your controller code has to be [modified accordingly](https://sym
 
 ## References 📚
 
-* [A better ADR pattern for your Symfony controllers](https://www.strangebuzz.com/en/blog/a-better-adr-pattern-for-your-symfony-controllers) (strangebuzz.com) (coming soon)
+* [A better ADR pattern for your Symfony controllers](https://www.strangebuzz.com/en/blog/a-better-adr-pattern-for-your-symfony-controllers) (strangebuzz.com)
 * [My Taskfile configuration for Symfony](https://jmsche.fr/en/blog/my-taskfile-configuration-for-symfony) (jmsche.fr)
 * [You should be using PHPStans bleeding edge](https://backendtea.com/post/use-phpstan-bleeding-edge/) (backendtea.com)
 * [A Good Naming Convention for Routes, Controllers and Templates?](https://jolicode.com/blog/a-good-naming-convention-for-routes-controllers-and-templates) (jolicode.com)
@@ -223,3 +227,24 @@ In both cases, your controller code has to be [modified accordingly](https://sym
 * [What are your Symfony best practices?](https://www.strangebuzz.com/en/blog/what-are-your-symfony-best-practices) (strangebuzz.com)
 * [Setting a CI/CD workflow for a Symfony project thanks to the GitHub actions](https://www.strangebuzz.com/en/blog/setting-a-ci-cd-workflow-for-a-symfony-project-thanks-to-the-github-actions) (strangebuzz.com)
 * [The Symfony Framework Best Practices](https://symfony.com/doc/current/best_practices.html) (symfony.com)
+
+
+## Contributing 🤝 
+
+Please see [CONTRIBUTING](https://github.com/strangebuzz/MicroSymfony/blob/main/CONTRIBUTING.md) and [CODE_OF_CONDUCT](https://github.com/strangebuzz/MicroSymfony/blob/main/CODE_OF_CONDUCT.md) for details.
+
+
+## Security 🧯
+
+Please see [SECURITY](https://github.com/strangebuzz/MicroSymfony/blob/main/SECURITY.md) for details.
+
+
+## Credits 🙏
+
+* [COil](https://github.com/COil)
+* [All Contributors](https://github.com/strangebuzz/MicroSymfony/graphs/contributors)
+ 
+
+## License ⚖️
+
+The MIT License (MIT). Please see [License File](https://github.com/strangebuzz/MicroSymfony/blob/main/LICENSE) for more information.
