@@ -1,3 +1,4 @@
+# https://phpstan.org/blog/phpstan-2-0-released-level-10-elephpants
 # https://phpstan.org/config-reference#bleeding-edge
 # https://phpstan.org/blog/what-is-bleeding-edge
 # comment the two following lines if you don't want to use the bleedingEdge mode.
@@ -18,7 +19,7 @@ parameters:
         - tests
     # https://github.com/phpstan/phpstan-symfony#configuration
     symfony:
-        container_xml_path: var/cache/dev/App_KernelDevDebugContainer.xml
+        containerXmlPath: var/cache/dev/App_KernelDevDebugContainer.xml
     # https://phpstan.org/user-guide/ignoring-errors
     ignoreErrors:
         #- '#my_ignore_error_regexp_pattern#'
