@@ -140,7 +140,7 @@ to fix some issues as the project is not maintained anymore.
 * Two task runners
   * [Make](https://www.gnu.org/software/make/) ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/Makefile)) ([demo](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template#h3_4_1))
   * [Castor](https://github.com/jolicode/castor) ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/castor.php)) ([demo](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template#h3_4_2))
-* Static analysis with [PHPStan](https://github.com/phpstan/phpstan)
+* Static analysis with [PHPStan 2](https://github.com/phpstan/phpstan)
   * [Configuration](https://github.com/strangebuzz/MicroSymfony/blob/main/phpstan.neon)
 * Coding standards with [php-cs-fixer](https://github.com/PHP-CS-Fixer/PHP-CS-Fixer)
   * [Configuration](https://github.com/strangebuzz/MicroSymfony/blob/main/.php-cs-fixer.dist.php)
@@ -167,8 +167,8 @@ to fix some issues as the project is not maintained anymore.
 ## Feature branches 🚅
 
 [Feature branches](https://github.com/strangebuzz/MicroSymfony/pulls?q=is%3Apr+is%3Aopen+label%3A%22feature+branch%22)
-are not merged in the main branch but are used to integrate a new vendor library
-or make a [POC](https://en.wikipedia.org/wiki/Proof_of_concept).
+are not merged in the main branch but are used to test the integration of a new
+vendor library or make a [POC](https://en.wikipedia.org/wiki/Proof_of_concept).
 For example, have you ever dreamed of testing [Eloquent](https://laravel.com/docs/11.x/eloquent#introduction),
 the Laravel ORM, on a Symfony project?
 Then clone the `eloquent` branch and run `composer install && make load-fixtures`.
@@ -214,6 +214,7 @@ In both cases, your controller code has to be [modified accordingly](https://sym
 
 ## References 📚
 
+* [PHPStan 2.0 Released With Level 10 and Elephpants!](https://phpstan.org/blog/phpstan-2-0-released-level-10-elephpants) (phpstan.org)
 * [A better ADR pattern for your Symfony controllers](https://www.strangebuzz.com/en/blog/a-better-adr-pattern-for-your-symfony-controllers) (strangebuzz.com)
 * [My Taskfile configuration for Symfony](https://jmsche.fr/en/blog/my-taskfile-configuration-for-symfony) (jmsche.fr)
 * [You should be using PHPStans bleeding edge](https://backendtea.com/post/use-phpstan-bleeding-edge/) (backendtea.com)
