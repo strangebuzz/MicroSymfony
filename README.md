@@ -175,21 +175,21 @@ Then clone the `eloquent` branch and run `composer install && make load-fixtures
 
 ### Infrastructure
 
-* FrankenPHP ([PR](https://github.com/strangebuzz/MicroSymfony/pull/54), [branch](https://github.com/strangebuzz/MicroSymfony/tree/frankenphp), rebased on 2024-09-26)
-* Symfony-docker ([PR](https://github.com/strangebuzz/MicroSymfony/pull/98), [branch](https://github.com/strangebuzz/MicroSymfony/tree/symfony-docker), rebased on 2024-10-20)
+* FrankenPHP ([PR](https://github.com/strangebuzz/MicroSymfony/pull/54), [branch](https://github.com/strangebuzz/MicroSymfony/tree/frankenphp), rebased on 2024-11-17)
+* Symfony-docker ([PR](https://github.com/strangebuzz/MicroSymfony/pull/98), [branch](https://github.com/strangebuzz/MicroSymfony/tree/symfony-docker), rebased on 2024-11-17)
 
 ### Database 💽
 
 These « database » branches aim to display a list of records coming from a [SQLite](https://www.sqlite.org/)
 database.
  
-* Doctrine DBAL ([PR](https://github.com/strangebuzz/MicroSymfony/pull/72), [branch](https://github.com/strangebuzz/MicroSymfony/tree/doctrine-dbal), rebased on 2024-10-06)
-* Eloquent ORM ([PR](https://github.com/strangebuzz/MicroSymfony/pull/65), [branch](https://github.com/strangebuzz/MicroSymfony/tree/eloquent), rebased on 2024-10-13)
+* Doctrine DBAL ([PR](https://github.com/strangebuzz/MicroSymfony/pull/72), [branch](https://github.com/strangebuzz/MicroSymfony/tree/doctrine-dbal), rebased on 2024-11-17)
+* Eloquent ORM ([PR](https://github.com/strangebuzz/MicroSymfony/pull/65), [branch](https://github.com/strangebuzz/MicroSymfony/tree/eloquent), rebased on 2024-11-17)
 
 ### Tooling 🔨
 
-* Taskfile ([PR](https://github.com/strangebuzz/MicroSymfony/pull/86), [branch](https://github.com/jmsche/MicroSymfony/tree/taskfile), rebased on 2024-10-11)
-* TwigStan ([PR](https://github.com/strangebuzz/MicroSymfony/pull/95), [branch](https://github.com/strangebuzz/MicroSymfony/tree/twigstan), rebased on 2024-10-21)
+* Taskfile ([PR](https://github.com/strangebuzz/MicroSymfony/pull/86), [branch](https://github.com/jmsche/MicroSymfony/tree/taskfile), rebased on 2024-11-17)
+* TwigStan ([PR](https://github.com/strangebuzz/MicroSymfony/pull/95), [branch](https://github.com/strangebuzz/MicroSymfony/tree/twigstan), rebased on 2024-11-17)
 
 These branches will be rebased after each release so they are always up to date.
 
