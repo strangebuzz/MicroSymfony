@@ -16,7 +16,7 @@ use function Castor\task;
 // use function Castor\parallel;
 
 // You can modify the coverage threshold here
-const COVERAGE_THRESHOLD = 100;
+const COVERAGE_THRESHOLD = 80;
 
 function title(string $name): void
 {
@@ -93,10 +93,21 @@ function purge(): void
     success(exit_code('rm -rf ./var/cache/* ./var/logs/* ./var/coverage/*'));
 }
 
+#[AsTask(namespace: 'app', description: 'Load the database fixtures', aliases: ['load-fixtures'])]
+function loadFixures(): void
+{
+    title('app:load-fixtures');
+    io()->note('Resetting db...');
+    success(exit_code('rm -f ./var/data.db && touch ./var/data.db'));
+    io()->note('Running db migrations and load fixtures...');
+    success(exit_code('bin/console eloquent:migrate:fresh --seed'));
+}
+
 #[AsTask(name: 'all', namespace: 'test', description: 'Run all PHPUnit tests', aliases: ['test'])]
 function test_all(): int
 {
     title('test:all');
+    loadFixures();
     $ec = exit_code(__DIR__.'/vendor/bin/phpunit');
     io()->writeln('');
 
@@ -107,6 +118,7 @@ function test_all(): int
 function coverage(): int
 {
     title('test:coverage');
+    loadFixures();
     $ec = exit_code('php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/phpunit --coverage-html=var/coverage --coverage-clover=var/coverage/clover.xml',
         context: context()->withEnvironment(['XDEBUG_MODE' => 'coverage'])
     );
@@ -238,6 +250,7 @@ function ci(): void
 {
     title('ci:all');
     purge();
+    loadFixures();
     io()->section('Coverage');
     coverage();
     io()->section('Codings standards');

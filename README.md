@@ -214,8 +214,7 @@ In both cases, your controller code has to be [modified accordingly](https://sym
 
 ## References 📚
 
-* [PHPStan 2.0 Released With Level 10 and Elephpants!](https://phpstan.org/blog/phpstan-2-0-released-level-10-elephpants) (phpstan.org)
-* [A better ADR pattern for your Symfony controllers](https://www.strangebuzz.com/en/blog/a-better-adr-pattern-for-your-symfony-controllers) (strangebuzz.com)
+* [A better ADR pattern for your Symfony controllers](https://www.strangebuzz.com/en/blog/a-better-adr-pattern-for-your-symfony-controllers) (strangebuzz.com) (coming soon)
 * [My Taskfile configuration for Symfony](https://jmsche.fr/en/blog/my-taskfile-configuration-for-symfony) (jmsche.fr)
 * [You should be using PHPStans bleeding edge](https://backendtea.com/post/use-phpstan-bleeding-edge/) (backendtea.com)
 * [A Good Naming Convention for Routes, Controllers and Templates?](https://jolicode.com/blog/a-good-naming-convention-for-routes-controllers-and-templates) (jolicode.com)
