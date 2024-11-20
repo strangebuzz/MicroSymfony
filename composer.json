@@ -49,7 +49,7 @@
     "require-dev": {
         "bamarni/composer-bin-plugin": "^1.8",
         "phpstan/extension-installer": "^1.3",
-        "phpstan/phpstan-symfony": "^2.0",
+        "phpstan/phpstan-symfony": "^1.0",
         "phpunit/phpunit": "^11.0",
         "roave/security-advisories": "dev-latest",
         "symfony/browser-kit": "~7.1.0",
@@ -57,7 +57,8 @@
         "symfony/maker-bundle": "^1.61",
         "symfony/requirements-checker": "^2.0",
         "symfony/stopwatch": "~7.1.0",
-        "symfony/web-profiler-bundle": "~7.1.0"
+        "symfony/web-profiler-bundle": "~7.1.0",
+        "twigstan/twigstan": "dev-main"
     },
     "replace": {
         "symfony/polyfill-ctype": "*",
