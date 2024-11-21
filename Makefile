@@ -71,14 +71,20 @@ lint-container: ## Lint the Symfony DI container
 lint-twig: ## Lint Twig files
 	@bin/console lint:twig templates/
 
+lint-twig-cs-fixer: ## Lint Twig files with Twig CS Fixer
+	@vendor/bin/twig-cs-fixer lint ./templates
+
+fix-twig-cs-fixer: ## Fix Twig files with Twig CS Fixer
+	@vendor/bin/twig-cs-fixer lint --fix ./templates
+
 lint-yaml: ## Lint YAML files
 	@bin/console lint:yaml --parse-tags config/
 
 fix: ## Run all fixers
-fix: fix-php
+fix: fix-php fix-twig-cs-fixer
 
 lint: ## Run all linters
-lint: stan lint-php lint-container lint-twig lint-yaml
+lint: stan lint-php lint-container lint-twig lint-twig-cs-fixer lint-yaml
 
 ci: ## Run CI locally
 ci: coverage warmup lint

@@ -184,9 +184,10 @@ function fix_all(): int
 {
     title('fix:all');
     $ec1 = fix_php();
+    $ec2 = fix_twig_cs_fixer();
     io()->newLine();
 
-    return success($ec1);
+    return success($ec1 + $ec2);
 }
 #[AsTask(name: 'container', namespace: 'lint', description: 'Lint the Symfony DI container', aliases: ['lint-container'])]
 function lint_container(): int
@@ -202,6 +203,22 @@ function lint_twig(): int
     title('lint:twig');
 
     return exit_code('bin/console lint:twig templates/');
+}
+
+#[AsTask(name: 'twig-cs-fixer', namespace: 'lint', description: 'Lint Twig files', aliases: ['lint-twig-cs-fixer'])]
+function lint_twig_cs_fixer(): int
+{
+    title('lint:twig-cs-fixer');
+
+    return exit_code('vendor/bin/twig-cs-fixer lint --fix ./templates');
+}
+
+#[AsTask(name: 'fix-twig-cs-fixer', namespace: 'fix', description: 'Fix Twig files', aliases: ['fix-twig-cs-fixer'])]
+function fix_twig_cs_fixer(): int
+{
+    title('fix:twig-cs-fixer');
+
+    return exit_code('vendor/bin/twig-cs-fixer lint --fix ./templates');
 }
 
 #[AsTask(name: 'yaml', namespace: 'lint', description: 'Lint Yaml files', aliases: ['lint-yaml'])]
@@ -220,9 +237,10 @@ function lint_all(): int
     $ec2 = lint_php();
     $ec3 = lint_container();
     $ec4 = lint_twig();
-    $ec5 = lint_yaml();
+    $ec5 = lint_twig_cs_fixer();
+    $ec6 = lint_yaml();
 
-    return success($ec1 + $ec2 + $ec3 + $ec4 + $ec5);
+    return success($ec1 + $ec2 + $ec3 + $ec4 + $ec5 + $ec6);
 
     // if you want to speed up the process, you can run these commands in parallel
     //    parallel(
