@@ -100,7 +100,8 @@
         },
         "symfony": {
             "allow-contrib": false,
-            "require": "7.1.*"
+            "require": "7.1.*",
+            "docker": true
         }
     },
     "scripts": {
@@ -117,7 +118,8 @@
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd",
-            "requirements-checker": "script"
+            "requirements-checker": "script",
+            "importmap:install": "symfony-cmd"
         }
     },
     "scripts-descriptions": {
