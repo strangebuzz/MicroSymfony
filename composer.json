@@ -19,6 +19,7 @@
         "ext-dom": "*",
         "ext-iconv": "*",
         "ext-libxml": "*",
+        "ext-mbstring": "*",
         "ext-simplexml": "*",
         "ext-xml": "*",
         "league/commonmark": "^2.4",
