@@ -4,10 +4,10 @@ SHELL = sh
 ## —— 🎶 The MicroSymfony Makefile 🎶 ——————————————————————————————————————————
 help: ## Outputs this help screen
 	@grep -E '(^[a-zA-Z0-9_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
-.PHONY: help start stop go-prod go-dev purge test coverage cov-report stan fix-php lint-php lint-container lint-twig lint-yaml cs lint ci deploy
+.PHONY: help start stop go-prod go-dev purge test coverage cov-report stan fix-php lint-php lint-container lint-twig lint-yaml fix lint ci deploy
 .PHONY: version-php version-composer version-symfony version-phpunit version-phpstan version-php-cs-fixer check-requirements
 
-# You can modify the coverage threshold here
+# You can modify the code coverage threshold here
 COVERAGE_THRESHOLD = 100
 
 ## —— Symfony binary 💻 ————————————————————————————————————————————————————————
@@ -51,14 +51,14 @@ cov-report: var/coverage/index.html ## Open the PHPUnit code coverage report (va
 
 
 ## —— Coding standards/lints ✨ ————————————————————————————————————————————————
-stan: var/cache/dev/App_KernelDevDebugContainer.xml ## Run PHPStan
+stan: var/cache/dev/App_KernelDevDebugContainer.xml ## Run the PHPStan static analysis
 	@vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vv
 
 # PHPStan needs the dev/debug cache
 var/cache/dev/App_KernelDevDebugContainer.xml:
 	APP_DEBUG=1 APP_ENV=dev bin/console cache:warmup
 
-fix-php: ## Fix PHP files with php-cs-fixer (ignore PHP 8.2 warning)
+fix-php: ## Fix PHP files with php-cs-fixer (ignore PHP version warning)
 	@PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix $(PHP_CS_FIXER_ARGS)
 
 lint-php: ## Lint PHP files with php-cs-fixer (report only)
@@ -74,14 +74,14 @@ lint-twig: ## Lint Twig files
 lint-yaml: ## Lint YAML files
 	@bin/console lint:yaml --parse-tags config/
 
-cs: ## Run all CS checks
-cs: fix-php stan
+fix: ## Run all fixers
+fix: fix-php
 
-lint: ## Run all lints
-lint: lint-php lint-container lint-twig lint-yaml
+lint: ## Run all linters
+lint: stan lint-php lint-container lint-twig lint-yaml
 
 ci: ## Run CI locally
-ci: coverage warmup cs lint
+ci: coverage warmup lint
 
 
 ## —— Other tools and helpers 🔨 ———————————————————————————————————————————————
@@ -103,7 +103,7 @@ version-phpstan:
 	@vendor/bin/phpstan --version
 version-php-cs-fixer:
 	@echo '\n—— php-cs-fixer ———————————————————————————————————————————————————'
-	@vendor/bin/php-cs-fixer --version
+	@PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer --version
 	@echo
 
 check-requirements: ## Checks requirements for running Symfony
@@ -111,7 +111,7 @@ check-requirements: ## Checks requirements for running Symfony
 
 
 ## —— Deploy & Prod 🚀 —————————————————————————————————————————————————————————
-deploy: ## Simple manual deploy on VPS (this is to update the demo site https://microsymfony.ovh/)
+deploy: ## Simple manual deploy on a VPS (this is to update the demo site https://microsymfony.ovh/)
 	@git pull
 	@composer install
 	@chown -R www-data: var/*
