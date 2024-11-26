@@ -179,15 +179,14 @@ function ci_lint_php(): int
     );
 }
 
-#[AsTask(name: 'all', namespace: 'cs', description: 'Run all CS checks', aliases: ['cs'])]
+#[AsTask(name: 'all', namespace: 'fix', description: 'Run all CS checks', aliases: ['fix'])]
 function cs_all(): int
 {
-    title('cs:all');
+    title('fix:all');
     $ec1 = fix_php();
-    $ec2 = stan();
     io()->newLine();
 
-    return success($ec1 + $ec2);
+    return success($ec1);
 }
 #[AsTask(name: 'container', namespace: 'lint', description: 'Lint the Symfony DI container', aliases: ['lint-container'])]
 function lint_container(): int
@@ -217,12 +216,13 @@ function lint_yaml(): int
 function lint_all(): int
 {
     title('lint:all');
-    $ec1 = lint_php();
-    $ec2 = lint_container();
-    $ec3 = lint_twig();
-    $ec4 = lint_yaml();
+    $ec1 = stan();
+    $ec2 = lint_php();
+    $ec3 = lint_container();
+    $ec4 = lint_twig();
+    $ec5 = lint_yaml();
 
-    return success($ec1 + $ec2 + $ec3 + $ec4);
+    return success($ec1 + $ec2 + $ec3 + $ec4 + $ec5);
 
     // if you want to speed up the process, you can run these commands in parallel
     //    parallel(
@@ -240,8 +240,6 @@ function ci(): void
     purge();
     io()->section('Coverage');
     coverage();
-    io()->section('Codings standards');
-    cs_all();
     io()->section('Lints');
     lint_all();
 }
@@ -270,7 +268,10 @@ function versions(): void
     io()->newLine();
 
     io()->note('php-cs-fixer');
-    run('vendor/bin/php-cs-fixer --version');
+    exit_code('vendor/bin/php-cs-fixer --version',
+        context: context()->withEnvironment(['PHP_CS_FIXER_IGNORE_ENV' => 1])
+    );
+
     io()->newLine();
 
     success(0);
