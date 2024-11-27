@@ -1,7 +1,7 @@
 <?php
 
 // Until the 1.x Castor version the API may be unstable
-// this script was tested with Castor 0.18.2
+// this script was tested with Castor 0.21.0
 
 declare(strict_types=1);
 
@@ -124,10 +124,10 @@ function cov_report(): void
     success(exit_code('open var/coverage/index.html'));
 }
 
-#[AsTask(namespace: 'cs', description: 'Run PHPStan', aliases: ['stan'])]
+#[AsTask(namespace: 'lint', description: 'Run PHPStan', aliases: ['stan'])]
 function stan(): int
 {
-    title('cs:stan');
+    title('lint:stan');
 
     if (!file_exists('var/cache/dev/App_KernelDevDebugContainer.xml')) {
         io()->note('PHPStan needs the dev/debug cache. Generating it...');
@@ -139,10 +139,10 @@ function stan(): int
     return exit_code('vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vv');
 }
 
-#[AsTask(namespace: 'cs', description: 'Fix PHP files with php-cs-fixer (ignore PHP 8.2 warning)', aliases: ['fix-php'])]
+#[AsTask(namespace: 'fix', description: 'Fix PHP files with php-cs-fixer (ignore PHP 8.2 warning)', aliases: ['fix-php'])]
 function fix_php(): int
 {
-    title('cs:fix-php');
+    title('fix:fix-php');
     $ec = exit_code('vendor/bin/php-cs-fixer fix',
         context: context()->withEnvironment(['PHP_CS_FIXER_IGNORE_ENV' => 1])
     );
@@ -248,6 +248,10 @@ function ci(): void
 function versions(): void
 {
     title('helpers:versions');
+    io()->note('Castor');
+    run('castor --version');
+    io()->newLine();
+
     io()->note('PHP');
     run('php -v');
     io()->newLine();
