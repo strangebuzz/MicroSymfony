@@ -180,7 +180,7 @@ function ci_lint_php(): int
 }
 
 #[AsTask(name: 'all', namespace: 'fix', description: 'Run all CS checks', aliases: ['fix'])]
-function cs_all(): int
+function fix_all(): int
 {
     title('fix:all');
     $ec1 = fix_php();
