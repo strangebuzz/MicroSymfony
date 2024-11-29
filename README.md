@@ -11,7 +11,7 @@
 
 ## About 🖋 
 
-MicroSymfony is a [Symfony 7.1](https://symfony.com/blog/symfony-7-1-curated-new-features)
+MicroSymfony is a [Symfony 7.2](https://symfony.com/blog/symfony-7-2-curated-new-features)
 application skeleton on steroids, ready to use.
 
 I have made a long blog post explaining all it contains; it will be the reference
@@ -123,7 +123,7 @@ You can also directly use the [FrankenPHP](https://github.com/strangebuzz/MicroS
 
 ## Stack 🔗
 
-* [Symfony 7.1](https://symfony.com/7)
+* [Symfony 7.2](https://symfony.com/7)
 * [Twig 3.8](https://twig.symfony.com)
 * Hotwired [stimulus 3.2](https://stimulus.hotwired.dev/) and [Turbo 8.0](https://turbo.hotwired.dev/)
 * [PHPUnit 11.0](https://phpunit.de/announcements/phpunit-11.html)
