@@ -1,14 +1,18 @@
 SHELL = sh
 .DEFAULT_GOAL = help
 
+# change your prod domain here
+DOMAIN = microsymfony.ovh
+
+# modify the code coverage threshold here
+COVERAGE_THRESHOLD = 100
+
 ## —— 🎶 The MicroSymfony Makefile 🎶 ——————————————————————————————————————————
 help: ## Outputs this help screen
 	@grep -E '(^[a-zA-Z0-9_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
 .PHONY: help start stop go-prod go-dev purge test coverage cov-report stan fix-php lint-php lint-container lint-twig lint-yaml fix lint ci deploy
-.PHONY: version-php version-composer version-symfony version-phpunit version-phpstan version-php-cs-fixer check-requirements
+.PHONY: version-php version-composer version-symfony version-phpunit version-phpstan version-php-cs-fixer check-requirements le-renew
 
-# You can modify the code coverage threshold here
-COVERAGE_THRESHOLD = 100
 
 ## —— Symfony binary 💻 ————————————————————————————————————————————————————————
 start: ## Serve the application with the Symfony binary
@@ -118,3 +122,6 @@ deploy: ## Simple manual deploy on a VPS (this is to update the demo site https:
 	@cp .env.local.dist .env.local
 	@composer dump-env prod
 	@bin/console asset-map:compile
+
+le-renew: ## Renew Let's Encrypt HTTPS certificates
+	@certbot --apache -d $(DOMAIN) -d www.$(DOMAIN)
