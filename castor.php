@@ -15,7 +15,10 @@ use function Castor\task;
 
 // use function Castor\parallel;
 
-// You can modify the coverage threshold here
+// Change your prod domain here
+const DOMAIN = 'microsymfony.ovh';
+
+// Modify the coverage threshold here
 const COVERAGE_THRESHOLD = 100;
 
 function title(string $name): void
@@ -285,6 +288,15 @@ function versions(): void
 function check_requirements(): int
 {
     $ec = exit_code('vendor/bin/requirements-checker');
+    io()->newLine();
+
+    return success($ec);
+}
+
+#[AsTask(name: 'le-renew', namespace: 'prod', description: "Renew Let's Encrypt HTTPS certificates", aliases: ['le-renew'])]
+function le_renew(): int
+{
+    $ec = exit_code(sprintf('certbot --apache -d %s -d www.%s', DOMAIN, DOMAIN));
     io()->newLine();
 
     return success($ec);
