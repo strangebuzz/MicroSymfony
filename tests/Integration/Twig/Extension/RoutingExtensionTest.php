@@ -9,6 +9,10 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 final class RoutingExtensionTest extends KernelTestCase
 {
+    /**
+     * Do not remove this test if you use the ctrl_fqcn() Twig helper and want to
+     * keep the 100% code coverage.
+     */
     public function testRoutingExtensionInvalidArgumentException(): void
     {
         self::bootKernel();
