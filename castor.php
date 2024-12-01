@@ -293,6 +293,30 @@ function check_requirements(): int
     return success($ec);
 }
 
+#[AsTask(name: 'deploy', namespace: 'prod', description: 'Simple manual deploy on a VPS (this is to update the demo site https://microsymfony.ovh/)', aliases: ['deploy'])]
+function deploy(): int
+{
+    $ec1 = exit_code('git pull');
+    io()->newLine();
+
+    $ec2 = exit_code('composer install -n');
+    io()->newLine();
+
+    $ec3 = exit_code('chown -R www-data: ./var/*');
+    io()->newLine();
+
+    $ec4 = exit_code('cp .env.local.dist .env.local');
+    io()->newLine();
+
+    $ec4 = exit_code('composer dump-env prod -n');
+    io()->newLine();
+
+    $ec5 = exit_code('bin/console asset-map:compile');
+    io()->newLine();
+
+    return success($ec1 + $ec2 + $ec3 + $ec4 + $ec5);
+}
+
 #[AsTask(name: 'le-renew', namespace: 'prod', description: "Renew Let's Encrypt HTTPS certificates", aliases: ['le-renew'])]
 function le_renew(): int
 {

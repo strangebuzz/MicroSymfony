@@ -117,10 +117,10 @@ check-requirements: ## Checks requirements for running Symfony
 ## —— Deploy & Prod 🚀 —————————————————————————————————————————————————————————
 deploy: ## Simple manual deploy on a VPS (this is to update the demo site https://microsymfony.ovh/)
 	@git pull
-	@composer install
-	@chown -R www-data: var/*
+	@composer install -n
+	@chown -R www-data: ./var/*
 	@cp .env.local.dist .env.local
-	@composer dump-env prod
+	@composer dump-env prod -n
 	@bin/console asset-map:compile
 
 le-renew: ## Renew Let's Encrypt HTTPS certificates
