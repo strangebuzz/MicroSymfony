@@ -11,6 +11,11 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 #[CoversClass(ComposerAction::class)]
 final class ComposerActionTest extends WebTestCase
 {
+    /**
+     * This test is kept for the example, but this page is already tested by StaticRoutesSmokeTest.
+     *
+     * @see StaticRoutesSmokeTest
+     */
     public function testComposerPage(): void
     {
         $client = self::createClient();
