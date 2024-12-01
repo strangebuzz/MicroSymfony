@@ -89,7 +89,10 @@ ci: coverage warmup lint
 
 
 ## —— Other tools and helpers 🔨 ———————————————————————————————————————————————
-versions: version-php version-composer version-symfony version-phpunit version-phpstan version-php-cs-fixer ## Output current stack versions
+versions: version-make version-php version-composer version-symfony version-phpunit version-phpstan version-php-cs-fixer ## Output current stack versions
+version-make:
+	@echo   '—— Make ———————————————————————————————————————————————————————————'
+	@$(MAKE) --version
 version-php:
 	@echo   '—— PHP ————————————————————————————————————————————————————————————'
 	@php -v
