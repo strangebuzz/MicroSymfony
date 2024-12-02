@@ -24,7 +24,7 @@
                 <input type="checkbox">
                 <header>
                     <a href="{{ path(ctrl_fqcn('HomeAction')) }}">
-                        {# <img alt="{{ brand }}" src="img/your-logo.svg">{{ brand_html|raw }}#}
+                        {# <img alt="{{ brand }}" src="img/your-logo.svg">{{ brand_html|raw }} #}
                         {{ brand_html|raw }}
                     </a>
                 </header>
@@ -53,7 +53,7 @@
         </section>
 
         <footer>
-            <h5>{{ brand|raw }} v{{ sf_version }} ({{ 'frankenphp' in php_sapi ? php_sapi : 'PHP '~php_sapi }} {{ php_version }})</h5>
+            <h5>{{ brand|raw }} v{{ sf_version }} ({{ 'frankenphp' in php_sapi ? php_sapi : 'PHP ' ~ php_sapi }} {{ php_version }})</h5>
 
             <grid>
                 <div fx="" col="3/4">

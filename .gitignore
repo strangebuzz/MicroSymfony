@@ -30,3 +30,7 @@
 .phpunit.result.cache
 .phpunit.cache
 ###< phpunit/phpunit ###
+
+###> vincentlanglet/twig-cs-fixer ###
+/.twig-cs-fixer.cache
+###< vincentlanglet/twig-cs-fixer ###
