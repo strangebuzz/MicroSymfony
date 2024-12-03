@@ -7,4 +7,23 @@
 
     <p>This a simple hello world page without any heavy process.
         Just a basic Twig template rendering.</p>
+
+    <p>These two parameters are injected in the controller action thanks to services binds.
+        (@see <code>config/services.yaml</code>)</p>
+
+    <ul>
+        <li>environment: <b>{{ environment }}</b></li>
+        <li>debug: <b>{{ debug ? 'true' : 'false' }}</b></li>
+    </ul>
+
+    <hr/>
+
+    <p>This is just an example. You can access these two parameters thanks
+        to the Twig <code>app</code> special variable.</p>
+
+    <ul>
+        <li>app.environment: <b>{{ app.environment }}</b></li>
+        <li>app.debug: <b>{{ app.debug ? 'true' : 'false' }}</b></li>
+    </ul>
+
 {% endblock %}
