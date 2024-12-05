@@ -10,6 +10,10 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         'globals' => [
             'brand' => '%brand%',
             'brand_html' => '%brand_html%',
+            'brand_emoji' => '%brand_emoji%',
+            'description' => '%description%',
+            'website' => '%website%',
+            'version' => '%version%',
         ],
     ]);
     if ($containerConfigurator->env() === 'test') {

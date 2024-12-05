@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
 
         <title>{% block title %}{{ brand }}{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>{% block icon %}🎶️{% endblock %}️</text></svg>">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>{% block icon %}{{ brand_emoji }}️{% endblock %}️</text></svg>">
 
         {% block preconnect %}{% endblock %}
 
@@ -53,18 +53,18 @@
         </section>
 
         <footer>
-            <h5>{{ brand|raw }} v{{ sf_version }} ({{ 'frankenphp' in php_sapi ? php_sapi : 'PHP '~php_sapi }} {{ php_version }})</h5>
+            <h5>{{ brand|raw }} v{{ sf_version }}{# version #} ({{ 'frankenphp' in php_sapi ? php_sapi : 'PHP '~php_sapi }} {{ php_version }})</h5>
 
             <grid>
                 <div fx="" col="3/4">
                     A Symfony minimalist application template by <a att="" href="https://www.strangebuzz.com" target="_blank">COil/Strangebuzz 🐝</a>
-                    and <a att="" href="https://github.com/strangebuzz/MicroSymfony/graphs/contributors">other contributors</a>.
+                    and <a att="" href="{{ website }}/graphs/contributors">other contributors</a>.
                     <br/>
                     Symfony ™ is a trademark of <a target="_blank" att="" href="https://symfony.com/license">Symfony SAS</a>.
                 </div>
 
                 <div fx="" col="1/4" txt="r">
-                    <a att="" href="https://github.com/strangebuzz/MicroSymfony" target="_blank"><img alt="GitHub" class="github-icon" src="{{ asset('icons/github.svg') }}" width="24" height="24"></a>
+                    <a att="" href="{{ website }}" target="_blank"><img alt="GitHub" class="github-icon" src="{{ asset('icons/github.svg') }}" width="24" height="24"></a>
                 </div>
             </grid>
         </footer>
