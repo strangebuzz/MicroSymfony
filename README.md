@@ -14,9 +14,7 @@
 MicroSymfony is a [Symfony 7.2](https://symfony.com/blog/symfony-7-2-curated-new-features)
 application skeleton on steroids, ready to use.
 
-I have made a long blog post explaining all it contains; it will be the reference
-for documentation. 
-I'll update it when needed:
+I have made a long blog post explaining the philosophy behind and how to use it:
 
 * [Introducing the MicroSymfony application template](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template)
 
@@ -171,7 +169,7 @@ are not merged in the main branch but are used to test the integration of a new
 vendor library or make a [POC](https://en.wikipedia.org/wiki/Proof_of_concept).
 For example, have you ever dreamed of testing [Eloquent](https://laravel.com/docs/11.x/eloquent#introduction),
 the Laravel ORM, on a Symfony project?
-Then clone the `eloquent` branch and run `composer install && make load-fixtures`.
+Then clone the `eloquent` branch, and run `composer install && make load-fixtures`.
 
 ### Infrastructure
 
@@ -180,7 +178,7 @@ Then clone the `eloquent` branch and run `composer install && make load-fixtures
 
 ### Database 💽
 
-These « database » branches aim to display a list of records coming from a [SQLite](https://www.sqlite.org/)
+These « database » branches aim to display a list of records from a [SQLite](https://www.sqlite.org/)
 database.
  
 * Doctrine DBAL ([PR](https://github.com/strangebuzz/MicroSymfony/pull/72), [branch](https://github.com/strangebuzz/MicroSymfony/tree/doctrine-dbal), rebased on 2024-11-17)
@@ -192,19 +190,33 @@ database.
 * TwigStan ([PR](https://github.com/strangebuzz/MicroSymfony/pull/95), [branch](https://github.com/strangebuzz/MicroSymfony/tree/twigstan), rebased on 2024-11-17)
 * Twig-CS-Fixer ([PR](https://github.com/strangebuzz/MicroSymfony/pull/118), [branch](https://github.com/strangebuzz/MicroSymfony/tree/feat/use-twig-cs-fixer), rebased on 2024-11-21)
 
-These branches will be rebased after each release so they are always up to date.
+One will rebase those branches regularly so they are always up to date.
 
 
 ## Notes 📒
+
+### Symfony-UX
 
 Turbo forms are disabled in [assets/app.js](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/app.js).
 To enable the feature for a given form, add the `data-turbo="true"` attribute to it. 
 Or change the parameter `Turbo.setFormMode` to `on` to activate the feature globally.
 In both cases, your controller code has to be [modified accordingly](https://symfony.com/bundles/ux-turbo/current/index.html#3-form-response-code-changes).
 
+### PHP configuration files
+
+If you install a new Symfony library, the flex recipes can add YAML files to your
+project.
+These YAML files are loaded, but you can convert them to PHP like the other configuration
+files.
+For example, to convert the `messenger` YAML configuration to PHP with [Simplify](https://github.com/symplify/config-transformer),
+run:
+
+    vendor/bin/config-transformer convert config/packages/messenger.yaml
+
 
 ## Other good practices 👌
 
+* Using PHP configuration files instead of YAML ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/config/services.php))
 * Using strict types in all PHP files ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/src/Controller/SlugifyAction.php#L3))
 * Using the ADR pattern in an action controller ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/src/Controller/SlugifyAction.php)) ([doc](https://symfony.com/doc/current/controller/service.html#invokable-controllers))
 * The [composer.json](https://github.com/strangebuzz/MicroSymfony/blob/main/composer.json) 
@@ -215,6 +227,7 @@ In both cases, your controller code has to be [modified accordingly](https://sym
 
 ## References 📚
 
+* [How to Switch from YAML Configs to PHP Today with Symplify](https://tomasvotruba.com/blog/2020/07/27/how-to-switch-from-yaml-xml-configs-to-php-today-with-migrify/) (tomasvotruba.com)
 * [PHPStan 2.0 Released With Level 10 and Elephpants!](https://phpstan.org/blog/phpstan-2-0-released-level-10-elephpants) (phpstan.org)
 * [A better ADR pattern for your Symfony controllers](https://www.strangebuzz.com/en/blog/a-better-adr-pattern-for-your-symfony-controllers) (strangebuzz.com)
 * [My Taskfile configuration for Symfony](https://jmsche.fr/en/blog/my-taskfile-configuration-for-symfony) (jmsche.fr)

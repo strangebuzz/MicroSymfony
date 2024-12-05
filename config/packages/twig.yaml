@@ -1,9 +1,0 @@
-twig:
-    default_path: '%kernel.project_dir%/templates'
-    globals:
-        brand: '%brand%'
-        brand_html: '%brand_html%'
-
-when@test:
-    twig:
-        strict_variables: true
