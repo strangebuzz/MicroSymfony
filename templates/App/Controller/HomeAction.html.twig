@@ -1,12 +1,42 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <p>This page displays the <a att="" target="_blank" href="https://github.com/strangebuzz/MicroSymfony/blob/main/README.md">
-            README.md</a> file of the GitHub repository.</p>
+    <p>{{ description|raw }}</p>
 
     <hr/>
 
     {{ readme|raw|markdown_to_html|raw|add_att_attributes|raw }}
+
+    {# Uncomment this and adapat it to your needs.
+
+    <h1>MicroSymfony 🎶</h1>
+
+    <h2>Table of Contents 📖</h2>
+
+    <h2>Demos 🌈</h2>
+
+    <h2>Quick-start ⚡</h2>
+
+    <h2>Stack 🔗</h2>
+
+    <h2>Features 🚀</h2>
+
+    <h2>Notes 📒</h2>
+
+    <h2>Other good practices 👌</h2>
+
+    <h2>References 📚</h2>
+
+    <h2>Contributing 🤝</h2>
+
+    <h2>Security 🧯</h2>
+
+    <h2>Credits 🙏</h2>
+
+    <h2>License ⚖️</h2>
+    #}
+
+
 {% endblock %}
 
 {% block stylesheets %}
