@@ -5,8 +5,12 @@
  * which should already be in your base.html.twig.
  */
 
+// vendors
+import './js/pico-minimal-theme-switcher.js';
+import './vendor/@picocss/pico/css/pico.min.css';
+
+// app
 import './bootstrap.js';
-import './vendor/barecss/css/bare.min.css';
 import './styles/app.css';
 
 // "optin" - No turbo forms unless you insist. Use data-turbo="true" to enable turbo on individual forms.

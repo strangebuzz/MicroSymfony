@@ -1,72 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset=utf-8>
-        <meta name="description" content="{{ brand }}">
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>{% block title %}{{ brand }}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{{ description }}{% endblock %}" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>{% block icon %}{{ brand_emoji }}️{% endblock %}️</text></svg>">
 
-        <title>{% block title %}{{ brand }}{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>{% block icon %}{{ brand_emoji }}️{% endblock %}️</text></svg>">
+    {% block preconnect %}{% endblock %}
 
-        {% block preconnect %}{% endblock %}
+    {% block stylesheets %}
+    {% endblock %}
 
-        {% block stylesheets %}
-        {% endblock %}
+    {% block javascripts %}
+        {{ importmap() }}
+    {% endblock %}
+</head>
 
-        {% block javascripts %}
-            {{ importmap() }}
-        {% endblock %}
-    </head>
+<body>
 
-    <body id="{% block id %}base{% endblock %}">
-        <nav>
-            <label>
-                <input type="checkbox">
-                <header>
-                    <a href="{{ path(ctrl_fqcn('HomeAction')) }}">
-                        {# <img alt="{{ brand }}" src="img/your-logo.svg">{{ brand_html|raw }}#}
-                        {{ brand_html|raw }}
-                    </a>
-                </header>
+<header class="container">
+    <div class="grid">
+        <div>
+            <hgroup>
+                <h1>
+                    <a href="{{ path(ctrl_fqcn('HomeAction')) }}">{{ brand_html|raw }}</a>
+                </h1>
+                <p>{{ description|raw }}</p>
+            </hgroup>
+        </div>
 
+        <div></div>
+
+        <div>
+            <nav>
                 <ul>
-                    <li><a href="{{ path(ctrl_fqcn('HomeAction')) }}">Home</a></li>
-                    <li><a href="{{ path(ctrl_fqcn('ComposerAction')) }}">Composer</a></li>
                     <li>
-                        <a>Menu</a>
-                        <menu>
-                            <menuitem><a href="{{ path(ctrl_fqcn('HomeAction')) }}">Home (README.md)</a></menuitem>
-                            <menuitem><a href="{{ path(ctrl_fqcn('HelloWorldAction')) }}">Hello world!</a></menuitem>
-                            <menuitem><a href="{{ path('App\\Controller\\StimulusAction') }}">JavaScript with stimulus</a></menuitem>
-                            <menuitem><a href="{{ path(ctrl_fqcn('ComposerAction')) }}">The <code>composer.json</code> file</a></menuitem>
-                            <menuitem><a href="{{ path(ctrl_fqcn('FormAction')) }}">Form example</a></menuitem>
-                            <menuitem><a href="{{ app.environment == 'dev' ? '/_error/404.html' : '/404' }}">Custom error page</a></menuitem>
-                            <menuitem><a href="https://barecss.com/" target="_blank" >BarreCSS documentation</a></menuitem>
-                        </menu>
+                        <details class="dropdown">
+                            <summary aria-haspopup="group-menu" role="button" class="primary">
+                                Menu
+                            </summary>
+                            <ul role="group-menu">
+                                <li><a href="{{ path(ctrl_fqcn('HomeAction')) }}">Home (README.md)</a></li>
+                                <li><a href="{{ path(ctrl_fqcn('HelloWorldAction')) }}">Hello world!</a></li>
+                                <li><a href="{{ path('App\\Controller\\StimulusAction') }}">JavaScript with stimulus</a></li>
+                                <li><a href="{{ path(ctrl_fqcn('ComposerAction')) }}">The composer.json file</a></li>
+                                <li><a href="{{ path(ctrl_fqcn('FormAction')) }}">Form example</a></li>
+                                <li><a href="{{ app.environment == 'dev' ? '/_error/404.html' : '/404' }}">Custom error page</a></li>
+                                <li><a href="https://picocss.com/docs" target="_blank" >PicoCSS documentation</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li>
+                        <details class="dropdown">
+                            <summary aria-haspopup="group-theme" role="button" class="secondary">
+                                Theme
+                            </summary>
+                            <ul role="group-theme">
+                                <li><a href="#" data-theme-switcher="auto">🚦Auto</a></li>
+                                <li><a href="#" data-theme-switcher="light">🌞 Light</a></li>
+                                <li><a href="#" data-theme-switcher="dark">🌘 Dark</a></li>
+                            </ul>
+                        </details>
                     </li>
                 </ul>
-            </label>
-        </nav>
+            </nav>
+        </div>
+    </div>
 
-        <section>
-            {% block body %}{% endblock %}
-        </section>
+    <hr/>
+</header>
 
-        <footer>
-            <h5>{{ brand|raw }} v{{ sf_version }}{# version #} ({{ 'frankenphp' in php_sapi ? php_sapi : 'PHP '~php_sapi }} {{ php_version }})</h5>
+<main class="container">
+    {% block body %}{% endblock %}
+</main>
 
-            <grid>
-                <div fx="" col="3/4">
-                    A Symfony minimalist application template by <a att="" href="https://www.strangebuzz.com" target="_blank">COil/Strangebuzz 🐝</a>
-                    and <a att="" href="{{ website }}/graphs/contributors">other contributors</a>.
-                    <br/>
-                    Symfony ™ is a trademark of <a target="_blank" att="" href="https://symfony.com/license">Symfony SAS</a>.
-                </div>
+<footer class="container">
+    <hr/>
 
-                <div fx="" col="1/4" txt="r">
-                    <a att="" href="{{ website }}" target="_blank"><img alt="GitHub" class="github-icon" src="{{ asset('icons/github.svg') }}" width="24" height="24"></a>
-                </div>
-            </grid>
-        </footer>
-    </body>
+    <div class="grid">
+        <div>
+            <h6>{{ brand|raw }} v{{ sf_version }}{# version #} ({{ 'frankenphp' in php_sapi ? php_sapi : 'PHP '~php_sapi }} {{ php_version }})</h6>
+            <small>
+                A Symfony minimalist application template by <a href="https://www.strangebuzz.com" target="_blank">COil/Strangebuzz 🐝</a>
+                and <a href="{{ website }}/graphs/contributors">other contributors</a>.<br/>
+                Symfony ™ is a trademark of <a target="_blank" href="https://symfony.com/license">Symfony SAS</a>
+                &middot;
+            </small>
+        </div>
+
+        <div class="github">
+            <a data-tooltip="{{ website }}" href="{{ website }}" target="_blank"><img alt="GitHub" class="github-icon" src="{{ asset('icons/github.svg') }}" width="24" height="24"></a>
+        </div>
+    </div>
+</footer>
+
+</body>
 </html>

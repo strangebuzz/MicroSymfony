@@ -18,17 +18,17 @@ return [
         'path' => 'app.js',
         'entrypoint' => true,
     ],
-    '@hotwired/stimulus' => [
-        'version' => '3.2.2',
-    ],
     '@symfony/stimulus-bundle' => [
         'path' => '@symfony/stimulus-bundle/loader.js',
     ],
-    'barecss/css/bare.min.css' => [
-        'version' => '1.1.0',
-        'type' => 'css',
+    '@hotwired/stimulus' => [
+        'version' => '3.2.2',
     ],
     '@hotwired/turbo' => [
-        'version' => '7.3.0',
+        'version' => '8.0.12',
+    ],
+    '@picocss/pico/css/pico.min.css' => [
+        'version' => '2.0.6',
+        'type' => 'css',
     ],
 ];

@@ -9,9 +9,19 @@
     array (
     ),
   ),
-  'barecss/css/bare.min.css' => 
+  '@hotwired/turbo' => 
   array (
-    'version' => '1.1.1',
+    'version' => '8.0.12',
+    'dependencies' => 
+    array (
+    ),
+    'extraFiles' => 
+    array (
+    ),
+  ),
+  '@picocss/pico/css/pico.min.css' => 
+  array (
+    'version' => '2.0.6',
     'dependencies' => 
     array (
     ),

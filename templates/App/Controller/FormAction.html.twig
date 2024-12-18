@@ -5,22 +5,22 @@
 {% block title %}{{ h2 }} | {{ brand }}{% endblock %}
 
 {% block body %}
-    <div class="sub-heading">
-        <h2>{{ h2 }} 📋</h2>
-    </div>
+    <h2>{{ h2 }} 📋</h2>
 
-    <card>
+    <article>
         <p>
             This is a basic form example using a DTO, there are some constraints.
-            <a att="" href="https://www.strangebuzz.com/en/blog/disable-the-html5-validation-of-all-your-symfony-forms-with-a-feature-flag">
+            <a href="https://www.strangebuzz.com/en/blog/disable-the-html5-validation-of-all-your-symfony-forms-with-a-feature-flag">
                 The browser validation is deactivated</a>, so you can easily test the
             server side validation.
         </p>
-    </card>
+    </article>
 
     {% if form.vars.submitted and form.vars.valid %}
-        <card>
-            <h3>Submitted and valid values ✨</h3>
+        <article>
+            <header>
+                <h3>Submitted and valid values ✨</h3>
+            </header>
 
             <table>
                 <tr>
@@ -54,17 +54,23 @@
                 </tr>
             </table>
 
-            <a href="{{ path(ctrl_fqcn('FormAction')) }}" btn primary>Retry</a>
-        </card>
+            <footer>
+                &raquo; <a href="{{ path(ctrl_fqcn('FormAction')) }}">Retry</a>
+            </footer>
+        </article>
     {% else %}
-        <h2>Create a new account 🔏</h2>
+        <article>
+            <header>
+                <h2>Create a new account 🔏</h2>
+            </header>
 
-        <p>* = required fields</p>
+            <p>* = required fields</p>
 
-        <fieldset>
-            <legend>&nbsp;Enter your information 🖋&nbsp;</legend>
+            <fieldset>
+                <h3>Enter your information 🖋</h3>
 
-            {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
-        </fieldset>
+                {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
+            </fieldset>
+        </article>
     {% endif %}
 {% endblock %}

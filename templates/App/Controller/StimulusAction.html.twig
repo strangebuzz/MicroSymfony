@@ -27,57 +27,54 @@
     <p>Check out the feature intruction on the <a target="_blank" href="https://symfony.com/blog/new-in-symfony-6-3-assetmapper-component">
             Symfony blog</a>.</p>
 
-    <card>
-        <grid>
-            <div col="1/4">
-                <h3>Demo: form+dialog</h3>
-            </div>
-            <div col="3/4">
-                <div {{ stimulus_controller('hello') }}>
-                    <form {{ stimulus_target('hello', 'form') }}>
-                        <label for="name">Enter your name below and click on the <tag>Greet</tag> button
-                            <input type="text" name="name" {{ stimulus_target('hello', 'name') }} />
-                        </label>
+    <article>
+        <header>
+            <h2>Demo: form+dialog</h2>
+        </header>
 
-                        <input primary type="submit" value="Greet" {{ stimulus_action('hello', 'greet:prevent', 'click') }} />
-                    </form>
+        <div {{ stimulus_controller('hello') }}>
+            <form {{ stimulus_target('hello', 'form') }}>
+                <fieldset role="group">
+                    <input type="text" required name="name" placeholder="Enter your name here and click on the Greet button on the right" {{ stimulus_target('hello', 'name') }} />
+                    <input type="submit" value="Greet" {{ stimulus_action('hello', 'greet:prevent', 'click') }} />
+                </fieldset>
+            </form>
 
-                    <dialog {{ stimulus_target('hello', 'dialog') }}>
-                        <card>
-                            <h2 {{ stimulus_target('hello', 'greeting') }}></h2>
-                            <form method="dialog">
-                                <menu>
-                                    <button {{ stimulus_action('hello', 'reset', 'click') }}>Close</button>
-                                </menu>
-                            </form>
-                        </card>
-                    </dialog>
-                </div>
-            </div>
-        </grid>
-    </card>
+            <dialog {{ stimulus_target('hello', 'dialog') }}>
+                <article>
+                    <header>
+                        <h2 {{ stimulus_target('hello', 'greeting') }}></h2>
+                    </header>
 
-    <card>
-        <grid>
-            <div col="1/4">
-                <h3>Demo: ajax call to API endpoint</h3>
-            </div>
+                    <p>How are you doing? 🎶</p>
 
-            <div col="3/4">
-                <div {{ stimulus_controller('api', {url: path(ctrl_fqcn('SlugifyAction'))} )}}>
-                    <label for="title">
-                        Enter a blog post title below:
-                        <input type="text" required name="title"
-                                {{ stimulus_target('api', 'title') }}
-                                {{ stimulus_action('api', 'slugify') }} />
-                    </label>
+                    <footer>
+                        <form method="dialog">
+                            <button {{ stimulus_action('hello', 'reset', 'click') }}>Close</button>
+                        </form>
+                    </footer>
+                </article>
+            </dialog>
+        </div>
+    </article>
 
-                    <label for="slug">
-                        Slug (readonly):
-                        <input readonly name="slug" {{ stimulus_target('api', 'slug') }} type="text" />
-                    </label>
-                </div>
-            </div>
-        </grid>
-    </card>
+    <article>
+        <header>
+            <h2>Demo: ajax call to API endpoint</h2>
+        </header>
+
+        <p {{ stimulus_controller('api', {url: path(ctrl_fqcn('SlugifyAction'))} )}}>
+            <label for="title">
+                Enter a blog post title below:
+                <input type="text" required name="title"
+                {{ stimulus_target('api', 'title') }}
+                {{ stimulus_action('api', 'slugify') }} />
+            </label>
+
+            <label for="slug">
+                Slug (readonly):
+                <input readonly name="slug" {{ stimulus_target('api', 'slug') }} type="text" />
+            </label>
+        </p>
+    </article>
 {% endblock %}

@@ -9,6 +9,7 @@
 declare(strict_types=1);
 
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symfony\Component\HttpKernel\Kernel;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
     // Parameters
@@ -23,10 +24,10 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters->set('brand_emoji', '🎶️');
     $parameters->set('website', 'https://github.com/strangebuzz/MicroSymfony');
     $parameters->set('version', '1.0.0');
+    $sfVersion = substr(Kernel::VERSION, 0, 3); // minor version
 
-    $description = <<<'DESCRIPTION'
-This page displays the <a att="" target="_blank" href="https://github.com/strangebuzz/MicroSymfony/blob/main/README.md">README.md</a>
-file of the GitHub repository (This text comes from <code>config/services.php</code>).
+    $description = <<<DESCRIPTION
+A Symfony <b>$sfVersion</b> application template on steroids, ready to use.
 DESCRIPTION;
     $parameters->set('description', $description);
 
