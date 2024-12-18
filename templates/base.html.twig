@@ -42,13 +42,13 @@
                                 Menu
                             </summary>
                             <ul role="group-menu">
-                                <li><a href="{{ path(ctrl_fqcn('HomeAction')) }}">Home (README.md)</a></li>
-                                <li><a href="{{ path(ctrl_fqcn('HelloWorldAction')) }}">Hello world!</a></li>
-                                <li><a href="{{ path('App\\Controller\\StimulusAction') }}">JavaScript with stimulus</a></li>
-                                <li><a href="{{ path(ctrl_fqcn('ComposerAction')) }}">The composer.json file</a></li>
-                                <li><a href="{{ path(ctrl_fqcn('FormAction')) }}">Form example</a></li>
-                                <li><a href="{{ app.environment == 'dev' ? '/_error/404.html' : '/404' }}">Custom error page</a></li>
-                                <li><a href="https://picocss.com/docs" target="_blank" >PicoCSS documentation</a></li>
+                                <li><a href="{{ path(ctrl_fqcn('HomeAction')) }}">📒 README</a></li>
+                                <li><a href="{{ path(ctrl_fqcn('HelloWorldAction')) }}">Hello world! 👻</a></li>
+                                <li><a href="{{ path('App\\Controller\\StimulusAction') }}"><b>J</b>ava<b>S</b>cript with Stimulus</a></li>
+                                <li><a href="{{ path(ctrl_fqcn('ComposerAction')) }}">The <code>composer.json</code> file</a></li>
+                                <li><a href="{{ path(ctrl_fqcn('FormAction')) }}">📝 Form example</a></li>
+                                <li><a href="{{ app.environment == 'dev' ? '/_error/404.html' : '/404' }}">❌ Custom error page</a></li>
+                                <li><a href="https://picocss.com/docs" target="_blank" >✨ Pico CSS documentation</a></li>
                             </ul>
                         </details>
                     </li>
@@ -63,6 +63,9 @@
                                 <li><a href="#" data-theme-switcher="dark">🌘 Dark</a></li>
                             </ul>
                         </details>
+                    </li>
+                    <li>
+                        <a data-tooltip="{{ website }}" href="{{ website }}" target="_blank"><img alt="GitHub" class="github-icon" src="{{ asset('icons/github.svg') }}" width="24" height="24"></a>
                     </li>
                 </ul>
             </nav>

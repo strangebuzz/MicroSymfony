@@ -24,7 +24,7 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters->set('brand_emoji', '🎶️');
     $parameters->set('website', 'https://github.com/strangebuzz/MicroSymfony');
     $parameters->set('version', '1.0.0');
-    $sfVersion = substr(Kernel::VERSION, 0, 3); // minor version
+    $sfVersion = substr(Kernel::VERSION, 0, 3); // minor Symfony version
 
     $description = <<<DESCRIPTION
 A Symfony <b>$sfVersion</b> application template on steroids, ready to use.
