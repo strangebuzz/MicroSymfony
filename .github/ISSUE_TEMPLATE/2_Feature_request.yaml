@@ -1,5 +1,5 @@
 # Taken and adapted from the Symfony project
-# @see https://github.com/symfony/symfony/blob/7.1/.github/ISSUE_TEMPLATE/2_Feature_request.yaml
+# @see https://github.com/symfony/symfony/blob/7.2/.github/ISSUE_TEMPLATE/2_Feature_request.yaml
 name: 🚀 Feature Request
 description: RFC and ideas for new features and improvements
 body:

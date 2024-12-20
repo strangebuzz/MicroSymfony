@@ -1,6 +1,6 @@
 <?php
 
-// @see https://github.com/symfony/symfony/blob/7.1/.php-cs-fixer.dist.php
+// @see https://github.com/symfony/symfony/blob/7.2/.php-cs-fixer.dist.php
 
 declare(strict_types=1);
 

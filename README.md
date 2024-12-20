@@ -19,7 +19,7 @@ I have made a long blog post explaining the philosophy behind and how to use it:
 * [Introducing the MicroSymfony application template](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template)
 
 If you want to use the last Symfony **6.4 LTS** version in your `composer.json`
-file, replace all occurrences of `7.1` with `6.4` and run `composer up`.
+file, replace all occurrences of `7.2` with `6.4` and run `composer up`.
 
 
 ## Table of Contents 📖
