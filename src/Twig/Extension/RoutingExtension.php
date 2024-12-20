@@ -31,6 +31,7 @@ final class RoutingExtension extends AbstractExtension
     {
         return [
             new TwigFunction('ctrl_fqcn', $this->getControllerFqcn(...)),
+            new TwigFunction('attr_if', $this->getAttributeIf(...)),
         ];
     }
 
@@ -69,5 +70,19 @@ final class RoutingExtension extends AbstractExtension
         // If the route is not found, then Twig raises a "RouteNotFoundException".
 
         throw new \InvalidArgumentException('No controller found for the "'.$ctrlShortname.'" shortname.');
+    }
+
+    /**
+     * Returns an HTML attribute with a given value only if a condition is met.
+     *
+     * @see templates/base.html.twig
+     */
+    public function getAttributeIf(bool $condition, string $attribute, string $value): string
+    {
+        if (!$condition) {
+            return '';
+        }
+
+        return \sprintf(' %s="%s"', $attribute, $value);
     }
 }
