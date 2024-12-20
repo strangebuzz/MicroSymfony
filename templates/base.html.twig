@@ -42,13 +42,14 @@
                                 Menu
                             </summary>
                             <ul role="group-menu">
-                                <li><a href="{{ path(ctrl_fqcn('HomeAction')) }}">📒 README</a></li>
-                                <li><a href="{{ path(ctrl_fqcn('HelloWorldAction')) }}">Hello world! 👻</a></li>
-                                <li><a href="{{ path('App\\Controller\\StimulusAction') }}"><b>J</b>ava<b>S</b>cript with Stimulus</a></li>
-                                <li><a href="{{ path(ctrl_fqcn('ComposerAction')) }}">The <code>composer.json</code> file</a></li>
-                                <li><a href="{{ path(ctrl_fqcn('FormAction')) }}">📝 Form example</a></li>
+                                <li><a href="{{ path(ctrl_fqcn('HomeAction')) }}"
+                                            {{ attr_if(app.current_route == ctrl_fqcn('HomeAction'), 'aria-current', 'page')|raw }}>📒 README</a></li>
+                                <li><a href="{{ path(ctrl_fqcn('HelloWorldAction')) }}"{{ attr_if(app.current_route == ctrl_fqcn('HelloWorldAction'), 'aria-current', 'page')|raw }}>Hello world! 👻</a></li>
+                                <li><a href="{{ path('App\\Controller\\StimulusAction') }}"{{ attr_if(app.current_route == 'App\\Controller\\StimulusAction', 'aria-current', 'page')|raw }}><b>J</b>ava<b>S</b>cript with Stimulus</a></li>
+                                <li><a href="{{ path(ctrl_fqcn('ComposerAction')) }}"{{ attr_if(app.current_route == ctrl_fqcn('ComposerAction'), 'aria-current', 'page')|raw }}>The <code>composer.json</code> file</a></li>
+                                <li><a href="{{ path(ctrl_fqcn('FormAction')) }}"{{ attr_if(app.current_route == ctrl_fqcn('FormAction'), 'aria-current', 'page')|raw }}>📝 Form example</a></li>
                                 <li><a href="{{ app.environment == 'dev' ? '/_error/404.html' : '/404' }}">❌ Custom error page</a></li>
-                                <li><a href="https://picocss.com/docs" target="_blank" >✨ Pico CSS documentation</a></li>
+                                <li><a href="https://picocss.com/docs" target="_blank">✨ Pico CSS documentation</a></li>
                             </ul>
                         </details>
                     </li>
@@ -57,7 +58,7 @@
                     </li>
                     <li>
                         <a class="theme-icon" {{ stimulus_target('header', 'lightEmoji') }} {{ stimulus_action('header', 'setDarkMode', 'click') }} data-tooltip="Switch to dark mode" data-placement="bottom">🌞</a>
-                        <a class="theme-icon" {{ stimulus_target('header', 'darkEmoji') }} {{ stimulus_action('header', 'setLightMode', 'click') }} data-tooltip="Switch to light mode" data-placement="bottom" >🌘 </a>
+                        <a class="theme-icon" {{ stimulus_target('header', 'darkEmoji') }} {{ stimulus_action('header', 'setLightMode', 'click') }} data-tooltip="Switch to light mode" data-placement="bottom">🌘 </a>
                     </li>
                 </ul>
             </nav>
