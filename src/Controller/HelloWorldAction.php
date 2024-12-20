@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Attribute\Route;
  * We use the two binds we have defined in config/services.yaml.
  */
 #[AsController]
-#[Cache(maxage: 3600, public: true)]
+// #[Cache(maxage: 3600, public: true)]
 final class HelloWorldAction extends AbstractController
 {
     #[Route(path: '/hello-world', name: self::class)]

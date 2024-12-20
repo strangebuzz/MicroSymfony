@@ -14,9 +14,20 @@ hgroup > h1 > a {
     text-decoration: none;
 }
 
+/**
+ * Ligh and dark mode icons.
+ */
+header .theme-icon {
+    text-decoration: none;
+    font-size: 150%;
+    cursor: pointer;
+}
+
 footer div.github {
     text-align: right;
 }
+
+/* Symfony --------- */
 
 /**
  * Mark required fields in Symfony forms.
