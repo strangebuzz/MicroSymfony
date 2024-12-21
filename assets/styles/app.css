@@ -1,3 +1,5 @@
+/* Pico ————————————————————————————————————————————————————————————————————— */
+
 /**
  * Reduce default size.
  *
@@ -6,6 +8,8 @@
 :root {
     --pico-font-size: 100%;  /* default size is 131.25% */
 }
+
+/* Layout ——————————————————————————————————————————————————————————————————— */
 
 /**
  * No text decoration for the header brand link.
@@ -27,7 +31,7 @@ footer div.github {
     text-align: right;
 }
 
-/* Symfony --------- */
+/* Symfony —————————————————————————————————————————————————————————————————— */
 
 /**
  * Mark required fields in Symfony forms.
@@ -45,3 +49,4 @@ label.required:after {
 form > div > div > ul > li {
     color: red;
 }
+
