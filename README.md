@@ -43,7 +43,8 @@ file, replace all occurrences of `7.2` with `6.4` and run `composer up`.
 * [Contributing](#contributing-)
 * [Security](#contributing-)
 * [Credits](#contributing-)
-* [License](#contributing-)
+* [License](#license-)
+* [Built with MicroSymfony](#built-with-microsymfony-)
 
 
 ## Demos 🌈
@@ -253,10 +254,15 @@ Please see [SECURITY](https://github.com/strangebuzz/MicroSymfony/blob/main/SECU
 
 ## Credits 🙏
 
-* [COil](https://github.com/COil)
+* [COil](https://github.com/COil) (main maintainer)
 * [All Contributors](https://github.com/strangebuzz/MicroSymfony/graphs/contributors)
  
 
 ## License ⚖️
 
 The MIT License (MIT). Please see [License File](https://github.com/strangebuzz/MicroSymfony/blob/main/LICENSE) for more information.
+
+
+## Built with MicroSymfony 🛠️
+
+* [placehold.ovh](https://placehold.ovh/)
