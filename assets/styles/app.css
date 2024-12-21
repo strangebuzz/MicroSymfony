@@ -24,11 +24,20 @@ hgroup > h1 > a {
 header .theme-icon {
     text-decoration: none;
     font-size: 150%;
-    cursor: pointer;
 }
 
 footer div.github {
     text-align: right;
+}
+
+/** See h6 */
+footer span.versions {
+    display: block;
+    color: var(--pico-h6-color);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: var(--pico-typography-spacing-vertical);
 }
 
 /* Symfony —————————————————————————————————————————————————————————————————— */

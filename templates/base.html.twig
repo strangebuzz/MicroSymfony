@@ -59,8 +59,8 @@
                     </li>
                     <li>{{ _self.gitHubIcon('bottom') }}</li>
                     <li>
-                        <a class="theme-icon" {{ stimulus_target('header', 'lightEmoji') }} {{ stimulus_action('header', 'setDarkMode', 'click') }} data-tooltip="Switch to dark mode" data-placement="bottom">🔆</a>
-                        <a class="theme-icon" {{ stimulus_target('header', 'darkEmoji') }} {{ stimulus_action('header', 'setLightMode', 'click') }} data-tooltip="Switch to light mode" data-placement="bottom">🌘 </a>
+                        <a rel="nofollow" href="#" class="theme-icon" {{ stimulus_target('header', 'lightEmoji') }} {{ stimulus_action('header', 'setDarkMode', 'click') }} data-tooltip="Switch to dark mode" data-placement="bottom">🔆</a>
+                        <a rel="nofollow" href="#" class="theme-icon" {{ stimulus_target('header', 'darkEmoji') }} {{ stimulus_action('header', 'setLightMode', 'click') }} data-tooltip="Switch to light mode" data-placement="bottom">🌘 </a>
                     </li>
                 </ul>
             </nav>
@@ -79,7 +79,8 @@
 
     <div class="grid">
         <div>
-            <h6>{{ brand|raw }} v{{ sf_version }}{# version #} ({{ 'frankenphp' in php_sapi ? php_sapi : 'PHP '~php_sapi }} {{ php_version }})</h6>
+            <span class="versions">{{ brand|raw }} v{{ sf_version }}{# version #} ({{ 'frankenphp' in php_sapi ? php_sapi : 'PHP '~php_sapi }} {{ php_version }})</span>
+
             <small>
                 A Symfony minimalist application template by <a href="https://www.strangebuzz.com" target="_blank">COil/Strangebuzz 🐝</a>
                 and <a href="{{ website }}/graphs/contributors">other contributors</a>.<br/>
