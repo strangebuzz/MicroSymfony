@@ -32,6 +32,7 @@ final class RoutingExtension extends AbstractExtension
         return [
             new TwigFunction('ctrl_fqcn', $this->getControllerFqcn(...)),
             new TwigFunction('attr_if', $this->getAttributeIf(...)),
+            new TwigFunction('aria_current_page_if', $this->getAriaCurrentPageIf(...)),
         ];
     }
 
@@ -84,5 +85,10 @@ final class RoutingExtension extends AbstractExtension
         }
 
         return \sprintf(' %s="%s"', $attribute, $value);
+    }
+
+    public function getAriaCurrentPageIf(bool $condition): string
+    {
+        return $this->getAttributeIf($condition, 'aria-current', 'page');
     }
 }
