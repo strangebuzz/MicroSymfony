@@ -113,7 +113,7 @@ You can also directly use the [FrankenPHP](https://github.com/strangebuzz/MicroS
 * The [Symfony CLI](https://symfony.com/download)
 
 
-### Optional requirements ⚙
+### Optional requirements 🚦
  
 * The [Xdebug](https://xdebug.org/) PHP extension if you want to run the code coverage report
 * [Castor](https://github.com/jolicode/castor) task runner if you don't want to use
@@ -122,11 +122,12 @@ You can also directly use the [FrankenPHP](https://github.com/strangebuzz/MicroS
 
 ## Stack 🔗
 
+* [PHP 8.2](https://www.php.net/releases/8.2/en.php) to [8.4](https://www.php.net/releases/8.4/en.php)
 * [Symfony 7.2](https://symfony.com/7)
 * [Twig 3.8](https://twig.symfony.com)
-* Hotwired [stimulus 3.2](https://stimulus.hotwired.dev/) and [Turbo 8.0](https://turbo.hotwired.dev/)
-* [PHPUnit 11.0](https://phpunit.de/announcements/phpunit-11.html)
-* The [Pico CSS](https://picocss.com) framework
+* [Hotwired](https://hotwired.dev/) [Stimulus 3.2](https://stimulus.hotwired.dev/) and [Turbo 8.0](https://turbo.hotwired.dev/)
+* [PHPUnit 11.5](https://phpunit.de/announcements/phpunit-11.html)
+* [Pico CSS 2.0](https://picocss.com)
 
 
 ## Features 🚀
