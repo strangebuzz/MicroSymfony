@@ -8,11 +8,13 @@
 
     <hr/>
 
-    {{ readme|raw|markdown_to_html|raw }}
+    {{ readme|raw|markdown_to_html|add_headers_anchors|raw }}
 
-    {# Uncomment this and adapat it to your needs.
+    {# Uncomment and adapt to your needs.
 
     <h1>MicroSymfony 🎶</h1>
+
+    <h2>About 🖋</h1>
 
     <h2>Table of Contents 📖</h2>
 
@@ -21,7 +23,7 @@
     <h2>Quick-start ⚡</h2>
 
     <h2>Stack 🔗</h2>
-
+🔆
     <h2>Features 🚀</h2>
 
     <h2>Notes 📒</h2>
@@ -37,6 +39,8 @@
     <h2>Credits 🙏</h2>
 
     <h2>License ⚖️</h2>
+
+    <h2>Built with MicroSymfony 🛠️️</h2>
     #}
 
 {% endblock %}
