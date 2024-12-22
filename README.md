@@ -18,13 +18,14 @@ I have made a long blog post explaining the philosophy behind and how to use it:
 
 * [Introducing the MicroSymfony application template](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template)
 
-If you want to use the last Symfony **6.4 LTS** version in your `composer.json`
+One rule: the only mandatory dependency is **PHP**!
+
+> **PS**: If you want to use the last Symfony **6.4 LTS** version in your `composer.json`
 file, replace all occurrences of `7.2` with `6.4` and run `composer up`.
 
 
 ## Table of Contents 📖
 
-* [About](#about-)
 * [Demos](#demos-)
 * [Quick-start](#quick-start-)
   * [With the Symfony binary](#with-the-symfony-binary-)
@@ -38,11 +39,13 @@ file, replace all occurrences of `7.2` with `6.4` and run `composer up`.
   * [Database](#database-) 
   * [Tooling](#tooling-)
 * [Notes](#notes-)
+  * [Symfony UX](#symfony-ux)
+  * [PHP configuration files](#php-configuration-files)
 * [Other good practices](#other-good-practices-)
 * [References](#references-)
 * [Contributing](#contributing-)
-* [Security](#contributing-)
-* [Credits](#contributing-)
+* [Security](#security-)
+* [Credits](#credits-)
 * [License](#license-)
 * [Built with MicroSymfony](#built-with-microsymfony-)
 
@@ -62,7 +65,7 @@ Because a live demo is always better than all explanations:
 You must have the [Symfony binary](https://symfony.com/download#step-1-install-symfony-cli)
 and [composer](https://getcomposer.org/) installed locally.
 
-To create a new project from the GitHub template, run:
+To create a new project, from the last tag, run:
 
     composer create-project strangebuzz/microsymfony && cd microsymfony
 
@@ -75,6 +78,12 @@ Or with Castor:
     castor start
 
 Open [https://127.0.0.1:8000](https://127.0.0.1:8000) (considering your 8000 port is free) and enjoy! 🙂
+
+> **PS**: You can also use the green button "[Use this template ⇩](https://github.com/new?template_name=MicroSymfony&template_owner=strangebuzz)"
+at the top right of the GitHub project homepage.
+This creates a new repository from the main branch instead of the last release.
+I guarantee that all commits on the main are stable; you can verify that the associated
+CI jobs are ✅.  
 
 
 ### With FrankenPHP 🧟‍
@@ -180,7 +189,7 @@ Then clone the `eloquent` branch, and run `composer install && make load-fixture
 These « database » branches aim to display a list of records from a [SQLite](https://www.sqlite.org/)
 database.
  
-* Doctrine DBAL ([PR](https://github.com/strangebuzz/MicroSymfony/pull/72), [branch](https://github.com/strangebuzz/MicroSymfony/tree/doctrine-dbal), rebased on 2024-11-17)
+* Doctrine DBAL ([PR](https://github.com/strangebuzz/MicroSymfony/pull/72), [branch](https://github.com/strangebuzz/MicroSymfony/tree/doctrine-dbal), rebased on 2024-12-22)
 * Eloquent ORM ([PR](https://github.com/strangebuzz/MicroSymfony/pull/65), [branch](https://github.com/strangebuzz/MicroSymfony/tree/eloquent), rebased on 2024-11-17)
 
 ### Tooling 🔨
@@ -217,7 +226,7 @@ run:
 
 * Using PHP configuration files instead of YAML ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/config/services.php))
 * Using strict types in all PHP files ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/src/Controller/SlugifyAction.php#L3))
-* Using the ADR pattern in an action controller ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/src/Controller/SlugifyAction.php)) ([doc](https://symfony.com/doc/current/controller/service.html#invokable-controllers))
+* Using the ADR pattern in an action controller ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/src/Controller/HomeAction.php)) ([doc](https://symfony.com/doc/current/controller/service.html#invokable-controllers))
 * The [composer.json](https://github.com/strangebuzz/MicroSymfony/blob/main/composer.json) 
   file is normalized with [ergebnis/composer-normalize](https://github.com/ergebnis/composer-normalize)
 * Use of the [composer bin plugin](https://github.com/bamarni/composer-bin-plugin)
@@ -255,7 +264,7 @@ Please see [SECURITY](https://github.com/strangebuzz/MicroSymfony/blob/main/SECU
 
 ## Credits 🙏
 
-* [COil](https://github.com/COil) (main maintainer)
+* [COil](https://github.com/COil) (primary maintainer)
 * [All Contributors](https://github.com/strangebuzz/MicroSymfony/graphs/contributors)
  
 
