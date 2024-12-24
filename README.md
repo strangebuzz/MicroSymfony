@@ -275,4 +275,6 @@ The MIT License (MIT). Please see [License File](https://github.com/strangebuzz/
 
 ## Built with MicroSymfony 🛠️
 
-* [placehold.ovh](https://placehold.ovh/)
+* [Placehold.ovh](https://placehold.ovh/) (2024-12-01)
+* [Appartement-tourcoing.com](https://www.appartement-tourcoing.com/) (2024-11-30)
+* [Easyadmin Mercure Demo](https://github.com/coopTilleuls/easyadmin-mercure-demo) (2023-05-24)
