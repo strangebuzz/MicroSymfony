@@ -4,13 +4,8 @@ declare(strict_types=1);
 
 namespace App\Tests\Functional\Controller;
 
-use App\Controller\FormAction;
-use App\Form\Type\RegisterForm;
-use PHPUnit\Framework\Attributes\CoversClass;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-#[CoversClass(FormAction::class)]
-#[CoversClass(RegisterForm::class)]
 final class FormActionTest extends WebTestCase
 {
     private const FORM_SUBMIT_BUTTON_ID = 'register_form_save';
