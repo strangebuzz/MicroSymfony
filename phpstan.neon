@@ -20,6 +20,9 @@ parameters:
     # https://github.com/phpstan/phpstan-symfony#configuration
     symfony:
         containerXmlPath: var/cache/dev/App_KernelDevDebugContainer.xml
+    # @see config/packages/framework.php
+    scanDirectories:
+        - var/cache/dev/Symfony/Config
     # https://phpstan.org/user-guide/ignoring-errors
     ignoreErrors:
         #- '#my_ignore_error_regexp_pattern#'
