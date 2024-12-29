@@ -9,6 +9,12 @@
 // The PHP configuration files have been generated with symplify/config-transformer.
 // @see https://github.com/symplify/config-transformer
 
+// In each PHP config file the "ContainerConfigurator" service is injected.
+// If you want to use the fluent interface you can add the specific extension configurator
+// Check out the full example in "config/packages/framework.php".
+// This feature is only available for "root" services corresponding to the
+// "var/cache/dev/Symfony/Config/*Config.php" configurators.
+
 declare(strict_types=1);
 
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;

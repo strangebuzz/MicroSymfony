@@ -3,11 +3,14 @@
 declare(strict_types=1);
 
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symfony\Config\FrameworkConfig; // @see var/cache/dev/Symfony/Config/FrameworkConfig.php
 
-return static function (ContainerConfigurator $containerConfigurator): void {
+return static function (ContainerConfigurator $containerConfigurator, FrameworkConfig $frameworkConfig): void {
+    $frameworkConfig->secret('%env(APP_SECRET)%');
+
     // see https://symfony.com/doc/current/reference/configuration/framework.html
     $containerConfigurator->extension('framework', [
-        'secret' => '%env(APP_SECRET)%',
+        // 'secret' => '%env(APP_SECRET)%', // set at line 9 with the fluent interface.
         // 'csrf_protection' => true,
         'http_method_override' => false,
         'handle_all_throwables' => true,
