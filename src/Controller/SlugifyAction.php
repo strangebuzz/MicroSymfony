@@ -6,9 +6,9 @@ namespace App\Controller;
 
 use App\Helper\StringHelper;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\AsController;
+use Symfony\Component\HttpKernel\Attribute\MapQueryParameter;
 use Symfony\Component\Routing\Attribute\Route;
 
 /**
@@ -22,14 +22,13 @@ final class SlugifyAction extends AbstractController
 {
     /**
      * Simple API endpoint returning JSON. For a more serious API, please use API Platform 🕸.
+     * We can use the MapQueryParameter attribute to inject GET parameters.
      *
      * @see https://api-platform.com/
      */
     #[Route(path: '/api/slugify', name: self::class)]
-    public function __invoke(Request $request, StringHelper $stringHelper): Response
+    public function __invoke(StringHelper $stringHelper, #[MapQueryParameter] string $title): Response
     {
-        return $this->json([
-            'slug' => $stringHelper->slugify($request->query->getString('title')),
-        ]);
+        return $this->json(['slug' => $stringHelper->slugify($title)]);
     }
 }
