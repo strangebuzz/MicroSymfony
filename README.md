@@ -266,7 +266,13 @@ Please see [SECURITY](https://github.com/strangebuzz/MicroSymfony/blob/main/SECU
 
 * [COil](https://github.com/COil) (primary maintainer)
 * [All Contributors](https://github.com/strangebuzz/MicroSymfony/graphs/contributors)
- 
+
+<a href="https://github.com/strangebuzz/MicroSymfony/graphs/contributors">
+  <img alt="strangebuzz/MicroSymfony contributors" src="https://contrib.rocks/image?repo=strangebuzz/MicroSymfony" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
+
 
 ## License ⚖️
 
