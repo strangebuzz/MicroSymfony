@@ -235,6 +235,7 @@ run:
 
 ## References 📚
 
+* [Running a Symfony app on a VPS with Docker and FrankenPHP](https://les-tilleuls.coop/en/blog/running-a-symfony-app-on-a-vps-with-docker-and-frankenphp) (les-tilleuls.coop)
 * [How to Switch from YAML Configs to PHP Today with Symplify](https://tomasvotruba.com/blog/2020/07/27/how-to-switch-from-yaml-xml-configs-to-php-today-with-migrify/) (tomasvotruba.com)
 * [PHPStan 2.0 Released With Level 10 and Elephpants!](https://phpstan.org/blog/phpstan-2-0-released-level-10-elephpants) (phpstan.org)
 * [A better ADR pattern for your Symfony controllers](https://www.strangebuzz.com/en/blog/a-better-adr-pattern-for-your-symfony-controllers) (strangebuzz.com)
