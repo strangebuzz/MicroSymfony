@@ -21,22 +21,23 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 use Symfony\Component\HttpKernel\Kernel;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
+    // Parameters ——————————————————————————————————————————————————————————————
     $parameters = $containerConfigurator->parameters();
 
     // System parameters: https://symfony.com/doc/current/performance.html#dump-the-service-container-into-a-single-file
     $parameters->set('.container.dumper.inline_factories', true);
 
     // Application parameters ——————————————————————————————————————————————————
-    $parameters->set('brand', 'MicroSymfony');
-    $parameters->set('brand_html', '<b>Micro</b>Symfony 🎶');
-    $parameters->set('brand_emoji', '🎶️');
-    $parameters->set('website', 'https://github.com/strangebuzz/MicroSymfony');
-    $parameters->set('version', '1.0.0');
     $sfVersion = substr(Kernel::VERSION, 0, 3); // minor Symfony version
     $description = <<<DESCRIPTION
 A Symfony <b>$sfVersion</b> application template on steroids, ready to use.
 DESCRIPTION;
-    $parameters->set('description', $description);
+    $parameters->set('brand', 'MicroSymfony')
+        ->set('brand_html', '<b>Micro</b>Symfony 🎶')
+        ->set('brand_emoji', '🎶️')
+        ->set('website', 'https://github.com/strangebuzz/MicroSymfony')
+        ->set('version', '1.0.0')
+        ->set('description', $description);
 
     // Services ————————————————————————————————————————————————————————————————
     $services = $containerConfigurator->services();
