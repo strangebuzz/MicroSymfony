@@ -1,0 +1,22 @@
+{
+    "name": "micro-symfony",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "@symfony/stimulus-bridge": "^3.2.0",
+        "@types/hotwired__turbo": "^8.0.3",
+        "typescript": "^5.7.3",
+        "vite": "^6.0.7",
+        "vite-plugin-symfony": "^7.1"
+    },
+    "dependencies": {
+        "@hotwired/stimulus": "^3.2.2",
+        "@hotwired/turbo": "^8.0.12",
+        "@picocss/pico": "^2.0.6",
+        "@symfony/ux-turbo": "file:vendor/symfony/ux-turbo/assets"
+    }
+}

@@ -1,4 +1,4 @@
-import {Controller} from '@hotwired/stimulus';
+import { Controller } from '@hotwired/stimulus';
 
 /**
  * Stimulus version of Pico minimal-theme-switcher.js (see link below).
@@ -7,10 +7,13 @@ import {Controller} from '@hotwired/stimulus';
  * @see https://x4qtf8.csb.app/js/minimal-theme-switcher.js
  */
 export default class extends Controller {
-    static targets = ["lightEmoji", "darkEmoji"];
-    scheme = "light";
+    declare readonly lightEmojiTarget: HTMLAnchorElement;
+    declare readonly darkEmojiTarget: HTMLAnchorElement;
+    static targets = ['lightEmoji', 'darkEmoji'];
+
+    scheme = 'light';
     rootAttribute = 'data-theme';
-    localStorageKey = "picoPreferredColorScheme";
+    localStorageKey = 'picoPreferredColorScheme';
 
     connect() {
         this.scheme = this.schemeFromLocalStorage();
@@ -18,12 +21,12 @@ export default class extends Controller {
     }
 
     setDarkMode() {
-        this.setScheme( 'dark');
+        this.setScheme('dark');
         this.applyScheme();
     }
 
     setLightMode() {
-        this.setScheme( 'light');
+        this.setScheme('light');
         this.applyScheme();
     }
 
@@ -31,14 +34,14 @@ export default class extends Controller {
         return window.localStorage?.getItem(this.localStorageKey) ?? this.scheme;
     }
 
-    setScheme(scheme) {
+    setScheme(scheme: string) {
         this.scheme = scheme;
         this.schemeToLocalStorage();
     }
 
     // Apply scheme
     applyScheme() {
-        document.querySelector("html")?.setAttribute(this.rootAttribute, this.scheme);
+        document.querySelector('html')?.setAttribute(this.rootAttribute, this.scheme);
         this.schemeToUi();
     }
 
