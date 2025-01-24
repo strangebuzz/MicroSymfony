@@ -52,7 +52,7 @@ jobs:
         php-versions: ['8.2', '8.3', '8.4']
     runs-on: ubuntu-latest
 
-    # Setup ————————————————————————————————————————————————————————————————
+    # Setup
     steps:
     - uses: shivammathur/setup-php@v2
       with:
@@ -61,7 +61,7 @@ jobs:
         tools: castor
     - uses: actions/checkout@v3
 
-    # Composer —————————————————————————————————————————————————————————————
+    # Composer
     - name: Get Composer Cache Directory
       id: composer-cache
       run: |
@@ -75,11 +75,11 @@ jobs:
     - name: Install Dependencies
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
-    # Tests ————————————————————————————————————————————————————————————————
+    # Tests
     - name: Execute tests via PHPUnit
       run: castor test
 
-    # Code coverage ————————————————————————————————————————————————————————
+    # Code coverage
     - name: Generate the code coverage report and show the current global coverage
       run: castor coverage
 
@@ -88,7 +88,7 @@ jobs:
   symfony-lint:
     runs-on: ubuntu-latest
     steps:
-    # Setup ————————————————————————————————————————————————————————————————
+    # Setup
     - uses: shivammathur/setup-php@v2
       with:
         php-version: '8.2'
@@ -109,7 +109,7 @@ jobs:
     - name: Install PHPUnit dependencies for PHPStan
       run: vendor/bin/phpunit --version
 
-    # Native Symfony lints —————————————————————————————————————————————————
+    # Native Symfony lints
     - name: Lint the DI container
       run: castor lint:container
     - name: Lint Twig templates
@@ -117,7 +117,7 @@ jobs:
     - name: Lint Yaml files
       run: castor lint:yaml
 
-    # Vendors ——————————————————————————————————————————————————————————————
+    # Vendors lints
     - name: Lint PHP with php-cs-fixer
       run: castor lint:php
     - name: PHPStan static analysis

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- https://phpunit.readthedocs.io/en/latest/configuration.html -->
+<!-- https://docs.phpunit.de/en/11.5/configuration.html -->
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.5/phpunit.xsd"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.5/phpunit.xsd"
          backupGlobals="false"
          colors="true"
          bootstrap="tests/bootstrap.php"
@@ -15,14 +15,27 @@
     <server name="KERNEL_CLASS" value="App\Kernel" />
     <server name="APP_ENV" value="test" force="true"/>
     <server name="APP_DEBUG" value="true"/> <!-- set this to false on your CI to speed up tests by 2x -->
-
-    <server name="SYMFONY_PHPUNIT_REMOVE" value=""/>
-    <server name="SYMFONY_PHPUNIT_VERSION" value="10.5"/>
   </php>
 
   <testsuites>
-    <testsuite name="Project Test Suite">
-      <directory>tests</directory>
+    <testsuite name="unit">
+      <directory>tests/Unit</directory>
+    </testsuite>
+
+    <testsuite name="integration">
+      <directory>tests/Integration</directory>
+    </testsuite>
+
+    <testsuite name="api">
+      <directory>tests/Api</directory>
+    </testsuite>
+
+    <testsuite name="functional">
+      <directory>tests/Functional</directory>
+    </testsuite>
+
+    <testsuite name="e2e">
+      <directory>tests/E2E</directory>
     </testsuite>
   </testsuites>
 
@@ -32,6 +45,7 @@
         <extension class="Symfony\Component\Panther\ServerExtension" />
     </extensions>
     -->
+
   <source>
     <include>
       <directory suffix=".php">src</directory>
