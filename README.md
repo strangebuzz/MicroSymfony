@@ -95,10 +95,6 @@ Create a new project from the GitHub template, run:
 
     docker run --rm -it -v $PWD:/app composer:latest create-project strangebuzz/microsymfony && cd microsymfony
 
-Install the [FrankenPHP Symfony runtime](https://github.com/php-runtime/frankenphp-symfony):
-
-    docker run --rm -it -v $PWD:/app composer:latest require runtime/frankenphp-symfony
-
 Then run:
 
     docker run \
@@ -112,8 +108,6 @@ Then run:
 Open [https://localhost](https://localhost) and enjoy! 🙂
 
 **PS**: On Windows, replace `$PWD` with `"%cd%"`.
-
-You can also directly use the [FrankenPHP](https://github.com/strangebuzz/MicroSymfony/tree/frankenphp) branch.
 
 
 ## Requirements ⚙
@@ -181,7 +175,6 @@ Then clone the `eloquent` branch, and run `composer install && make load-fixture
 
 ### Infrastructure
 
-* FrankenPHP ([PR](https://github.com/strangebuzz/MicroSymfony/pull/54), [branch](https://github.com/strangebuzz/MicroSymfony/tree/frankenphp), rebased on 2024-11-17)
 * Symfony-docker ([PR](https://github.com/strangebuzz/MicroSymfony/pull/98), [branch](https://github.com/strangebuzz/MicroSymfony/tree/symfony-docker), rebased on 2024-11-17)
 
 ### Database 💽
