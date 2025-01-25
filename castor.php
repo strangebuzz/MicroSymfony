@@ -1,7 +1,7 @@
 <?php
 
 // Until the 1.x Castor version the API may be unstable
-// this script was tested with Castor 0.21.0
+// this script was tested with Castor 0.22.0
 
 declare(strict_types=1);
 
@@ -96,11 +96,78 @@ function purge(): void
     success(exit_code('rm -rf ./var/cache/* ./var/logs/* ./var/coverage/*'));
 }
 
-#[AsTask(name: 'all', namespace: 'test', description: 'Run all PHPUnit tests', aliases: ['test'])]
+const PHP_UNIT_CMD = '/vendor/bin/phpunit --testsuite=%s --filter=%s %s';
+const PHP_UNIT_SUITES = ['api', 'e2e', 'functional', 'integration', 'unit'];
+
+function getParameters(): array
+{
+    $filter = !empty(getenv('filter')) ? getenv('filter') : '.';
+    $options = !empty(getenv('options')) ? getenv('options') : '--stop-on-failure';
+
+    return [$filter, $options];
+}
+
+#[AsTask(name: 'all', namespace: 'test', description: 'Run tests with optional filter and options, eg: "filter=slug options=--testdox castor test")', aliases: ['test'])]
 function test_all(): int
 {
     title('test:all');
-    $ec = exit_code(__DIR__.'/vendor/bin/phpunit');
+    [$filter, $options] = getParameters();
+    $ec = exit_code(__DIR__.sprintf(PHP_UNIT_CMD, implode(',', PHP_UNIT_SUITES), $filter, $options));
+    io()->writeln('');
+
+    return $ec;
+}
+
+#[AsTask('api', namespace: 'test', description: 'Run API tests only', aliases: ['test-api'])]
+function test_api(): int
+{
+    title('test:api');
+    [$filter, $options] = getParameters();
+    $ec = exit_code(__DIR__.sprintf(PHP_UNIT_CMD, 'api', $filter, $options));
+    io()->writeln('');
+
+    return $ec;
+}
+
+#[AsTask('e2e', namespace: 'test', description: 'Run E2E tests only', aliases: ['test-e2e'])]
+function test_e2e(): int
+{
+    title('test:api');
+    [$filter, $options] = getParameters();
+    $ec = exit_code(__DIR__.sprintf(PHP_UNIT_CMD, 'e2e', $filter, $options));
+    io()->writeln('');
+
+    return $ec;
+}
+
+#[AsTask('functional', namespace: 'test', description: 'Run functional tests only', aliases: ['test-functional'])]
+function test_functional(): int
+{
+    title('test:functional');
+    [$filter, $options] = getParameters();
+    $ec = exit_code(__DIR__.sprintf(PHP_UNIT_CMD, 'functional', $filter, $options));
+    io()->writeln('');
+
+    return $ec;
+}
+
+#[AsTask('integration', namespace: 'test', description: 'Run integration tests only', aliases: ['test-integration'])]
+function test_integration(): int
+{
+    title('test:integration');
+    [$filter, $options] = getParameters();
+    $ec = exit_code(__DIR__.sprintf(PHP_UNIT_CMD, 'integration', $filter, $options));
+    io()->writeln('');
+
+    return $ec;
+}
+
+#[AsTask('unit', namespace: 'test', description: 'Run unit tests only', aliases: ['test-unit'])]
+function test_unit(
+): int {
+    title('test:unit');
+    [$filter, $options] = getParameters();
+    $ec = exit_code(__DIR__.sprintf(PHP_UNIT_CMD, 'unit', $filter, $options));
     io()->writeln('');
 
     return $ec;
@@ -142,7 +209,7 @@ function stan(): int
     return exit_code('vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vv');
 }
 
-#[AsTask(namespace: 'fix', description: 'Fix PHP files with php-cs-fixer (ignore PHP 8.2 warning)', aliases: ['fix-php'])]
+#[AsTask(name: 'php', namespace: 'fix', description: 'Fix PHP files with php-cs-fixer (ignore PHP 8.3 warnings)', aliases: ['fix-php'])]
 function fix_php(): int
 {
     title('fix:fix-php');

@@ -10,7 +10,7 @@ COVERAGE_THRESHOLD = 100
 ## —— 🎶 The MicroSymfony Makefile 🎶 ——————————————————————————————————————————
 help: ## Outputs this help screen
 	@grep -E '(^[a-zA-Z0-9_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
-.PHONY: help start stop go-prod go-dev purge test coverage cov-report stan fix-php lint-php lint-container lint-twig lint-yaml fix lint ci deploy
+.PHONY: help start stop go-prod go-dev purge test test-api test-e2e test-functional test-integration test-unit coverage cov-report stan fix-php lint-php lint-container lint-twig lint-yaml fix lint ci deploy
 .PHONY: version-php version-composer version-symfony version-phpunit version-phpstan version-php-cs-fixer check-requirements le-renew
 
 
@@ -42,8 +42,31 @@ purge: ## Purge all Symfony cache and logs
 
 
 ## —— Tests ✅ —————————————————————————————————————————————————————————————————
-test: ## Run all PHPUnit tests
-	@vendor/bin/phpunit
+test: ## Run tests with optional suite, filter and options (to debug use "make test options=--debug")
+	@$(eval testsuite ?= 'api,e2e,functional,integration,unit') # Run all suites by default, to run a specific suite see other "test-*" targets, eg: "make test-unit"
+	@$(eval filter ?= '.')                                      # Use this parameter to spot a given test,                                       eg: "make test filter=testSlugify"
+	@$(eval options ?= --stop-on-failure)                       # Use this use other options,                                                    eg: "make test options=--testdox"
+	@vendor/bin/phpunit --testsuite=$(testsuite) --filter=$(filter) $(options)
+
+test-api: ## Run API tests only
+test-api: testsuite=api
+test-api: test
+
+test-e2e: ## Run E2E tests only
+test-e2e: testsuite=e2e
+test-e2e: test
+
+test-functional: ## Run functional tests only
+test-functional: testsuite=functional
+test-functional: test
+
+test-integration: ## Run integration tests only
+test-integration: testsuite=integration
+test-integration: test
+
+test-unit: ## Run unit tests only
+test-unit: testsuite=unit
+test-unit: test
 
 coverage: ## Generate the HTML PHPUnit code coverage report (stored in var/coverage)
 coverage: purge
@@ -94,7 +117,7 @@ version-make:
 	@echo   '—— Make ———————————————————————————————————————————————————————————'
 	@$(MAKE) --version
 version-php:
-	@echo   '—— PHP ————————————————————————————————————————————————————————————'
+	@echo   '\n—— PHP ——————————————————————————————————————————————————————————'
 	@php -v
 version-composer:
 	@echo '\n—— Composer ———————————————————————————————————————————————————————'
