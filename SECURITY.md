@@ -37,3 +37,27 @@ the security issue.
 All security related patches commits are prefixed by `security:`.
 
 Thank you for helping us keep your open-source project secure!
+
+
+## Checking Vulnerabilities (GitHub actions)
+
+A GitHub action runs the `composer audit` command.
+When the job finds a security vulnerability, it fails with an output like this:
+
+    Run composer audit
+    Found 1 security vulnerability advisory affecting 1 package:
+    +-------------------+----------------------------------------------------------------------------------+
+    | Package           | twig/twig                                                                        |
+    | Severity          | medium                                                                           |
+    | CVE               | CVE-2025-24374                                                                   |
+    | Title             | Twig security issue where escaping was missing when using null coalesce operator |
+    | URL               | https://github.com/advisories/GHSA-3xg3-cgvq-2xwr                                |
+    | Affected versions | >=3.16.0,<3.19.0                                                                 |
+    | Reported at       | 2025-01-29T18:41:43+00:00                                                        |
+    +-------------------+----------------------------------------------------------------------------------+
+    Error: Process completed with exit code 1
+
+In this case, the `twig/twig` dependency has to be updated to fix the error. 
+You have to run:
+
+    composer up twig/twig
