@@ -122,5 +122,7 @@ jobs:
       run: castor lint:php
     - name: PHPStan static analysis
       run: castor stan
+    - name: Psalm static analysis
+      run: castor psalm
 
 # The end. 🙃

@@ -44,6 +44,7 @@ final class ContainerTest extends KernelTestCase
             ++$count;
         }
 
+        /** @psalm-suppress InternalMethod */
         $this->addToAssertionCount($count);
     }
 
