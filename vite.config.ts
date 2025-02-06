@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 import symfonyPlugin from 'vite-plugin-symfony';
 
 export default defineConfig({
@@ -20,5 +20,13 @@ export default defineConfig({
                 theme: './assets/styles/app.css',
             },
         },
+    },
+    test: {
+        environment: 'jsdom',
+        setupFiles: ['./assets/vitest.setup.ts'],
+
+        // you might want to disable it, if you don't have tests that rely on CSS
+        // since parsing CSS is slow
+        css: false,
     },
 });

@@ -8,10 +8,16 @@
     },
     "devDependencies": {
         "@symfony/stimulus-bridge": "^3.2.0",
+        "@testing-library/dom": "^10.4.0",
+        "@testing-library/jest-dom": "^6.6.3",
+        "@testing-library/user-event": "^14.6.1",
         "@types/hotwired__turbo": "^8.0.3",
+        "jsdom": "^26.0.0",
+        "msw": "^2.7.0",
         "typescript": "^5.7.3",
         "vite": "^6.0.7",
-        "vite-plugin-symfony": "^7.1"
+        "vite-plugin-symfony": "^7.1",
+        "vitest": "^3.0.5"
     },
     "dependencies": {
         "@hotwired/stimulus": "^3.2.2",

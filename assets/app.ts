@@ -12,6 +12,6 @@ import './bootstrap.js';
 
 // "optin" - No turbo forms unless you insist. Use data-turbo="true" to enable turbo on individual forms.
 // @see https://stackoverflow.com/a/76286583/633864
-Turbo.config.forms.mode = 'optin'; // "on" | "off" | "optin"
+Turbo.config.forms.mode = 'optin';
 
 console.log('This log comes from assets/app.ts - welcome to ViteBundle! 🎉');

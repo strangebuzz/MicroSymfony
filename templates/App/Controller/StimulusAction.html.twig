@@ -66,14 +66,14 @@
         <p {{ stimulus_controller('api', {url: path(ctrl_fqcn('SlugifyAction'))} )}}>
             <label for="title">
                 Enter a blog post title below:
-                <input type="text" required name="title"
+                <input type="text" required name="title" id="title"
                 {{ stimulus_target('api', 'title') }}
                 {{ stimulus_action('api', 'slugify') }} />
             </label>
 
             <label for="slug">
                 Slug (readonly):
-                <input readonly name="slug" {{ stimulus_target('api', 'slug') }} type="text" />
+                <input readonly name="slug" id="slug" {{ stimulus_target('api', 'slug') }} type="text" />
             </label>
         </p>
     </article>

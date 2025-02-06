@@ -157,8 +157,8 @@ Open [https://localhost](https://localhost) and enjoy! 🙂
   * [Lint job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/12099802785/job/33737745094)
   * [Security job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/12099802785/job/33737745205)
 * Vite + Stimulus ([documentation](https://symfony-vite.pentatrion.com/))
-  * Hello Stimulus ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/hello_controller.ts)) ([demo](https://microsymfony.ovh/stimulus))
-  * Fetch on a JSON endpoint of the application ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/api_controller.ts)) ([demo](https://microsymfony.ovh/stimulus)) 
+  * Hello Stimulus ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/hello_controller.ts)) ([demo](https://vite.microsymfony.ovh/stimulus))
+  * Fetch on a JSON endpoint of the application ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/api_controller.ts)) ([demo](https://vite.microsymfony.ovh/stimulus)) 
 * A custom error template
   * [Source](https://github.com/strangebuzz/MicroSymfony/blob/main/templates/bundles/TwigBundle/Exception/error.html.twig)
   * [Demo](https://microsymfony.ovh/404) 
