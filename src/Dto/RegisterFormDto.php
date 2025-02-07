@@ -13,23 +13,23 @@ use Symfony\Component\Validator\Constraints as Assert;
 final class RegisterFormDto
 {
     #[Assert\NotBlank]
-    public string $name;
+    public ?string $name = null;
 
     #[Assert\NotBlank]
     #[Assert\Email]
-    public string $email;
+    public ?string $email = null;
 
     #[Assert\NotNull]
     #[Assert\Country]
-    public string $country;
+    public ?string $country = null;
 
     #[Assert\NotNull]
     #[Assert\Currency]
-    public string $currency;
+    public ?string $currency = null;
 
     #[Assert\NotNull]
     public ?\DateTimeImmutable $birthday = null;
 
     #[Assert\NotNull]
-    public Fruit $fruit;
+    public ?Fruit $fruit = null;
 }
