@@ -4,17 +4,24 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "test": "vitest",
+        "lint:check": "eslint -c eslint.config.js",
+        "tsc:check": "tsc --noEmit"
     },
     "devDependencies": {
+        "@eslint/js": "^9.19.0",
         "@symfony/stimulus-bridge": "^3.2.0",
         "@testing-library/dom": "^10.4.0",
         "@testing-library/jest-dom": "^6.6.3",
         "@testing-library/user-event": "^14.6.1",
         "@types/hotwired__turbo": "^8.0.3",
+        "eslint": "^9.19.0",
+        "globals": "^15.14.0",
         "jsdom": "^26.0.0",
         "msw": "^2.7.0",
         "typescript": "^5.7.3",
+        "typescript-eslint": "^8.23.0",
         "vite": "^6.0.7",
         "vite-plugin-symfony": "^7.1",
         "vitest": "^3.0.5"

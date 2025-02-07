@@ -1,0 +1,39 @@
+name: "JavaScript"
+on:
+  push:
+    branches: ["main", "vite"]
+  pull_request:
+    branches: ["main", "vite"]
+
+defaults:
+  run:
+    working-directory: .
+
+jobs:
+  lint:
+    name: Eslint and Tsc
+    strategy:
+      fail-fast: true
+      matrix:
+        node-versions: [22]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-versions }}
+
+      - name: "Install JS dependencies"
+        run: "npm ci"
+
+      - name: "Eslint"
+        run: "npm run lint:check"
+
+      - name: "Tsc"
+        run: "npm run tsc:check"
+
+      - name: "Test"
+        run: "npm run test"

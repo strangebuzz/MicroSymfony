@@ -15,7 +15,7 @@ export default class extends Controller<HTMLElement> {
     }
 
     slugify() {
-        let apiUrl = this.urlValue + '?title=' + this.titleTarget.value;
+        const apiUrl = this.urlValue + '?title=' + this.titleTarget.value;
         const slugTarget = this.slugTarget;
         fetch(apiUrl)
             .then(function (response) {
