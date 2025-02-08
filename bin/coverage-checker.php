@@ -18,20 +18,23 @@ if (!file_exists($inputFile)) {
 try {
     @$xml = new SimpleXMLElement((string) file_get_contents($inputFile));
 } catch (Exception) {
-    throw new RuntimeException('Cannot parse XML of Clover file report');
+    throw new RuntimeException('Cannot parse XML of Clover file report.');
 }
 
+/** @var array<SimpleXMLElement> $metrics */
 $metrics = $xml->xpath('//metrics');
+if (count($metrics) === 0) {
+    throw new RuntimeException('Cannot find coverage metrics.');
+}
+
 $totalElements = 0;
 $checkedElements = 0;
-
 foreach ($metrics as $metric) {
     $totalElements += (int) $metric['elements'];
     $checkedElements += (int) $metric['coveredelements'];
 }
 
 $coverage = round(($checkedElements / $totalElements) * 100, 2);
-
 if ($coverage < $percentage) {
     echo ' > Code coverage: '.$coverage.'%, which is below the accepted '.$percentage.'% ❌'.\PHP_EOL.\PHP_EOL;
     exit(1);
