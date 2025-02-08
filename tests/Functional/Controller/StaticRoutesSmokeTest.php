@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Tests\Functional\Controller;
 
 use PHPUnit\Framework\Attributes\DataProvider;
-use Symfony\Bundle\FrameworkBundle\Test\TestContainer;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Routing\RouterInterface;
 
@@ -42,11 +41,8 @@ final class StaticRoutesSmokeTest extends WebTestCase
 
         self::bootKernel();
 
-        /** @var TestContainer $container */
-        $container = self::getContainer();
-
         /** @var RouterInterface $router */
-        $router = $container->get(RouterInterface::class);
+        $router = self::getContainer()->get(RouterInterface::class);
 
         $routes = $router->getRouteCollection();
 
