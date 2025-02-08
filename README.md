@@ -187,6 +187,8 @@ database.
 
 ### Tooling 🔨
 
+* Vite-Bundle ([PR](https://github.com/strangebuzz/MicroSymfony/pull/160), [branch](https://github.com/lhapaipai/MicroSymfony/tree/vite), rebased on 2025-02-07)
+* Psalm ([PR](https://github.com/strangebuzz/MicroSymfony/pull/160), [branch](https://github.com/strangebuzz/MicroSymfony/tree/psalm), rebased on 2025-02-08)
 * Taskfile ([PR](https://github.com/strangebuzz/MicroSymfony/pull/86), [branch](https://github.com/jmsche/MicroSymfony/tree/taskfile), rebased on 2024-11-17)
 * TwigStan ([PR](https://github.com/strangebuzz/MicroSymfony/pull/95), [branch](https://github.com/strangebuzz/MicroSymfony/tree/twigstan), rebased on 2024-11-17)
 * Twig-CS-Fixer ([PR](https://github.com/strangebuzz/MicroSymfony/pull/118), [branch](https://github.com/strangebuzz/MicroSymfony/tree/feat/use-twig-cs-fixer), rebased on 2024-11-21)
