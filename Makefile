@@ -2,7 +2,7 @@ SHELL = sh
 .DEFAULT_GOAL = help
 
 # change your prod domain here
-DOMAIN = microsymfony.ovh
+DOMAIN = vite.microsymfony.ovh
 
 # modify the code coverage threshold here
 COVERAGE_THRESHOLD = 100
@@ -17,6 +17,7 @@ help: ## Outputs this help screen
 ## —— Symfony binary 💻 ————————————————————————————————————————————————————————
 start: ## Serve the application with the Symfony binary
 	@symfony serve --daemon
+	@npm run dev
 
 stop: ## Stop the web server
 	@symfony server:stop
@@ -112,7 +113,7 @@ ci: coverage warmup lint
 
 
 ## —— Other tools and helpers 🔨 ———————————————————————————————————————————————
-versions: version-make version-php version-composer version-symfony version-phpunit version-phpstan version-php-cs-fixer ## Output current stack versions
+versions: version-make version-php version-composer version-symfony version-phpunit version-phpstan version-php-cs-fixer version-npm version-node ## Output current stack versions
 version-make:
 	@echo   '—— Make ———————————————————————————————————————————————————————————'
 	@$(MAKE) --version
@@ -134,6 +135,12 @@ version-phpstan:
 version-php-cs-fixer:
 	@echo '\n—— php-cs-fixer ———————————————————————————————————————————————————'
 	@PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer --version
+version-npm:
+	@echo '\n—— NPM ————————————————————————————————————————————————————————————'
+	@npm --version
+version-node:
+	@echo '\n—— node ———————————————————————————————————————————————————————————'
+	@node --version
 	@echo
 
 check-requirements: ## Checks requirements for running Symfony
@@ -147,7 +154,7 @@ deploy: ## Simple manual deploy on a VPS (this is to update the demo site https:
 	@chown -R www-data: ./var/*
 	@cp .env.local.dist .env.local
 	@composer dump-env prod -n
-	@bin/console asset-map:compile
+	@npm run build
 
 le-renew: ## Renew Let's Encrypt HTTPS certificates
-	@certbot --apache -d $(DOMAIN) -d www.$(DOMAIN)
+	@certbot --apache -d $(DOMAIN)
