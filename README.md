@@ -43,6 +43,7 @@ file, replace all occurrences of `7.2` with `6.4` and run `composer up`.
   * [PHP configuration files](#php-configuration-files)
 * [Other good practices](#other-good-practices-)
 * [References](#references-)
+* [ADR](#adr-)
 * [Contributing](#contributing-)
 * [Security](#security-)
 * [Credits](#credits-)
@@ -187,13 +188,13 @@ database.
 
 ### Tooling 🔨
 
-* Vite-Bundle ([PR](https://github.com/strangebuzz/MicroSymfony/pull/160), [branch](https://github.com/lhapaipai/MicroSymfony/tree/vite), rebased on 2025-02-07)
-* Psalm ([PR](https://github.com/strangebuzz/MicroSymfony/pull/160), [branch](https://github.com/strangebuzz/MicroSymfony/tree/psalm), rebased on 2025-02-08)
+* Vite-Bundle ([PR](https://github.com/strangebuzz/MicroSymfony/pull/160), [branch](https://github.com/lhapaipai/MicroSymfony/tree/vite), rebased on 2025-02-07) ([demo](https://vite.microsymfony.ovh))
+* Psalm ([PR](https://github.com/strangebuzz/MicroSymfony/pull/160), [branch](https://github.com/strangebuzz/MicroSymfony/tree/psalm), rebased on 2025-02-11)
 * Taskfile ([PR](https://github.com/strangebuzz/MicroSymfony/pull/86), [branch](https://github.com/jmsche/MicroSymfony/tree/taskfile), rebased on 2024-11-17)
 * TwigStan ([PR](https://github.com/strangebuzz/MicroSymfony/pull/95), [branch](https://github.com/strangebuzz/MicroSymfony/tree/twigstan), rebased on 2024-11-17)
 * Twig-CS-Fixer ([PR](https://github.com/strangebuzz/MicroSymfony/pull/118), [branch](https://github.com/strangebuzz/MicroSymfony/tree/feat/use-twig-cs-fixer), rebased on 2024-11-21)
 
-One will rebase those branches regularly so they are always up to date.
+One will rebase those branches regularly so they are not too outdated.
 
 
 ## Notes 📒
@@ -226,6 +227,17 @@ run:
   file is normalized with [ergebnis/composer-normalize](https://github.com/ergebnis/composer-normalize)
 * Use of the [composer bin plugin](https://github.com/bamarni/composer-bin-plugin)
   to install and run [php-cs-fixer](https://github.com/PHP-CS-Fixer/PHP-CS-Fixer)
+
+
+## ADR 📝
+
+ADR stands for [Architecture Design Records](https://adr.github.io/):
+
+* [2025-01-25] Include the FrankenPHP runtime by default ([PR](https://github.com/strangebuzz/MicroSymfony/pull/54))
+* [2025-01-21] Add PHPUnit test suites ([PR](https://github.com/strangebuzz/MicroSymfony/pull/155))
+* [2024-12-18] Use PicoCSS instead of BareCSS as the CSS framework ([PR](https://github.com/strangebuzz/MicroSymfony/pull/85))
+* [2024-12-05] Convert all configurations files to PHP ([PR](https://github.com/strangebuzz/MicroSymfony/pull/129))
+* [2024-09-22] Use the ADR pattern for all controllers ([PR](https://github.com/strangebuzz/MicroSymfony/pull/58))
 
 
 ## References 📚
