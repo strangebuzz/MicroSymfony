@@ -77,6 +77,10 @@ Or with Castor:
 
     castor start
 
+Or with Task:
+
+    task start
+
 Open [https://127.0.0.1:8000](https://127.0.0.1:8000) (considering your 8000 port is free) and enjoy! 🙂
 
 > **PS**: You can also use the green button "[Use this template ⇩](https://github.com/new?template_name=MicroSymfony&template_owner=strangebuzz)"
@@ -120,7 +124,8 @@ Open [https://localhost](https://localhost) and enjoy! 🙂
  
 * The [Xdebug](https://xdebug.org/) PHP extension if you want to run the code coverage report
 * [Castor](https://github.com/jolicode/castor) task runner if you don't want to use
-  [Make](https://www.gnu.org/software/make/) and its [Makefile](https://github.com/strangebuzz/MicroSymfony/blob/main/Makefile) 
+  [Make](https://www.gnu.org/software/make/) and its [Makefile](https://github.com/strangebuzz/MicroSymfony/blob/main/Makefile) or
+  [Task](https://taskfile.dev/) and its [Taskfile](https://github.com/strangebuzz/MicroSymfony/blob/main/Taskfile.yaml)
 
 
 ## Stack 🔗
@@ -137,9 +142,10 @@ Open [https://localhost](https://localhost) and enjoy! 🙂
 
 **MicroSymfony** ships these features, ready to use:
 
-* Two task runners
+* Three task runners
   * [Make](https://www.gnu.org/software/make/) ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/Makefile)) ([demo](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template#h3_4_1))
   * [Castor](https://github.com/jolicode/castor) ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/castor.php)) ([demo](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template#h3_4_2))
+  * [Task](https://taskfile.dev/) ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/Taskfile.yaml))
 * Static analysis with [PHPStan 2](https://github.com/phpstan/phpstan)
   * [Configuration](https://github.com/strangebuzz/MicroSymfony/blob/main/phpstan.neon)
 * Coding standards with [php-cs-fixer](https://github.com/PHP-CS-Fixer/PHP-CS-Fixer)

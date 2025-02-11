@@ -30,3 +30,5 @@
 .phpunit.result.cache
 .phpunit.cache
 ###< phpunit/phpunit ###
+
+/.task
