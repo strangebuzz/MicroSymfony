@@ -110,7 +110,7 @@ Open [https://localhost](https://localhost) and enjoy! 🙂
 
 **PS**: On Windows, replace `$PWD` with `"%cd%"`.
 
-### With Laragon 🎶 
+### With Laragon 🧟 
 
 [Laragon](https://laragon.org/download/) is a simple, modern and powerful windows local server
 
