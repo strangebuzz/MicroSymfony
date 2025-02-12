@@ -110,6 +110,15 @@ Open [https://localhost](https://localhost) and enjoy! 🙂
 
 **PS**: On Windows, replace `$PWD` with `"%cd%"`.
 
+### With Laragon 🎶 
+
+[Laragon](https://laragon.org/download/) is a simple, modern and powerful windows local server
+
+To make MicroSymfony working with Laragon, your have to install the [Apache Pack Component](https://symfony.com/components/Apache%20Pack), it will create a .htaccess file in ./public directory
+
+You can install the "make" command from this [tutorial](https://stackoverflow.com/questions/32127524/how-to-install-and-use-make-in-windows)
+
+You can install Laragon Symfony CLI by downloading a "symfony.exe" file from [Symfony binary](https://symfony.com/download) (click on 386 or amd64 link) and by putting this "symfony.exe" file in C:\laragon\bin directory
 
 ## Requirements ⚙
 
