@@ -10,9 +10,15 @@
 
     {% block preconnect %}{% endblock %}
 
-    {% block stylesheets %}{% endblock %}
-
-    {% block javascripts %}{{ importmap() }}{% endblock %}
+    {% block stylesheets %}
+        {{ vite_entry_link_tags('app') }}
+        {{ vite_entry_link_tags('theme') }}
+    {% endblock %}
+            
+    {% block javascripts %}
+        {{ vite_entry_script_tags('app') }}
+        {{ vite_entry_script_tags('theme') }}
+    {% endblock %}
 </head>
 
 {% macro gitHubIcon(placement) %}

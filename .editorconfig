@@ -1,0 +1,22 @@
+root = true
+
+[*.json]
+indent_size = 4
+
+[*.{yaml,yml}]
+indent_size = 4
+
+[*.php]
+indent_size = 4
+
+[*.css]
+indent_size = 4
+
+[*.{ts,js,tsx,jsx}]
+indent_size = 4
+
+[*.twig]
+indent_size = 4
+
+[*.html]
+indent_size = 4
