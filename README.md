@@ -112,11 +112,11 @@ Open [https://localhost](https://localhost) and enjoy! 🙂
 
 ### With Laragon 🧟 
 
-Laragon is a simple, modern and powerful windows local server. [Download](https://laragon.org/download/) and install it.
+Laragon is a simple, modern and powerful windows local server. [Download](https://laragon.org/download/) and install it in `C:\laragon` directory.
 
 To make MicroSymfony working with Laragon, your have to install the [Apache Pack Component](https://symfony.com/components/Apache%20Pack) by launching the `composer require symfony/apache-pack` command in the Laragon Terminal, it will create a `.htaccess` file in `./public` directory
 
-You can install `make` by launching the `scoop install make` command in the Laragon Terminal
+You can install Laragon `make` by launching the `scoop install make` command in the Laragon Terminal
 
 You can install Laragon Symfony CLI by launching the `scoop install symfony-cli` command in the Laragon Terminal
 
