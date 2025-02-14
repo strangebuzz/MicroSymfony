@@ -1,3 +1,5 @@
+# With Laragon server
+
 Laragon is a simple, modern and powerful windows local web server. [Download](https://laragon.org/download/) and install it in `C:\laragon` directory.
 
 To make MicroSymfony working with Laragon, your have to install the [Apache Pack Component](https://symfony.com/components/Apache%20Pack) by launching the `composer require symfony/apache-pack` command in the Laragon Terminal, it will create a `.htaccess` file in `./public` directory.
