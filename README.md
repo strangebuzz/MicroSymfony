@@ -30,6 +30,7 @@ file, replace all occurrences of `7.2` with `6.4` and run `composer up`.
 * [Quick-start](#quick-start-)
   * [With the Symfony binary](#with-the-symfony-binary-)
   * [With FrankenPHP](#with-frankenphp-)
+  * [With Laragon](#with-laragon-)
 * [Requirements](#requirements-)
   * [Optional requirements](#optional-requirements-)
 * [Stack](#stack-)
