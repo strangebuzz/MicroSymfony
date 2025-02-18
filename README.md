@@ -30,6 +30,7 @@ file, replace all occurrences of `7.2` with `6.4` and run `composer up`.
 * [Quick-start](#quick-start-)
   * [With the Symfony binary](#with-the-symfony-binary-)
   * [With FrankenPHP](#with-frankenphp-)
+  * [With Laragon](#with-laragon-)
 * [Requirements](#requirements-)
   * [Optional requirements](#optional-requirements-)
 * [Stack](#stack-)
@@ -112,13 +113,7 @@ Open [https://localhost](https://localhost) and enjoy! 🙂
 
 ### With Laragon 🧟 
 
-[Laragon](https://laragon.org/download/) is a simple, modern and powerful windows local server
-
-To make MicroSymfony working with Laragon, your have to install the [Apache Pack Component](https://symfony.com/components/Apache%20Pack), it will create a `.htaccess` file in `./public` directory
-
-You can install `make` by launching the `scoop install make` command in the Laragon Terminal
-
-You can install Laragon Symfony CLI by downloading a `symfony.exe` file from [Symfony binary](https://symfony.com/download) (click on `386` or `amd64` link) and by putting this `symfony.exe` file in `C:\laragon\bin` directory
+Please, see the [documentation](https://github.com/strangebuzz/MicroSymfony?tab=laragon-ov-file)
 
 ## Requirements ⚙
 
