@@ -20,13 +20,15 @@
 ###> jolicode/castor ###
 .castor.stub.php
 ###< jolicode/castor ###
-
-###> symfony/asset-mapper ###
-/public/assets/
-###< symfony/asset-mapper ###
-
 ###> phpunit/phpunit ###
 /phpunit.xml
 .phpunit.result.cache
 .phpunit.cache
 ###< phpunit/phpunit ###
+
+###> pentatrion/vite-bundle ###
+/node_modules/
+/public/build/
+###< pentatrion/vite-bundle ###
+
+/.vscode

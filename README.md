@@ -161,9 +161,9 @@ Please, see the [documentation](https://github.com/strangebuzz/MicroSymfony?tab=
   * [Tests job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/12099802785/job/33737745422)
   * [Lint job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/12099802785/job/33737745094)
   * [Security job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/12099802785/job/33737745205)
-* Asset mapper+Stimulus ([documentation](https://symfony.com/doc/current/frontend/asset_mapper.html))
-  * Vanilla Js ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/hello_controller.js)) ([demo](https://microsymfony.ovh/stimulus))
-  * Fetch on a JSON endpoint of the application ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/api_controller.js)) ([demo](https://microsymfony.ovh/stimulus)) 
+* Vite + Stimulus ([documentation](https://symfony-vite.pentatrion.com/))
+  * Hello Stimulus ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/hello_controller.ts)) ([demo](https://vite.microsymfony.ovh/stimulus))
+  * Fetch on a JSON endpoint of the application ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/api_controller.ts)) ([demo](https://vite.microsymfony.ovh/stimulus)) 
 * A custom error template
   * [Source](https://github.com/strangebuzz/MicroSymfony/blob/main/templates/bundles/TwigBundle/Exception/error.html.twig)
   * [Demo](https://microsymfony.ovh/404) 
@@ -205,7 +205,7 @@ One will rebase those branches regularly so they are not too outdated.
 
 ### Symfony-UX
 
-Turbo forms are disabled in [assets/app.js](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/app.js).
+Turbo forms are disabled in [assets/app.ts](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/app.ts).
 To enable the feature for a given form, add the `data-turbo="true"` attribute to it. 
 Or change the parameter `Turbo.setFormMode` to `on` to activate the feature globally.
 In both cases, your controller code has to be [modified accordingly](https://symfony.com/bundles/ux-turbo/current/index.html#3-form-response-code-changes).
