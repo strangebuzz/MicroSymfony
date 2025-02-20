@@ -58,7 +58,7 @@ final class ContainerTest extends KernelTestCase
         }
 
         $class = $service->getClass();
-        if (!$class) {
+        if ($class === null) {
             return true; // kernel, or alias, or abstract
         }
 
