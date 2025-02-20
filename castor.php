@@ -209,6 +209,21 @@ function stan(): int
     return exit_code('vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vv');
 }
 
+#[AsTask(namespace: 'lint', description: 'Run Psalm', aliases: ['psalm'])]
+function psalm(): int
+{
+    title('lint:psalm');
+
+    if (!file_exists('var/cache/dev/App_KernelDevDebugContainer.xml')) {
+        io()->note('Psalm needs the dev/debug cache. Generating it...');
+        run('bin/console cache:warmup',
+            context: context()->withEnvironment(['APP_ENV' => 'dev', 'APP_DEBUG' => 1])
+        );
+    }
+
+    return exit_code('vendor/bin/psalm');
+}
+
 #[AsTask(name: 'php', namespace: 'fix', description: 'Fix PHP files with php-cs-fixer (ignore PHP 8.3 warnings)', aliases: ['fix-php'])]
 function fix_php(): int
 {

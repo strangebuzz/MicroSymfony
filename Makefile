@@ -10,7 +10,7 @@ COVERAGE_THRESHOLD = 100
 ## —— 🎶 The MicroSymfony Makefile 🎶 ——————————————————————————————————————————
 help: ## Outputs this help screen
 	@grep -E '(^[a-zA-Z0-9_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
-.PHONY: help start stop go-prod go-dev purge test test-api test-e2e test-functional test-integration test-unit coverage cov-report stan fix-php lint-php lint-container lint-twig lint-yaml fix lint ci deploy
+.PHONY: help start stop go-prod go-dev purge test test-api test-e2e test-functional test-integration test-unit coverage cov-report stan psalm fix-php lint-php lint-container lint-twig lint-yaml fix lint ci deploy
 .PHONY: version-php version-composer version-symfony version-phpunit version-phpstan version-php-cs-fixer check-requirements le-renew
 
 
@@ -81,6 +81,9 @@ cov-report: var/coverage/index.html ## Open the PHPUnit code coverage report (va
 stan: var/cache/dev/App_KernelDevDebugContainer.xml ## Run the PHPStan static analysis
 	@vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vv
 
+psalm: var/cache/dev/App_KernelDevDebugContainer.xml ## Run the Psalm static analysis
+	@vendor/bin/psalm
+
 # PHPStan needs the dev/debug cache
 var/cache/dev/App_KernelDevDebugContainer.xml:
 	APP_DEBUG=1 APP_ENV=dev bin/console cache:warmup
@@ -105,7 +108,7 @@ fix: ## Run all fixers
 fix: fix-php
 
 lint: ## Run all linters
-lint: stan lint-php lint-container lint-twig lint-yaml
+lint: stan psalm lint-php lint-container lint-twig lint-yaml
 
 ci: ## Run CI locally
 ci: coverage warmup lint
