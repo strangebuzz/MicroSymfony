@@ -219,7 +219,7 @@ files.
 For example, to convert the `messenger` YAML configuration to PHP with [Simplify](https://github.com/symplify/config-transformer),
 run:
 
-    vendor/bin/config-transformer convert config/packages/messenger.yaml
+    vendor/bin/config-transformer config/packages/messenger.yaml
 
 
 ## Other good practices 👌
