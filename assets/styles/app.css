@@ -6,7 +6,7 @@
  * @see https://picocss.com/docs/css-variables#all-css-variables
  */
 :root {
-    --pico-font-size: 100%;  /* default size is 131.25% */
+    --pico-font-size: 100%; /* default size is 131.25% */
 }
 
 /* Layout ——————————————————————————————————————————————————————————————————— */
@@ -48,7 +48,7 @@ footer span.versions {
  * @see https://symfony.com/doc/current/forms.html#form-type-options
  */
 label.required:after {
-    content: " *";
+    content: ' *';
     font-weight: bold;
 }
 
@@ -58,4 +58,3 @@ label.required:after {
 form > div > div > ul > li {
     color: red;
 }
-
