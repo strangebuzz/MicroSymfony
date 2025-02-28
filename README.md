@@ -30,7 +30,7 @@ file, replace all occurrences of `7.2` with `6.4` and run `composer up`.
 * [Quick-start](#quick-start-)
   * [With the Symfony binary](#with-the-symfony-binary-)
   * [With FrankenPHP](#with-frankenphp-)
-  * [With Laragon](#with-laragon-)
+  * [With Laragon](#with-laragon)
 * [Requirements](#requirements-)
   * [Optional requirements](#optional-requirements-)
 * [Stack](#stack-)
@@ -67,7 +67,7 @@ Because a live demo is always better than all explanations:
 You must have the [Symfony binary](https://symfony.com/download#step-1-install-symfony-cli)
 and [composer](https://getcomposer.org/) installed locally.
 
-To create a new project, from the last tag, run:
+To create a new project from the last tag, run:
 
     composer create-project strangebuzz/microsymfony && cd microsymfony
 
@@ -83,7 +83,7 @@ Open [https://127.0.0.1:8000](https://127.0.0.1:8000) (considering your 8000 por
 
 > **PS**: You can also use the green button "[Use this template ⇩](https://github.com/new?template_name=MicroSymfony&template_owner=strangebuzz)"
 at the top right of the GitHub project homepage.
-This creates a new repository from the main branch instead of the last release.
+It creates a new repository from the main branch instead of the last release.
 I guarantee that all commits on the main are stable; you can verify that the associated
 CI jobs are ✅.  
 
@@ -111,9 +111,10 @@ Open [https://localhost](https://localhost) and enjoy! 🙂
 
 **PS**: On Windows, replace `$PWD` with `"%cd%"`.
 
-### With Laragon 🧟 
+### With Laragon
 
 Please, see the [documentation](https://github.com/strangebuzz/MicroSymfony?tab=laragon-ov-file)
+
 
 ## Requirements ⚙
 
@@ -187,16 +188,16 @@ Then clone the `eloquent` branch, and run `composer install && make load-fixture
 These « database » branches aim to display a list of records from a [SQLite](https://www.sqlite.org/)
 database.
  
-* Doctrine DBAL ([PR](https://github.com/strangebuzz/MicroSymfony/pull/72), [branch](https://github.com/strangebuzz/MicroSymfony/tree/doctrine-dbal), rebased on 2024-12-22)
+* Doctrine DBAL ([PR](https://github.com/strangebuzz/MicroSymfony/pull/72), [branch](https://github.com/strangebuzz/MicroSymfony/tree/doctrine-dbal), rebased on 2025-02-21)
 * Eloquent ORM ([PR](https://github.com/strangebuzz/MicroSymfony/pull/65), [branch](https://github.com/strangebuzz/MicroSymfony/tree/eloquent), rebased on 2024-11-17)
 
 ### Tooling 🔨
 
-* Vite-Bundle ([PR](https://github.com/strangebuzz/MicroSymfony/pull/160), [branch](https://github.com/lhapaipai/MicroSymfony/tree/vite), rebased on 2025-02-07) ([demo](https://vite.microsymfony.ovh))
-* Psalm ([PR](https://github.com/strangebuzz/MicroSymfony/pull/160), [branch](https://github.com/strangebuzz/MicroSymfony/tree/psalm), rebased on 2025-02-11)
-* Taskfile ([PR](https://github.com/strangebuzz/MicroSymfony/pull/86), [branch](https://github.com/jmsche/MicroSymfony/tree/taskfile), rebased on 2024-11-17)
-* TwigStan ([PR](https://github.com/strangebuzz/MicroSymfony/pull/95), [branch](https://github.com/strangebuzz/MicroSymfony/tree/twigstan), rebased on 2024-11-17)
-* Twig-CS-Fixer ([PR](https://github.com/strangebuzz/MicroSymfony/pull/118), [branch](https://github.com/strangebuzz/MicroSymfony/tree/feat/use-twig-cs-fixer), rebased on 2024-11-21)
+* Vite-Bundle ([PR](https://github.com/strangebuzz/MicroSymfony/pull/160), [branch](https://github.com/lhapaipai/MicroSymfony/tree/vite), rebased on 2025-02-11) ([demo](https://vite.microsymfony.ovh))
+* Psalm ([PR](https://github.com/strangebuzz/MicroSymfony/pull/160), [branch](https://github.com/strangebuzz/MicroSymfony/tree/psalm), rebased on 2025-02-20)
+* Taskfile ([PR](https://github.com/strangebuzz/MicroSymfony/pull/86), [branch](https://github.com/jmsche/MicroSymfony/tree/taskfile), rebased on 2024-12-04)
+* TwigStan ([PR](https://github.com/strangebuzz/MicroSymfony/pull/95), [branch](https://github.com/strangebuzz/MicroSymfony/tree/twigstan), rebased on 2024-11-18)
+* Twig-CS-Fixer ([PR](https://github.com/strangebuzz/MicroSymfony/pull/118), [branch](https://github.com/strangebuzz/MicroSymfony/tree/feat/use-twig-cs-fixer), rebased on 2024-11-29)
 
 One will rebase those branches regularly so they are not too outdated.
 
@@ -240,7 +241,7 @@ ADR stands for [Architecture Design Records](https://adr.github.io/):
 * [2025-01-25] Include the FrankenPHP runtime by default ([PR](https://github.com/strangebuzz/MicroSymfony/pull/54))
 * [2025-01-21] Add PHPUnit test suites ([PR](https://github.com/strangebuzz/MicroSymfony/pull/155))
 * [2024-12-18] Use PicoCSS instead of BareCSS as the CSS framework ([PR](https://github.com/strangebuzz/MicroSymfony/pull/85))
-* [2024-12-05] Convert all configurations files to PHP ([PR](https://github.com/strangebuzz/MicroSymfony/pull/129))
+* [2024-12-05] Convert all configuration files to PHP ([PR](https://github.com/strangebuzz/MicroSymfony/pull/129))
 * [2024-09-22] Use the ADR pattern for all controllers ([PR](https://github.com/strangebuzz/MicroSymfony/pull/58))
 
 
