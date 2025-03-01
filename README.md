@@ -84,9 +84,8 @@ Open [https://127.0.0.1:8000](https://127.0.0.1:8000) (considering your 8000 por
 > **PS**: You can also use the green button "[Use this template ⇩](https://github.com/new?template_name=MicroSymfony&template_owner=strangebuzz)"
 at the top right of the GitHub project homepage.
 It creates a new repository from the main branch instead of the last release.
-I guarantee that all commits on the main are stable; you can verify that the associated
-CI jobs are ✅.  
-
+I guarantee that all commits on the main branch are stable; you can verify that
+the associated CI jobs are ✅.  
 
 ### With FrankenPHP 🧟‍
 
@@ -113,7 +112,7 @@ Open [https://localhost](https://localhost) and enjoy! 🙂
 
 ### With Laragon
 
-Please, see the [documentation](https://github.com/strangebuzz/MicroSymfony?tab=laragon-ov-file)
+Check out the specific [documentation](https://github.com/strangebuzz/MicroSymfony?tab=laragon-ov-file).
 
 
 ## Requirements ⚙
