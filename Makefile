@@ -111,7 +111,7 @@ fix: ## Run all fixers
 fix: fix-php fix-js-css
 
 lint: ## Run all linters
-lint: stan lint-php lint-container lint-twig lint-yaml
+lint: stan lint-php lint-js-css lint-container lint-twig lint-yaml
 
 ci: ## Run CI locally
 ci: coverage warmup lint
