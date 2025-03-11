@@ -10,7 +10,7 @@ COVERAGE_THRESHOLD = 100
 ## —— 🎶 The MicroSymfony Makefile 🎶 ——————————————————————————————————————————
 help: ## Outputs this help screen
 	@grep -E '(^[a-zA-Z0-9_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
-.PHONY: help start stop go-prod go-dev purge test test-api test-e2e test-functional test-integration test-unit coverage cov-report stan fix-php fix-js fix-css lint-php lint-container lint-twig lint-yaml fix lint ci deploy
+.PHONY: help start stop go-prod go-dev purge test test-api test-e2e test-functional test-integration test-unit coverage cov-report stan fix-php fix-js-css lint-php lint-js-css lint-container lint-twig lint-yaml fix lint ci deploy
 .PHONY: version-php version-composer version-symfony version-phpunit version-phpstan version-php-cs-fixer check-requirements le-renew
 
 
@@ -88,15 +88,15 @@ var/cache/dev/App_KernelDevDebugContainer.xml:
 fix-php: ## Fix PHP files with php-cs-fixer (ignore PHP version warning)
 	@PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix $(PHP_CS_FIXER_ARGS)
 
-fix-js: ## Format JS files with prettier (need npm installed)
-	npx prettier --write "assets/**/*.js"
-
-fix-css: ## Format CSS files with prettier (need npm installed)
-	npx prettier --write "assets/styles/**/*.css"
+fix-js-css: ## Format JS/CSS files with Biome
+	@bin/console biomejs:check . --write
 
 lint-php: ## Lint PHP files with php-cs-fixer (report only)
 lint-php: PHP_CS_FIXER_ARGS=--dry-run
 lint-php: fix-php
+
+lint-js-css: ## Lint JS/CSS files with Biome
+	@bin/console biomejs:check .
 
 lint-container: ## Lint the Symfony DI container
 	@bin/console lint:container
@@ -108,7 +108,7 @@ lint-yaml: ## Lint YAML files
 	@bin/console lint:yaml --parse-tags config/
 
 fix: ## Run all fixers
-fix: fix-php fix-js fix-css
+fix: fix-php fix-js-css
 
 lint: ## Run all linters
 lint: stan lint-php lint-container lint-twig lint-yaml

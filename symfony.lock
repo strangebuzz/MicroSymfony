@@ -1,4 +1,17 @@
 {
+    "kocal/biome-js-bundle": {
+        "version": "1.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.1",
+            "ref": "def7178eac6260f55c040a811c8329b3cdbe87cf"
+        },
+        "files": [
+            "biome.json",
+            "config/packages/kocal_biome_js.yaml"
+        ]
+    },
     "phpstan/phpstan": {
         "version": "1.10",
         "recipe": {
