@@ -12,4 +12,5 @@ return [
     Symfony\UX\Turbo\TurboBundle::class => ['all' => true],
     Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
     Symfony\Bundle\DebugBundle\DebugBundle::class => ['dev' => true],
+    Kocal\BiomeJsBundle\KocalBiomeJsBundle::class => ['dev' => true],
 ];
