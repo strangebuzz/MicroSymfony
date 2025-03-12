@@ -119,7 +119,8 @@ jobs:
 
     # Vendors lints
     - name: Lint PHP with php-cs-fixer
-      run: castor lint:php
+      #run: castor lint:php
+      run: make lint-php
     - name: PHPStan static analysis
       run: castor stan
 
