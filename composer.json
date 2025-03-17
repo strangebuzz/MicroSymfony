@@ -97,6 +97,9 @@
             "symfony/flex": true,
             "symfony/runtime": true
         },
+        "platform": {
+            "php": "8.2"
+        },
         "sort-packages": true
     },
     "extra": {

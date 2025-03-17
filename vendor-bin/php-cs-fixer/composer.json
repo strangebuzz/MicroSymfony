@@ -1,5 +1,10 @@
 {
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.46"
+    },
+    "config": {
+        "platform": {
+            "php": "8.2"
+        }
     }
 }
