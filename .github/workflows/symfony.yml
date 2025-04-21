@@ -114,13 +114,13 @@ jobs:
       run: castor lint:container
     - name: Lint Twig templates
       run: castor lint:twig
-    - name: Lint Yaml files
-      run: castor lint:yaml
 
     # Vendors lints
     - name: Lint PHP with php-cs-fixer
       run: castor lint:php
     - name: PHPStan static analysis
       run: castor stan
+    - name: Lint JS and CSS files
+      run: castor ci:lint-js-css
 
 # The end. 🙃
