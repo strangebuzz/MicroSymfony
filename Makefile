@@ -10,7 +10,7 @@ COVERAGE_THRESHOLD = 100
 ## —— 🎶 The MicroSymfony Makefile 🎶 ——————————————————————————————————————————
 help: ## Outputs this help screen
 	@grep -E '(^[a-zA-Z0-9_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
-.PHONY: help start stop go-prod go-dev purge test test-api test-e2e test-functional test-integration test-unit coverage cov-report stan fix-php fix-js-css lint-php lint-js-css lint-container lint-twig lint-yaml fix lint ci deploy
+.PHONY: help start stop go-prod go-dev purge test test-api test-e2e test-functional test-integration test-unit coverage cov-report stan fix-php fix-js-css lint-php lint-js-css lint-container lint-twig fix lint ci deploy
 .PHONY: version-php version-composer version-symfony version-phpunit version-phpstan version-php-cs-fixer check-requirements le-renew
 
 
@@ -38,7 +38,7 @@ warmup: ## Warmup the dev cache for the static analysis
 	@bin/console c:w --env=dev
 
 purge: ## Purge all Symfony cache and logs
-	@rm -rf ./var/cache/* ./var/logs/* ./var/coverage/*
+	@rm -rf ./var/cache/* ./var/log/* ./var/coverage/*
 
 
 ## —— Tests ✅ —————————————————————————————————————————————————————————————————
@@ -104,14 +104,11 @@ lint-container: ## Lint the Symfony DI container
 lint-twig: ## Lint Twig files
 	@bin/console lint:twig templates/
 
-lint-yaml: ## Lint YAML files
-	@bin/console lint:yaml --parse-tags config/
-
 fix: ## Run all fixers
 fix: fix-php fix-js-css
 
 lint: ## Run all linters
-lint: stan lint-php lint-js-css lint-container lint-twig lint-yaml
+lint: stan lint-php lint-js-css lint-container lint-twig
 
 ci: ## Run CI locally
 ci: coverage warmup lint

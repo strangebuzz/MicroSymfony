@@ -93,7 +93,7 @@ function go_dev(): void
 function purge(): void
 {
     title('symfony:purge');
-    success(exit_code('rm -rf ./var/cache/* ./var/logs/* ./var/coverage/*'));
+    success(exit_code('rm -rf ./var/cache/* ./var/log/* ./var/coverage/*'));
 }
 
 const PHP_UNIT_CMD = '/vendor/bin/phpunit --testsuite=%s --filter=%s %s';
@@ -232,6 +232,26 @@ function lint_php(): int
     return success($ec);
 }
 
+#[AsTask(name: 'js-css', namespace: 'lint', description: 'Lint JS/CSS files with Biome', aliases: ['lint-js-css'])]
+function lint_js_css(): int
+{
+    title('lint:js-css');
+    $ec = exit_code('bin/console biomejs:check .');
+    io()->newLine();
+
+    return success($ec);
+}
+
+#[AsTask(name: 'lint-js-css', namespace: 'ci', description: 'Lint JS/CSS files with Biome (CI)')]
+function ci_lint_js_css(): int
+{
+    title('ci:lint-js-css');
+    $ec = exit_code('php bin/console biomejs:ci . &> /dev/null');
+    io()->newLine();
+
+    return success($ec);
+}
+
 #[AsTask(name: 'lint-php', namespace: 'ci', description: 'Lint PHP files with php-cs-fixer (for CI)')]
 function ci_lint_php(): int
 {
@@ -274,14 +294,6 @@ function lint_twig(): int
     return exit_code('bin/console lint:twig templates/');
 }
 
-#[AsTask(name: 'yaml', namespace: 'lint', description: 'Lint Yaml files', aliases: ['lint-yaml'])]
-function lint_yaml(): int
-{
-    title('lint:yaml');
-
-    return exit_code('bin/console lint:yaml --parse-tags config/');
-}
-
 #[AsTask(name: 'all', namespace: 'lint', description: 'Run all lints', aliases: ['lint'])]
 function lint_all(): int
 {
@@ -290,16 +302,14 @@ function lint_all(): int
     $ec2 = lint_php();
     $ec3 = lint_container();
     $ec4 = lint_twig();
-    $ec5 = lint_yaml();
 
-    return success($ec1 + $ec2 + $ec3 + $ec4 + $ec5);
+    return success($ec1 + $ec2 + $ec3 + $ec4);
 
     // if you want to speed up the process, you can run these commands in parallel
     //    parallel(
     //        fn() => lint_php(),
     //        fn() => lint_container(),
     //        fn() => lint_twig(),
-    //        fn() => lint_yaml(),
     //    );
 }
 
@@ -365,23 +375,18 @@ function deploy(): int
 {
     $ec1 = exit_code('git pull');
     io()->newLine();
-
     $ec2 = exit_code('composer install -n');
     io()->newLine();
-
     $ec3 = exit_code('chown -R www-data: ./var/*');
     io()->newLine();
-
     $ec4 = exit_code('cp .env.local.dist .env.local');
     io()->newLine();
-
-    $ec4 = exit_code('composer dump-env prod -n');
+    $ec5 = exit_code('composer dump-env prod -n');
+    io()->newLine();
+    $ec6 = exit_code('bin/console asset-map:compile');
     io()->newLine();
 
-    $ec5 = exit_code('bin/console asset-map:compile');
-    io()->newLine();
-
-    return success($ec1 + $ec2 + $ec3 + $ec4 + $ec5);
+    return success($ec1 + $ec2 + $ec3 + $ec4 + $ec5 + $ec6);
 }
 
 #[AsTask(name: 'le-renew', namespace: 'prod', description: "Renew Let's Encrypt HTTPS certificates", aliases: ['le-renew'])]
