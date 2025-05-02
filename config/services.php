@@ -55,6 +55,7 @@ DESCRIPTION;
             __DIR__.'/../src/Dto/',
             __DIR__.'/../src/DependencyInjection/',
             __DIR__.'/../src/Entity/',
+            __DIR__.'/../src/Enum/',
             __DIR__.'/../src/Kernel.php',
         ]);
 };
