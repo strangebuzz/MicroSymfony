@@ -112,7 +112,7 @@ Open [https://localhost](https://localhost) and enjoy! 🙂
 
 ### With Laragon
 
-Check out the specific [documentation](https://github.com/strangebuzz/MicroSymfony?tab=laragon-ov-file).
+Check out the specific [documentation](https://github.com/strangebuzz/MicroSymfony/blob/main/docs/laragon.md).
 
 
 ## Requirements ⚙
