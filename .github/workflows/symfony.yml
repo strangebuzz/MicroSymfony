@@ -117,7 +117,7 @@ jobs:
 
     # Vendors lints
     - name: Lint PHP with php-cs-fixer
-      run: castor lint:php
+      run: castor ci:lint-php
     - name: PHPStan static analysis
       run: castor stan
     - name: Lint JS and CSS files
