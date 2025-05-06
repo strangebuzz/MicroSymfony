@@ -26,3 +26,4 @@ parameters:
     # https://phpstan.org/user-guide/ignoring-errors
     ignoreErrors:
         #- '#my_ignore_error_regexp_pattern#'
+        - '#from outside its root namespace#' # @see https://github.com/symfony/symfony/issues/60299
