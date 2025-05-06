@@ -6,7 +6,8 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 use Symfony\Component\HttpKernel\Kernel;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
-    // This configuration file is specific to Symfony 7.2+
+    // This configuration file is specific to Symfony 7.2 and above.
+    // So we don't need to load it when using Symfony 6.4 LTS for example.
     if (Kernel::VERSION_ID < 70200) {
         return;
     }
