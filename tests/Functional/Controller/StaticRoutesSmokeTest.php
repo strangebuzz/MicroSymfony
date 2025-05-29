@@ -35,10 +35,6 @@ final class StaticRoutesSmokeTest extends WebTestCase
      */
     public static function provideRouteCollection(): \Generator
     {
-        if (!is_a(self::class, WebTestCase::class, true)) {
-            throw new \RuntimeException(\sprintf('The "%s" trait trait can only be used in an instance of "%s"', self::class, WebTestCase::class));
-        }
-
         self::bootKernel();
 
         /** @var RouterInterface $router */
