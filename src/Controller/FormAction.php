@@ -9,15 +9,11 @@ use App\Form\Type\RegisterForm;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Attribute\AsController;
-// use Symfony\Component\HttpKernel\Attribute\Cache;
 use Symfony\Component\Routing\Attribute\Route;
 
 /**
  * @see FormActionTest
  */
-#[AsController]
-// #[Cache(maxage: 3600, public: true)]
 final class FormAction extends AbstractController
 {
     /**

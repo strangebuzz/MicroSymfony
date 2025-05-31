@@ -7,7 +7,6 @@ namespace App\Controller;
 use App\Helper\StringHelper;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\HttpKernel\Attribute\MapQueryParameter;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -17,7 +16,6 @@ use Symfony\Component\Routing\Attribute\Route;
  * @see SlugifyActionTest
  * @see https://symfony.com/doc/current/controller/service.html#invokable-controllers
  */
-#[AsController]
 final class SlugifyAction extends AbstractController
 {
     /**
