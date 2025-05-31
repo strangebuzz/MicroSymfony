@@ -6,15 +6,13 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\HttpKernel\Attribute\Cache;
 use Symfony\Component\Routing\Attribute\Route;
 
 /**
- * We use the two binds we have defined in config/services.yaml.
+ * We use the two binds we have defined in config/services.php::49.
  */
-#[AsController]
-// #[Cache(maxage: 3600, public: true)]
+#[Cache(maxage: 3600, public: true)]
 final class HelloWorldAction extends AbstractController
 {
     #[Route(path: '/hello-world', name: self::class)]

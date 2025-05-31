@@ -6,15 +6,16 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Attribute\AsController;
-// use Symfony\Component\HttpKernel\Attribute\Cache;
+// use Symfony\Component\HttpKernel\Attribute\AsController;
+use Symfony\Component\HttpKernel\Attribute\Cache;
 use Symfony\Component\Routing\Attribute\Route;
 
 /**
- * @see StaticActionTest
+ * @see StaticRoutesSmokeTest
  */
-#[AsController]
-// #[Cache(maxage: 3600, public: true)]
+// using the AsController attribute is not mandatory when extending the Symfony AbstractController or when using the #Route attribute.
+// #[AsController]
+#[Cache(maxage: 3600, public: true)]
 final class HomeAction extends AbstractController
 {
     /**
