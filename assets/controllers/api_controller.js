@@ -11,9 +11,11 @@ export default class extends Controller {
     }
 
     slugify() {
-        const apiUrl = `${this.urlValue}?title=${this.titleTarget.value}`;
+        // https://developer.mozilla.org/fr/docs/Web/API/URL
+        const apiUrl = new URL(this.urlValue, window.location.href);
+        apiUrl.searchParams.set('title', this.titleTarget.value);
         const slugTarget = this.slugTarget;
-        fetch(apiUrl)
+        fetch(apiUrl.toString())
             .then(function (response) {
                 return response.json();
             })
