@@ -16,10 +16,9 @@ use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * @see RegisterFormDto
- *
  * @extends AbstractType<RegisterFormDto>
  */
 final class RegisterForm extends AbstractType
@@ -42,5 +41,14 @@ final class RegisterForm extends AbstractType
             ->add('save', SubmitType::class, ['attr' => ['primary' => '']])
             ->add('reset', ResetType::class)
         ;
+    }
+
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setDefaults([
+            'attr' => [
+                // 'novalidate' => 'novalidate', // uncomment this line to disable the client-side validation (usefull to test server side validation)
+            ],
+        ]);
     }
 }
