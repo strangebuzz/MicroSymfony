@@ -8,6 +8,7 @@ use App\Enum\Fruit;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
+ * @see FormAction
  * @see RegisterForm
  */
 final class RegisterFormDto
