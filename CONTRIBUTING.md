@@ -31,7 +31,7 @@ You should base your changes on the `main` branch.
 
 ### Matching Coding Standards
 
-The API Platform project follows [Symfony coding standards](https://symfony.com/doc/current/contributing/code/standards.html).
+The MicroSymfony project follows [Symfony coding standards](https://symfony.com/doc/current/contributing/code/standards.html).
 But don't worry, you can fix CS issues automatically using the [PHP CS Fixer](https://github.com/PHP-CS-Fixer/PHP-CS-Fixer) tool:
 
 ```bash
