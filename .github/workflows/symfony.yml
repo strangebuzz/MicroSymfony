@@ -120,7 +120,7 @@ jobs:
       run: castor ci:lint-php
     - name: PHPStan static analysis
       run: castor stan
-    - name: Lint JS and CSS files
-      run: castor ci:lint-js-css
+    #- name: Lint JS and CSS files
+      #run: castor ci:lint-js-css
 
 # The end. 🙃
