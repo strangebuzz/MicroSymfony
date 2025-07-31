@@ -89,14 +89,14 @@ fix-php: ## Fix PHP files with php-cs-fixer (ignore PHP version warning)
 	@PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix $(PHP_CS_FIXER_ARGS)
 
 fix-js-css: ## Format JS/CSS files with Biome
-	@bin/console biomejs:check . --write
+	@bin/biome check . --write
 
 lint-php: ## Lint PHP files with php-cs-fixer (report only)
 lint-php: PHP_CS_FIXER_ARGS=--dry-run
 lint-php: fix-php
 
 lint-js-css: ## Lint JS/CSS files with Biome
-	@bin/console biomejs:check .
+	@bin/biome check .
 
 lint-container: ## Lint the Symfony DI container
 	@bin/console lint:container

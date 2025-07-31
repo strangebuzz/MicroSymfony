@@ -7,11 +7,10 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 return static function (ContainerConfigurator $containerConfigurator): void {
     if ($containerConfigurator->env() === 'dev') {
         $containerConfigurator->extension('kocal_biome_js', [
-            // Biome.js CLI version to use:
-            // - "latest_stable": use the latest stable version
-            // - "latest_nightly": use the latest nightly version
-            // - or a specific version, e.g. "v1.8.3", find available tags at https://github.com/biomejs/biome/tags
-            'binary_version' => 'latest_stable',
+            // The Biome.js CLI version to use, that you can find at https://github.com/biomejs/biome/tags:
+            // - for >=2.0.0 versions, the git tag follows the pattern "@biomejs/biome@VERSION"
+            // - for <2.0.0 versions, the git tag follows the pattern "cli/VERSION"
+            'binary_version' => '2.0.0', // required
         ]);
     }
 };
