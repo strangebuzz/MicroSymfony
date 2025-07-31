@@ -30,3 +30,7 @@
 .phpunit.result.cache
 .phpunit.cache
 ###< phpunit/phpunit ###
+
+###> kocal/biome-js-bundle
+bin/biome
+###< kocal/biome-js-bundle
