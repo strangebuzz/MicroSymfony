@@ -1,5 +1,5 @@
 # Taken and adapted from the Symfony project
-# @see https://github.com/symfony/symfony/blob/7.3/.github/ISSUE_TEMPLATE/1_Bug_report.yaml
+# @see https://github.com/symfony/symfony/blob/7.4/.github/ISSUE_TEMPLATE/1_Bug_report.yaml
 name: 🐛 Bug Report
 description: ⚠️ NEVER report security issues, read https://github.com/strangebuzz/MicroSymfony?tab=security-ov-file
 labels: Bug
