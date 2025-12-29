@@ -11,7 +11,7 @@
 
 ## About 🖋 
 
-MicroSymfony is a [Symfony 7.4](https://symfony.com/blog/symfony-7-3-curated-new-features)
+MicroSymfony is a [Symfony 7.4](https://symfony.com/blog/symfony-7-4-curated-new-features)
 application skeleton on steroids, ready to use.
 
 I have made a long blog post explaining the philosophy behind and how to use it:
