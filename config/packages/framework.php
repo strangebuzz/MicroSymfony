@@ -2,15 +2,11 @@
 
 declare(strict_types=1);
 
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
-use Symfony\Config\FrameworkConfig; // @see var/cache/dev/Symfony/Config/FrameworkConfig.php
+namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-return static function (ContainerConfigurator $containerConfigurator, FrameworkConfig $frameworkConfig): void {
-    $frameworkConfig->secret('%env(APP_SECRET)%');
-
-    // see https://symfony.com/doc/current/reference/configuration/framework.html
-    $containerConfigurator->extension('framework', [
-        // 'secret' => '%env(APP_SECRET)%', // set at line 9 with the fluent interface.
+return App::config([
+    'framework' => [
+        'secret' => '%env(APP_SECRET)%',
         // 'csrf_protection' => true,
         'http_method_override' => false,
         'handle_all_throwables' => true,
@@ -29,14 +25,13 @@ return static function (ContainerConfigurator $containerConfigurator, FrameworkC
         'php_errors' => [
             'log' => true,
         ],
-    ]);
-
-    if ($containerConfigurator->env() === 'test') {
-        $containerConfigurator->extension('framework', [
+    ],
+    'when@test' => [
+        'framework' => [
             'test' => true,
             'session' => [
                 'storage_factory_id' => 'session.storage.factory.mock_file',
             ],
-        ]);
-    }
-};
+        ],
+    ],
+]);

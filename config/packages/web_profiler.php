@@ -2,31 +2,30 @@
 
 declare(strict_types=1);
 
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    if ($containerConfigurator->env() === 'dev') {
-        $containerConfigurator->extension('web_profiler', [
+return App::config([
+    'when@dev' => [
+        'web_profiler' => [
             'toolbar' => true,
             'intercept_redirects' => false,
-        ]);
-        $containerConfigurator->extension('framework', [
+        ],
+        'framework' => [
             'profiler' => [
                 'only_exceptions' => false,
                 'collect_serializer_data' => true,
             ],
-        ]);
-    }
-
-    if ($containerConfigurator->env() === 'test') {
-        $containerConfigurator->extension('web_profiler', [
+        ],
+    ],
+    'when@test' => [
+        'web_profiler' => [
             'toolbar' => false,
             'intercept_redirects' => false,
-        ]);
-        $containerConfigurator->extension('framework', [
+        ],
+        'framework' => [
             'profiler' => [
                 'collect' => false,
             ],
-        ]);
-    }
-};
+        ],
+    ],
+]);

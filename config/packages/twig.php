@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->extension('twig', [
+return App::config([
+    'twig' => [
         'default_path' => '%kernel.project_dir%/templates',
         'globals' => [
             'brand' => '%brand%',
@@ -15,10 +15,10 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             'website' => '%website%',
             'version' => '%version%',
         ],
-    ]);
-    if ($containerConfigurator->env() === 'test') {
-        $containerConfigurator->extension('twig', [
+    ],
+    'when@test' => [
+        'twig' => [
             'strict_variables' => true,
-        ]);
-    }
-};
+        ],
+    ],
+]);
