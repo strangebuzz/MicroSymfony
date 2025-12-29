@@ -1,6 +1,6 @@
 <?php
 
-// @see https://github.com/symfony/symfony/blob/7.3/.php-cs-fixer.dist.php
+// @see https://github.com/symfony/symfony/blob/7.4/.php-cs-fixer.dist.php
 
 declare(strict_types=1);
 
@@ -12,6 +12,7 @@ use PhpCsFixer\Runner\Parallel\ParallelConfigFactory;
 $finder = Finder::create()
     ->in(__DIR__)
     ->exclude('var')
+    ->notPath('config/reference.php')
 ;
 
 return (new Config())

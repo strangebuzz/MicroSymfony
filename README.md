@@ -11,16 +11,12 @@
 
 ## About 🖋 
 
-MicroSymfony is a [Symfony 7.3](https://symfony.com/blog/symfony-7-3-curated-new-features)
+MicroSymfony is a [Symfony 7.4](https://symfony.com/blog/symfony-7-3-curated-new-features)
 application skeleton on steroids, ready to use.
 
 I have made a long blog post explaining the philosophy behind and how to use it:
 
 * [Introducing the MicroSymfony application template](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template)
-
-> **PS**: If you want to use the last Symfony **6.4 LTS** version in your `composer.json`
-file, replace all occurrences of `7.3` with `6.4` and run `composer up`.
-
 
 ## Table of Contents 📖
 
@@ -129,7 +125,7 @@ Check out the specific [documentation](https://github.com/strangebuzz/MicroSymfo
 ## Stack 🔗
 
 * [PHP 8.2](https://www.php.net/releases/8.2/en.php) to [8.4](https://www.php.net/releases/8.4/en.php)
-* [Symfony 7.3](https://symfony.com/7)
+* [Symfony 7.4](https://symfony.com/7)
 * [Twig 3.8](https://twig.symfony.com)
 * [Hotwired](https://hotwired.dev/) [Stimulus 3.2](https://stimulus.hotwired.dev/) and [Turbo 8.0](https://turbo.hotwired.dev/)
 * [PHPUnit 11.5](https://phpunit.de/announcements/phpunit-11.html)
