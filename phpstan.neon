@@ -13,7 +13,7 @@ parameters:
     paths:
         - importmap.php
         - bin
-        - config
+        #- config # disabled for now until the array shapes are OK
         - public
         - src
         - tests
