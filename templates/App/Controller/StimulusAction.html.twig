@@ -63,7 +63,7 @@
             <h2>Demo: ajax call to API endpoint</h2>
         </header>
 
-        <p {{ stimulus_controller('api', {url: path(ctrl_fqcn('SlugifyAction'))} )}}>
+        <p {{ stimulus_controller('api', {url: path(ctrl_fqcn('SlugifyAction'))}) }}>
             <label for="title">
                 Enter a blog post title below:
                 <input type="text" required name="title" id="title"
