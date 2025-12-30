@@ -1,6 +1,6 @@
 | Q             | A
 |---------------| ---
-| Branch?       | main/eloquent/doctrine-dbal/frankenphp
+| Branch?       | main/eloquent/doctrine-dbal
 | Cleanup?      | yes/no 
 | Bug fix?      | yes/no
 | Fixed tickets | #1234, #5678
@@ -11,7 +11,7 @@
 | License       | MIT
 
 <!--
-Replace this notice by a description of your feature/bugfix.
+Replace this notice with a description of your feature/bugfix.
 This will help reviewers and should be a good start for the documentation.
 
 Additionally:
