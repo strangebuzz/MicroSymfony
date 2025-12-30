@@ -63,7 +63,8 @@
         "symfony/requirements-checker": "^2.0",
         "symfony/stopwatch": "~7.4.0",
         "symfony/web-profiler-bundle": "~7.4.0",
-        "symplify/config-transformer": "^12.3"
+        "symplify/config-transformer": "^12.3",
+        "vincentlanglet/twig-cs-fixer": "^3.11"
     },
     "replace": {
         "symfony/polyfill-ctype": "*",
