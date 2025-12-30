@@ -190,7 +190,7 @@ database.
 * Psalm ([PR](https://github.com/strangebuzz/MicroSymfony/pull/160), [branch](https://github.com/strangebuzz/MicroSymfony/tree/psalm), rebased on 2025-02-20)
 * Taskfile ([PR](https://github.com/strangebuzz/MicroSymfony/pull/86), [branch](https://github.com/jmsche/MicroSymfony/tree/taskfile), rebased on 2024-12-04)
 * TwigStan ([PR](https://github.com/strangebuzz/MicroSymfony/pull/95), [branch](https://github.com/strangebuzz/MicroSymfony/tree/twigstan), rebased on 2024-11-18)
-* Twig-CS-Fixer ([PR](https://github.com/strangebuzz/MicroSymfony/pull/118), [branch](https://github.com/strangebuzz/MicroSymfony/tree/feat/use-twig-cs-fixer), rebased on 2024-11-29)
+* Twig-CS-Fixer ([PR](https://github.com/strangebuzz/MicroSymfony/pull/118), [branch](https://github.com/strangebuzz/MicroSymfony/tree/feat/use-twig-cs-fixer), rebased on 2025-12-30)
 
 One will rebase those branches regularly so they are not too outdated.
 
