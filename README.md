@@ -14,7 +14,7 @@
 MicroSymfony is a [Symfony 7.4](https://symfony.com/blog/symfony-7-4-curated-new-features)
 application skeleton on steroids, ready to use.
 
-I have made a long blog post explaining the philosophy behind and how to use it:
+I have made a long blog post explaining the philosophy behind it and how to use it:
 
 * [Introducing the MicroSymfony application template](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template)
 
@@ -118,7 +118,7 @@ Check out the specific [documentation](https://github.com/strangebuzz/MicroSymfo
 ### Optional requirements 🚦
  
 * The [Xdebug](https://xdebug.org/) PHP extension if you want to run the code coverage report
-* [Castor](https://github.com/jolicode/castor) task runner if you don't want to use
+* [Castor](https://github.com/jolicode/castor) task runner if you would rather not use
   [Make](https://www.gnu.org/software/make/) and its [Makefile](https://github.com/strangebuzz/MicroSymfony/blob/main/Makefile) 
 
 
@@ -170,7 +170,7 @@ are not merged in the main branch but are used to test the integration of a new
 vendor library or make a [POC](https://en.wikipedia.org/wiki/Proof_of_concept).
 For example, have you ever dreamed of testing [Eloquent](https://laravel.com/docs/11.x/eloquent#introduction),
 the Laravel ORM, on a Symfony project?
-Then clone the `eloquent` branch, and run `composer install && make load-fixtures`.
+Then clone the `eloquent` branch and run `composer install && make load-fixtures`.
 
 ### Infrastructure
 
@@ -206,14 +206,11 @@ In both cases, your controller code has to be [modified accordingly](https://sym
 
 ### PHP configuration files
 
-If you install a new Symfony library, the flex recipes can add YAML files to your
+If you install a new Symfony library, the Flex recipes can add YAML files to your
 project.
 These YAML files are loaded, but you can convert them to PHP like the other configuration
 files.
-For example, to convert the `messenger` YAML configuration to PHP with [Simplify](https://github.com/symplify/config-transformer),
-run:
-
-    vendor/bin/config-transformer config/packages/messenger.yaml
+Take examples on the other files in `config/packages` to see how to make the conversion.
 
 
 ## Other good practices 👌
@@ -282,7 +279,7 @@ Made with [contrib.rocks](https://contrib.rocks).
 
 ## License ⚖️
 
-The MIT License (MIT). Please see [License File](https://github.com/strangebuzz/MicroSymfony/blob/main/LICENSE) for more information.
+The MIT License (MIT). Please see the [license file](https://github.com/strangebuzz/MicroSymfony/blob/main/LICENSE) for more information.
 
 
 ## Built with MicroSymfony 🛠️
