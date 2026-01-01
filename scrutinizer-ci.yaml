@@ -1,7 +1,7 @@
 # @see https://scrutinizer-ci.com/g/strangebuzz/MicroSymfony/settings/build-config
 build:
     environment:
-        php: 8.3.12
+        php: 8.4.16
     nodes:
         analysis:
             project_setup:
