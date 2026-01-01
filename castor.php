@@ -1,6 +1,7 @@
 <?php
 
 // This script was tested with Castor 1.1.0
+// https://castor.jolicode.com/changelog/#110-2025-11-26
 
 declare(strict_types=1);
 

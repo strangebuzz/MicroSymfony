@@ -9,14 +9,16 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/strangebuzz/MicroSymfony/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/strangebuzz/MicroSymfony/?branch=main)
 [![Quality Score](https://img.shields.io/scrutinizer/g/strangebuzz/microsymfony.svg?style=flat-square)](https://scrutinizer-ci.com/g/strangebuzz/microsymfony)
 
+
 ## About 🖋 
 
-MicroSymfony is a [Symfony 7.4](https://symfony.com/blog/symfony-7-4-curated-new-features)
-application skeleton on steroids, ready to use.
+MicroSymfony is a [Symfony 8.0](https://symfony.com/8) application skeleton on steroids,
+ready to use.
 
 I have made a long blog post explaining the philosophy behind it and how to use it:
 
 * [Introducing the MicroSymfony application template](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template)
+
 
 ## Table of Contents 📖
 
@@ -111,7 +113,7 @@ Check out the specific [documentation](https://github.com/strangebuzz/MicroSymfo
 
 ## Requirements ⚙
 
-* [PHP 8.2](https://www.php.net/releases/8.2/en.php) (also works with [PHP 8.3](https://www.php.net/releases/8.3/en.php) and [PHP 8.4](https://www.php.net/releases/8.4/en.php))
+* [PHP 8.4](https://www.php.net/releases/8.4/en.php) (also works with [PHP 8.5](https://www.php.net/releases/8.5/en.php))
 * The [Symfony CLI](https://symfony.com/download)
 
 
@@ -124,9 +126,9 @@ Check out the specific [documentation](https://github.com/strangebuzz/MicroSymfo
 
 ## Stack 🔗
 
-* [PHP 8.2](https://www.php.net/releases/8.2/en.php) to [8.4](https://www.php.net/releases/8.4/en.php)
-* [Symfony 7.4](https://symfony.com/7)
-* [Twig 3.8](https://twig.symfony.com)
+* [PHP 8.4](https://www.php.net/releases/8.4/en.php) or PHP [8.5](https://www.php.net/releases/8.5/en.php)
+* [Symfony 8.0](https://symfony.com/8)
+* [Twig 3](https://twig.symfony.com)
 * [Hotwired](https://hotwired.dev/) [Stimulus 3.2](https://stimulus.hotwired.dev/) and [Turbo 8.0](https://turbo.hotwired.dev/)
 * [PHPUnit 11.5](https://phpunit.de/announcements/phpunit-11.html)
 * [Pico CSS 2.0](https://picocss.com)
@@ -152,9 +154,9 @@ Check out the specific [documentation](https://github.com/strangebuzz/MicroSymfo
 * Code coverage at 100% (configurable threshold)
   * [Coverage report on Scrutinizer](https://scrutinizer-ci.com/g/strangebuzz/MicroSymfony/code-structure/main/code-coverage/src/)
 * GitHub CI ([actions](https://github.com/strangebuzz/MicroSymfony/actions))
-  * [Tests job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/15325492125/job/43118831900)
-  * [Lint job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/15325492125/job/43118831893)
-  * [Security job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/15325492125/job/43118831890)
+  * [Tests job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/20644800370/job/59281198393?pr=200)
+  * [Lint job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/20644800370/job/59281198381?pr=200)
+  * [Security job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/20644800370/job/59281198382?pr=200)
 * Asset mapper+Stimulus ([documentation](https://symfony.com/doc/current/frontend/asset_mapper.html))
   * Vanilla Js ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/hello_controller.js)) ([demo](https://microsymfony.ovh/stimulus))
   * Fetch on a JSON endpoint of the application ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/api_controller.js)) ([demo](https://microsymfony.ovh/stimulus)) 
@@ -228,10 +230,11 @@ Take examples on the other files in `config/packages` to see how to make the con
 
 ADR stands for [Architecture Design Records](https://adr.github.io/):
 
+* [2025-12-29] Use the new PHP configuration ([PR](https://github.com/strangebuzz/MicroSymfony/pull/197))
 * [2025-01-25] Include the FrankenPHP runtime by default ([PR](https://github.com/strangebuzz/MicroSymfony/pull/54))
 * [2025-01-21] Add PHPUnit test suites ([PR](https://github.com/strangebuzz/MicroSymfony/pull/155))
 * [2024-12-18] Use PicoCSS instead of BareCSS as the CSS framework ([PR](https://github.com/strangebuzz/MicroSymfony/pull/85))
-* [2024-12-05] Convert all configuration files to PHP ([PR](https://github.com/strangebuzz/MicroSymfony/pull/129))
+* [2024-12-05] Convert all configuration files to PHP (fluent interface) ([PR](https://github.com/strangebuzz/MicroSymfony/pull/129))
 * [2024-09-22] Use the ADR pattern for all controllers ([PR](https://github.com/strangebuzz/MicroSymfony/pull/58))
 
 
@@ -284,6 +287,5 @@ The MIT License (MIT). Please see the [license file](https://github.com/strangeb
 
 ## Built with MicroSymfony 🛠️
 
-* [Placehold.ovh](https://placehold.ovh/) (2024-12-01)
 * [Appartement-tourcoing.com](https://www.appartement-tourcoing.com/) (2024-11-30)
 * [Easyadmin Mercure Demo](https://github.com/coopTilleuls/easyadmin-mercure-demo) (2023-05-24)
