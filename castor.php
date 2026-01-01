@@ -1,7 +1,6 @@
 <?php
 
-// Until the 1.x Castor version the API may be unstable
-// this script was tested with Castor 0.22.0
+// This script was tested with Castor 1.1.0
 
 declare(strict_types=1);
 
@@ -18,7 +17,7 @@ use function Castor\task;
 // Change your prod domain here
 const DOMAIN = 'microsymfony.ovh';
 
-// Modify the coverage threshold here
+// Modify the code coverage threshold here
 const COVERAGE_THRESHOLD = 100;
 
 function title(string $name): void
@@ -209,13 +208,32 @@ function stan(): int
     return exit_code('vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vv');
 }
 
-#[AsTask(name: 'php', namespace: 'fix', description: 'Fix PHP files with php-cs-fixer (ignore PHP 8.3 warnings)', aliases: ['fix-php'])]
+#[AsTask(name: 'php', namespace: 'fix', description: 'Fix PHP files with php-cs-fixer (ignore PHP 8.4 warnings)', aliases: ['fix-php'])]
 function fix_php(): int
 {
     title('fix:fix-php');
     $ec = exit_code('vendor/bin/php-cs-fixer fix',
         context: context()->withEnvironment(['PHP_CS_FIXER_IGNORE_ENV' => 1])
     );
+
+    return success($ec);
+}
+
+function checkBiome(): void
+{
+    if (!file_exists('bin/biome')) {
+        io()->note('Biome executable not found, donwloading it...');
+        run('bin/console biomejs:download');
+    }
+}
+
+#[AsTask(name: 'js-css', namespace: 'fix', description: 'Format JS/CSS files with Biome', aliases: ['fix-js-css'])]
+function fix_js_css(): int
+{
+    checkBiome();
+    title('fix:js-css');
+    $ec = exit_code('bin/biome check . --write');
+    io()->newLine();
 
     return success($ec);
 }
@@ -235,8 +253,9 @@ function lint_php(): int
 #[AsTask(name: 'js-css', namespace: 'lint', description: 'Lint JS/CSS files with Biome', aliases: ['lint-js-css'])]
 function lint_js_css(): int
 {
+    checkBiome();
     title('lint:js-css');
-    $ec = exit_code('bin/console biomejs:check .');
+    $ec = exit_code('bin/biome check .');
     io()->newLine();
 
     return success($ec);
@@ -246,7 +265,8 @@ function lint_js_css(): int
 function ci_lint_js_css(): int
 {
     title('ci:lint-js-css');
-    $ec = exit_code('php bin/console biomejs:ci . &> /dev/null');
+    checkBiome();
+    $ec = exit_code('bin/biome ci . &> /dev/null');
     io()->newLine();
 
     return success($ec);
@@ -269,14 +289,15 @@ function ci_lint_php(): int
     );
 }
 
-#[AsTask(name: 'all', namespace: 'fix', description: 'Run all CS checks', aliases: ['fix'])]
+#[AsTask(name: 'all', namespace: 'fix', description: 'Run all fixers', aliases: ['fix'])]
 function fix_all(): int
 {
     title('fix:all');
     $ec1 = fix_php();
+    $ec2 = fix_js_css();
     io()->newLine();
 
-    return success($ec1);
+    return success($ec1 + $ec2);
 }
 #[AsTask(name: 'container', namespace: 'lint', description: 'Lint the Symfony DI container', aliases: ['lint-container'])]
 function lint_container(): int
@@ -300,10 +321,11 @@ function lint_all(): int
     title('lint:all');
     $ec1 = stan();
     $ec2 = lint_php();
-    $ec3 = lint_container();
-    $ec4 = lint_twig();
+    $ec3 = lint_js_css();
+    $ec4 = lint_container();
+    $ec5 = lint_twig();
 
-    return success($ec1 + $ec2 + $ec3 + $ec4);
+    return success($ec1 + $ec2 + $ec3 + $ec4 + $ec5);
 
     // if you want to speed up the process, you can run these commands in parallel
     //    parallel(
