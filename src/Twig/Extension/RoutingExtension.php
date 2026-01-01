@@ -5,8 +5,7 @@ declare(strict_types=1);
 namespace App\Twig\Extension;
 
 use Symfony\Component\Routing\RouterInterface;
-use Twig\Extension\AbstractExtension;
-use Twig\TwigFunction;
+use Twig\Attribute\AsTwigFunction;
 
 use function Symfony\Component\String\u;
 
@@ -15,7 +14,7 @@ use function Symfony\Component\String\u;
  *
  * @see RoutingExtensionTest
  */
-final class RoutingExtension extends AbstractExtension
+final class RoutingExtension
 {
     /**
      * @var array<int, string>|null
@@ -25,15 +24,6 @@ final class RoutingExtension extends AbstractExtension
     public function __construct(
         private readonly RouterInterface $router,
     ) {
-    }
-
-    public function getFunctions(): array
-    {
-        return [
-            new TwigFunction('ctrl_fqcn', $this->getControllerFqcn(...)),
-            new TwigFunction('attr_if', $this->getAttributeIf(...)),
-            new TwigFunction('aria_current_page_if', $this->getAriaCurrentPageIf(...)),
-        ];
     }
 
     /**
@@ -47,6 +37,7 @@ final class RoutingExtension extends AbstractExtension
      *
      * @return class-string
      */
+    #[AsTwigFunction('ctrl_fqcn')]
     public function getControllerFqcn(string $ctrlShortname): string
     {
         if ($this->controllers === null) {
@@ -78,6 +69,7 @@ final class RoutingExtension extends AbstractExtension
      *
      * @see templates/base.html.twig
      */
+    #[AsTwigFunction('attr_if')]
     public function getAttributeIf(bool $condition, string $attribute, string $value): string
     {
         if (!$condition) {
@@ -87,6 +79,7 @@ final class RoutingExtension extends AbstractExtension
         return \sprintf(' %s="%s"', $attribute, $value);
     }
 
+    #[AsTwigFunction('aria_current_page_if')]
     public function getAriaCurrentPageIf(bool $condition): string
     {
         return $this->getAttributeIf($condition, 'aria-current', 'page');

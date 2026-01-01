@@ -5,31 +5,24 @@ declare(strict_types=1);
 namespace App\Twig\Extension;
 
 use App\Helper\StringHelper;
-use Twig\Extension\AbstractExtension;
-use Twig\TwigFilter;
+use Twig\Attribute\AsTwigFilter;
 
 use function Symfony\Component\String\u;
 
-final class MarkdownExtension extends AbstractExtension
+final readonly class MarkdownExtension
 {
     public function __construct(
-        private readonly StringHelper $stringHelper,
+        private StringHelper $stringHelper,
     ) {
     }
 
-    public function getFilters(): array
-    {
-        return [
-            new TwigFilter('add_headers_anchors', $this->addHeadersAnchors(...)),
-        ];
-    }
-
     /**
-     * Add the missing anchors on demo website homepage displaying the Githb README.
+     * Add the missing anchors on demo website homepage displaying the Github README.
      *
      * @see https://microsymfony.ovh
      * @see https://github.com/strangebuzz/MicroSymfony/blob/main/README.md?plain=1
      */
+    #[AsTwigFilter('add_headers_anchors')]
     public function addHeadersAnchors(string $html): string
     {
         $dom = new \DOMDocument();
