@@ -71,8 +71,6 @@ final class StaticRoutesSmokeTest extends WebTestCase
 
             $methods = $route->getMethods();
             if (!$methods) {
-                @trigger_error(\sprintf('Route %s has no configured HTTP methods. It is recommended that you set at least one HTTP method for your route in its configuration.', $routeName), \E_USER_DEPRECATED);
-
                 $methods[] = 'GET';
             }
 
