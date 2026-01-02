@@ -11,7 +11,7 @@
   ),
   '@hotwired/turbo' => 
   array (
-    'version' => '8.0.12',
+    'version' => '8.0.20',
     'dependencies' => 
     array (
     ),
@@ -21,7 +21,7 @@
   ),
   '@picocss/pico/css/pico.min.css' => 
   array (
-    'version' => '2.0.6',
+    'version' => '2.1.1',
     'dependencies' => 
     array (
     ),
