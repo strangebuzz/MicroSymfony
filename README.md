@@ -188,7 +188,7 @@ database.
 
 ### Tooling 🔨
 
-* Vite-Bundle ([PR](https://github.com/strangebuzz/MicroSymfony/pull/160), [branch](https://github.com/lhapaipai/MicroSymfony/tree/vite), rebased on 2025-02-11) ([demo](https://vite.microsymfony.ovh))
+* Vite-Bundle ([PR](https://github.com/strangebuzz/MicroSymfony/pull/161), [branch](https://github.com/lhapaipai/MicroSymfony/tree/vite), rebased on 2025-02-11) ([demo](https://vite.microsymfony.ovh))
 * Psalm ([PR](https://github.com/strangebuzz/MicroSymfony/pull/160), [branch](https://github.com/strangebuzz/MicroSymfony/tree/psalm), rebased on 2025-02-20)
 * Taskfile ([PR](https://github.com/strangebuzz/MicroSymfony/pull/86), [branch](https://github.com/jmsche/MicroSymfony/tree/taskfile), rebased on 2024-12-04)
 * TwigStan ([PR](https://github.com/strangebuzz/MicroSymfony/pull/95), [branch](https://github.com/strangebuzz/MicroSymfony/tree/twigstan), rebased on 2024-11-18)
