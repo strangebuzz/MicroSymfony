@@ -43,6 +43,9 @@ final class RegisterForm extends AbstractType
         ;
     }
 
+    /**
+     * @see https://www.strangebuzz.com/en/blog/disable-the-html5-validation-of-all-your-symfony-forms-with-a-feature-flag
+     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

@@ -17,7 +17,7 @@ final readonly class MarkdownExtension
     }
 
     /**
-     * Add the missing anchors on demo website homepage displaying the Github README.
+     * Add the missing anchors on demo website homepage displaying the GitHub README.
      *
      * @see https://microsymfony.ovh
      * @see https://github.com/strangebuzz/MicroSymfony/blob/main/README.md?plain=1
@@ -30,7 +30,7 @@ final readonly class MarkdownExtension
 
         // Allow to have the same "buggy" anchors as GitHub
         /** @var \DOMNodeList<\DOMNode> $tags */
-        $tags = (new \DOMXPath($dom))->query('//h2 | //h3');
+        $tags = new \DOMXPath($dom)->query('//h2 | //h3');
         foreach ($tags as $headerTag) {
             $slug = $this->stringHelper->slugify($headerTag->textContent);
             /** @var \DOMElement $headerTag */

@@ -19,9 +19,7 @@ final class StaticRoutesSmokeTest extends WebTestCase
     public function testRoutesDoNotReturnInternalError(string $httpMethod, string $routeName, string $routePath): void
     {
         $client = self::createClient();
-
         $client->request($httpMethod, $routePath);
-
         $response = $client->getResponse();
         self::assertLessThan(
             500,
@@ -39,9 +37,7 @@ final class StaticRoutesSmokeTest extends WebTestCase
 
         /** @var RouterInterface $router */
         $router = self::getContainer()->get(RouterInterface::class);
-
         $routes = $router->getRouteCollection();
-
         self::ensureKernelShutdown();
 
         if (!$routes->count()) {
@@ -57,8 +53,7 @@ final class StaticRoutesSmokeTest extends WebTestCase
     public static function extractRoutesFromRouter(RouterInterface $router): \Generator
     {
         foreach ($router->getRouteCollection() as $routeName => $route) {
-            $compiledRoute = $route->compile();
-            $variables = $compiledRoute->getVariables();
+            $variables = $route->compile()->getVariables();
             if (\count($variables) > 0) {
                 $defaults = $route->getDefaults();
                 $defaultsKeys = array_keys($defaults);
@@ -71,6 +66,8 @@ final class StaticRoutesSmokeTest extends WebTestCase
 
             $methods = $route->getMethods();
             if (!$methods) {
+                // If we get there, it is because your route doesn't have methods requirment.
+                // You can add one by adding ` methods: ['GET']` to your Route attribute.
                 $methods[] = 'GET';
             }
 

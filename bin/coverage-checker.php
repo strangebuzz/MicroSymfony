@@ -5,12 +5,16 @@
 declare(strict_types=1);
 
 $argv = $argv ?? [];
-$inputFile = $argv[1];
+if (count($argv) !== 3) {
+    throw new InvalidArgumentException('Two arguments are required by this script: 1) the clover file report path. 2) the code coverage threshold.');
+}
 
-if (!is_numeric($argv[2])) {
+[,$inputFile, $threshold] = $argv;
+
+if (!is_numeric($threshold)) {
     throw new InvalidArgumentException('An integer checked percentage must be given as second parameter');
 }
-$percentage = min(100, max(0, (int) $argv[2]));
+$percentage = min(100, max(0, (int) $threshold));
 
 if (!file_exists($inputFile)) {
     throw new InvalidArgumentException('Invalid input file provided');

@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 final class FormActionTest extends WebTestCase
 {
-    private const FORM_SUBMIT_BUTTON_ID = 'register_form_save';
+    private const string FORM_SUBMIT_BUTTON_ID = 'register_form_save';
 
     public function testFormValidationErrors(): void
     {
