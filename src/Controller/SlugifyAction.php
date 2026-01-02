@@ -22,7 +22,7 @@ final class SlugifyAction extends AbstractController
      * Simple API endpoint returning JSON. For a more serious API, please use API Platform 🕸.
      * We can use the MapQueryParameter attribute to inject GET parameters.
      *
-     * @see https://api-platform.com/
+     * @see https://api-platform.com
      */
     #[Route(path: '/api/slugify', name: self::class)]
     public function __invoke(StringHelper $stringHelper, #[MapQueryParameter] string $title): Response
