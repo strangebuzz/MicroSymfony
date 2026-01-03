@@ -130,7 +130,7 @@ Check out the specific [documentation](https://github.com/strangebuzz/MicroSymfo
 * [Symfony 8.0](https://symfony.com/8)
 * [Twig 3](https://twig.symfony.com)
 * [Hotwired](https://hotwired.dev/) [Stimulus 3.2](https://stimulus.hotwired.dev/) and [Turbo 8.0](https://turbo.hotwired.dev/)
-* [PHPUnit 11.5](https://phpunit.de/announcements/phpunit-11.html)
+* [PHPUnit 12.5](https://phpunit.de/announcements/phpunit-12.html)
 * [Pico CSS 2.0](https://picocss.com)
 
 
@@ -157,7 +157,7 @@ Check out the specific [documentation](https://github.com/strangebuzz/MicroSymfo
   * [Tests job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/20644800370/job/59281198393?pr=200)
   * [Lint job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/20644800370/job/59281198381?pr=200)
   * [Security job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/20644800370/job/59281198382?pr=200)
-* Asset mapper+Stimulus ([documentation](https://symfony.com/doc/current/frontend/asset_mapper.html))
+* AssetMapper+Stimulus ([documentation](https://symfony.com/doc/current/frontend/asset_mapper.html))
   * Vanilla Js ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/hello_controller.js)) ([demo](https://microsymfony.ovh/stimulus))
   * Fetch on a JSON endpoint of the application ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/api_controller.js)) ([demo](https://microsymfony.ovh/stimulus)) 
 * A custom error template
