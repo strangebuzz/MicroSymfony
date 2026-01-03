@@ -99,7 +99,6 @@ Then run:
 
     docker run \
         -e FRANKENPHP_CONFIG="worker ./public/index.php" \
-        -e APP_RUNTIME=Runtime\\FrankenPhpSymfony\\Runtime \
         -v $PWD:/app \
         -p 80:80 -p 443:443 \
         -d \
@@ -109,6 +108,8 @@ Open [https://localhost](https://localhost) and enjoy! 🙂
 
 **PS**: On Windows, replace `$PWD` with `"%cd%"`.
 
+> **Note**: FrankenPHP already uses PHP **8.5**.
+
 ### With Laragon
 
 Have a look at the specific [documentation](https://github.com/strangebuzz/MicroSymfony/blob/main/docs/laragon.md).
@@ -116,8 +117,8 @@ Have a look at the specific [documentation](https://github.com/strangebuzz/Micro
 
 ## Requirements ⚙
 
-* [PHP 8.4](https://www.php.net/releases/8.4/en.php) (also works with [PHP 8.5](https://www.php.net/releases/8.5/en.php))
-* The [Symfony CLI](https://symfony.com/download)
+* At least [PHP 8.4](https://www.php.net/releases/8.4/en.php) and the [Symfony CLI](https://symfony.com/download)
+* Or [Docker](https://www.docker.com)
 
 
 ### Optional requirements 🚦
@@ -129,12 +130,12 @@ Have a look at the specific [documentation](https://github.com/strangebuzz/Micro
 
 ## Stack 🔗
 
-* [PHP 8.4](https://www.php.net/releases/8.4/en.php) or PHP [8.5](https://www.php.net/releases/8.5/en.php)
+* [PHP 8.4](https://www.php.net/releases/8.4/en.php) or [PHP 8.5](https://www.php.net/releases/8.5/en.php)
 * [Symfony 8.0](https://symfony.com/8)
 * [Twig 3](https://twig.symfony.com)
 * [Hotwired](https://hotwired.dev/) [Stimulus 3.2](https://stimulus.hotwired.dev/) and [Turbo 8.0](https://turbo.hotwired.dev/)
 * [PHPUnit 12.5](https://phpunit.de/announcements/phpunit-12.html)
-* [Pico CSS 2.0](https://picocss.com)
+* [Pico CSS 2.1](https://picocss.com)
 
 
 ## Features 🚀
