@@ -19,6 +19,9 @@ I have made a long blog post explaining the philosophy behind it and how to use 
 
 * [Introducing the MicroSymfony application template](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template)
 
+> **PS**: If you want to use the last Symfony **7.4 LTS** version. 
+> In your `composer.json` file, replace all occurrences of `8.0` with `7.4` and run `composer up`.
+
 
 ## Table of Contents 📖
 
@@ -61,7 +64,7 @@ Because a live demo is always better than all explanations:
 ### With the Symfony binary 🎶 
 
 You must have the [Symfony binary](https://symfony.com/download#step-1-install-symfony-cli)
-and [composer](https://getcomposer.org/) installed locally.
+and [Composer](https://getcomposer.org/) installed locally.
 
 To create a new project from the last tag, run:
 
@@ -108,7 +111,7 @@ Open [https://localhost](https://localhost) and enjoy! 🙂
 
 ### With Laragon
 
-Check out the specific [documentation](https://github.com/strangebuzz/MicroSymfony/blob/main/docs/laragon.md).
+Have a look at the specific [documentation](https://github.com/strangebuzz/MicroSymfony/blob/main/docs/laragon.md).
 
 
 ## Requirements ⚙
@@ -120,7 +123,7 @@ Check out the specific [documentation](https://github.com/strangebuzz/MicroSymfo
 ### Optional requirements 🚦
  
 * The [Xdebug](https://xdebug.org/) PHP extension if you want to run the code coverage report
-* [Castor](https://github.com/jolicode/castor) task runner if you would rather not use
+* [Castor](https://github.com/jolicode/castor) task runner, if you would rather not use
   [Make](https://www.gnu.org/software/make/) and its [Makefile](https://github.com/strangebuzz/MicroSymfony/blob/main/Makefile) 
 
 
@@ -158,7 +161,7 @@ Check out the specific [documentation](https://github.com/strangebuzz/MicroSymfo
   * [Lint job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/20644800370/job/59281198381?pr=200)
   * [Security job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/20644800370/job/59281198382?pr=200)
 * AssetMapper+Stimulus ([documentation](https://symfony.com/doc/current/frontend/asset_mapper.html))
-  * Vanilla Js ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/hello_controller.js)) ([demo](https://microsymfony.ovh/stimulus))
+  * Vanilla JS ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/hello_controller.js)) ([demo](https://microsymfony.ovh/stimulus))
   * Fetch on a JSON endpoint of the application ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/api_controller.js)) ([demo](https://microsymfony.ovh/stimulus)) 
 * A custom error template
   * [Source](https://github.com/strangebuzz/MicroSymfony/blob/main/templates/bundles/TwigBundle/Exception/error.html.twig)
@@ -168,7 +171,7 @@ Check out the specific [documentation](https://github.com/strangebuzz/MicroSymfo
 ## Feature branches 🚅
 
 [Feature branches](https://github.com/strangebuzz/MicroSymfony/pulls?q=is%3Apr+is%3Aopen+label%3A%22feature+branch%22)
-are not merged in the main branch but are used to test the integration of a new
+are not merged into the main branch but are used to test the integration of a new
 vendor library or make a [POC](https://en.wikipedia.org/wiki/Proof_of_concept).
 For example, have you ever dreamed of testing [Eloquent](https://laravel.com/docs/11.x/eloquent#introduction),
 the Laravel ORM, on a Symfony project?
@@ -180,7 +183,7 @@ Then clone the `eloquent` branch and run `composer install && make load-fixtures
 
 ### Database 💽
 
-These « database » branches aim to display a list of records from a [SQLite](https://www.sqlite.org/)
+These « database » branches aim to display a list of records from an [SQLite](https://www.sqlite.org/)
 database.
  
 * Doctrine DBAL ([PR](https://github.com/strangebuzz/MicroSymfony/pull/72), [branch](https://github.com/strangebuzz/MicroSymfony/tree/doctrine-dbal), rebased on 2025-02-21)
@@ -212,7 +215,7 @@ If you install a new Symfony library, the Flex recipes can add YAML files to you
 project.
 These YAML files are loaded, but you can convert them to PHP like the other configuration
 files.
-Take examples on the other files in `config/packages` to see how to make the conversion.
+Take examples from the other files in `config/packages` to see how to make the conversion.
 
 
 ## Other good practices 👌
@@ -282,7 +285,7 @@ Made with [contrib.rocks](https://contrib.rocks).
 
 ## License ⚖️
 
-The MIT License (MIT). Please see the [license file](https://github.com/strangebuzz/MicroSymfony/blob/main/LICENSE) for more information.
+The MIT License (MIT). Please refer to the [license file](https://github.com/strangebuzz/MicroSymfony/blob/main/LICENSE) for more information.
 
 
 ## Built with MicroSymfony 🛠️
