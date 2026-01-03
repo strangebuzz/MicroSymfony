@@ -25,10 +25,10 @@ return [
         'version' => '3.2.2',
     ],
     '@hotwired/turbo' => [
-        'version' => '8.0.12',
+        'version' => '8.0.20',
     ],
     '@picocss/pico/css/pico.min.css' => [
-        'version' => '2.0.6',
+        'version' => '2.1.1',
         'type' => 'css',
     ],
 ];
