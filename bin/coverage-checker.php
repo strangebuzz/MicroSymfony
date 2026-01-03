@@ -4,6 +4,7 @@
 
 declare(strict_types=1);
 
+$argv = $argv ?? [];
 $inputFile = $argv[1];
 
 if (!is_numeric($argv[2])) {
