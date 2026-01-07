@@ -163,7 +163,7 @@ Have a look at the specific [documentation](https://github.com/strangebuzz/Micro
   * [Security job output](https://github.com/strangebuzz/MicroSymfony/actions/runs/20644800370/job/59281198382?pr=200)
 * AssetMapper+Stimulus ([documentation](https://symfony.com/doc/current/frontend/asset_mapper.html))
   * Vanilla JS ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/hello_controller.js)) ([demo](https://microsymfony.ovh/stimulus))
-  * Fetch on a JSON endpoint of the application ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/api_controller.js)) ([demo](https://microsymfony.ovh/stimulus)) 
+  * Fetches JSON data from an application endpoint ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/assets/controllers/api_controller.js)) ([demo](https://microsymfony.ovh/stimulus)) 
 * A custom error template
   * [Source](https://github.com/strangebuzz/MicroSymfony/blob/main/templates/bundles/TwigBundle/Exception/error.html.twig)
   * [Demo](https://microsymfony.ovh/404) 
