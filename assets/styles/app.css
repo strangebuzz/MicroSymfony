@@ -58,3 +58,12 @@ label.required:after {
 form > div > div > ul > li {
     color: red;
 }
+
+/* Bugs —————————————————————————————————————————————————————————————————— */
+
+/**
+ * @see https://github.com/picocss/pico/issues/701
+ */
+nav details.dropdown {
+    display: inline-block;
+}
