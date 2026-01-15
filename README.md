@@ -19,8 +19,14 @@ I have made a long blog post explaining the philosophy behind it and how to use 
 
 * [Introducing the MicroSymfony application template](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template)
 
-> **PS**: If you want to use the last Symfony **7.4 LTS** version. 
-> In your `composer.json` file, replace all occurrences of `8.0` with `7.4` and run `composer up`.
+> **PS**: If you want to use the last Symfony **7.4 LTS** version, follow the procedure 
+> in `agents/downgrade-to-symfony-7-4-LTS.md`.
+
+Alternatively, if you have an AI coding assistant tool installed, you can run:
+
+```bash
+opencode --prompt agents/downgrade-to-symfony-7-4-LTS.md
+```
 
 
 ## Table of Contents 📖
