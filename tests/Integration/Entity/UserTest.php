@@ -15,6 +15,7 @@ final class UserTest extends KernelTestCase
 
     public function testPersistNewUserSuccess(): void
     {
+        /** @var EntityManagerInterface $em */
         $em = self::getContainer()->get(EntityManagerInterface::class);
         $user = new User(
             email: 'test@example.com',

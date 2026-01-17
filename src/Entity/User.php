@@ -18,7 +18,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
 #[ORM\HasLifecycleCallbacks]
-class User implements \Stringable, UserInterface, PasswordAuthenticatedUserInterface
+final class User implements \Stringable, UserInterface, PasswordAuthenticatedUserInterface
 {
     final public const string ROLE_USER = 'ROLE_USER';
 
@@ -61,6 +61,7 @@ class User implements \Stringable, UserInterface, PasswordAuthenticatedUserInter
         return $this->id;
     }
 
+    #[\Override]
     public function __toString(): string
     {
         return $this->getUserIdentifier().' ('.$this->getId().')';
@@ -82,6 +83,7 @@ class User implements \Stringable, UserInterface, PasswordAuthenticatedUserInter
         [$this->id, $this->username, $this->password, $this->email] = $data;
     }
 
+    #[\Override]
     public function getUserIdentifier(): string
     {
         if ($this->username === '') {
@@ -94,6 +96,7 @@ class User implements \Stringable, UserInterface, PasswordAuthenticatedUserInter
     /**
      * Returns the roles or permissions granted to the user for security.
      */
+    #[\Override]
     public function getRoles(): array
     {
         return [self::ROLE_USER];
@@ -114,6 +117,7 @@ class User implements \Stringable, UserInterface, PasswordAuthenticatedUserInter
         return $this;
     }
 
+    #[\Override]
     public function getPassword(): string
     {
         return $this->password;

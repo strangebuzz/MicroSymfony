@@ -25,6 +25,7 @@ final class FormAction extends AbstractController
         $dto = new RegisterFormDto();
         $form = $this->createForm(RegisterForm::class, $dto)->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            /** @var RegisterFormDto $dto */
             // just for the example, the DTO has already been updated at this point
             $dto = $form->getData();
         }

@@ -23,6 +23,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 final class RegisterForm extends AbstractType
 {
+    #[\Override]
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -46,6 +47,7 @@ final class RegisterForm extends AbstractType
     /**
      * @see https://www.strangebuzz.com/en/blog/disable-the-html5-validation-of-all-your-symfony-forms-with-a-feature-flag
      */
+    #[\Override]
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
