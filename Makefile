@@ -86,6 +86,9 @@ cov-report: var/coverage/index.html ## Open the PHPUnit code coverage report (va
 stan: var/cache/dev/App_KernelDevDebugContainer.xml ## Run the PHPStan static analysis
 	@vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vv
 
+psalm: var/cache/dev/App_KernelDevDebugContainer.xml ## Run the Psalm static analysis
+	@vendor/bin/psalm
+
 # PHPStan needs the dev/debug cache
 var/cache/dev/App_KernelDevDebugContainer.xml:
 	APP_DEBUG=1 APP_ENV=dev bin/console cache:warmup
@@ -119,7 +122,7 @@ fix: ## Run all fixers
 fix: fix-php fix-js-css
 
 lint: ## Run all linters
-lint: stan lint-php lint-doctrine lint-js-css lint-container lint-twig
+lint: stan psalm lint-php lint-doctrine lint-js-css lint-container lint-twig
 
 ci: ## Run CI locally
 ci: coverage warmup lint
