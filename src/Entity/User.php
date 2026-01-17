@@ -25,7 +25,7 @@ final class User implements \Stringable, UserInterface, PasswordAuthenticatedUse
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: Types::INTEGER, unique: true, nullable: false)]
-    public int $id;
+    public ?int $id = null;
 
     #[ORM\Column(type: Types::STRING, length: 255, unique: true)]
     private string $email;
@@ -49,14 +49,7 @@ final class User implements \Stringable, UserInterface, PasswordAuthenticatedUse
         $this->username = $username;
     }
 
-    public function setId(int $id): self
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -64,11 +57,11 @@ final class User implements \Stringable, UserInterface, PasswordAuthenticatedUse
     #[\Override]
     public function __toString(): string
     {
-        return $this->getUserIdentifier().' ('.$this->getId().')';
+        return \sprintf('%s (%s)', $this->getUserIdentifier(), (string) ($this->getId() ?? 'not persisted'));
     }
 
     /**
-     * @return array{int, string, string, string}
+     * @return array{int|null, string, string, string}
      */
     public function __serialize(): array
     {
@@ -76,7 +69,7 @@ final class User implements \Stringable, UserInterface, PasswordAuthenticatedUse
     }
 
     /**
-     * @param array{int, string, string, string} $data
+     * @param array{int|null, string, string, string} $data
      */
     public function __unserialize(array $data): void
     {
