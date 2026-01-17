@@ -14,6 +14,7 @@ use Zenstruck\Foundry\Story;
 #[AsFixture(name: 'main')]
 final class AppStory extends Story
 {
+    #[\Override]
     public function build(): void
     {
         UserFactory::createMany(10);

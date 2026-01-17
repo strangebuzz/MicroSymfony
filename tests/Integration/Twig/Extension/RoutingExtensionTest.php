@@ -16,6 +16,7 @@ final class RoutingExtensionTest extends KernelTestCase
     public function testRoutingExtensionInvalidArgumentException(): void
     {
         self::bootKernel();
+        /** @var RoutingExtension $extension */
         $extension = self::getContainer()->get(RoutingExtension::class);
         $this->expectException(\InvalidArgumentException::class);
         $extension->getControllerFqcn('foo');

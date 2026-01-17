@@ -22,7 +22,7 @@ use Doctrine\Persistence\ManagerRegistry;
  *
  * @see https://github.com/symfony/demo/blob/main/src/Repository/UserRepository.php
  */
-class UserRepository extends ServiceEntityRepository
+final class UserRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
