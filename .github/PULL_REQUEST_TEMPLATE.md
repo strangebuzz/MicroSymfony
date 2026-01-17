@@ -1,6 +1,6 @@
 | Q             | A
 |---------------| ---
-| Branch?       | main/eloquent/doctrine-dbal
+| Branch?       | main/eloquent
 | Cleanup?      | yes/no 
 | Bug fix?      | yes/no
 | Fixed tickets | #1234, #5678

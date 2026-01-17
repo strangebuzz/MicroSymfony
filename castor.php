@@ -49,6 +49,7 @@ function aborted(string $message = 'Aborted'): void
 function start(): void
 {
     title('symfony:start');
+    loadFixtures();
     run('symfony serve --daemon');
 }
 
@@ -57,6 +58,7 @@ function stop(): void
 {
     title('symfony:stop');
     run('symfony server:stop');
+    resetDatabase();
 }
 
 #[AsTask(namespace: 'symfony', description: 'Switch to the production environment', aliases: ['go-prod'])]
@@ -100,12 +102,17 @@ function purge(): void
 function loadFixtures(): void
 {
     title('app:load-fixtures');
-    io()->note('Resetting db...');
-    success(exit_code('rm -f ./var/data.db'));
+    resetDatabase();
     io()->note('Running db migrations...');
     success(exit_code('bin/console doctrine:migrations:migrate --no-interaction'));
     io()->note('Load fixtures...');
     success(exit_code('bin/console foundry:load-fixtures --env=dev --no-interaction'));
+}
+
+function resetDatabase(): void
+{
+    io()->note('Resetting db...');
+    success(exit_code('rm -f ./var/data.db'));
 }
 
 const PHP_UNIT_CMD = '/vendor/bin/phpunit --testsuite=%s --filter=%s %s';
