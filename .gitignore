@@ -35,3 +35,7 @@
 ###> kocal/biome-js-bundle
 bin/biome
 ###< kocal/biome-js-bundle
+
+###> misc ###
+.opencode/
+###< misc ###
