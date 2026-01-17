@@ -2,8 +2,8 @@
 
 Welcome AI agent!
 
-In order to keep MicroSymfony dependencies light, follow the next steps in order
-to remove Doctrine from MicroSymfony.
+In order to keep MicroSymfony dependencies light, follow the next steps to remove
+Doctrine from MicroSymfony.
 
 To verify what has to be removed and modified, you can have a look at the original 
 PR adding Doctrine: https://github.com/strangebuzz/MicroSymfony/pull/219/changes
@@ -17,7 +17,7 @@ In the `composer.json` file:
 * remove `doctrine/orm`
 * remove `doctrine/doctrine-bundle`
 * remove `doctrine/doctrine-migrations-bundle`
-* remove `zenstruck/foundry`
+* remove `zenstruck/foundry` and the ending comma from the line above
 
 ## In the `config/` directory
   
@@ -37,27 +37,27 @@ In the `composer.json` file:
 
 * Remove the `templates/App/Controller/ListUsersAction.html.twig` file
 * In the `templates/base.html.twig` file remove the line referencing the `ListUsersAction` controller
- 
 
 ## In the `tests/` directory
 
 * Remove the `tests/Functional/Controller/ListUsersActionTest.php` file
 * Remove the `tests/Integration/Entity/UserTest.php` file
+* Remove the `tests/Unit/Entity/UserTest.php` file
 
 ## Other files
 
-* Remove `migrations/Version20260117053612.php`
-* In the `.env` file remove the section related to doctrine
+* Remove the `migrations/Version20260117053612.php` file
+* Remove the `var/data.db` file
+* In the `.env` file remove the section related to Doctrine
 * In the `phpunit.xml.dist` file remove the `Zenstruck` extension
-* In the `Makefile`, remove all targets related to Doctrine 
+* In the `Makefile` file, remove all targets related to Doctrine 
 * In the `castor.php` file, remove all functions related to Doctrine 
-
 
 ## Composer update
 
-* Run `composer update` and verify that it completes without errors, that no dependency
-  conflicts are reported.
-
+* Run `make fix-php` to fix the modified PHP code
+* Run `composer update` and verify that it completes without errors and that no
+  dependency conflicts are reported.
 
 ## Checks
 

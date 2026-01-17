@@ -40,6 +40,7 @@ opencode --prompt agents/downgrade-to-symfony-7-4-LTS.md
 * [Stack](#stack-)
 * [Features](#features-)
 * [Feature branches](#feature-branches-)
+  * [Minimalistic-versions](#minimalistic-versions) 
   * [Infrastructure](#infrastructure) 
   * [Database](#database-) 
   * [Tooling](#tooling-)
@@ -182,6 +183,12 @@ vendor library or make a [POC](https://en.wikipedia.org/wiki/Proof_of_concept).
 For example, have you ever dreamed of testing [Eloquent](https://laravel.com/docs/11.x/eloquent#introduction),
 the Laravel ORM, on a Symfony project?
 Then clone the `eloquent` branch and run `composer install && make load-fixtures`.
+
+
+### Minimalistic versions
+
+* Doctrine less ([PR](https://github.com/strangebuzz/MicroSymfony/pull/222), [branch](https://github.com/strangebuzz/MicroSymfony/tree/doctrine-less), rebased on 2026-01-17)
+
 
 ### Infrastructure
 
