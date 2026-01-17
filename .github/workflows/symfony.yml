@@ -116,6 +116,8 @@ jobs:
       run: castor ci:lint-php
     - name: PHPStan static analysis
       run: castor stan
+    - name: Psalm static analysis
+      run: castor psalm
     - name: Lint JS and CSS files
       run: castor ci:lint-js-css
 

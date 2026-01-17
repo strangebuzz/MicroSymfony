@@ -66,6 +66,7 @@
         "symfony/requirements-checker": "^2.0",
         "symfony/stopwatch": "~8.0.0",
         "symfony/web-profiler-bundle": "~8.0.0",
+        "vimeo/psalm": "^6.14",
         "zenstruck/foundry": "^2.4"
     },
     "replace": {

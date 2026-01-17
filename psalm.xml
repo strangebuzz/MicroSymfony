@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- deactivating the "findUnusedCode" rule is better to avoid too much false positive,
+    like stuff used in Twig templates. -->
+<psalm
+        errorLevel="1"
+        resolveFromConfigFile="true"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="https://getpsalm.org/schema/config"
+        xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+        findUnusedBaselineEntry="true"
+        findUnusedCode="false"
+>
+    <projectFiles>
+        <file name="importmap.php"/>
+        <directory name="bin"/>
+        <directory name="public"/>
+        <directory name="src"/>
+        <directory name="tests"/>
+        <ignoreFiles>
+            <directory name="config"/>
+            <directory name="vendor"/>
+        </ignoreFiles>
+    </projectFiles>
+
+</psalm>
