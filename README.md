@@ -8,19 +8,18 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/strangebuzz/MicroSymfony/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/strangebuzz/MicroSymfony/code-structure/main/code-coverage/src/)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/strangebuzz/MicroSymfony/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/strangebuzz/MicroSymfony/?branch=main)
 [![Quality Score](https://img.shields.io/scrutinizer/g/strangebuzz/microsymfony.svg?style=flat-square)](https://scrutinizer-ci.com/g/strangebuzz/microsymfony)
-
+[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributing-)
 
 ## About 🖋 
 
-MicroSymfony is a [Symfony 8.0](https://symfony.com/8) application skeleton on steroids,
-ready to use.
+MicroSymfony is a [Symfony 8.0](https://symfony.com/8) application template on steroids, ready to use.
 
 I have made a long blog post explaining the philosophy behind it and how to use it:
 
 * [Introducing the MicroSymfony application template](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template)
 
 > **PS**: If you want to use the last Symfony **7.4 LTS** version, follow the procedure 
-> in `agents/downgrade-to-symfony-7-4-LTS.md`.
+> in [`agents/downgrade-to-symfony-7-4-LTS.md`](agents/downgrade-to-symfony-7-4-LTS.md).
 
 Alternatively, if you have an AI coding assistant tool installed, you can run:
 
@@ -193,7 +192,6 @@ Then clone the `eloquent` branch and run `composer install && make load-fixtures
 These « database » branches aim to display a list of records from an [SQLite](https://www.sqlite.org/)
 database.
  
-* Doctrine DBAL ([PR](https://github.com/strangebuzz/MicroSymfony/pull/72), [branch](https://github.com/strangebuzz/MicroSymfony/tree/doctrine-dbal), rebased on 2025-02-21)
 * Eloquent ORM ([PR](https://github.com/strangebuzz/MicroSymfony/pull/65), [branch](https://github.com/strangebuzz/MicroSymfony/tree/eloquent), rebased on 2024-11-17)
 
 ### Tooling 🔨
@@ -240,6 +238,7 @@ Take examples from the other files in `config/packages` to see how to make the c
 
 ADR stands for [Architecture Design Records](https://adr.github.io/):
 
+* [2026-01-17] Use Doctrine ORM as the default database layer ([PR](https://github.com/strangebuzz/MicroSymfony/pull/219))
 * [2025-12-29] Use the new PHP configuration ([PR](https://github.com/strangebuzz/MicroSymfony/pull/197))
 * [2025-01-25] Include the FrankenPHP runtime by default ([PR](https://github.com/strangebuzz/MicroSymfony/pull/54))
 * [2025-01-21] Add PHPUnit test suites ([PR](https://github.com/strangebuzz/MicroSymfony/pull/155))
@@ -297,5 +296,6 @@ The MIT License (MIT). Please refer to the [license file](https://github.com/str
 
 ## Built with MicroSymfony 🛠️
 
+* [Placehold.ovh](https://placehold.ovh/) (2024-12-01)
 * [Appartement-tourcoing.com](https://www.appartement-tourcoing.com/) (2024-11-30)
 * [Easyadmin Mercure Demo](https://github.com/coopTilleuls/easyadmin-mercure-demo) (2023-05-24)

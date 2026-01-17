@@ -15,12 +15,12 @@ help: ## Outputs this help screen
 
 
 ## —— Symfony binary 💻 ————————————————————————————————————————————————————————
-start: ## Serve the application with the Symfony binary
+start: load-fixtures ## Serve the application with the Symfony binary and load fixtures
 	@symfony serve --daemon
 
 stop: ## Stop the web server
 	@symfony server:stop
-
+	@rm -f ./var/data.db
 
 ## —— Symfony 🎶  ——————————————————————————————————————————————————————————————
 go-prod: ## Switch to the production environment
