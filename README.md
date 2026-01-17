@@ -138,6 +138,7 @@ Have a look at the specific [documentation](https://github.com/strangebuzz/Micro
 
 * [PHP 8.4](https://www.php.net/releases/8.4/en.php) or [PHP 8.5](https://www.php.net/releases/8.5/en.php)
 * [Symfony 8.0](https://symfony.com/8)
+* [Doctrine ORM 3 (DBAL 4)](https://www.doctrine-project.org)
 * [Twig 3](https://twig.symfony.com)
 * [Hotwired](https://hotwired.dev/) [Stimulus 3.2](https://stimulus.hotwired.dev/) and [Turbo 8.0](https://turbo.hotwired.dev/)
 * [PHPUnit 12.5](https://phpunit.de/announcements/phpunit-12.html)
@@ -188,7 +189,6 @@ Then clone the `eloquent` branch and run `composer install && make load-fixtures
 ### Minimalistic versions
 
 * Doctrine less ([PR](https://github.com/strangebuzz/MicroSymfony/pull/222), [branch](https://github.com/strangebuzz/MicroSymfony/tree/doctrine-less), rebased on 2026-01-17)
-
 
 ### Infrastructure
 
