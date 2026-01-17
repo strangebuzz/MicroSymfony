@@ -96,6 +96,18 @@ function purge(): void
     success(exit_code('rm -rf ./var/cache/* ./var/log/* ./var/coverage/*'));
 }
 
+#[AsTask(namespace: 'app', description: 'Load the database fixtures', aliases: ['load-fixtures'])]
+function loadFixtures(): void
+{
+    title('app:load-fixtures');
+    io()->note('Resetting db...');
+    success(exit_code('rm -f ./var/data.db'));
+    io()->note('Running db migrations...');
+    success(exit_code('bin/console doctrine:migrations:migrate --no-interaction'));
+    io()->note('Load fixtures...');
+    success(exit_code('bin/console foundry:load-fixtures --env=dev --no-interaction'));
+}
+
 const PHP_UNIT_CMD = '/vendor/bin/phpunit --testsuite=%s --filter=%s %s';
 const PHP_UNIT_SUITES = ['api', 'e2e', 'functional', 'integration', 'unit'];
 
@@ -111,6 +123,7 @@ function getParameters(): array
 function test_all(): int
 {
     title('test:all');
+    loadFixtures();
     [$filter, $options] = getParameters();
     $ec = exit_code(__DIR__.sprintf(PHP_UNIT_CMD, implode(',', PHP_UNIT_SUITES), $filter, $options));
     io()->writeln('');
@@ -177,6 +190,7 @@ function test_unit(
 function coverage(): int
 {
     title('test:coverage');
+    loadFixtures();
     $ec = exit_code('php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/phpunit --coverage-html=var/coverage --coverage-clover=var/coverage/clover.xml',
         context: context()->withEnvironment(['XDEBUG_MODE' => 'coverage'])
     );
@@ -316,21 +330,31 @@ function lint_twig(): int
     return exit_code('bin/console lint:twig templates/');
 }
 
+#[AsTask(name: 'doctrine', namespace: 'lint', description: 'Validate Doctrine schema', aliases: ['lint-doctrine'])]
+function lint_doctrine(): int
+{
+    title('lint:doctrine');
+
+    return exit_code('@bin/console doctrine:schema:validate');
+}
+
 #[AsTask(name: 'all', namespace: 'lint', description: 'Run all lints', aliases: ['lint'])]
 function lint_all(): int
 {
     title('lint:all');
     $ec1 = stan();
     $ec2 = lint_php();
-    $ec3 = lint_js_css();
-    $ec4 = lint_container();
-    $ec5 = lint_twig();
+    $ec3 = lint_doctrine();
+    $ec4 = lint_js_css();
+    $ec5 = lint_container();
+    $ec6 = lint_twig();
 
-    return success($ec1 + $ec2 + $ec3 + $ec4 + $ec5);
+    return success($ec1 + $ec2 + $ec3 + $ec4 + $ec5 + $ec6);
 
     // if you want to speed up the process, you can run these commands in parallel
     //    parallel(
     //        fn() => lint_php(),
+    //        fn() => lint_doctrine(),
     //        fn() => lint_container(),
     //        fn() => lint_twig(),
     //    );
@@ -341,6 +365,7 @@ function ci(): void
 {
     title('ci:all');
     purge();
+    loadFixtures();
     io()->section('Coverage');
     coverage();
     io()->section('Lints');

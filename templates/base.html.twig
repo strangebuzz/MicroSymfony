@@ -52,6 +52,7 @@
                                 <li><a href="{{ path('App\\Controller\\StimulusAction') }}"{{ aria_current_page_if(app.current_route == 'App\\Controller\\StimulusAction')|raw }}><b>J</b>ava<b>S</b>cript with Stimulus</a></li>
                                 <li><a href="{{ path(ctrl_fqcn('ComposerAction')) }}"{{ aria_current_page_if(app.current_route == ctrl_fqcn('ComposerAction'))|raw }}>The <code>composer.json</code> file</a></li>
                                 <li><a href="{{ path(ctrl_fqcn('FormAction')) }}"{{ aria_current_page_if(app.current_route == ctrl_fqcn('FormAction'))|raw }}>📝 Form example</a></li>
+                                <li><a href="{{ path(ctrl_fqcn('ListUsersAction')) }}"{{ aria_current_page_if(app.current_route == ctrl_fqcn('ListUsersAction'))|raw }}>👥 Users list</a></li>
                                 <li><a href="{{ app.environment == 'dev' ? '/_error/404.html' : '/404' }}">❌ Custom error page</a></li>
                                 <li><a href="https://picocss.com/docs" target="_blank">✨ Pico CSS documentation ⤴️</a></li>
                             </ul>
