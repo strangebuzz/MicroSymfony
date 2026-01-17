@@ -22,4 +22,8 @@
         </ignoreFiles>
     </projectFiles>
 
+    <issueHandlers>
+        <!-- Symfony Form generics conflict -->
+        <TooManyTemplateParams errorLevel="suppress" />
+    </issueHandlers>
 </psalm>
