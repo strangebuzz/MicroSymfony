@@ -10,6 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
+use function Symfony\Component\String\u;
+
 /**
  * For a complete example, check out the Symfony demo entity.
  *
@@ -105,7 +107,7 @@ final class User implements \Stringable, UserInterface, PasswordAuthenticatedUse
      */
     public function setEmail(string $email): self
     {
-        $this->email = $email;
+        $this->email = u($email)->trim()->lower()->toString();
 
         return $this;
     }
