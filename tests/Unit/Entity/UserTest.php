@@ -14,16 +14,18 @@ final class UserTest extends TestCase
     public function testUserEntity(): void
     {
         $user = new User('', '', '');
-        $roles = ['ROLE_USER'];
 
         self::assertNull($user->getId());
-        self::assertSame('test@example.com', $user->setEmail('test@example.com')->getEmail());
-        self::assertSame('test@example.com', $user->setEmail('   Test@Example.CoM  ')->getEmail());
+        $normalizedEmail = 'test@example.com';
+        self::assertSame($normalizedEmail, $user->setEmail('test@example.com')->getEmail());
+        self::assertSame($normalizedEmail, $user->setEmail('Test@Example.CoM  ')->getEmail());
+        self::assertSame($normalizedEmail, $user->setEmail('   Test@Example.CoM')->getEmail());
+        self::assertSame($normalizedEmail, $user->setEmail('Test@example.CoM')->getEmail());
         self::assertSame('COil', $user->setUsername('COil')->getUsername());
         self::assertSame('COil', $user->getUserIdentifier());
         self::assertSame('123456', $user->setPassword('123456')->getPassword());
         self::assertSame('COil (not persisted)', (string) $user);
-        self::assertSame($roles, $user->getRoles());
+        self::assertSame(['ROLE_USER'], $user->getRoles());
     }
 
     public function testUserGetUserIdentifier(): void
