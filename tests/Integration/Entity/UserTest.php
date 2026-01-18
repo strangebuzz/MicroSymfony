@@ -27,7 +27,7 @@ final class UserTest extends KernelTestCase
         // persist (@see User::PrePersist())
         $em->persist($user);
         $em->flush();
-        self::assertSame(1, $user->getId());
+        self::assertSame(1, (int) $user->getId());
         self::assertSame('username (1)', (string) $user);
         $updatedAt = $user->getUpdatedAt();
 
