@@ -7,26 +7,36 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\Response;
-// use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\HttpKernel\Attribute\Cache;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Contracts\Cache\CacheInterface;
+use Symfony\Contracts\Cache\ItemInterface;
 
 /**
  * @see StaticRoutesSmokeTest
  */
 // using the AsController attribute is not mandatory when extending the Symfony
 // AbstractController or when using the #Route attribute.
-// #[AsController]
 #[Cache(maxage: 3600, public: true)]
 final class HomeAction extends AbstractController
 {
+    public function __construct(
+        private readonly Filesystem $fs,
+        private readonly CacheInterface $cache,
+    ) {
+    }
+
     /**
-     * Simple page with some content.
+     * Displays the README.md file.
      */
     #[Route(path: '/', name: self::class)]
-    public function __invoke(Filesystem $fs): Response
+    public function __invoke(): Response
     {
-        $readme = $fs->readFile(__DIR__.'/../../README.md');
+        $readme = $this->cache->get('readme', function (ItemInterface $item) {
+            $item->expiresAfter(3600);
+
+            return $this->fs->readFile(__DIR__.'/../../README.md');
+        });
 
         return $this->render(self::class.'.html.twig', ['readme' => $readme]);
     }
