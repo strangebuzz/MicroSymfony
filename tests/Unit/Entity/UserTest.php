@@ -18,6 +18,7 @@ final class UserTest extends TestCase
 
         self::assertNull($user->getId());
         self::assertSame('test@example.com', $user->setEmail('test@example.com')->getEmail());
+        self::assertSame('test@example.com', $user->setEmail('   Test@Example.CoM  ')->getEmail());
         self::assertSame('COil', $user->setUsername('COil')->getUsername());
         self::assertSame('COil', $user->getUserIdentifier());
         self::assertSame('123456', $user->setPassword('123456')->getPassword());
