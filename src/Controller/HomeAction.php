@@ -14,6 +14,8 @@ use Symfony\Contracts\Cache\ItemInterface;
 
 /**
  * @see StaticRoutesSmokeTest
+ *
+ * @psalm-suppress PropertyNotSetInConstructor
  */
 // using the AsController attribute is not mandatory when extending the Symfony
 // AbstractController or when using the #Route attribute.
