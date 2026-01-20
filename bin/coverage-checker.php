@@ -1,15 +1,13 @@
 <?php
 
-// @see https://ocramius.github.io/blog/automated-code-coverage-check-for-github-pull-requests-with-travis/
-
 declare(strict_types=1);
 
 $argv = $argv ?? [];
 if (count($argv) !== 3) {
-    throw new InvalidArgumentException('Two arguments are required by this script: 1) the clover file report path. 2) the code coverage threshold.');
+    throw new InvalidArgumentException('Two arguments are required by this script: 1) the coverage file path. 2) the code coverage threshold.');
 }
 
-[,$inputFile, $threshold] = $argv;
+[, $inputFile, $threshold] = $argv;
 
 if (!is_numeric($threshold)) {
     throw new InvalidArgumentException('An integer checked percentage must be given as second parameter');
@@ -20,26 +18,17 @@ if (!file_exists($inputFile)) {
     throw new InvalidArgumentException('Invalid input file provided');
 }
 
-try {
-    @$xml = new SimpleXMLElement((string) file_get_contents($inputFile));
-} catch (Exception) {
-    throw new RuntimeException('Cannot parse XML of Clover file report.');
+$content = file_get_contents($inputFile);
+if ($content === false) {
+    throw new RuntimeException('Cannot read coverage file.');
 }
 
-/** @var array<SimpleXMLElement> $metrics */
-$metrics = $xml->xpath('//metrics');
-if (count($metrics) === 0) {
-    throw new RuntimeException('Cannot find coverage metrics.');
+// Extract coverage percentage from line like: [30;42m  Lines:   96.43% (108/112)[0m
+if (!preg_match('/Lines:\s+(\d+\.\d+)%/', $content, $matches)) {
+    throw new RuntimeException('Cannot find coverage metrics in coverage file.');
 }
 
-$totalElements = 0;
-$checkedElements = 0;
-foreach ($metrics as $metric) {
-    $totalElements += (int) $metric['elements'];
-    $checkedElements += (int) $metric['coveredelements'];
-}
-
-$coverage = round(((float) $checkedElements / (float) $totalElements) * 100.0, 2);
+$coverage = (float) $matches[1];
 if ($coverage < $percentage) {
     echo sprintf(' > Code coverage: %s%%, which is below the accepted threshold: %s%% ❌', $coverage, $percentage).\PHP_EOL.\PHP_EOL;
     exit(1);

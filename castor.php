@@ -20,6 +20,7 @@ const DOMAIN = 'microsymfony.ovh';
 
 // Modify the code coverage threshold here
 const COVERAGE_THRESHOLD = 100;
+const COVERAGE_TEXT_REPORT = 'var/coverage/coverage-text.txt';
 
 function title(string $name): void
 {
@@ -197,22 +198,28 @@ function test_unit(
 function coverage(): int
 {
     title('test:coverage');
+    purge();
     loadFixtures();
-    $ec = exit_code('php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/phpunit --coverage-html=var/coverage --coverage-clover=var/coverage/clover.xml',
+    $ec = exit_code(sprintf('php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/phpunit --coverage-html=var/coverage --coverage-text=%s', COVERAGE_TEXT_REPORT),
         context: context()->withEnvironment(['XDEBUG_MODE' => 'coverage'])
     );
     if ($ec !== 0) {
         return $ec;
     }
 
-    return success(exit_code(sprintf('php bin/coverage-checker.php var/coverage/clover.xml %d', COVERAGE_THRESHOLD)));
+    return success(exit_code(sprintf('php bin/coverage-checker.php %s %d', COVERAGE_TEXT_REPORT, COVERAGE_THRESHOLD)));
 }
 
 #[AsTask(namespace: 'test', description: 'Open the PHPUnit code coverage report (var/coverage/index.html)', aliases: ['cov-report'])]
-function cov_report(): void
+function cov_report(): int
 {
     title('test:cov-report');
-    success(exit_code('open var/coverage/index.html'));
+    $coverageFile = 'var/coverage/index.html';
+    if (!file_exists($coverageFile)) {
+        coverage();
+    }
+
+    return success(exit_code(sprintf('open %s', $coverageFile)));
 }
 
 #[AsTask(namespace: 'lint', description: 'Run PHPStan', aliases: ['stan'])]
@@ -342,7 +349,7 @@ function lint_doctrine(): int
 {
     title('lint:doctrine');
 
-    return exit_code('@bin/console doctrine:schema:validate');
+    return exit_code('bin/console doctrine:schema:validate');
 }
 
 #[AsTask(name: 'all', namespace: 'lint', description: 'Run all lints', aliases: ['lint'])]
