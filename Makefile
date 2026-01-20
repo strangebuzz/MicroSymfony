@@ -6,6 +6,7 @@ DOMAIN = microsymfony.ovh
 
 # modify the code coverage threshold here
 COVERAGE_THRESHOLD = 100
+COVERAGE_TEXT_REPORT = var/coverage/coverage-text.txt
 
 ## —— 🎶 The MicroSymfony Makefile 🎶 ——————————————————————————————————————————
 help: ## Outputs this help screen
@@ -75,9 +76,10 @@ test-unit: test
 
 coverage: ## Generate the HTML PHPUnit code coverage report (stored in var/coverage)
 coverage: purge load-fixtures
-	@XDEBUG_MODE=coverage php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/phpunit --coverage-html=var/coverage --coverage-clover=var/coverage/clover.xml
-	@php bin/coverage-checker.php var/coverage/clover.xml $(COVERAGE_THRESHOLD)
+	@XDEBUG_MODE=coverage php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/phpunit --coverage-html=var/coverage --coverage-text=$(COVERAGE_TEXT_REPORT)
+	@php bin/coverage-checker.php $(COVERAGE_TEXT_REPORT) $(COVERAGE_THRESHOLD)
 
+var/coverage/index.html: coverage
 cov-report: var/coverage/index.html ## Open the PHPUnit code coverage report (var/coverage/index.html)
 	@open var/coverage/index.html
 
