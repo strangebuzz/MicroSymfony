@@ -100,12 +100,10 @@
             "symfony/flex": true,
             "symfony/runtime": true
         },
-        "platform": {
-        },
-        "sort-packages": true,
         "audit": {
             "block-insecure": false
-        }
+        },
+        "sort-packages": true
     },
     "extra": {
         "bamarni-bin": {
