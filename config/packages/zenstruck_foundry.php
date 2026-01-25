@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-return App::config([
+const ZENSTRUCK_FOUNDRY = [
     // See full configuration: https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#full-default-bundle-configuration
     'zenstruck_foundry' => [
         'enable_auto_refresh_with_lazy_objects' => true,
@@ -21,4 +21,9 @@ return App::config([
         //         autowire: true
         //         autoconfigure: true
     ],
+];
+
+return App::config([
+    'when@dev' => ZENSTRUCK_FOUNDRY,
+    'when@test' => ZENSTRUCK_FOUNDRY,
 ]);
