@@ -16,6 +16,7 @@ final class UserTest extends TestCase
         $user = new User('', '', '');
 
         self::assertNull($user->getId());
+        self::assertTrue($user->isNew());
         $normalizedEmail = 'test@example.com';
         self::assertSame($normalizedEmail, $user->setEmail('test@example.com')->getEmail());
         self::assertSame($normalizedEmail, $user->setEmail('Test@Example.CoM  ')->getEmail());
