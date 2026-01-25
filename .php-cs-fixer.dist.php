@@ -15,7 +15,7 @@ $finder = Finder::create()
     ->notPath('config/reference.php')
 ;
 
-return (new Config())
+return new Config()
     ->setRules([
         // taken from the Symfony config     // https://github.com/symfony/symfony/blob/7.1/.php-cs-fixer.dist.php
         '@Symfony' => true,                  // https://cs.symfony.com/doc/ruleSets/Symfony.html

@@ -29,31 +29,30 @@ final class User implements \Stringable, UserInterface, PasswordAuthenticatedUse
     #[ORM\Column(type: Types::INTEGER, unique: true, nullable: false)]
     public ?int $id = null;
 
-    #[ORM\Column(type: Types::STRING, length: 255, unique: true)]
-    private string $email;
-
-    #[ORM\Column(type: Types::STRING, length: 255)]
-    private string $password;
-
-    #[ORM\Column(type: Types::STRING, length: 255, unique: true, nullable: false)]
-    private string $username;
-
     #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: false)]
     private \DateTimeInterface $createdAt;
 
     #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: false)]
     private \DateTimeInterface $updatedAt;
 
-    public function __construct(string $email, string $password, string $username)
-    {
-        $this->email = $email;
-        $this->password = $password;
-        $this->username = $username;
+    public function __construct(
+        #[ORM\Column(type: Types::STRING, length: 255, unique: true)]
+        private string $email,
+        #[ORM\Column(type: Types::STRING, length: 255)]
+        private string $password,
+        #[ORM\Column(type: Types::STRING, length: 255, unique: true, nullable: false)]
+        private string $username,
+    ) {
     }
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function isNew(): bool
+    {
+        return $this->id === null;
     }
 
     #[\Override]
