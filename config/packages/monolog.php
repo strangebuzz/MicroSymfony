@@ -2,17 +2,16 @@
 
 declare(strict_types=1);
 
-use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-return static function (ContainerConfigurator $containerConfigurator): void {
-    $containerConfigurator->extension('monolog', [
+return App::config([
+    'monolog' => [
         'channels' => [
             'deprecation',
         ],
-    ]);
-
-    if ($containerConfigurator->env() === 'dev') {
-        $containerConfigurator->extension('monolog', [
+    ],
+    'when@dev' => [
+        'monolog' => [
             'handlers' => [
                 'main' => [
                     'type' => 'stream',
@@ -43,11 +42,10 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                     ],
                 ],
             ],
-        ]);
-    }
-
-    if ($containerConfigurator->env() === 'test') {
-        $containerConfigurator->extension('monolog', [
+        ],
+    ],
+    'when@test' => [
+        'monolog' => [
             'handlers' => [
                 'main' => [
                     'type' => 'fingers_crossed',
@@ -67,11 +65,10 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                     'level' => 'debug',
                 ],
             ],
-        ]);
-    }
-
-    if ($containerConfigurator->env() === 'prod') {
-        $containerConfigurator->extension('monolog', [
+        ],
+    ],
+    'when@prod' => [
+        'monolog' => [
             'handlers' => [
                 'main' => [
                     'type' => 'fingers_crossed',
@@ -105,6 +102,6 @@ return static function (ContainerConfigurator $containerConfigurator): void {
                     'path' => 'php://stderr',
                 ],
             ],
-        ]);
-    }
-};
+        ],
+    ],
+]);
