@@ -30,10 +30,10 @@ final class User implements \Stringable, UserInterface, PasswordAuthenticatedUse
     public ?int $id = null;
 
     #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: false)]
-    private \DateTimeInterface $createdAt;
+    private ?\DateTimeInterface $createdAt = null;
 
     #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: false)]
-    private \DateTimeInterface $updatedAt;
+    private ?\DateTimeInterface $updatedAt = null;
 
     public function __construct(
         #[ORM\Column(type: Types::STRING, length: 255, unique: true)]
@@ -136,12 +136,12 @@ final class User implements \Stringable, UserInterface, PasswordAuthenticatedUse
         return $this;
     }
 
-    public function getCreatedAt(): \DateTimeInterface
+    public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
     }
 
-    public function getUpdatedAt(): \DateTimeInterface
+    public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updatedAt;
     }

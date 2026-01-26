@@ -222,19 +222,32 @@ function cov_report(): int
     return success(exit_code(sprintf('open %s', $coverageFile)));
 }
 
-#[AsTask(namespace: 'lint', description: 'Run PHPStan', aliases: ['stan'])]
-function stan(): int
+function warmupDevCache(): void
 {
-    title('lint:stan');
-
     if (!file_exists('var/cache/dev/App_KernelDevDebugContainer.xml')) {
-        io()->note('PHPStan needs the dev/debug cache. Generating it...');
+        io()->note('PHPStan/Psalm need the dev/debug cache. Generating it...');
         run('bin/console cache:warmup',
             context: context()->withEnvironment(['APP_ENV' => 'dev', 'APP_DEBUG' => 1])
         );
     }
+}
+
+#[AsTask(namespace: 'lint', description: 'Run PHPStan', aliases: ['stan'])]
+function stan(): int
+{
+    title('lint:stan');
+    warmupDevCache();
 
     return exit_code('vendor/bin/phpstan analyse -c phpstan.neon --memory-limit 1G -vv');
+}
+
+#[AsTask(namespace: 'lint', description: 'Run Psalm', aliases: ['psalm'])]
+function psalm(): int
+{
+    title('lint:psalm');
+    warmupDevCache();
+
+    return exit_code('vendor/bin/psalm');
 }
 
 #[AsTask(name: 'php', namespace: 'fix', description: 'Fix PHP files with php-cs-fixer (ignore PHP 8.4 warnings)', aliases: ['fix-php'])]
@@ -357,13 +370,14 @@ function lint_all(): int
 {
     title('lint:all');
     $ec1 = stan();
-    $ec2 = lint_php();
-    $ec3 = lint_doctrine();
-    $ec4 = lint_js_css();
-    $ec5 = lint_container();
-    $ec6 = lint_twig();
+    $ec2 = psalm();
+    $ec3 = lint_php();
+    $ec4 = lint_doctrine();
+    $ec5 = lint_js_css();
+    $ec6 = lint_container();
+    $ec7 = lint_twig();
 
-    return success($ec1 + $ec2 + $ec3 + $ec4 + $ec5 + $ec6);
+    return success($ec1 + $ec2 + $ec3 + $ec4 + $ec5 + $ec6 + $ec7);
 
     // if you want to speed up the process, you can run these commands in parallel
     //    parallel(

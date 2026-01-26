@@ -14,6 +14,8 @@ use Symfony\Contracts\Cache\ItemInterface;
 
 /**
  * @see ComposerActionTest
+ *
+ * @psalm-suppress PropertyNotSetInConstructor
  */
 #[Cache(maxage: 3600, public: true)]
 final class ComposerAction extends AbstractController
