@@ -98,6 +98,9 @@ fix-php: ## Fix PHP files with php-cs-fixer (ignore PHP version warning)
 fix-js-css: ## Format JS/CSS files with Biome
 	@bin/biome check . --write
 
+fix-twig-cs-fixer: ## Fix Twig files with Twig CS Fixer
+	@vendor/bin/twig-cs-fixer lint --fix ./templates
+
 lint-php: ## Lint PHP files with php-cs-fixer (report only)
 lint-php: PHP_CS_FIXER_ARGS=--dry-run
 lint-php: fix-php
@@ -114,14 +117,17 @@ lint-container: ## Lint the Symfony DI container
 lint-twig: ## Lint Twig files
 	@bin/console lint:twig templates/
 
+lint-twig-cs-fixer: ## Lint Twig files with Twig CS Fixer
+	@vendor/bin/twig-cs-fixer lint ./templates
+
 lint-doctrine: ## Validate Doctrine schema
 	@bin/console doctrine:schema:validate
 
 fix: ## Run all fixers
-fix: fix-php fix-js-css
+fix: fix-php fix-js-css fix-twig-cs-fixer
 
 lint: ## Run all linters
-lint: stan lint-php lint-doctrine lint-js-css lint-container lint-twig
+lint: stan lint-php lint-doctrine lint-js-css lint-container lint-twig lint-twig-cs-fixer
 
 ci: ## Run CI locally
 ci: coverage warmup lint
