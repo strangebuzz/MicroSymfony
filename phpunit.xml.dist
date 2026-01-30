@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- https://docs.phpunit.de/en/11.5/configuration.html -->
+<!-- https://docs.phpunit.de/en/12.5/configuration.html -->
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.5/phpunit.xsd"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/12.5/phpunit.xsd"
          backupGlobals="false"
          colors="true"
          displayDetailsOnTestsThatTriggerWarnings="true"
@@ -13,12 +13,10 @@
   <php>
     <ini name="display_errors" value="1"/>
     <ini name="error_reporting" value="-1"/>
-
     <server name="SHELL_VERBOSITY" value="-1"/>
-
     <server name="KERNEL_CLASS" value="App\Kernel" />
     <server name="APP_ENV" value="test" force="true"/>
-    <server name="APP_DEBUG" value="true"/> <!-- set this to false on your CI to speed up tests by 2x -->
+    <server name="APP_DEBUG" value="true"/> <!-- set this to false on your CI to speed up tests -->
   </php>
 
   <testsuites>
