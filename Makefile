@@ -95,7 +95,7 @@ var/cache/dev/App_KernelDevDebugContainer.xml:
 fix-php: ## Fix PHP files with php-cs-fixer (ignore PHP version warning)
 	@PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix $(PHP_CS_FIXER_ARGS)
 
-fix-js-css: ## Format JS/CSS files with Biome
+fix-js-css: bin/biome ## Format JS/CSS files with Biome
 	@bin/biome check . --write
 
 lint-php: ## Lint PHP files with php-cs-fixer (report only)
