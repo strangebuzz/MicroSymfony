@@ -16,7 +16,6 @@ final class EnvExtension extends AbstractExtension implements GlobalsInterface
     /**
      * @return array<string,string>
      */
-    #[\Override]
     public function getGlobals(): array
     {
         return [

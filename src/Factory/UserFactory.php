@@ -14,7 +14,6 @@ use Zenstruck\Foundry\Persistence\PersistentObjectFactory;
  */
 final class UserFactory extends PersistentObjectFactory
 {
-    #[\Override]
     public static function class(): string
     {
         return User::class;
@@ -23,7 +22,6 @@ final class UserFactory extends PersistentObjectFactory
     /**
      * @return array<string, mixed>
      */
-    #[\Override]
     protected function defaults(): array
     {
         return [

@@ -55,7 +55,6 @@ final class User implements \Stringable, UserInterface, PasswordAuthenticatedUse
         return $this->id === null;
     }
 
-    #[\Override]
     public function __toString(): string
     {
         return \sprintf('%s (%s)', $this->getUserIdentifier(), (string) ($this->getId() ?? 'not persisted'));
@@ -77,7 +76,6 @@ final class User implements \Stringable, UserInterface, PasswordAuthenticatedUse
         [$this->id, $this->username, $this->password, $this->email] = $data;
     }
 
-    #[\Override]
     public function getUserIdentifier(): string
     {
         if ($this->username === '') {
@@ -90,10 +88,13 @@ final class User implements \Stringable, UserInterface, PasswordAuthenticatedUse
     /**
      * Returns the roles or permissions granted to the user for security.
      */
-    #[\Override]
     public function getRoles(): array
     {
         return [self::ROLE_USER];
+    }
+
+    public function eraseCredentials(): void
+    {
     }
 
     public function getEmail(): string
@@ -111,7 +112,6 @@ final class User implements \Stringable, UserInterface, PasswordAuthenticatedUse
         return $this;
     }
 
-    #[\Override]
     public function getPassword(): string
     {
         return $this->password;
