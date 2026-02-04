@@ -8,7 +8,7 @@
     <h3>Doctrine DBAL</h3>
 
     <code>
-        'users_dbal' => $conn->fetchAllAssociative('SELECT * FROM user'),
+        usersDbal: $this->conn->fetchAllAssociative('SELECT * FROM user'),
     </code>
 
     <table class="striped">
@@ -22,7 +22,7 @@
         </tr>
         </thead>
         <tbody>
-        {% for user in users_dbal %}
+        {% for user in data.usersDbal %}
             <tr>
                 <td>{{ user.id }}</td>
                 <td>{{ user.email }}</td>
@@ -35,7 +35,7 @@
         <tfoot>
             <tr>
                 <th colspan="5" scope="row">
-                    There are <b>{{ users_dbal|length }}</b> user(s).
+                    There are <b>{{ data.usersDbal|length }}</b> user(s).
                 </th>
             </tr>
         </tfoot>
@@ -46,7 +46,7 @@
     <h3>Doctrine ORM</h3>
 
     <code>
-        'users_orm' => $userRepository->findAll(),
+        usersOrm: $this->userRepository->findAll(),
     </code>
 
     <table class="striped">
@@ -60,7 +60,7 @@
         </tr>
         </thead>
         <tbody>
-        {% for user in users_orm %}
+        {% for user in data.usersOrm %}
             <tr>
                 <td>{{ user.id }}</td>
                 <td>{{ user.email }}</td>
@@ -73,7 +73,7 @@
         <tfoot>
             <tr>
                 <th colspan="5" scope="row">
-                    There are <b>{{ users_orm|length }}</b> user(s).
+                    There are <b>{{ data.usersOrm|length }}</b> user(s).
                 </th>
             </tr>
         </tfoot>
