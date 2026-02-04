@@ -92,7 +92,8 @@ use App\Helper\StringHelper;
 
 ```
 src/
-├── Controller/         # ADR pattern controllers
+├── Controller/        # ADR pattern controllers
+├── Data/              # Data services
 ├── Helper/            # Services and utilities
 ├── Twig/Extension/    # Custom Twig extensions
 ├── Form/Type/         # Form types
