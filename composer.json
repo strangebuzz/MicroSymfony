@@ -22,10 +22,6 @@
         "ext-mbstring": "*",
         "ext-simplexml": "*",
         "ext-xml": "*",
-        "doctrine/dbal": "^4.0",
-        "doctrine/doctrine-bundle": "^3.0",
-        "doctrine/doctrine-migrations-bundle": "^3.3",
-        "doctrine/orm": "^3.3",
         "league/commonmark": "^2.4",
         "symfony/asset": "~8.0.0",
         "symfony/asset-mapper": "~8.0.0",
@@ -65,8 +61,7 @@
         "symfony/maker-bundle": "^1.61",
         "symfony/requirements-checker": "^2.0",
         "symfony/stopwatch": "~8.0.0",
-        "symfony/web-profiler-bundle": "~8.0.0",
-        "zenstruck/foundry": "^2.4"
+        "symfony/web-profiler-bundle": "~8.0.0"
     },
     "replace": {
         "symfony/polyfill-ctype": "*",
