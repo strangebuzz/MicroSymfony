@@ -1,0 +1,73 @@
+
+   █████████                     █████
+  ███░░░░░███                   ░░███
+ ███     ░░░   ██████    █████  ███████    ██████  ████████
+░███          ░░░░░███  ███░░  ░░░███░    ███░░███░░███░░███
+░███           ███████ ░░█████   ░███    ░███ ░███ ░███ ░░░
+░░███     ███ ███░░███  ░░░░███  ░███ ███░███ ░███ ░███
+ ░░█████████ ░░████████ ██████   ░░█████ ░░██████  █████
+  ░░░░░░░░░   ░░░░░░░░ ░░░░░░     ░░░░░   ░░░░░░  ░░░░░
+
+castor v1.1.0
+
+Usage:
+  command [options] [arguments]
+
+Options:
+  -h, --help                       Display help for the given command. When no command is given display help for the list command
+      --silent                     Do not output any message
+  -q, --quiet                      Only errors are displayed. All other output is suppressed
+  -V, --version                    Display this application version
+      --ansi|--no-ansi             Force (or disable --no-ansi) ANSI output
+  -n, --no-interaction             Do not ask any interactive question
+      --no-remote                  Skip the import of all remote remote packages
+      --update-remotes             Force the update of remote packages
+      --castor-file[=CASTOR-FILE]  Specify an alternative castor file to use instead of the default "castor.php"
+  -v|vv|vvv, --verbose             Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+
+Available commands:
+  completion                  Dump the shell completion script
+  help                        Display help for a command
+  list                        List commands
+ app
+  app:load-fixtures           [load-fixtures] Load the database fixtures
+ castor
+  castor:composer             [composer] Interact with built-in Composer for castor
+  castor:execute              [execute] Execute a remote task from a packagist directory
+ ci
+  ci:all                      [ci] Run CI locally
+  ci:lint-js-css              Lint JS/CSS files with Biome (CI)
+  ci:lint-php                 Lint PHP files with php-cs-fixer (for CI)
+ fix
+  fix:all                     [fix] Run all fixers
+  fix:js-css                  [fix-js-css] Format JS/CSS files with Biome
+  fix:php                     [fix-php] Fix PHP files with php-cs-fixer (ignore PHP 8.4 warnings)
+ helpers
+  helpers:check-requirements  [check-requirements] Checks requirements for running Symfony
+  helpers:versions            [versions] Output current stack versions
+ lint
+  lint:all                    [lint] Run all lints
+  lint:container              [lint-container] Lint the Symfony DI container
+  lint:doctrine               [lint-doctrine] Validate Doctrine schema
+  lint:js-css                 [lint-js-css] Lint JS/CSS files with Biome
+  lint:php                    [lint-php] Lint PHP files with php-cs-fixer (report only)
+  lint:stan                   [stan] Run PHPStan
+  lint:twig                   [lint-twig] Lint Twig files
+ prod
+  prod:deploy                 [deploy] Simple manual deploy on a VPS (this is to update the demo site https://microsymfony.ovh/)
+  prod:le-renew               [le-renew] Renew Let's Encrypt HTTPS certificates
+ symfony
+  symfony:go-dev              [go-dev] Switch to the development environment
+  symfony:go-prod             [go-prod] Switch to the production environment
+  symfony:purge               [purge] Purge all Symfony cache and logs
+  symfony:start               [start] Serve the application with the Symfony binary
+  symfony:stop                [stop] Stop the web server
+ test
+  test:all                    [test] Run tests with optional filter and options, eg: "filter=slug options=--testdox castor test")
+  test:api                    [test-api] Run API tests only
+  test:cov-report             [cov-report] Open the PHPUnit code coverage report (var/coverage/index.html)
+  test:coverage               [coverage] Generate the HTML PHPUnit code coverage report (stored in var/coverage)
+  test:e2e                    [test-e2e] Run E2E tests only
+  test:functional             [test-functional] Run functional tests only
+  test:integration            [test-integration] Run integration tests only
+  test:unit                   [test-unit] Run unit tests only

@@ -150,8 +150,8 @@ Have a look at the specific [documentation](https://github.com/strangebuzz/Micro
 **MicroSymfony** ships these features, ready to use:
 
 * Two task runners
-  * [Make](https://www.gnu.org/software/make/) ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/Makefile)) ([demo](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template#h3_4_1))
-  * [Castor](https://github.com/jolicode/castor) ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/castor.php)) ([demo](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template#h3_4_2))
+  * [Make](https://www.gnu.org/software/make/) ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/Makefile)) ([demo](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template#h3_4_1)) ([output](https://github.com/strangebuzz/MicroSymfony/blob/main/docs/make-output.txt))
+  * [Castor](https://github.com/jolicode/castor) ([source](https://github.com/strangebuzz/MicroSymfony/blob/main/castor.php)) ([demo](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template#h3_4_2)) ([output](https://github.com/strangebuzz/MicroSymfony/blob/main/docs/castor-output.txt))
 * Static analysis with [PHPStan 2](https://github.com/phpstan/phpstan)
   * [Configuration](https://github.com/strangebuzz/MicroSymfony/blob/main/phpstan.neon)
 * Coding standards with [php-cs-fixer](https://github.com/PHP-CS-Fixer/PHP-CS-Fixer)

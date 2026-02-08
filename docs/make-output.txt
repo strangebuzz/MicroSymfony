@@ -1,0 +1,38 @@
+ —— 🎶 The MicroSymfony Makefile 🎶 —————————————————————————————————————————— 
+help                           Outputs this help screen
+ —— Symfony binary 💻 ———————————————————————————————————————————————————————— 
+start                          Serve the application with the Symfony binary and load fixtures
+stop                           Stop the web server
+ —— Symfony 🎶  —————————————————————————————————————————————————————————————— 
+go-prod                        Switch to the production environment
+go-dev                         Switch to the development environment
+warmup                         Warmup the dev cache for the static analysis
+purge                          Purge all Symfony cache and logs
+load-fixtures                  Reset migrations and load the database fixtures
+ —— Tests ✅ ————————————————————————————————————————————————————————————————— 
+test                           Run tests with optional suite, filter and options (to debug use "make test options=--debug")
+test-api                       Run API tests only
+test-e2e                       Run E2E tests only
+test-functional                Run functional tests only
+test-integration               Run integration tests only
+test-unit                      Run unit tests only
+coverage                       Generate the HTML PHPUnit code coverage report (stored in var/coverage)
+cov-report                     Open the PHPUnit code coverage report (var/coverage/index.html)
+ —— Coding standards/lints ✨ ———————————————————————————————————————————————— 
+stan                           Run the PHPStan static analysis
+fix-php                        Fix PHP files with php-cs-fixer (ignore PHP version warning)
+fix-js-css                     Format JS/CSS files with Biome
+lint-php                       Lint PHP files with php-cs-fixer (report only)
+lint-js-css                    Lint JS/CSS files with Biome
+lint-container                 Lint the Symfony DI container
+lint-twig                      Lint Twig files
+lint-doctrine                  Validate Doctrine schema
+fix                            Run all fixers
+lint                           Run all linters
+ci                             Run CI locally
+ —— Other tools and helpers 🔨 ——————————————————————————————————————————————— 
+versions                       Output current stack versions
+check-requirements             Checks requirements for running Symfony
+ —— Deploy & Prod 🚀 ————————————————————————————————————————————————————————— 
+deploy                         Simple manual deploy on a VPS (this is to update the demo site https://microsymfony.ovh/)
+le-renew                       Renew Let's Encrypt HTTPS certificates
