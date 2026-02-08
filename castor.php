@@ -127,7 +127,7 @@ function getParameters(): array
     return [$filter, $options];
 }
 
-#[AsTask(name: 'all', namespace: 'test', description: 'Run tests with optional filter and options, eg: "filter=slug options=--testdox castor test")', aliases: ['test'])]
+#[AsTask(name: 'all', namespace: 'test', description: 'Run tests with optional filter and options, eg: "filter=slug options=--testdox castor test"', aliases: ['test'])]
 function test_all(): int
 {
     title('test:all');
