@@ -1,0 +1,53 @@
+7 tests triggered 2 deprecations:
+
+1) /Users/coil/Sites/microsymfony/vendor/symfony/deprecation-contracts/function.php:25
+Since symfony/framework-bundle 7.3: Not setting the "property_info.with_constructor_extractor" option explicitly is deprecated because its default value will change in version 8.0.
+
+Triggered by:
+
+* App\Tests\Functional\Controller\StaticRoutesSmokeTest::testRoutesDoNotReturnInternalError#GET / (2 times)
+  /Users/coil/Sites/microsymfony/tests/Functional/Controller/StaticRoutesSmokeTest.php:19
+
+* App\Tests\Functional\Controller\StaticRoutesSmokeTest::testRoutesDoNotReturnInternalError#GET /api/slugify (2 times)
+  /Users/coil/Sites/microsymfony/tests/Functional/Controller/StaticRoutesSmokeTest.php:19
+
+* App\Tests\Functional\Controller\StaticRoutesSmokeTest::testRoutesDoNotReturnInternalError#GET /composer (2 times)
+  /Users/coil/Sites/microsymfony/tests/Functional/Controller/StaticRoutesSmokeTest.php:19
+
+* App\Tests\Functional\Controller\StaticRoutesSmokeTest::testRoutesDoNotReturnInternalError#GET /form (2 times)
+  /Users/coil/Sites/microsymfony/tests/Functional/Controller/StaticRoutesSmokeTest.php:19
+
+* App\Tests\Functional\Controller\StaticRoutesSmokeTest::testRoutesDoNotReturnInternalError#GET /hello-world (2 times)
+  /Users/coil/Sites/microsymfony/tests/Functional/Controller/StaticRoutesSmokeTest.php:19
+
+* App\Tests\Functional\Controller\StaticRoutesSmokeTest::testRoutesDoNotReturnInternalError#GET /stimulus (2 times)
+  /Users/coil/Sites/microsymfony/tests/Functional/Controller/StaticRoutesSmokeTest.php:19
+
+* App\Tests\Functional\Controller\StaticRoutesSmokeTest::testRoutesDoNotReturnInternalError#GET /users (2 times)
+  /Users/coil/Sites/microsymfony/tests/Functional/Controller/StaticRoutesSmokeTest.php:19
+
+2) /Users/coil/Sites/microsymfony/vendor/symfony/deprecation-contracts/function.php:25
+Since symfony/framework-bundle 7.3: Not setting the "framework.profiler.collect_serializer_data" config option to "true" is deprecated.
+
+Triggered by:
+
+* App\Tests\Functional\Controller\StaticRoutesSmokeTest::testRoutesDoNotReturnInternalError#GET /
+  /Users/coil/Sites/microsymfony/tests/Functional/Controller/StaticRoutesSmokeTest.php:19
+
+* App\Tests\Functional\Controller\StaticRoutesSmokeTest::testRoutesDoNotReturnInternalError#GET /api/slugify
+  /Users/coil/Sites/microsymfony/tests/Functional/Controller/StaticRoutesSmokeTest.php:19
+
+* App\Tests\Functional\Controller\StaticRoutesSmokeTest::testRoutesDoNotReturnInternalError#GET /composer
+  /Users/coil/Sites/microsymfony/tests/Functional/Controller/StaticRoutesSmokeTest.php:19
+
+* App\Tests\Functional\Controller\StaticRoutesSmokeTest::testRoutesDoNotReturnInternalError#GET /form
+  /Users/coil/Sites/microsymfony/tests/Functional/Controller/StaticRoutesSmokeTest.php:19
+
+* App\Tests\Functional\Controller\StaticRoutesSmokeTest::testRoutesDoNotReturnInternalError#GET /hello-world
+  /Users/coil/Sites/microsymfony/tests/Functional/Controller/StaticRoutesSmokeTest.php:19
+
+* App\Tests\Functional\Controller\StaticRoutesSmokeTest::testRoutesDoNotReturnInternalError#GET /stimulus
+  /Users/coil/Sites/microsymfony/tests/Functional/Controller/StaticRoutesSmokeTest.php:19
+
+* App\Tests\Functional\Controller\StaticRoutesSmokeTest::testRoutesDoNotReturnInternalError#GET /users
+  /Users/coil/Sites/microsymfony/tests/Functional/Controller/StaticRoutesSmokeTest.php:19

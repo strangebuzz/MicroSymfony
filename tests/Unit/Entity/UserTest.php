@@ -27,6 +27,7 @@ final class UserTest extends TestCase
         self::assertSame('123456', $user->setPassword('123456')->getPassword());
         self::assertSame('COil (not persisted)', (string) $user);
         self::assertSame(['ROLE_USER'], $user->getRoles());
+        $user->eraseCredentials();
     }
 
     public function testUserGetUserIdentifier(): void

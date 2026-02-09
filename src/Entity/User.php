@@ -96,6 +96,11 @@ final class User implements \Stringable, UserInterface, PasswordAuthenticatedUse
         return [self::ROLE_USER];
     }
 
+    #[\Override]
+    public function eraseCredentials(): void
+    {
+    }
+
     public function getEmail(): string
     {
         return $this->email;
