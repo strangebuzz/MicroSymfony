@@ -16,7 +16,7 @@ help: ## Outputs this help screen
 
 
 ## —— Symfony binary 💻 ————————————————————————————————————————————————————————
-start: load-fixtures ## Serve the application with the Symfony binary and load fixtures
+start: ## Serve the application with the Symfony binary
 	@symfony serve --daemon
 
 stop: ## Stop the web server
@@ -40,11 +40,6 @@ warmup: ## Warmup the dev cache for the static analysis
 
 purge: ## Purge all Symfony cache and logs
 	@rm -rf ./var/cache/* ./var/log/* ./var/coverage/*
-
-load-fixtures: ## Reset migrations and load the database fixtures
-	@rm -f ./var/data.db
-	@bin/console doctrine:migrations:migrate --env=dev --no-interaction
-	@bin/console foundry:load-fixtures --env=dev --no-interaction
 
 
 ## —— Tests ✅ —————————————————————————————————————————————————————————————————
@@ -75,7 +70,7 @@ test-unit: testsuite=unit
 test-unit: test
 
 coverage: ## Generate the HTML PHPUnit code coverage report (stored in var/coverage)
-coverage: purge load-fixtures
+coverage: purge
 	@XDEBUG_MODE=coverage php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/phpunit --coverage-html=var/coverage --coverage-text=$(COVERAGE_TEXT_REPORT)
 	@php bin/coverage-checker.php $(COVERAGE_TEXT_REPORT) $(COVERAGE_THRESHOLD)
 
@@ -114,14 +109,11 @@ lint-container: ## Lint the Symfony DI container
 lint-twig: ## Lint Twig files
 	@bin/console lint:twig templates/
 
-lint-doctrine: ## Validate Doctrine schema
-	@bin/console doctrine:schema:validate
-
 fix: ## Run all fixers
 fix: fix-php fix-js-css
 
 lint: ## Run all linters
-lint: stan lint-php lint-doctrine lint-js-css lint-container lint-twig
+lint: stan lint-php lint-js-css lint-container lint-twig
 
 ci: ## Run CI locally
 ci: coverage warmup lint
