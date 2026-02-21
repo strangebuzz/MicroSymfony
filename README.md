@@ -2,6 +2,8 @@
 
 [![Latest Version](https://img.shields.io/packagist/v/strangebuzz/microsymfony.svg?style=flat-square)](https://packagist.org/packages/strangebuzz/microsymfony)
 [![PHP Version Require](https://poser.pugx.org/strangebuzz/microsymfony/require/php?style=flat-square)](https://packagist.org/packages/strangebuzz/microsymfony)
+[![Symfony Version](https://img.shields.io/badge/Symfony-%3E%3D%208.0-black?logo=symfony)](https://symfony.com/8)
+[![Symfony Style](https://img.shields.io/badge/code%20style-symfony-black?logo=symfony)](https://symfony.com/doc/current/contributing/code/standards.html)
 [![level](https://img.shields.io/badge/level-max-success?style=flat-square&logo=data:image/png;base64,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)](https://github.com/strangebuzz/MicroSymfony/actions)
 [![Software License](https://img.shields.io/badge/License-MIT-brightgreen.svg?style=flat-square)](https://github.com/strangebuzz/MicroSymfony/blob/main/LICENSE)
 [![Build Status (GitHub)](https://img.shields.io/github/actions/workflow/status/strangebuzz/microsymfony/symfony.yml?branch=main&style=flat-square)](https://github.com/strangebuzz/microsymfony/actions?query=workflow%3ASymfony+branch%3Amain)
@@ -9,6 +11,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/strangebuzz/MicroSymfony/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/strangebuzz/MicroSymfony/?branch=main)
 [![Quality Score](https://img.shields.io/scrutinizer/g/strangebuzz/microsymfony.svg?style=flat-square)](https://scrutinizer-ci.com/g/strangebuzz/microsymfony)
 [![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributing-)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/strangebuzz/MicroSymfony/pulls)
 
 ## About 🖋 
 
@@ -18,6 +21,7 @@ I have made a long blog post explaining the philosophy behind it and how to use 
 
 * [Introducing the MicroSymfony application template](https://www.strangebuzz.com/en/blog/introducing-the-microsymfony-application-template)
 
+> [!NOTE]
 > **PS**: If you want to use the last Symfony **7.4 LTS** version, follow the procedure 
 > in [`agents/downgrade-to-symfony-7-4-LTS.md`](agents/downgrade-to-symfony-7-4-LTS.md).
 
@@ -61,7 +65,7 @@ opencode --prompt agents/downgrade-to-symfony-7-4-LTS.md
 
 Because a live demo is always better than all explanations:
 
-* Live demo at [https://microsymfony.ovh](https://microsymfony.ovh)
+* Live demo powered by Apache2 / PHP-FPM [https://microsymfony.ovh](https://microsymfony.ovh)
 * Live demo powered by [FrankenPHP](https://frankenphp.dev/) at [https://frankenphp.microsymfony.ovh](https://frankenphp.microsymfony.ovh)
 
 
@@ -86,6 +90,7 @@ Or with Castor:
 
 Open [https://127.0.0.1:8000](https://127.0.0.1:8000) (considering your 8000 port is free) and enjoy! 🙂
 
+> [!NOTE]
 > **PS**: You can also use the green button "[Use this template ⇩](https://github.com/new?template_name=MicroSymfony&template_owner=strangebuzz)"
 at the top right of the GitHub project homepage.
 It creates a new repository from the main branch instead of the last release.
@@ -189,6 +194,7 @@ Then clone the `eloquent` branch and run `composer install && make load-fixtures
 ### Minimalistic versions
 
 * Doctrine less ([PR](https://github.com/strangebuzz/MicroSymfony/pull/222), [branch](https://github.com/strangebuzz/MicroSymfony/tree/doctrine-less), rebased on 2026-01-17)
+* Symfony 7.4 LTS ([PR](https://github.com/strangebuzz/MicroSymfony/pull/244), [branch](https://github.com/strangebuzz/MicroSymfony/tree/symfony-7-4), rebased on 2026-02-07)
 
 ### Infrastructure
 
@@ -203,11 +209,11 @@ database.
 
 ### Tooling 🔨
 
-* Vite-Bundle ([PR](https://github.com/strangebuzz/MicroSymfony/pull/161), [branch](https://github.com/lhapaipai/MicroSymfony/tree/vite), rebased on 2025-02-11) ([demo](https://vite.microsymfony.ovh))
-* Psalm ([PR](https://github.com/strangebuzz/MicroSymfony/pull/160), [branch](https://github.com/strangebuzz/MicroSymfony/tree/psalm), rebased on 2025-02-20)
+* Vite-Bundle ([PR](https://github.com/strangebuzz/MicroSymfony/pull/161), [branch](https://github.com/lhapaipai/MicroSymfony/tree/vite), rebased on 2026-02-11) ([demo](https://vite.microsymfony.ovh))
+* Psalm ([PR](https://github.com/strangebuzz/MicroSymfony/pull/227), [branch](https://github.com/strangebuzz/MicroSymfony/tree/psalm), rebased on 2026-01-18)
 * Taskfile ([PR](https://github.com/strangebuzz/MicroSymfony/pull/86), [branch](https://github.com/jmsche/MicroSymfony/tree/taskfile), rebased on 2024-12-04)
 * TwigStan ([PR](https://github.com/strangebuzz/MicroSymfony/pull/95), [branch](https://github.com/strangebuzz/MicroSymfony/tree/twigstan), rebased on 2024-11-18)
-* Twig-CS-Fixer ([PR](https://github.com/strangebuzz/MicroSymfony/pull/118), [branch](https://github.com/strangebuzz/MicroSymfony/tree/feat/use-twig-cs-fixer), rebased on 2025-12-30)
+* Twig-CS-Fixer ([PR](https://github.com/strangebuzz/MicroSymfony/pull/238), [branch](https://github.com/strangebuzz/MicroSymfony/tree/feat/use-twig-cs-fixer), rebased on 2026-12-30)
 
 One will rebase those branches regularly so they are not too outdated.
 
