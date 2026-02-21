@@ -8,7 +8,7 @@
 
     <hr/>
 
-    {{ readme|raw|markdown_to_html|add_headers_anchors|raw }}
+    {{ readme|raw|markdown_to_html|add_headers_anchors|replace({'[!NOTE]': ''})|raw }}
 
     {# Uncomment and adapt to your needs.
 
@@ -23,7 +23,7 @@
     <h2>Quick-start ⚡</h2>
 
     <h2>Stack 🔗</h2>
-🔆
+
     <h2>Features 🚀</h2>
 
     <h2>Notes 📒</h2>
@@ -42,5 +42,4 @@
 
     <h2>Built with MicroSymfony 🛠️️</h2>
     #}
-
 {% endblock %}
