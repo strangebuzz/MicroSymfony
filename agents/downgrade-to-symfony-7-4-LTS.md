@@ -21,6 +21,7 @@ In the `composer.json` file:
 * In `src/Entity/User.php`, add the `eraseCredentials(): void` method required by
   Symfony 7.4's `UserInterface` (this method was removed from the interface in 8.0)
 * Add test coverage for the new method in the corresponding unit test
+* Remove all `#[\Override]` attributes from `src/` PHP files
 
 
 ## Checks
