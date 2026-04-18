@@ -53,6 +53,7 @@ final class StaticRoutesSmokeTest extends WebTestCase
     public static function extractRoutesFromRouter(RouterInterface $router): \Generator
     {
         foreach ($router->getRouteCollection() as $routeName => $route) {
+            /** @var array<int, string> $variables */
             $variables = $route->compile()->getVariables();
             if (\count($variables) > 0) {
                 $defaults = $route->getDefaults();
