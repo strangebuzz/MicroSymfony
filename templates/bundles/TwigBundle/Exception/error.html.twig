@@ -7,10 +7,10 @@
 {% block body %}
     <article>
         <header>
-            <h5>Oops! An Error {{ status_code }} occured!</h5>
+            <h5>Oops! An Error {{ status_code }} occurred!</h5>
         </header>
 
-        <p>Sorry, but an error <b>{{ status_text }}</b> ({{ status_code }}) occured.
+        <p>Sorry, but an error <b>{{ status_text }}</b> ({{ status_code }}) occurred.
             <br/>
             &raquo; About this error code: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/{{ status_code }}">
                 https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/{{ status_code }}</a>

@@ -2,7 +2,7 @@ import { Controller } from '@hotwired/stimulus';
 
 /**
  * Stimulus version of Pico minimal-theme-switcher.js (see link below).
- * In this version we don't hanlde the "auto" scheme.
+ * In this version we don't handle the "auto" scheme.
  *
  * @see https://x4qtf8.csb.app/js/minimal-theme-switcher.js
  */
