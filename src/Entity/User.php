@@ -27,7 +27,7 @@ final class User implements \Stringable, UserInterface, PasswordAuthenticatedUse
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: Types::INTEGER, unique: true, nullable: false)]
-    public ?int $id = null;
+    private ?int $id = null;
 
     #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: false)]
     private \DateTimeInterface $createdAt;
