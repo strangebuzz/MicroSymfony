@@ -6,7 +6,7 @@ namespace App\Enum;
 
 enum Fruit
 {
-    case orange;
-    case apple;
-    case banana;
+    case Apple;
+    case Banana;
+    case Orange;
 }
