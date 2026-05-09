@@ -8,7 +8,7 @@
     <h3>Doctrine DBAL</h3>
 
     <code>
-        usersDbal: $this->conn->fetchAllAssociative('SELECT * FROM user'),
+        usersDbal: $this->conn->fetchAllAssociative('{{ data.rawSql|e }}'),
     </code>
 
     <table class="striped">

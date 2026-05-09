@@ -15,6 +15,7 @@ final readonly class ListUsersActionDto
     public function __construct(
         public array $usersDbal,
         public array $usersOrm,
+        public string $rawSql,
     ) {
     }
 }
