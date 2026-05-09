@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Attribute\Route;
 #[AsController]
 final class ListUsersAction extends AbstractController
 {
-    #[Route(path: '/users', name: self::class)]
+    #[Route(path: '/users', name: self::class, methods: ['GET'])]
     public function __invoke(ListUsersActionData $listUsersActionData): Response
     {
         return $this->render(self::class.'.html.twig', [
