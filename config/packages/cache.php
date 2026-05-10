@@ -8,7 +8,7 @@ return App::config([
     'framework' => [
         'cache' => [
             // Unique name of your app: used to compute stable namespaces for cache keys.
-            'prefix_seed' => 'your_vendor_name/app_name',
+            'prefix_seed' => 'your_vendor_name/app_name', // @todo Change this value
 
             // The "app" cache stores to the filesystem by default.
             // The data in this cache should persist between deploys.

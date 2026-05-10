@@ -46,13 +46,16 @@ final class RegisterForm extends AbstractType
 
     /**
      * @see https://www.strangebuzz.com/en/blog/disable-the-html5-validation-of-all-your-symfony-forms-with-a-feature-flag
+     * @see templates/App/Controller/FormAction.html.twig
      */
     #[\Override]
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'attr' => [
-                // 'novalidate' => 'novalidate', // uncomment this line to disable the client-side validation (usefull to test server side validation)
+                // The client-side validation for the form is already disabled in the Twig template, but you can also
+                // disable it by un-commenting the following line (useful to test server-side validation)
+                // 'novalidate' => 'novalidate',
             ],
         ]);
     }

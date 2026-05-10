@@ -14,7 +14,7 @@ use function Symfony\Component\String\u;
 
 /**
  * For a complete example, check out the Symfony demo entity.
- * To enable the security check out the Symfony demo User class (link below).
+ * To enable security, check out the Symfony demo User class (link below).
  *
  * @see https://github.com/symfony/demo/blob/main/src/Entity/User.php
  */
