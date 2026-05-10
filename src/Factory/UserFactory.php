@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Factory;
 
 use App\Entity\User;
+// use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Zenstruck\Foundry\Persistence\PersistentObjectFactory;
 
 /**
@@ -29,6 +30,8 @@ final class UserFactory extends PersistentObjectFactory
         return [
             'email' => self::faker()->email(),
             'username' => self::faker()->userName(),
+            // @todo If you enable the security layer, the password must be hashed.
+            // @see https://symfony.com/doc/current/security/passwords.html
             'password' => self::faker()->password(),
         ];
     }
