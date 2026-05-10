@@ -10,8 +10,8 @@ Follow the next steps in order to downgrade MicroSymfony from Symfony 8 to Symfo
 In the `composer.json` file:
 
 * Replace the required PHP version from `>=8.4` to `>=8.2`
-* Replace all Symfony `~8.0.0` version constraints with `~7.4.0`
-* Update the `extra.symfony.require` constraint from `"8.0.*"` to `"7.4.*"`
+* Replace all Symfony `~8.1.0` version constraints with `~7.4.0`
+* Update the `extra.symfony.require` constraint from `"8.1.*"` to `"7.4.*"`
 * Run `composer update` and verify that it completes without errors, that no dependency
   conflicts are reported, and that Symfony packages are resolved to version `7.4.*`
 

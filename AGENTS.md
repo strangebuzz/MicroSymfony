@@ -4,8 +4,8 @@ This file contains guidelines for agentic coding assistants working in the Micro
 
 ## Project Overview
 
-MicroSymfony is a Symfony 8.0 micro-framework template demonstrating modern PHP development best practices. 
-It uses PHP 8.4+, Symfony 8.0, Twig 3, Hotwired (Stimulus 3.2, Turbo 8.0), and follows strict code quality standards.
+MicroSymfony is a Symfony 8.1 micro-framework template demonstrating modern PHP development best practices. 
+It uses PHP 8.4+, Symfony 8.1, Twig 3, Hotwired (Stimulus 3.2, Turbo 8.0), and follows strict code quality standards.
 
 ## Build Commands
 

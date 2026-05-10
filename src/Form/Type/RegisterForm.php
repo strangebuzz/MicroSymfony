@@ -7,9 +7,9 @@ namespace App\Form\Type;
 use App\Dto\RegisterFormDto;
 use App\Enum\Fruit;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\CurrencyType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\Extension\Core\Type\ResetType;
@@ -31,7 +31,7 @@ final class RegisterForm extends AbstractType
             ->add('email', EmailType::class)
             ->add('country', CountryType::class)
             ->add('currency', CurrencyType::class)
-            ->add('birthday', DateType::class, [
+            ->add('birthday', BirthdayType::class, [
                 'widget' => 'single_text',
                 'input' => 'datetime_immutable',
             ])

@@ -29,6 +29,7 @@ final class RegisterFormDto
     public ?string $currency = null;
 
     #[Assert\NotNull]
+    #[Assert\LessThanOrEqual('today')]
     public ?\DateTimeImmutable $birthday = null;
 
     #[Assert\NotNull]
