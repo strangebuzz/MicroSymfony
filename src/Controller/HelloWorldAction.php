@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Cache(maxage: 3600, public: true)]
 final class HelloWorldAction extends AbstractController
 {
-    #[Route(path: '/hello-world', name: self::class)]
+    #[Route(path: '/hello-world', name: self::class, methods: ['GET'])]
     public function __invoke(string $environment, bool $debug): Response
     {
         return $this->render(self::class.'.html.twig', [

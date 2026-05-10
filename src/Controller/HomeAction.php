@@ -29,7 +29,7 @@ final class HomeAction extends AbstractController
     /**
      * Displays the README.md file.
      */
-    #[Route(path: '/', name: self::class)]
+    #[Route(path: '/', name: self::class, methods: ['GET'])]
     public function __invoke(): Response
     {
         $readme = $this->cache->get('readme', function (ItemInterface $item) {

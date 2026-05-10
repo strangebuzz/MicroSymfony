@@ -18,9 +18,12 @@ final readonly class ListUsersActionData
 
     public function getData(): ListUsersActionDto
     {
+        $rawSql = 'SELECT * FROM '.$this->conn->quoteSingleIdentifier('user');
+
         return new ListUsersActionDto(
-            usersDbal: $this->conn->fetchAllAssociative('SELECT * FROM user'),
+            usersDbal: $this->conn->fetchAllAssociative($rawSql),
             usersOrm: $this->userRepository->findAll(),
+            rawSql: $rawSql,
         );
     }
 }

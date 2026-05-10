@@ -7,27 +7,28 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+// use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 use function Symfony\Component\String\u;
 
 /**
  * For a complete example, check out the Symfony demo entity.
+ * To enable security, check out the Symfony demo User class (link below).
  *
  * @see https://github.com/symfony/demo/blob/main/src/Entity/User.php
  */
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
 #[ORM\HasLifecycleCallbacks]
-final class User implements \Stringable, UserInterface, PasswordAuthenticatedUserInterface
+final class User implements \Stringable, UserInterface /* , PasswordAuthenticatedUserInterface */
 {
     final public const string ROLE_USER = 'ROLE_USER';
 
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: Types::INTEGER, unique: true, nullable: false)]
-    public ?int $id = null;
+    private ?int $id = null;
 
     #[ORM\Column(type: Types::DATETIME_IMMUTABLE, nullable: false)]
     private \DateTimeInterface $createdAt;
@@ -111,7 +112,6 @@ final class User implements \Stringable, UserInterface, PasswordAuthenticatedUse
         return $this;
     }
 
-    #[\Override]
     public function getPassword(): string
     {
         return $this->password;

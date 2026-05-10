@@ -24,7 +24,7 @@ final class SlugifyAction extends AbstractController
      *
      * @see https://api-platform.com
      */
-    #[Route(path: '/api/slugify', name: self::class)]
+    #[Route(path: '/api/slugify', name: self::class, methods: ['GET'])]
     public function __invoke(StringHelper $stringHelper, #[MapQueryParameter] string $title): Response
     {
         return $this->json(['slug' => $stringHelper->slugify($title)]);

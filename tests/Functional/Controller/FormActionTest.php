@@ -34,7 +34,7 @@ final class FormActionTest extends WebTestCase
             $form->getName().'[country]' => 'FR',
             $form->getName().'[currency]' => 'EUR',
             $form->getName().'[birthday]' => '2003-03-12',
-            $form->getName().'[fruit]' => 1,
+            $form->getName().'[fruit]' => 1, // Banana, @see src/Enum/Fruit.php
         ]);
         self::assertResponseIsSuccessful();
     }

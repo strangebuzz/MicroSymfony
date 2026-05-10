@@ -19,7 +19,7 @@ final class FormAction extends AbstractController
     /**
      * A simple form.
      */
-    #[Route(path: '/form', name: self::class)]
+    #[Route(path: '/form', name: self::class, methods: ['GET', 'POST'])]
     public function __invoke(Request $request): Response
     {
         $dto = new RegisterFormDto();

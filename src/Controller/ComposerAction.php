@@ -27,7 +27,7 @@ final class ComposerAction extends AbstractController
     /**
      * Displays the composer.json file.
      */
-    #[Route(path: '/composer', name: self::class)]
+    #[Route(path: '/composer', name: self::class, methods: ['GET'])]
     public function __invoke(): Response
     {
         $composer = $this->cache->get('composer', function (ItemInterface $item) {

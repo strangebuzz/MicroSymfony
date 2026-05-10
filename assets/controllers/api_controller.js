@@ -23,7 +23,7 @@ export default class extends Controller {
                 slugTarget.value = data.slug;
             })
             .catch(function (error) {
-                console.log('An error occured. 😞', error);
+                console.log('An error occurred. 😞', error);
             });
     }
 }
