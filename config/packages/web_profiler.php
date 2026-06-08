@@ -13,7 +13,6 @@ return App::config([
         'framework' => [
             'profiler' => [
                 'only_exceptions' => false,
-                'collect_serializer_data' => true,
             ],
         ],
     ],
