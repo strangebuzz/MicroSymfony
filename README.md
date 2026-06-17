@@ -146,7 +146,7 @@ Have a look at the specific [documentation](https://github.com/strangebuzz/Micro
 * [Doctrine ORM 3 (DBAL 4)](https://www.doctrine-project.org)
 * [Twig 3](https://twig.symfony.com)
 * [Hotwired](https://hotwired.dev/) [Stimulus 3.2](https://stimulus.hotwired.dev/) and [Turbo 8.0](https://turbo.hotwired.dev/)
-* [PHPUnit 12.5](https://phpunit.de/announcements/phpunit-12.html)
+* [PHPUnit 13](https://phpunit.de/announcements/phpunit-13.html)
 * [Pico CSS 2.1](https://picocss.com)
 
 
