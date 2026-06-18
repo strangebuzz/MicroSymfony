@@ -19,10 +19,14 @@ final readonly class MarkdownExtension
     /**
      * Add the missing anchors on demo website homepage displaying the GitHub README.
      *
+     * The output is flagged as safe HTML (`isSafe: ['html']`) so the template does not
+     * need a trailing `|raw`. This is safe ONLY because the input is a trusted source
+     * (our own README.md); never apply this filter to user-provided content.
+     *
      * @see https://microsymfony.ovh
      * @see https://github.com/strangebuzz/MicroSymfony/blob/main/README.md?plain=1
      */
-    #[AsTwigFilter('add_headers_anchors')]
+    #[AsTwigFilter('add_headers_anchors', isSafe: ['html'])]
     public function addHeadersAnchors(string $html): string
     {
         $dom = new \DOMDocument();

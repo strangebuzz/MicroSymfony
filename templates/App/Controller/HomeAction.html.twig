@@ -8,7 +8,10 @@
 
     <hr/>
 
-    {{ readme|raw|markdown_to_html|add_headers_anchors|replace({'[!NOTE]': ''})|raw }}
+    {# The README is a trusted source: the `add_headers_anchors` filter flags its output as
+       safe HTML, so no `|raw` is needed here. The `[!NOTE]` GFM marker is stripped from the
+       Markdown source (before conversion) so it stays the last filter and keeps the safe flag. #}
+    {{ readme|replace({'[!NOTE]': ''})|markdown_to_html|add_headers_anchors }}
 
     {# Uncomment and adapt to your needs.
 
