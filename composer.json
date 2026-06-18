@@ -24,7 +24,7 @@
         "ext-xml": "*",
         "doctrine/dbal": "^4.0",
         "doctrine/doctrine-bundle": "^3.0",
-        "doctrine/doctrine-migrations-bundle": "^3.3",
+        "doctrine/doctrine-migrations-bundle": "^4.0",
         "doctrine/orm": "^3.3",
         "league/commonmark": "^2.4",
         "symfony/asset": "~8.1.0",
