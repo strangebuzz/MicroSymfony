@@ -78,4 +78,24 @@ final class MarkdownExtensionTest extends KernelTestCase
         self::assertStringContainsString('id="hello-world"', $output);
         self::assertStringContainsString('<code>world</code>', $output);
     }
+
+    /**
+     * Empty or blank input must be returned as-is: DOMDocument::loadHTML() throws a
+     * ValueError on an empty string.
+     */
+    #[DataProvider('provideBlankInput')]
+    public function testBlankInputIsReturnedUnchanged(string $input): void
+    {
+        self::assertSame($input, $this->extension->addHeadersAnchors($input));
+    }
+
+    /**
+     * @return iterable<string, array{0: string}>
+     */
+    public static function provideBlankInput(): iterable
+    {
+        yield 'empty string' => [''];
+        yield 'spaces only' => ['   '];
+        yield 'newline only' => ["\n"];
+    }
 }
