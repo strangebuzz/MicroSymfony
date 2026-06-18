@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Dto\Controller;
 
 use App\Entity\User;
 

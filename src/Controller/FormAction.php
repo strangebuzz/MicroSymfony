@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Dto\RegisterFormDto;
+use App\Dto\Form\Type\RegisterFormDto;
 use App\Form\Type\RegisterForm;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

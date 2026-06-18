@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Form\Type;
 
-use App\Dto\RegisterFormDto;
+use App\Dto\Form\Type\RegisterFormDto;
 use App\Enum\Fruit;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
