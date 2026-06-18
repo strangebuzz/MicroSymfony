@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Dto;
+namespace App\Dto\Form\Type;
 
 use App\Enum\Fruit;
+use App\Form\Type\RegisterForm;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**

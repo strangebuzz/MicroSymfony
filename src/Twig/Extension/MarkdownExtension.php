@@ -19,12 +19,24 @@ final readonly class MarkdownExtension
     /**
      * Add the missing anchors on demo website homepage displaying the GitHub README.
      *
+     * The output is flagged as safe HTML (`isSafe: ['html']`) so the template does not
+     * need a trailing `|raw`. This is safe ONLY because the input is a trusted source
+     * (our own README.md); never apply this filter to user-provided content.
+     *
      * @see https://microsymfony.ovh
      * @see https://github.com/strangebuzz/MicroSymfony/blob/main/README.md?plain=1
      */
-    #[AsTwigFilter('add_headers_anchors')]
+    #[AsTwigFilter('add_headers_anchors', isSafe: ['html'])]
     public function addHeadersAnchors(string $html): string
     {
+        // DOMDocument::loadHTML() throws a ValueError on an empty string, so bail out early.
+        if (u($html)->trim()->isEmpty()) {
+            return $html;
+        }
+
+        // Keep libxml from emitting warnings to the error log on imperfect HTML5 input.
+        $previousUseInternalErrors = libxml_use_internal_errors(true);
+
         $dom = new \DOMDocument();
         $dom->loadHTML(mb_encode_numericentity($html, [0x80, 0x10FFFF, 0, ~0], 'UTF-8'), \LIBXML_HTML_NOIMPLIED | \LIBXML_HTML_NODEFDTD);
 
@@ -36,6 +48,9 @@ final readonly class MarkdownExtension
             /** @var \DOMElement $headerTag */
             $headerTag->setAttribute('id', $slug.(u($slug)->length() !== u($headerTag->textContent)->length() ? '-' : '')); // add "-" when we have a final Emoji.
         }
+
+        libxml_clear_errors();
+        libxml_use_internal_errors($previousUseInternalErrors);
 
         return (string) $dom->saveHTML();
     }

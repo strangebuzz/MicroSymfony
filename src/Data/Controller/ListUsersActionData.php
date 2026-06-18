@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Data\Controller;
 
-use App\Controller\ListUsersActionDto;
+use App\Dto\Controller\ListUsersActionDto;
 use App\Repository\UserRepository;
 use Doctrine\DBAL\Connection;
 
