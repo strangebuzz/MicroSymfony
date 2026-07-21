@@ -28,8 +28,8 @@ final class UserFactory extends PersistentObjectFactory
     protected function defaults(): array
     {
         return [
-            'email' => self::faker()->email(),
-            'username' => self::faker()->userName(),
+            'email' => self::faker()->unique()->email(),
+            'username' => self::faker()->unique()->userName(),
             // @todo If you enable the security layer, the password must be hashed.
             // @see https://symfony.com/doc/current/security/passwords.html
             'password' => self::faker()->password(),
