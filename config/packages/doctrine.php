@@ -25,4 +25,19 @@ return App::config([
             ],
         ],
     ],
+    'when@test' => [
+        'doctrine' => [
+            'dbal' => [
+                // The test database MUST be isolated from the dev one: the Foundry
+                // "ResetDatabase" trait drops the schema, so a shared database means
+                // running the test suite wipes the data you are working with.
+                //
+                // This suffix has NO effect on SQLite (the default driver here), which is
+                // why the test DSN is overridden in .env.test. It takes over as soon as you
+                // switch to MySQL/PostgreSQL, and "TEST_TOKEN" (set by ParaTest) then gives
+                // each parallel process its own database.
+                'dbname_suffix' => '_test%env(default::TEST_TOKEN)%',
+            ],
+        ],
+    ],
 ]);
