@@ -46,20 +46,40 @@ function aborted(string $message = 'Aborted'): void
     io()->warning($message);
 }
 
+/**
+ * Reduces several exit codes to a single one: 0 only if everything succeeded.
+ *
+ * Do NOT sum exit codes: a shell truncates them modulo 256, so eg. 128 + 128
+ * would be reported as a success.
+ */
+function aggregate(int ...$exitCodes): int
+{
+    return array_any($exitCodes, static fn (int $exitCode): bool => $exitCode !== 0) ? 1 : 0;
+}
+
 #[AsTask(namespace: 'symfony', description: 'Serve the application with the Symfony binary', aliases: ['start'])]
-function start(): void
+function start(): int
 {
     title('symfony:start');
-    loadFixtures();
+    $exitCode = loadFixtures();
+    if ($exitCode !== 0) {
+        aborted('The database could not be prepared: the web server has NOT been started.');
+
+        return $exitCode;
+    }
+
     run('symfony serve --daemon');
+
+    return 0;
 }
 
 #[AsTask(namespace: 'symfony', description: 'Stop the web server', aliases: ['stop'])]
-function stop(): void
+function stop(): int
 {
     title('symfony:stop');
     run('symfony server:stop');
-    resetDatabase();
+
+    return resetDatabase();
 }
 
 #[AsTask(namespace: 'symfony', description: 'Switch to the production environment', aliases: ['go-prod'])]
@@ -93,27 +113,38 @@ function go_dev(): void
 }
 
 #[AsTask(namespace: 'symfony', description: 'Purge all Symfony cache and logs', aliases: ['purge'])]
-function purge(): void
+function purge(): int
 {
     title('symfony:purge');
-    success(exit_code('rm -rf ./var/cache/* ./var/log/* ./var/coverage/*'));
+
+    return success(exit_code('rm -rf ./var/cache/* ./var/log/* ./var/coverage/*'));
 }
 
 #[AsTask(namespace: 'app', description: 'Load the database fixtures', aliases: ['load-fixtures'])]
-function loadFixtures(): void
+function loadFixtures(): int
 {
     title('app:load-fixtures');
-    resetDatabase();
+    $exitCode = resetDatabase();
+    if ($exitCode !== 0) {
+        return $exitCode;
+    }
+
     io()->note('Running db migrations...');
-    success(exit_code('bin/console doctrine:migrations:migrate --no-interaction'));
+    $exitCode = success(exit_code('bin/console doctrine:migrations:migrate --no-interaction'));
+    if ($exitCode !== 0) {
+        return $exitCode;
+    }
+
     io()->note('Load fixtures...');
-    success(exit_code('bin/console foundry:load-fixtures --env=dev --no-interaction'));
+
+    return success(exit_code('bin/console foundry:load-fixtures --env=dev --no-interaction'));
 }
 
-function resetDatabase(): void
+function resetDatabase(): int
 {
     io()->note('Resetting db...');
-    success(exit_code('rm -f ./var/data.db'));
+
+    return success(exit_code('rm -f ./var/data.db'));
 }
 
 const PHP_UNIT_CMD = '/vendor/bin/phpunit --testsuite=%s --filter=%s %s';
@@ -131,7 +162,6 @@ function getParameters(): array
 function test_all(): int
 {
     title('test:all');
-    loadFixtures();
     [$filter, $options] = getParameters();
     $ec = exit_code(__DIR__.sprintf(PHP_UNIT_CMD, implode(',', PHP_UNIT_SUITES), $filter, $options));
     io()->writeln('');
@@ -198,8 +228,13 @@ function test_unit(
 function coverage(): int
 {
     title('test:coverage');
-    purge();
-    loadFixtures();
+    $exitCode = purge();
+    if ($exitCode !== 0) {
+        aborted('The previous report could not be removed: the coverage report has NOT been generated.');
+
+        return $exitCode;
+    }
+
     $ec = exit_code(sprintf('php -d xdebug.enable=1 -d memory_limit=-1 vendor/bin/phpunit --coverage-html=var/coverage --coverage-text=%s', COVERAGE_TEXT_REPORT),
         context: context()->withEnvironment(['XDEBUG_MODE' => 'coverage'])
     );
@@ -216,7 +251,12 @@ function cov_report(): int
     title('test:cov-report');
     $coverageFile = 'var/coverage/index.html';
     if (!file_exists($coverageFile)) {
-        coverage();
+        $exitCode = coverage();
+        if ($exitCode !== 0) {
+            aborted('The coverage report could not be generated, there is nothing to open.');
+
+            return $exitCode;
+        }
     }
 
     return success(exit_code(sprintf('open %s', $coverageFile)));
@@ -326,7 +366,7 @@ function fix_all(): int
     $ec2 = fix_js_css();
     io()->newLine();
 
-    return success($ec1 + $ec2);
+    return success(aggregate($ec1, $ec2));
 }
 #[AsTask(name: 'container', namespace: 'lint', description: 'Lint the Symfony DI container', aliases: ['lint-container'])]
 function lint_container(): int
@@ -363,7 +403,7 @@ function lint_all(): int
     $ec5 = lint_container();
     $ec6 = lint_twig();
 
-    return success($ec1 + $ec2 + $ec3 + $ec4 + $ec5 + $ec6);
+    return success(aggregate($ec1, $ec2, $ec3, $ec4, $ec5, $ec6));
 
     // if you want to speed up the process, you can run these commands in parallel
     //    parallel(
@@ -375,15 +415,31 @@ function lint_all(): int
 }
 
 #[AsTask(name: 'all', namespace: 'ci', description: 'Run CI locally', aliases: ['ci'])]
-function ci(): void
+function ci(): int
 {
     title('ci:all');
-    purge();
-    loadFixtures();
     io()->section('Coverage');
-    coverage();
+    // coverage() purges and loads the fixtures itself
+    $exitCode = coverage();
+    if ($exitCode !== 0) {
+        aborted('The test suite failed: the lints have NOT been run.');
+
+        return $exitCode;
+    }
+
+    // lint:doctrine validates the schema of the *dev* database, which must therefore
+    // exist and be migrated. The test suite above does not provide it: the test
+    // environment has its own database (@see .env.test).
+    $exitCode = loadFixtures();
+    if ($exitCode !== 0) {
+        aborted('The dev database could not be prepared: the lints have NOT been run.');
+
+        return $exitCode;
+    }
+
     io()->section('Lints');
-    lint_all();
+
+    return lint_all();
 }
 
 #[AsTask(name: 'versions', namespace: 'helpers', description: 'Output current stack versions', aliases: ['versions'])]
@@ -435,20 +491,28 @@ function check_requirements(): int
 #[AsTask(name: 'deploy', namespace: 'prod', description: 'Simple manual deploy on a VPS (this is to update the demo site https://microsymfony.ovh/)', aliases: ['deploy'])]
 function deploy(): int
 {
-    $ec1 = exit_code('git pull');
-    io()->newLine();
-    $ec2 = exit_code('composer install -n');
-    io()->newLine();
-    $ec3 = exit_code('chown -R www-data: ./var/*');
-    io()->newLine();
-    $ec4 = exit_code('cp .env.local.dist .env.local');
-    io()->newLine();
-    $ec5 = exit_code('composer dump-env prod -n');
-    io()->newLine();
-    $ec6 = exit_code('bin/console asset-map:compile');
-    io()->newLine();
+    // Stop at the first failing step: carrying on after eg. a failed "composer install"
+    // would push a half-updated application live.
+    $steps = [
+        'git pull',
+        'composer install -n',
+        'chown -R www-data: ./var/*',
+        'cp .env.local.dist .env.local',
+        'composer dump-env prod -n',
+        'bin/console asset-map:compile',
+    ];
 
-    return success($ec1 + $ec2 + $ec3 + $ec4 + $ec5 + $ec6);
+    foreach ($steps as $step) {
+        $exitCode = exit_code($step);
+        io()->newLine();
+        if ($exitCode !== 0) {
+            aborted(sprintf('Step "%s" failed: the deployment has been stopped.', $step));
+
+            return $exitCode;
+        }
+    }
+
+    return success(0);
 }
 
 #[AsTask(name: 'le-renew', namespace: 'prod', description: "Renew Let's Encrypt HTTPS certificates", aliases: ['le-renew'])]
